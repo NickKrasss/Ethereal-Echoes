@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class GameOptions : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
+    public Slider brightnessSlider;
+    // Минимальная яркость
+    public float minBrightness = 0.2f;
+    // Максимальная яркость
+    public float maxBrightness = 1.0f; 
     //Фуллскрин
     public void FullScreen()
     {
@@ -47,4 +52,11 @@ public class GameOptions : MonoBehaviour
             Screen.SetResolution(3840, 2160, true);
         }
     }
+    //Настройка яркости
+    public void SetBrightness(float value)
+    {
+        Screen.brightness = Mathf.Clamp(value, minBrightness, maxBrightness);
+        PlayerPrefs.SetFloat("Brightness", value);
+    }
+
 }
