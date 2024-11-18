@@ -33,7 +33,6 @@ public class DamageHitBoxScr : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (damageEveryTick) return;
         HealthScr otherHP;
         if (collision.gameObject.TryGetComponent(out otherHP))
         {
@@ -43,7 +42,6 @@ public class DamageHitBoxScr : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (!damageEveryTick) return;
         HealthScr otherHP;
         if (collision.gameObject.TryGetComponent(out otherHP))
         {
@@ -53,7 +51,6 @@ public class DamageHitBoxScr : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (damageEveryTick) return;
         HealthScr otherHP;
         if (collision.gameObject.TryGetComponent(out otherHP))
         {
@@ -63,7 +60,6 @@ public class DamageHitBoxScr : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!damageEveryTick) return;
         HealthScr otherHP;
         if (collision.gameObject.TryGetComponent(out otherHP))
         {

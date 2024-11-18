@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3354186384165513122}
   - component: {fileID: 2378682574065944300}
   - component: {fileID: 677898705016048127}
+  - component: {fileID: 9059994815863191616}
   m_Layer: 0
   m_Name: enemy_melee_prototype
   m_TagString: Untagged
@@ -32,8 +33,8 @@ Transform:
   m_GameObject: {fileID: 1250941909460020814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 244.12341, y: 215.2852, z: 0}
-  m_LocalScale: {x: 0.7, y: 1.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,8 +82,8 @@ SpriteRenderer:
   m_SortingLayerID: -980306409
   m_SortingLayer: 2
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 570601540960375800, guid: 2bbf742fd159fd94184ce4df3d836f2f, type: 3}
+  m_Color: {r: 0.509434, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -126,11 +127,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.4}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.49664465, y: 0.08225848}
+    oldSize: {x: 1.0625, y: 1.0625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -201,6 +202,7 @@ MonoBehaviour:
   invincibleTime: 0.01
   destroyOnZeroHealth: 1
   invincible: 0
+  hittedThatFrame: 0
 --- !u!114 &2378682574065944300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +235,20 @@ MonoBehaviour:
   offset_y: 0.3
   moveSpeed: 2
   dependsOnDistance: 0
+--- !u!114 &9059994815863191616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250941909460020814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17338eea246f234f972dad0c4b0367f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  range: 70
+  componentsToDisable:
+  - {fileID: 677898705016048127}
+  - {fileID: 2378682574065944300}
