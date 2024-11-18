@@ -10,6 +10,8 @@ public class HPBar : MonoBehaviour
     private RectTransform line;
     private RectTransform backLine;
 
+    private Animation animation;
+
     [SerializeField]
     private float backLineSpeed = 5f;
 
@@ -17,12 +19,15 @@ public class HPBar : MonoBehaviour
     {
         line = GetComponentsInChildren<Image>()[1].GetComponent<RectTransform>();
         backLine = GetComponentsInChildren<Image>()[0].GetComponent<RectTransform>();
+        animation = GetComponent<Animation>();
     }
 
     private void Update()
     {
         if (healthScr)
         {
+            if (healthScr.hittedThatFrame)
+                animation.Play();
             SetLine(healthScr.health / healthScr.maxHealth);
             SetBackLine(backLineSpeed * Time.deltaTime);
         }

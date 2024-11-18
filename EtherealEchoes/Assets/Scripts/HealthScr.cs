@@ -33,6 +33,7 @@ public class HealthScr : MonoBehaviour
     [SerializeField]
     private bool invincible = false;
 
+    public bool hittedThatFrame = false;
 
     public bool IsInvincible()
     {
@@ -49,6 +50,8 @@ public class HealthScr : MonoBehaviour
     {
         if (IsInvincible()) return;
         if (damage < 0) return;
+
+        hittedThatFrame = true;
 
         health -= damage;
         if (health < 0) health = 0;
@@ -70,6 +73,7 @@ public class HealthScr : MonoBehaviour
 
     private void Update()
     {
+        hittedThatFrame = false;
         if (currentInvincibleTime > 0) currentInvincibleTime -= Time.deltaTime;
         if (currentInvincibleTime < 0) currentInvincibleTime = 0;                   // Просчитывает кадры неуязвимости
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DumpWorldTerrain3.png_0 1
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -4799611248487396945, guid: b94298ca7f8a8364c965665b58a1832b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8679245, g: 0.7271533, b: 0.55268776, a: 1}
   m_Transform:
     e00: 1
     e01: 0
