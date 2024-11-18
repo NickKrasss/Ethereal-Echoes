@@ -6,9 +6,11 @@ using UnityEngine;
 public class FollowObjectScr : MonoBehaviour
 {
 
-    [Tooltip("Преследуемый обьект")]
+    [Tooltip("Тэг преследуемого обьекта")]
     [SerializeField]
-    private GameObject followedObject;
+    private string followedObjectTag;
+
+    public GameObject followedObject;
 
     [Tooltip("Смещение по x")]
     [SerializeField]
@@ -58,6 +60,11 @@ public class FollowObjectScr : MonoBehaviour
 
     private void Update()
     {
+        if (!followedObject)
+        {
+            followedObject = GameObject.FindWithTag(followedObjectTag);
+            return;
+        }
         UpdateTargetVector();
     }
 }

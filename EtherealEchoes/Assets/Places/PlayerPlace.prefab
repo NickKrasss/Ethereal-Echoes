@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 5636998057161962051}
   - component: {fileID: 5371559848852247416}
   - component: {fileID: 1416872449337078624}
+  - component: {fileID: 8154425997805916933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -436,3 +437,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 0.2}
   m_EdgeRadius: 0
+--- !u!114 &8154425997805916933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55e147ff7571ffc4abc32803174aa1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  damageTags:
+  - enemy_melee
+  - enemy_projectile
+  invincibleTime: 0.5
+  destroyOnZeroHealth: 1
+  invincible: 0
