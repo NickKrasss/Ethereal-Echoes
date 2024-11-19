@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2bbf742fd159fd94184ce4df3d836f2f
+guid: a51a69b2a55ce224c8130a7736a3d976
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 570601540960375800
-    second: DumpWorld_wall_center_0
+      213: -4975565746676305854
+    second: dumpWorldSand5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,22 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DumpWorld_wall_center_0
+      name: dumpWorldSand5_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 34
-        height: 34
-      alignment: 9
-      pivot: {x: 0.49664465, y: 0.08225848}
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f3db3d041f2be700800000000000000
-      internalID: 570601540960375800
+      spriteID: 240f1c8a05d33fab0800000000000000
+      internalID: -4975565746676305854
       vertices: []
       indices: 
       edges: []
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 352e2e745c2020946ac8d56ff50de679
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DumpWorld_wall_center_0: 570601540960375800
+      dumpWorldSand5_0: -4975565746676305854
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

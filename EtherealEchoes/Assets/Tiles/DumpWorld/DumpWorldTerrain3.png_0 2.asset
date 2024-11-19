@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: DumpWorldTerrain2.png_0
+  m_Name: DumpWorldTerrain3.png_0 2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -7116839188553520277, guid: c95d9c92d1b03214fa7befae7fa61818, type: 3}
+  m_Sprite: {fileID: -4975565746676305854, guid: a51a69b2a55ce224c8130a7736a3d976, type: 3}
   m_Color: {r: 0.8679245, g: 0.7271533, b: 0.55268776, a: 1}
   m_Transform:
     e00: 1
