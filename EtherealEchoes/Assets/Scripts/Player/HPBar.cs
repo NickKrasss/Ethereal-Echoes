@@ -17,8 +17,8 @@ public class HPBar : MonoBehaviour
 
     private void Start()
     {
-        line = GetComponentsInChildren<Image>()[1].GetComponent<RectTransform>();
-        backLine = GetComponentsInChildren<Image>()[0].GetComponent<RectTransform>();
+        line = GetComponentsInChildren<Image>()[2].GetComponent<RectTransform>();
+        backLine = GetComponentsInChildren<Image>()[1].GetComponent<RectTransform>();
         anim = GetComponent<Animation>();
     }
 

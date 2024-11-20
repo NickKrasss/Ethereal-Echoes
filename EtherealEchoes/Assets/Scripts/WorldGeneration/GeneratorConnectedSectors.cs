@@ -71,7 +71,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
         while (true)
         {
             tries++;
-            if (tries >= 1000)
+            if (tries >= 3000)
             {
                 Debug.Log("Не помещается!!!!");
                 return null;

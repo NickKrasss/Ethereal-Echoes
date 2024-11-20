@@ -69,11 +69,11 @@ public class PlaceSpawner : MonoBehaviour
     {
         
         Sector sector = null;
-        int tries = 0;
+        int attempts = 0;
         while (!worldScr.isSectorEmpty(sector, digit))
         {
-            tries++;
-            if (tries >= 10000) return null;
+            attempts++;
+            if (attempts >= 10000) return null;
 
             int x = Random.Range(0, worldScr.width);
             int y = Random.Range(0, worldScr.height);

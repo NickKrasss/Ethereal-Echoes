@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeathScreen
+  - Enemy
   layers:
   - Default
   - TransparentFX

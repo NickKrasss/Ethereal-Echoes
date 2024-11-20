@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 5490467751090784441}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -14}
+  m_LocalPosition: {x: 0, y: 0, z: -13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 8154425997805916933}
   - component: {fileID: 8967013534699251132}
   - component: {fileID: 4634804576129241993}
+  - component: {fileID: 5289699682394756839}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -279,13 +280,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8260089239986786887}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7161934748654388319}
-  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1786195987544100093
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -488,7 +489,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1998359662101372552}
   bulletPrefab: {fileID: 1961765644102158381, guid: b8dbb0c095f70624d9c86f5d80cc21a6, type: 3}
-  bulletSpeed: 18
+  bulletSpeed: 16
   bulletDamage: 8
   bulletKnockback: 5
-  fireRate: 4
+  fireRate: 6
+  spreadDegrees: 20
+  range: 15
+  rangeInaccuracy: 2
+--- !u!114 &5289699682394756839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd836b4c14c3664da937f781c9e02fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1998359662101372552}

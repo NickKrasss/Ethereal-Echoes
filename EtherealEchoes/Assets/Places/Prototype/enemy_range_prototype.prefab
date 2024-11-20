@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: 5590597705770167824}
   - component: {fileID: 3354186384165513122}
   - component: {fileID: 2378682574065944300}
-  - component: {fileID: 677898705016048127}
   - component: {fileID: 9059994815863191616}
+  - component: {fileID: -4732401098151533422}
   m_Layer: 0
-  m_Name: enemy_melee_prototype
+  m_Name: enemy_range_prototype
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.7, z: 1}
+  m_LocalScale: {x: 0.9, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 570601540960375800, guid: 2bbf742fd159fd94184ce4df3d836f2f, type: 3}
-  m_Color: {r: 0.509434, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.735849, g: 0.45007846, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -218,24 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 6
   targetMoveVector: {x: 0, y: 0}
---- !u!114 &677898705016048127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250941909460020814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 972107226b5a1814db113b7fa90d07b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followedObjectTag: Player
-  followedObject: {fileID: 0}
-  offset_x: 0
-  offset_y: 0.3
-  moveSpeed: 3.5
-  dependsOnDistance: 0
 --- !u!114 &9059994815863191616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,5 +233,34 @@ MonoBehaviour:
   targetTag: Player
   range: 70
   componentsToDisable:
-  - {fileID: 677898705016048127}
+  - {fileID: -4732401098151533422}
   - {fileID: 2378682574065944300}
+--- !u!114 &-4732401098151533422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250941909460020814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32367fc28ea2d54daf489a0a6262052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followedObjectTag: Player
+  followedObject: {fileID: 0}
+  offset_x: 0
+  offset_y: 0.3
+  moveSpeed: 2
+  shootRange: 10
+  stayRange: 9
+  projectileObj: {fileID: 1961765644102158381, guid: 84318f5371e72cd40a9cfa515409cb8c, type: 3}
+  retreat: 1
+  retreatSpeed: 0.5
+  bulletSpeed: 8
+  bulletDamage: 11
+  bulletKnockback: 5
+  fireRate: 2
+  spreadDegrees: 10
+  range: 12
+  rangeInaccuracy: 1
