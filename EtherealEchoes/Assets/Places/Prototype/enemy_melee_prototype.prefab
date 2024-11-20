@@ -151,10 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb94a9fe3f3c2a14387dec2c33703428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 19
   damageTag: enemy_melee
   damageCount: -1
   damageEveryTick: 0
+  destroyOnCollision: 0
+  ignoreCollisionTags: []
 --- !u!50 &5590597705770167824
 Rigidbody2D:
   serializedVersion: 4

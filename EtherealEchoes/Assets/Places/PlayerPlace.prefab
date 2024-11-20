@@ -65,7 +65,7 @@ Transform:
   m_GameObject: {fileID: 5490467751090784441}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -244,7 +244,7 @@ MonoBehaviour:
   followedObjectTag: 
   followedObject: {fileID: 8260089239986786887}
   offset_x: 0
-  offset_y: -2
+  offset_y: -6
   moveSpeed: 2
   dependsOnDistance: 1
 --- !u!1 &8260089239986786887
@@ -438,7 +438,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.2}
+  m_Size: {x: 0.8, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &8154425997805916933
 MonoBehaviour:
