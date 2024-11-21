@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6269772653868504144}
   - component: {fileID: 7929222745361109496}
   - component: {fileID: 4096675983072979590}
+  - component: {fileID: 739485226785140237}
   m_Layer: 0
   m_Name: dead_bush_decoration1
   m_TagString: Untagged
@@ -102,3 +103,15 @@ MonoBehaviour:
   targetTag: MainCamera
   range: 70
   componentsToDisable: []
+--- !u!114 &739485226785140237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3992787351196463640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c051a729ae069924aba4d5c3c688d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7777437917179706607}
   - component: {fileID: 7616527448645172523}
   - component: {fileID: 6190669162925749147}
+  - component: {fileID: 7555080075484299307}
   m_Layer: 0
   m_Name: stain2
   m_TagString: Untagged
@@ -102,3 +103,15 @@ MonoBehaviour:
   targetTag: MainCamera
   range: 70
   componentsToDisable: []
+--- !u!114 &7555080075484299307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234527968700818171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c051a729ae069924aba4d5c3c688d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

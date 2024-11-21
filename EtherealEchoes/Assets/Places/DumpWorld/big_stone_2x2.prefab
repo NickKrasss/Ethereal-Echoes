@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8941764287395797632}
   - component: {fileID: 7199088124237061372}
   - component: {fileID: 8037887711571804962}
+  - component: {fileID: 3111525237438485133}
   m_Layer: 0
   m_Name: big_stone_2x2
   m_TagString: Untagged
@@ -150,3 +151,15 @@ MonoBehaviour:
   range: 70
   componentsToDisable:
   - {fileID: 7199088124237061372}
+--- !u!114 &3111525237438485133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8713156409584342714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c051a729ae069924aba4d5c3c688d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

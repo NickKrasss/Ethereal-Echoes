@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5686917379973970903}
   - component: {fileID: 7065443511208651129}
   - component: {fileID: 8916303937237665491}
+  - component: {fileID: 6386726942161262802}
   m_Layer: 0
   m_Name: sticks
   m_TagString: Untagged
@@ -102,3 +103,15 @@ MonoBehaviour:
   targetTag: MainCamera
   range: 70
   componentsToDisable: []
+--- !u!114 &6386726942161262802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4916611322191718825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c051a729ae069924aba4d5c3c688d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
