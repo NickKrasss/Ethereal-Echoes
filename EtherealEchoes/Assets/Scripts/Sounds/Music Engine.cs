@@ -12,34 +12,29 @@ public class AudioManager : MonoBehaviour
     [Header("Длительность кроссфейда")]
     public float crossfadeDuration = 1.0f;
 
-    [Header("Слайдер для звуков")]
-    public AudioSource sfxSource;
-    public Slider sfxVolumeSlider;
-
     [Header("Слайдер для музыки")]
     public Slider soundtrackVolumeSlider;
+    [Header("Тогл для включения/выключения музыки")]
+    public Toggle musicToggle;
 
     private int currentTrackIndex = -1;
     private float soundtrackVolume = 1.0f;
-    private float sfxVolume = 1.0f;
-    [Header("Выключен ли звук")]
-    public static bool isMuted = false;
-    [Header("Кнопка мута")]
-    public Button muteButton;
+    private bool isMuted = false;
 
     private void Start()
     {
         soundtrackVolume = PlayerPrefs.GetFloat("SoundtrackVolume", 1.0f);
-        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
-
         soundtrackVolumeSlider.value = soundtrackVolume;
-        sfxVolumeSlider.value = sfxVolume;
-
         soundtrackSource.volume = soundtrackVolume;
-        sfxSource.volume = sfxVolume;
 
         soundtrackVolumeSlider.onValueChanged.AddListener(SetSoundtrackVolume);
-        sfxVolumeSlider.onValueChanged.AddListener(SetSFXVolume);
+        musicToggle.onValueChanged.AddListener(ToggleMusic);
+
+        // Если музыка включена по умолчанию
+        if (musicToggle.isOn)
+        {
+            StartMusic();
+        }
 
         if (soundtracks.Count > 0)
         {
@@ -54,11 +49,29 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("SoundtrackVolume", value);
     }
 
-    private void SetSFXVolume(float value)
+    private void ToggleMusic(bool isOn)
     {
-        sfxVolume = value;
-        sfxSource.volume = value;
-        PlayerPrefs.SetFloat("SFXVolume", value);
+        if (isOn)
+        {
+            StartMusic();
+        }
+        else
+        {
+            StopMusic();
+        }
+    }
+
+    private void StartMusic()
+    {
+        if (!soundtrackSource.isPlaying && soundtracks.Count > 0)
+        {
+            StartCoroutine(PlayRandomSoundtrack());
+        }
+    }
+
+    private void StopMusic()
+    {
+        soundtrackSource.Stop();
     }
 
     private IEnumerator PlayRandomSoundtrack()
@@ -77,19 +90,6 @@ public class AudioManager : MonoBehaviour
             yield return StartCoroutine(CrossfadeToTrack(nextTrack));
 
             yield return new WaitForSeconds(nextTrack.length - crossfadeDuration);
-        }
-    }
-
-    private void ToggleMute()
-    {
-        isMuted = !isMuted;
-        if (isMuted)
-        {
-            soundtrackSource.volume = 0;
-        }
-        else
-        {
-            soundtrackSource.volume = soundtrackVolume;
         }
     }
 
@@ -112,24 +112,5 @@ public class AudioManager : MonoBehaviour
         }
 
         soundtrackSource.volume = soundtrackVolume;
-    }
-
-    public void PlaySFX(AudioClip clip)
-    {
-        sfxSource.PlayOneShot(clip);
-    }
-}
-
-
-public class ExampleSFXTrigger : MonoBehaviour
-{
-    [Header("Аудиоменеджер")]
-    public AudioManager audioManager;
-    [Header("Короткий звук")]
-    public AudioClip sfxClip;
-
-    public void TriggerSFX()
-    {
-        audioManager.PlaySFX(sfxClip);
     }
 }
