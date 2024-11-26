@@ -36,6 +36,6 @@ public class CameraRotationByMouseScr : MonoBehaviour
     {
         UpdateCurrent();
         UpdateTarget();
-        transform.rotation = Quaternion.Euler(-currentRotation.y, currentRotation.x, 0);
+        transform.localRotation = Quaternion.Euler(-currentRotation.y, currentRotation.x, 0);
     }
 }

@@ -43,11 +43,11 @@ public class PlaceSpawner : MonoBehaviour
         GameObject obj = Instantiate(
                         place.obj,
                         new Vector3(sector.center[0] + place.offset_x + Random.Range(-place.random_offset, place.random_offset), sector.center[1] + place.offset_y + Random.Range(-place.random_offset, place.random_offset), 0),
-                        Quaternion.identity
+                        Quaternion.Euler(-25, 0, 0)
                         );
         obj.transform.SetParent(worldScr.transform);
         place.hadArleadySpawned = true;
-        sector.Fill(worldScr, 1);
+        sector.Fill(worldScr, 0);
     }
 
     public void SpawnPlaces()
@@ -69,11 +69,15 @@ public class PlaceSpawner : MonoBehaviour
     {
         
         Sector sector = null;
-        int tries = 0;
+        int attempts = 0;
         while (!worldScr.isSectorEmpty(sector, digit))
         {
-            tries++;
-            if (tries >= 10000) return null;
+            attempts++;
+            if (attempts >= 10000)
+            {
+                Debug.Log("Не нашлось");
+                return null; 
+            }
 
             int x = Random.Range(0, worldScr.width);
             int y = Random.Range(0, worldScr.height);

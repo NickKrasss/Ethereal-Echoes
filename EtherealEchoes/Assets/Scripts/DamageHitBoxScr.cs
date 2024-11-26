@@ -20,6 +20,14 @@ public class DamageHitBoxScr : MonoBehaviour
     [SerializeField]
     private bool damageEveryTick = false;
 
+    [Tooltip("Уничтожить при столкновении не с существом")]
+    [SerializeField]
+    private bool destroyOnCollision = false;
+
+    [Tooltip("Тэги обьектов для игнорирования")]
+    [SerializeField]
+    private string[] ignoreCollisionTags;
+
     // Нанести урон
     private void Hit(HealthScr otherHP)
     {
@@ -31,39 +39,38 @@ public class DamageHitBoxScr : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        HealthScr otherHP;
-        if (collision.gameObject.TryGetComponent(out otherHP))
-        {
-            Hit(otherHP);
-        }
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
+        foreach (string s in ignoreCollisionTags)
+        {
+            if (collision.gameObject.CompareTag(s))
+                return;
+        }
         HealthScr otherHP;
         if (collision.gameObject.TryGetComponent(out otherHP))
         {
             Hit(otherHP);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        HealthScr otherHP;
-        if (collision.gameObject.TryGetComponent(out otherHP))
+        else
         {
-            Hit(otherHP);
+            if (destroyOnCollision) Destroy(gameObject);
         }
     }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
+        foreach (string s in ignoreCollisionTags)
+        {
+            if (collision.gameObject.CompareTag(s))
+                return;
+        }
         HealthScr otherHP;
         if (collision.gameObject.TryGetComponent(out otherHP))
         {
             Hit(otherHP);
+        }
+        else
+        {
+            if (destroyOnCollision) Destroy(gameObject);
         }
     }
 }

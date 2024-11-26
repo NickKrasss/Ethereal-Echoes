@@ -59,7 +59,7 @@ public class WorldDraw : MonoBehaviour
             }
             if ((int)playerPreviousPos.x != (int)playerObj.transform.position.x || (int)playerPreviousPos.y != (int)playerObj.transform.position.y)
             {
-                DrawSector(new Sector(new int[] { (int)playerObj.transform.position.x, (int)playerObj.transform.position.y }, renderRadius*2+6, renderRadius*2+6), renderRadius);
+                DrawSector(new Sector(new float[] { (int)playerObj.transform.position.x, (int)playerObj.transform.position.y }, renderRadius*2+6, renderRadius*2+6), renderRadius);
             }
             playerPreviousPos = playerObj.transform.position;
         }
@@ -70,8 +70,8 @@ public class WorldDraw : MonoBehaviour
         if (!worldScr.isCellInBorders(x, y)) return;
         if (worldScr.world[x, y] != 0)
         {
-            Random.InitState(x+y);
             tilemap.SetTile(new Vector3Int(x, y), floors[Random.Range(0, floors.Length)]);
+            RotateTile(tilemap, new Vector3Int(x, y), Random.Range(0, 4) * 90);
         }
         else
         {
@@ -86,6 +86,14 @@ public class WorldDraw : MonoBehaviour
             else borderTilemap.SetTile(new Vector3Int(x, y, 3), null);
         }
     }
+
+    void RotateTile(Tilemap tilemap, Vector3Int tilePosition, int degrees)
+    {
+        Matrix4x4 matrix = tilemap.GetTransformMatrix(tilePosition);
+        matrix *= Matrix4x4.Rotate(Quaternion.Euler(0, 0, degrees));
+        tilemap.SetTransformMatrix(tilePosition, matrix);
+    }
+
     private void ClearCell(int x, int y)
     {
         if (!worldScr.isCellInBorders(x, y)) return;
