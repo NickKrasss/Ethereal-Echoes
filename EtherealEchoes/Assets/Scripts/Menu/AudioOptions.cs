@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AudioOptions : MonoBehaviour
 {
     public Slider slider;
+    public AudioManager audioManager;
     public Toggle toggle;
     void Start()
     {
@@ -28,20 +29,9 @@ public class AudioOptions : MonoBehaviour
             PlayerPrefs.SetInt("Flag", 0);
         }
     }
-    //Изменение громкости 
+
     public void Change_Volume(float x)
     {
         PlayerPrefs.SetFloat("Volume", x);
-    }
-    public void Change_Flag(bool x)
-    {
-        if (x)
-        {
-            PlayerPrefs.SetInt("Flag",1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("Flag",0);
-        }
     }
 }

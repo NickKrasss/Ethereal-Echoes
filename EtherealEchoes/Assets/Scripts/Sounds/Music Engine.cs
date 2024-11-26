@@ -14,8 +14,6 @@ public class AudioManager : MonoBehaviour
 
     [Header("Слайдер для музыки")]
     public Slider soundtrackVolumeSlider;
-    [Header("Тогл для включения/выключения музыки")]
-    public Toggle musicToggle;
 
     private int currentTrackIndex = -1;
     private float soundtrackVolume = 1.0f;
@@ -23,23 +21,25 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        if (soundtrackSource == null)
+        {
+            Debug.LogError("AudioSource для soundtrackSource не назначен!");
+            return;
+        }
+
+        if (soundtracks.Count == 0)
+        {
+            Debug.LogError("Список саундтреков пуст!");
+            return;
+        }
+
         soundtrackVolume = PlayerPrefs.GetFloat("SoundtrackVolume", 1.0f);
         soundtrackVolumeSlider.value = soundtrackVolume;
         soundtrackSource.volume = soundtrackVolume;
 
         soundtrackVolumeSlider.onValueChanged.AddListener(SetSoundtrackVolume);
-        musicToggle.onValueChanged.AddListener(ToggleMusic);
 
-        // Если музыка включена по умолчанию
-        if (musicToggle.isOn)
-        {
-            StartMusic();
-        }
-
-        if (soundtracks.Count > 0)
-        {
-            StartCoroutine(PlayRandomSoundtrack());
-        }
+        StartCoroutine(PlayRandomSoundtrack());
     }
 
     private void SetSoundtrackVolume(float value)
@@ -47,31 +47,6 @@ public class AudioManager : MonoBehaviour
         soundtrackVolume = value;
         soundtrackSource.volume = value;
         PlayerPrefs.SetFloat("SoundtrackVolume", value);
-    }
-
-    private void ToggleMusic(bool isOn)
-    {
-        if (isOn)
-        {
-            StartMusic();
-        }
-        else
-        {
-            StopMusic();
-        }
-    }
-
-    private void StartMusic()
-    {
-        if (!soundtrackSource.isPlaying && soundtracks.Count > 0)
-        {
-            StartCoroutine(PlayRandomSoundtrack());
-        }
-    }
-
-    private void StopMusic()
-    {
-        soundtrackSource.Stop();
     }
 
     private IEnumerator PlayRandomSoundtrack()
