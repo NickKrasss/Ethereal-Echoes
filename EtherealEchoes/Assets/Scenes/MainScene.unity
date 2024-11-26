@@ -458,7 +458,7 @@ MonoBehaviour:
       height: 1
       offset_x: 0
       offset_y: 0
-      random_offset: 0.2
+      random_offset: 0.1
       obj: {fileID: 4125833847172952227, guid: 84be1cbe14cd93f479d2cb5fbbfc85a8, type: 3}
     - canRepeat: 1
       hadArleadySpawned: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
       height: 1
       offset_x: 0
       offset_y: 0
-      random_offset: 0.2
+      random_offset: 0.1
       obj: {fileID: 3992787351196463640, guid: fb22ccf4166cad0499fb0b4f8b9acf67, type: 3}
     - canRepeat: 1
       hadArleadySpawned: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
       height: 1
       offset_x: 0
       offset_y: 0
-      random_offset: 0.2
+      random_offset: 0.1
       obj: {fileID: 1378984770355432450, guid: 999c093cda270214ab9b5438709f2de9, type: 3}
     - canRepeat: 1
       hadArleadySpawned: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
       height: 1
       offset_x: 0
       offset_y: 0
-      random_offset: 0.2
+      random_offset: 0.1
       obj: {fileID: 7234527968700818171, guid: 91ec32c5b8bce98449a9b366a664deac, type: 3}
     - canRepeat: 1
       hadArleadySpawned: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
       height: 1
       offset_x: 0
       offset_y: 0
-      random_offset: 0.3
+      random_offset: 0.1
       obj: {fileID: 4916611322191718825, guid: ab69331d8e8ced64fa5de2b19ae9d023, type: 3}
   - name: "\u0412\u0440\u0430\u0433\u0438"
     lowerCount: 30
@@ -596,8 +596,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B \u043F\u043E\u0433\u0438\u0431\u043B\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 651db763cfa17cd40a1d582f32b70118, type: 2}
-  m_sharedMaterial: {fileID: -4633895072179196044, guid: 651db763cfa17cd40a1d582f32b70118, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1424,8 +1424,8 @@ MonoBehaviour:
   m_text: "\u043D\u0430\u0436\u043C\u0438\u0442\u0435 \u041F\u0440\u043E\u0431\u0435\u043B,
     \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C \u0437\u0430\u043D\u043E\u0432\u043E"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 651db763cfa17cd40a1d582f32b70118, type: 2}
-  m_sharedMaterial: {fileID: -4633895072179196044, guid: 651db763cfa17cd40a1d582f32b70118, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -59,7 +59,7 @@ public class WorldDraw : MonoBehaviour
             }
             if ((int)playerPreviousPos.x != (int)playerObj.transform.position.x || (int)playerPreviousPos.y != (int)playerObj.transform.position.y)
             {
-                DrawSector(new Sector(new int[] { (int)playerObj.transform.position.x, (int)playerObj.transform.position.y }, renderRadius*2+6, renderRadius*2+6), renderRadius);
+                DrawSector(new Sector(new float[] { (int)playerObj.transform.position.x, (int)playerObj.transform.position.y }, renderRadius*2+6, renderRadius*2+6), renderRadius);
             }
             playerPreviousPos = playerObj.transform.position;
         }

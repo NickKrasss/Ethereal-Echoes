@@ -57,9 +57,9 @@ public class WorldFill : MonoBehaviour
         if (!isSectorInBorders(x1, y1, x2, y2)) 
             return false;
 
-        for (int x = x1; x < x2; x++)
+        for (int x = x1; x <= x2; x++)
         {
-            for (int y = y1; y < y2; y++)
+            for (int y = y1; y <= y2; y++)
             {
                 if (world[x, y] != i)
                 {
@@ -76,9 +76,9 @@ public class WorldFill : MonoBehaviour
         if (sector == null) return false;
         if (!isSectorInBorders(sector.x1, sector.y1, sector.x2, sector.y2))
             return false;
-        for (int x = sector.x1; x < sector.x2; x++)
+        for (int x = sector.x1; x <= sector.x2; x++)
         {
-            for (int y = sector.y1; y < sector.y2; y++)
+            for (int y = sector.y1; y <= sector.y2; y++)
             {
                 if (world[x, y] != i)
                 {
@@ -99,7 +99,7 @@ public class Sector
     public int x2;
     public int y2;
 
-    public int[] center;
+    public float[] center;
     public int width;
     public int height;
 
@@ -109,11 +109,11 @@ public class Sector
         this.x2 = x2; this.y2 = y2;
         width = x2 - x1;
         height = y2 - y1;
-        center = new int[] { x1 + width / 2, y1 + height / 2 };
+        center = new float[] { x1 + width / 2.0f, y1 + height / 2.0f };
     }
-    public Sector(int[] center, int width, int height)
+    public Sector(float[] center, int width, int height)
     {
-        x1 = center[0] - width / 2; y1 = center[1] - height / 2;
+        x1 = (int)center[0] - width / 2; y1 = (int)center[1] - height / 2;
         x2 = x1 + width; y2 = y1 + width;
         this.width = width;
         this.height = height;
@@ -129,9 +129,9 @@ public class Sector
     public bool Fill(WorldFill worldScr, int fillDigit = 2)
     {
         if (!worldScr.isSectorInBorders(x1, y1, x2, y2)) { return false; }
-        for (int x = x1; x < x2; x++)
+        for (int x = x1; x <= x2; x++)
         {
-            for (int y = y1; y < y2; y++)
+            for (int y = y1; y <= y2; y++)
             {
                 worldScr.world[x, y] = fillDigit;
             }

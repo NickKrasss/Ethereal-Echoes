@@ -71,9 +71,9 @@ public class GeneratorConnectedSectors : MonoBehaviour
         while (true)
         {
             tries++;
-            if (tries >= 3000)
+            if (tries >= 1000)
             {
-                Debug.Log("Не помещается!!!!");
+                Debug.Log("Не помещается!");
                 return null;
             }
             Sector baseSector = sectors[UnityEngine.Random.Range(0, sectors.Count)];
@@ -86,7 +86,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         if (x < baseSector.center[0])
                         {
                             int x1 = x - size[0];
-                            int y1 = baseSector.y2;
+                            int y1 = baseSector.y2+1;
                             int x2 = x;
                             int y2 = y1 + size[1];
                             if (worldScr.isSectorEmpty(x1, y1, x2, y2))
@@ -95,7 +95,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         else
                         {
                             int x1 = x;
-                            int y1 = baseSector.y2;
+                            int y1 = baseSector.y2+1;
                             int x2 = x + size[0];
                             int y2 = y1 + size[1];
                             if (worldScr.isSectorEmpty(x1, y1, x2, y2))
@@ -108,7 +108,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         int y = (int)UnityEngine.Random.Range(baseSector.y1 + baseSector.height * 0.15f, baseSector.y2 - baseSector.height * 0.15f);
                         if (y < baseSector.center[1])
                         {
-                            int x1 = baseSector.x2;
+                            int x1 = baseSector.x2+1;
                             int y2 = y;
                             int x2 = x1 + size[0];
                             int y1 = y2 - size[1];
@@ -117,7 +117,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         }
                         else
                         {
-                            int x1 = baseSector.x2;
+                            int x1 = baseSector.x2+1;
                             int y1 = y;
                             int x2 = x1 + size[0];
                             int y2 = y1 + size[1];
@@ -131,7 +131,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         int y = (int)UnityEngine.Random.Range(baseSector.y1 + baseSector.height * 0.15f, baseSector.y2 - baseSector.height * 0.15f);
                         if (y < baseSector.center[1])
                         {
-                            int x2 = baseSector.x1;
+                            int x2 = baseSector.x1-1;
                             int y2 = y;
                             int x1 = x2 - size[0];
                             int y1 = y2 - size[1];
@@ -140,7 +140,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         }
                         else
                         {
-                            int x2 = baseSector.x1;
+                            int x2 = baseSector.x1-1;
                             int y1 = y;
                             int x1 = x2 - size[0];
                             int y2 = y1 + size[1];
@@ -155,7 +155,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         if (x < baseSector.center[0])
                         {
                             int x1 = x - size[0];
-                            int y2 = baseSector.y1;
+                            int y2 = baseSector.y1-1;
                             int x2 = x;
                             int y1 = y2 - size[1];
                             if (worldScr.isSectorEmpty(x1, y1, x2, y2))
@@ -164,7 +164,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                         else
                         {
                             int x1 = x;
-                            int y2 = baseSector.y1;
+                            int y2 = baseSector.y1-1;
                             int x2 = x + size[0];
                             int y1 = y2 - size[1];
                             if (worldScr.isSectorEmpty(x1, y1, x2, y2))

@@ -47,7 +47,7 @@ public class PlaceSpawner : MonoBehaviour
                         );
         obj.transform.SetParent(worldScr.transform);
         place.hadArleadySpawned = true;
-        sector.Fill(worldScr, 1);
+        sector.Fill(worldScr, 0);
     }
 
     public void SpawnPlaces()
@@ -73,7 +73,11 @@ public class PlaceSpawner : MonoBehaviour
         while (!worldScr.isSectorEmpty(sector, digit))
         {
             attempts++;
-            if (attempts >= 10000) return null;
+            if (attempts >= 10000)
+            {
+                Debug.Log("Не нашлось");
+                return null; 
+            }
 
             int x = Random.Range(0, worldScr.width);
             int y = Random.Range(0, worldScr.height);
