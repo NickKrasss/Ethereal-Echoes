@@ -536,7 +536,7 @@ MonoBehaviour:
     offset_x: 0
     offset_y: 0
     random_offset: 0
-    obj: {fileID: 2109701238067539651, guid: e52492bc4abcada4f82dc4302b3c1d08, type: 3}
+    obj: {fileID: 2109701238067539651, guid: bb98fd7aeaeacc54a82cf6d112d7ab5e, type: 3}
 --- !u!1 &474472407
 GameObject:
   m_ObjectHideFlags: 0
