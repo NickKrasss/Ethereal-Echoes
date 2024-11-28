@@ -24,7 +24,11 @@ public class Menu : MonoBehaviour
         postEffectOptions.SetActive(s[4] == '1');
     }
 
-
+    private void Awake()
+    {
+        var audioSource = gameObject.GetComponent<AudioSource>();
+        AudioManager.Instance.PlayMusic("MenuSoundtrack", 0.7f);
+    }
     //Фуллскрин
     public void FullScreen()
     {

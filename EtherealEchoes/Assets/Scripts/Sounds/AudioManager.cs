@@ -22,10 +22,9 @@ public class AudioManager : MonoBehaviour
     [Header("Слайдер громкости звуков")]
     [SerializeField] private Slider soundVolumeSlider; // Слайдер громкости звуков
 
-    private float timer = 0f; // Таймер для отслеживания времени
-    private float interval = 1f; // Интервал времени в секундах
 
-    private float currentVolume = 1.0f; // Текущая громкость музыки
+    private float currentMusicVolume = 1.0f; // Текущая громкость музыки
+    private float currentSoundVolume = 1.0f; // Текущая громкость музыки
 
     private void Awake()
     {
@@ -54,10 +53,10 @@ public class AudioManager : MonoBehaviour
         RegisterMobs();
 
         // Загружаем громкость из PlayerPrefs, если она есть, и устанавливаем слайдер
-        currentVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); 
+        currentMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); 
         if (musicVolumeSlider != null)
         {
-            musicVolumeSlider.value = currentVolume;
+            musicVolumeSlider.value = currentMusicVolume;
         }
 
         // Подписываемся на изменение значения слайдера
@@ -66,10 +65,10 @@ public class AudioManager : MonoBehaviour
             musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
         }
 
-        currentVolume = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
+        currentSoundVolume = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
         if (soundVolumeSlider != null)
         {
-            soundVolumeSlider.value = currentVolume;
+            soundVolumeSlider.value = currentSoundVolume;
         }
 
         // Подписываемся на изменение значения слайдера
@@ -116,6 +115,27 @@ public class AudioManager : MonoBehaviour
         musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); // Громкость, полученная через слайдер
         musicSource.loop = true; // Музыка будет зациклена
         musicSource.Play();
+    }
+
+    public void PlayButtonSound()
+    {
+        sfxSource = Camera.main.GetComponent<AudioSource>();
+
+        if (sfxSource == null)
+        {
+            Debug.LogError("AudioManager: SFX source is missing!");
+            return;
+        }
+        var soundName = "ButtonClick";
+        var myVolume = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
+        AudioClip clip = audioLibrary.GetClip(soundName);
+        if (clip == null)
+        {
+            Debug.LogWarning($"Sound clip '{soundName}' not found!");
+            return;
+        }
+        sfxSource.PlayOneShot(clip, myVolume);
+
     }
 
     // Метод для проигрывания звуков (SFX)
@@ -316,14 +336,15 @@ public class AudioManager : MonoBehaviour
         // Обновляем громкость музыки каждые 0.01 секунды
         if (musicSource != null)
         {
-            musicSource.volume = Mathf.Lerp(musicSource.volume, currentVolume, 0.1f); // Плавное обновление громкости
+            musicSource.volume = Mathf.Lerp(musicSource.volume, currentMusicVolume, 0.1f); // Плавное обновление громкости
+            sfxSource.volume = Mathf.Lerp(sfxSource.volume, currentSoundVolume, 0.1f); // Плавное обновление громкости
         }
     }
 
     // Обработчик изменения громкости музыки
     private void OnMusicVolumeChanged(float volume)
     {
-        currentVolume = volume; // Сохраняем новое значение громкости
+        currentMusicVolume = volume; // Сохраняем новое значение громкости
         PlayerPrefs.SetFloat("MusicVolume", volume); // Сохраняем значение в PlayerPrefs
         PlayerPrefs.Save(); // Сохраняем изменения
     }
@@ -331,7 +352,7 @@ public class AudioManager : MonoBehaviour
     // Обработчик изменения громкости звуков
     private void OnSoundVolumeChanged(float volume)
     {
-        currentVolume = volume; // Сохраняем новое значение громкости
+        currentSoundVolume = volume; // Сохраняем новое значение громкости
         PlayerPrefs.SetFloat("SoundsVolume", volume); // Сохраняем значение в PlayerPrefs
         PlayerPrefs.Save(); // Сохраняем изменения
     }
