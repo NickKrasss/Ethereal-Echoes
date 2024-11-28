@@ -45,7 +45,7 @@ public class AudioManager : MonoBehaviour
 
         if (musicSource == null || sfxSource == null)
         {
-            Debug.LogError("AudioManager: AudioSource components are not assigned!");
+            Debug.Log("AudioManager: AudioSource components are not assigned!");
         }
 
         // Регистрируем UI объекты и мобы из списков

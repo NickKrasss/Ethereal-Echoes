@@ -1,11 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
-public class GameOptions : MonoBehaviour
+using UnityEngine.SceneManagement;
+
+public class Menu : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
+    public string sceneToLoad;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject audioOptions;
+    [SerializeField] private GameObject gameOptions;
+    [SerializeField] private GameObject postEffectOptions;
+    //Загрузка сцены настроек
+    public void LoadOptionsMenu(string s)
+    {
+        mainMenu.SetActive(s[0] == '1');
+        optionsMenu.SetActive(s[1] == '1');
+        audioOptions.SetActive(s[2] == '1');
+        gameOptions.SetActive(s[3] == '1');
+        postEffectOptions.SetActive(s[4] == '1');
+    }
+
+
     //Фуллскрин
     public void FullScreen()
     {
@@ -16,7 +35,7 @@ public class GameOptions : MonoBehaviour
     {
         if (dropdown.value == 0)
         {
-            Screen.SetResolution(1920, 1080,true);
+            Screen.SetResolution(1920, 1080, true);
         }
         else if (dropdown.value == 1)
         {
@@ -46,5 +65,27 @@ public class GameOptions : MonoBehaviour
         {
             Screen.SetResolution(3840, 2160, true);
         }
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+    void Start()
+    {
+
+    }
+    void LoadGameScene()
+    {
+        // Загружаем сцену
+        SceneManager.LoadScene(sceneToLoad);
+    }
+    void Update()
+    {
+
+    }
+    //Выход из игры
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
