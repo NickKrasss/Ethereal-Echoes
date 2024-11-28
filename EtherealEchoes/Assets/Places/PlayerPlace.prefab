@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 9134929356229518044}
   - component: {fileID: 751818322083067997}
   - component: {fileID: 9008921220091778637}
+  - component: {fileID: 5107536439198902095}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -750,6 +751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  wasdVector: {x: 0, y: 0}
 --- !u!61 &1416872449337078624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -787,14 +789,14 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.27658948}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.3}
+  m_Size: {x: 0.8, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &8154425997805916933
 MonoBehaviour:
@@ -918,6 +920,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1998359662101372552}
+--- !u!114 &5107536439198902095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbddad2dff5c8840b8dc4c2f1d5e7da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8728558294600975588
 GameObject:
   m_ObjectHideFlags: 0
