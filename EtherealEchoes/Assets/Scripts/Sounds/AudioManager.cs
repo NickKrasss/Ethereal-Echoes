@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI; // Для работы с UI и слайдерами
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
     [SerializeField] private AudioSource musicSource; // Источник для музыки
-    [SerializeField] private AudioSource sfxSource; // Источник для SFX
+    [SerializeField] public AudioSource sfxSource; // Источник для SFX
     [SerializeField] private AudioLibrary audioLibrary;
 
     [SerializeField] private Dictionary<GameObject, AudioSource> mobAudioSources = new Dictionary<GameObject, AudioSource>(); // Для мобов
@@ -74,7 +75,7 @@ public class AudioManager : MonoBehaviour
         // Подписываемся на изменение значения слайдера
         if (soundVolumeSlider != null)
         {
-            soundVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
+            soundVolumeSlider.onValueChanged.AddListener(OnSoundVolumeChanged);
         }
     }
 
@@ -118,8 +119,10 @@ public class AudioManager : MonoBehaviour
     }
 
     // Метод для проигрывания звуков (SFX)
-    public void PlaySound(string soundName, float volume = 1.0f)
+    public void PlaySound(string soundName, AudioSource audiosource)
     {
+        sfxSource = audiosource;
+
         if (sfxSource == null)
         {
             Debug.LogError("AudioManager: SFX source is missing!");
@@ -133,7 +136,8 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        sfxSource.PlayOneShot(clip, volume);
+        var myVolume = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
+        sfxSource.PlayOneShot(clip, myVolume);
     }
 
     // Остановка музыки
