@@ -16,7 +16,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private List<GameObject> uiObjectsToRegister = new List<GameObject>(); // Список для UI объектов
     [SerializeField] private List<GameObject> mobsToRegister = new List<GameObject>(); // Список для мобов
 
+    [Header("Слайдер громкости музыки")]
     [SerializeField] private Slider musicVolumeSlider; // Слайдер громкости музыки
+    [Header("Слайдер громкости звуков")]
+    [SerializeField] private Slider soundVolumeSlider; // Слайдер громкости звуков
 
     private float timer = 0f; // Таймер для отслеживания времени
     private float interval = 1f; // Интервал времени в секундах
@@ -50,7 +53,7 @@ public class AudioManager : MonoBehaviour
         RegisterMobs();
 
         // Загружаем громкость из PlayerPrefs, если она есть, и устанавливаем слайдер
-        currentVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); // 1.0f — значение по умолчанию
+        currentVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); 
         if (musicVolumeSlider != null)
         {
             musicVolumeSlider.value = currentVolume;
@@ -60,6 +63,18 @@ public class AudioManager : MonoBehaviour
         if (musicVolumeSlider != null)
         {
             musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
+        }
+
+        currentVolume = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
+        if (soundVolumeSlider != null)
+        {
+            soundVolumeSlider.value = currentVolume;
+        }
+
+        // Подписываемся на изменение значения слайдера
+        if (soundVolumeSlider != null)
+        {
+            soundVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
         }
     }
 
@@ -97,7 +112,7 @@ public class AudioManager : MonoBehaviour
         }
 
         musicSource.clip = clip;
-        musicSource.volume = volume; // Громкость, полученная через слайдер
+        musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); // Громкость, полученная через слайдер
         musicSource.loop = true; // Музыка будет зациклена
         musicSource.Play();
     }
@@ -306,6 +321,14 @@ public class AudioManager : MonoBehaviour
     {
         currentVolume = volume; // Сохраняем новое значение громкости
         PlayerPrefs.SetFloat("MusicVolume", volume); // Сохраняем значение в PlayerPrefs
+        PlayerPrefs.Save(); // Сохраняем изменения
+    }
+
+    // Обработчик изменения громкости звуков
+    private void OnSoundVolumeChanged(float volume)
+    {
+        currentVolume = volume; // Сохраняем новое значение громкости
+        PlayerPrefs.SetFloat("SoundsVolume", volume); // Сохраняем значение в PlayerPrefs
         PlayerPrefs.Save(); // Сохраняем изменения
     }
 }

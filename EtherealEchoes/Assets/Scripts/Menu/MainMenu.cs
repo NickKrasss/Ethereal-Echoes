@@ -27,10 +27,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        AudioManager.Instance.PlaySound("ButtonClick", 0.7f);
     }
-    //
     public void ExitGame()
     {
         Application.Quit();
+        AudioManager.Instance.PlaySound("ButtonClick", 0.7f);
     }
 }

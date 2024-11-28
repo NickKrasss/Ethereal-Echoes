@@ -15,3 +15,5 @@ MonoBehaviour:
   audioClips:
   - name: MenuSoundtrack
     clip: {fileID: 8300000, guid: 82596f97e4660464ab654f107de93475, type: 3}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: bbb60ade0af348f4b8b698dbe0348894, type: 3}
