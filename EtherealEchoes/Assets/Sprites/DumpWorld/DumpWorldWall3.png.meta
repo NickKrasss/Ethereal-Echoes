@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 23ff2a3bfb21340419ddd776452c79fc
+guid: 477bb46c7f7339f409aa1b59d9c06848
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -109336004677551230
-    second: DumpWorld_border_right_0
+      213: 7093722532226446764
+    second: DumpWorldWall3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 31
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,22 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DumpWorld_border_right_0
+      name: DumpWorldWall3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 44
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5833333}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28bb808ab7f8b7ef0800000000000000
-      internalID: -109336004677551230
+      spriteID: ca5ba841f07f17260800000000000000
+      internalID: 7093722532226446764
       vertices: []
       indices: 
       edges: []
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 178ce80b38e240b4bbbdd5f617ff7f0e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DumpWorld_border_right_0: -109336004677551230
+      DumpWorldWall3_0: 7093722532226446764
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
