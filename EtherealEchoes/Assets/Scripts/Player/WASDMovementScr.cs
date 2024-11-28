@@ -10,7 +10,7 @@ public class WASDMovementScr : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 2f;
 
-    private Vector2 wasdVector;
+    public Vector2 wasdVector;
 
     // Клавиши для передвижения
     private Dictionary<string, KeyCode> movementKeys = new Dictionary<string, KeyCode> {
