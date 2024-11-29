@@ -73,7 +73,7 @@ public class PlaceSpawner : MonoBehaviour
         while (!worldScr.isSectorEmpty(sector, digit))
         {
             attempts++;
-            if (attempts >= 10000)
+            if (attempts >= 40000)
             {
                 Debug.Log("Не нашлось");
                 return null; 
