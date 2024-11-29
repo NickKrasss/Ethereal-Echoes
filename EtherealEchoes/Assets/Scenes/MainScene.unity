@@ -813,6 +813,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 4125833847172952227, guid: 84be1cbe14cd93f479d2cb5fbbfc85a8, type: 3}
+      rotationAngle: -25
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 8
@@ -822,6 +823,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 3992787351196463640, guid: fb22ccf4166cad0499fb0b4f8b9acf67, type: 3}
+      rotationAngle: -25
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 8
@@ -831,6 +833,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 8713156409584342714, guid: 7b74c7ab565c6d946a35740411801756, type: 3}
+      rotationAngle: -25
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 15
@@ -840,6 +843,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 1378984770355432450, guid: 999c093cda270214ab9b5438709f2de9, type: 3}
+      rotationAngle: -1
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 5
@@ -849,6 +853,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 7234527968700818171, guid: 91ec32c5b8bce98449a9b366a664deac, type: 3}
+      rotationAngle: -1
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 8
@@ -858,6 +863,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 4916611322191718825, guid: ab69331d8e8ced64fa5de2b19ae9d023, type: 3}
+      rotationAngle: -1
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 50
@@ -867,6 +873,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0.1
       obj: {fileID: 2806586419427512917, guid: 7ce76f8ede3137d48b4605b13d13cb6b, type: 3}
+      rotationAngle: -1
   - name: "\u0412\u0440\u0430\u0433\u0438"
     lowerCount: 30
     upperCount: 40
@@ -880,6 +887,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0
       obj: {fileID: 1250941909460020814, guid: 620a75bbcbd4f7945be7f8e450382b0e, type: 3}
+      rotationAngle: -25
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 15
@@ -889,6 +897,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0
       obj: {fileID: 1250941909460020814, guid: 043a21f1856769f4f8244622ee2a55b4, type: 3}
+      rotationAngle: -25
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
       1"
     lowerCount: 5
@@ -903,6 +912,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0
       obj: {fileID: 5946053243610653485, guid: 8c9e604f8cbf83e4797a1ecb3d32ecfa, type: 3}
+      rotationAngle: -25
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
       2"
     lowerCount: 3
@@ -917,6 +927,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0
       obj: {fileID: 1178507431320858424, guid: 9e33cc11b7df12043901d18dface2a24, type: 3}
+      rotationAngle: -25
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
       3"
     lowerCount: 1
@@ -931,6 +942,7 @@ MonoBehaviour:
       offset_y: 0
       random_offset: 0
       obj: {fileID: 2640401802100567129, guid: c5eb58c790a179e4eb9b5acab19e4f5b, type: 3}
+      rotationAngle: -25
   playerPlace:
     canRepeat: 0
     hadArleadySpawned: 0
@@ -941,6 +953,7 @@ MonoBehaviour:
     offset_y: 0
     random_offset: 0
     obj: {fileID: 2109701238067539651, guid: bb98fd7aeaeacc54a82cf6d112d7ab5e, type: 3}
+    rotationAngle: -25
 --- !u!1 &406974546
 GameObject:
   m_ObjectHideFlags: 0
