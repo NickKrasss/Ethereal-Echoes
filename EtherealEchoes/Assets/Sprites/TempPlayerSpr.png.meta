@@ -103,12 +103,12 @@ TextureImporter:
       name: DumpWorld_wall_center_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 7
-        width: 34
-        height: 34
-      alignment: 9
-      pivot: {x: 0.49664465, y: 0.08225848}
+        x: 8
+        y: 8
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,6 +116,27 @@ TextureImporter:
       bones: []
       spriteID: 8f3db3d041f2be700800000000000000
       internalID: 570601540960375800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TempPlayerSpr_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 3
+        height: 2
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2ed7e24e1d32e4d85169c25f8fd3f7
+      internalID: -118943291
       vertices: []
       indices: 
       edges: []
@@ -132,6 +153,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       DumpWorld_wall_center_0: 570601540960375800
+      TempPlayerSpr_0: -118943291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
