@@ -76,6 +76,7 @@ public class WorldDraw : MonoBehaviour
         else
         {
             borderTilemap.SetTile(new Vector3Int(x, y, -1), walls[Random.Range(0, walls.Length)]);
+            tilemap.SetTile(new Vector3Int(x, y), floors[Random.Range(0, floors.Length)]);
             if (x < worldScr.width - 1 && worldScr.world[x + 1, y] != 0) borderTilemap.SetTile(new Vector3Int(x, y, 0), borders[0]);
             else borderTilemap.SetTile(new Vector3Int(x, y, 0), null);
             if (x > 0 && worldScr.world[x - 1, y] != 0) borderTilemap.SetTile(new Vector3Int(x, y, 1), borders[1]);

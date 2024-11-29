@@ -16,6 +16,9 @@ public class FlipSpriteToMouse : MonoBehaviour
     }
     void Update()
     {
-        spriteRenderer.flipX = WorldMousePosition.GetWorldMousePosition(cam).x < transform.position.x;
+        if (Time.timeScale != 0f)
+        {
+            spriteRenderer.flipX = WorldMousePosition.GetWorldMousePosition(cam).x < transform.position.x;
+        }
     }
 }

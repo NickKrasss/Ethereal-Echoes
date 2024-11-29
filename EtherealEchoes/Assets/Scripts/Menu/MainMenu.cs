@@ -26,12 +26,14 @@ public class MainMenu : MonoBehaviour
     //Запускает начальный уровень игры
     public void PlayGame()
     {
+        var audioSource = gameObject.GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound("ButtonClick", audioSource);
         SceneManager.LoadScene(1);
-        AudioManager.Instance.PlaySound("ButtonClick", 0.7f);
     }
     public void ExitGame()
     {
+        var audioSource = gameObject.GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound("ButtonClick", audioSource);
         Application.Quit();
-        AudioManager.Instance.PlaySound("ButtonClick", 0.7f);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: DumpWorld_wall_center_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 570601540960375800, guid: bfde745d687dcf94bab35cb993f979b8, type: 3}
+  m_Sprite: {fileID: -2183240783442957480, guid: 83c4763344e8a18439224e05806efbd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
