@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.032258, y: 0.7225806, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d027c10d2c17a874f8cfd18a89d5ce70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,12 +74,12 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -980306409
   m_SortingLayer: 2
-  m_SortingOrder: 9
-  m_Sprite: {fileID: 7093722532226446764, guid: 477bb46c7f7339f409aa1b59d9c06848, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 4122664840290503516, guid: 5ad4b483b88b2db439d2a563d89cead9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
+  m_DrawMode: 0
   m_Size: {x: 1.032258, y: 0.7225806}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
