@@ -24,7 +24,7 @@ public class PlayerDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dead && healthScr.health <= 0 && !(PlayerPrefs.GetInt("GodMode") != 1))
+        if (!dead && healthScr.health <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
             deathScreen.SetActive(true);

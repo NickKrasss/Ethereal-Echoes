@@ -91,10 +91,6 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    void Start()
-    {
-
-    }
     void LoadGameScene()
     {
         // Загружаем сцену
