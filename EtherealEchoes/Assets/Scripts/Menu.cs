@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject audioOptions;
     [SerializeField] private GameObject gameOptions;
     [SerializeField] private GameObject postEffectOptions;
+    [SerializeField] private GameObject toggle;
     //Загрузка сцены настроек
     public void LoadOptionsMenu(string s)
     {
@@ -28,6 +30,20 @@ public class Menu : MonoBehaviour
     {
         var audioSource = gameObject.GetComponent<AudioSource>();
         AudioManager.Instance.PlayMusic("MenuSoundtrack", 0.7f);
+        PlayerPrefs.SetInt("GodMode", 0);
+    }
+
+    public void GetGodModeValue()
+    {
+        if (toggle.GetComponent<Toggle>().isOn)
+        {
+            PlayerPrefs.SetInt("GodMode", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("GodMode", 0);
+        }
+        
     }
     //Фуллскрин
     public void FullScreen()
@@ -86,7 +102,7 @@ public class Menu : MonoBehaviour
     }
     void Update()
     {
-
+        Debug.Log(PlayerPrefs.GetInt("GodMode"));
     }
     //Выход из игры
     public void ExitGame()
