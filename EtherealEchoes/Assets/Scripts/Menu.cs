@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    private AudioSource source;
+    [SerializeField] private AudioClip buttonSound;
+
     public TMP_Dropdown dropdown;
     public string sceneToLoad;
     [SerializeField] private GameObject mainMenu;
@@ -19,22 +22,23 @@ public class Menu : MonoBehaviour
     //Загрузка сцены настроек
     public void LoadOptionsMenu(string s)
     {
+        source = GetComponent<AudioSource>();
         mainMenu.SetActive(s[0] == '1');
         optionsMenu.SetActive(s[1] == '1');
         audioOptions.SetActive(s[2] == '1');
         gameOptions.SetActive(s[3] == '1');
         postEffectOptions.SetActive(s[4] == '1');
+        MakeButtonSound();
     }
 
     private void Awake()
     {
-        var audioSource = gameObject.GetComponent<AudioSource>();
-        AudioManager.Instance.PlayMusic("MenuSoundtrack", 0.7f);
         PlayerPrefs.SetInt("GodMode", 0);
     }
 
     public void GetGodModeValue()
     {
+        MakeButtonSound();
         if (toggle.GetComponent<Toggle>().isOn)
         {
             PlayerPrefs.SetInt("GodMode", 1);
@@ -43,11 +47,18 @@ public class Menu : MonoBehaviour
         {
             PlayerPrefs.SetInt("GodMode", 0);
         }
-        
+
     }
+
+    private void MakeButtonSound()
+    {
+        AudioManager.Instance.PlayAudio(source, buttonSound, SoundType.SFX, 1, 0.2f, 0.1f);
+    }
+
     //Фуллскрин
     public void FullScreen()
     {
+        MakeButtonSound();
         Screen.fullScreen = !Screen.fullScreen;
     }
     //Настройка разрешений
@@ -87,22 +98,29 @@ public class Menu : MonoBehaviour
             Screen.SetResolution(3840, 2160, Screen.fullScreen);
         }
     }
+
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(StartGameIE());
     }
-    void LoadGameScene()
-    {
-        // Загружаем сцену
-        SceneManager.LoadScene(sceneToLoad);
-    }
-    void Update()
-    {
-        Debug.Log(PlayerPrefs.GetInt("GodMode"));
-    }
-    //Выход из игры
+
     public void ExitGame()
     {
+        StartCoroutine(ExitGameIE());
+    }
+
+    private IEnumerator StartGameIE()
+    {
+        MakeButtonSound();
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene(1);
+    }
+
+    //Выход из игры
+    private IEnumerator ExitGameIE()
+    {
+        MakeButtonSound();
+        yield return new WaitForSeconds(0.2f);
         Application.Quit();
     }
 }
