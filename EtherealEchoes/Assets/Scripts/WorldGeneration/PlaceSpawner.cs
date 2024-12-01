@@ -42,7 +42,7 @@ public class PlaceSpawner : MonoBehaviour
     {
         GameObject obj = Instantiate(
                         place.obj,
-                        new Vector3(sector.center[0] + place.offset_x + Random.Range(-place.random_offset, place.random_offset), sector.center[1] + place.offset_y + Random.Range(-place.random_offset, place.random_offset), 0),
+                        new Vector3(sector.center[0] + place.offset_x + Random.Range(-place.random_offset, place.random_offset), sector.center[1] + place.offset_y + Random.Range(-place.random_offset, place.random_offset), place.offset_z),
                         Quaternion.Euler(place.rotationAngle, 0, 0)
                         );
         obj.transform.SetParent(worldScr.transform);
@@ -165,6 +165,9 @@ public class Place
 
     [SerializeField]
     public float offset_y;
+
+    [SerializeField]
+    public float offset_z = 0;
 
     [SerializeField]
     public float random_offset;

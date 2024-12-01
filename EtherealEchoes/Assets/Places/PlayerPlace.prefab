@@ -905,7 +905,7 @@ MonoBehaviour:
   bulletKnockback: 5
   fireRate: 6
   spreadDegrees: 20
-  range: 15
+  range: 12
   rangeInaccuracy: 2
 --- !u!114 &9008921220091778637
 MonoBehaviour:

@@ -14,7 +14,7 @@ public class DamageHitBoxScr : MonoBehaviour
 
     [Tooltip("Количество нанесений урона. При 0 обьект уничтожается. -1 для бесконечного количества")]
     [SerializeField]
-    private int damageCount = -1;
+    public int damageCount = -1;
 
     [Tooltip("true - Будет пытаться нанести урон каждый тик. false - только при столкновении")]
     [SerializeField]
@@ -28,14 +28,17 @@ public class DamageHitBoxScr : MonoBehaviour
     [SerializeField]
     private string[] ignoreCollisionTags;
 
+    [SerializeField]
+    private bool destroyOnZeroHits = true;
+
     // Нанести урон
     private void Hit(HealthScr otherHP)
     {
-        if (otherHP.CanHitBy(damageTag))
+        if (otherHP.CanHitBy(damageTag) && damageCount != 0)
         {
             otherHP.TakeDamage(damage);
             damageCount--;
-            if (damageCount == 0) Destroy(gameObject);
+            if (damageCount == 0 && destroyOnZeroHits) Destroy(gameObject);
         }
     }
 

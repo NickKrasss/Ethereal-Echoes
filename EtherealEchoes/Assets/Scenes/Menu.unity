@@ -386,7 +386,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -915,7 +915,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -1420,7 +1420,7 @@ MonoBehaviour:
           m_StringArgument: 00010
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -1854,8 +1854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44b93b804ea17048bc5cf54413fd6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  musicSource: {fileID: 747019461}
+  sfxSource: {fileID: 747019461}
   audioLibrary: {fileID: 11400000, guid: ddc2206720cc0cd41b643824a4067eb8, type: 2}
   uiObjectsToRegister: []
   mobsToRegister: []
@@ -2568,7 +2568,7 @@ MonoBehaviour:
           m_StringArgument: 01000
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -3023,7 +3023,7 @@ MonoBehaviour:
           m_StringArgument: 01000
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -3454,7 +3454,7 @@ MonoBehaviour:
           m_StringArgument: 10000
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -3735,7 +3735,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -3880,7 +3880,7 @@ MonoBehaviour:
           m_StringArgument: 01000
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -4388,7 +4388,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -4496,7 +4496,7 @@ MonoBehaviour:
           m_StringArgument: 00100
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -5124,7 +5124,7 @@ MonoBehaviour:
           m_StringArgument: 01000
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
@@ -6279,7 +6279,7 @@ MonoBehaviour:
           m_StringArgument: 00001
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 435259404}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 1
