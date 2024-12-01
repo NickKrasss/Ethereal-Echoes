@@ -35,31 +35,19 @@ public class AudioManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Чтобы менеджер сохранялся между сценами
-
-        // Если musicSource не назначен, ищем компонент в сцене
-        if (musicSource == null)
-        {
-            FindMusicSource();
-        }
+        DontDestroyOnLoad(gameObject); 
 
         if (musicSource == null || sfxSource == null)
         {
             Debug.Log("AudioManager: AudioSource components are not assigned!");
         }
-
-        // Регистрируем UI объекты и мобы из списков
-        RegisterUIObjects();
-        RegisterMobs();
-
-        // Загружаем громкость из PlayerPrefs, если она есть, и устанавливаем слайдер
+        
         currentMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); 
         if (musicVolumeSlider != null)
         {
             musicVolumeSlider.value = currentMusicVolume;
         }
-
-        // Подписываемся на изменение значения слайдера
+        
         if (musicVolumeSlider != null)
         {
             musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
@@ -71,7 +59,6 @@ public class AudioManager : MonoBehaviour
             soundVolumeSlider.value = currentSoundVolume;
         }
 
-        // Подписываемся на изменение значения слайдера
         if (soundVolumeSlider != null)
         {
             soundVolumeSlider.onValueChanged.AddListener(OnSoundVolumeChanged);
@@ -113,7 +100,27 @@ public class AudioManager : MonoBehaviour
 
         musicSource.clip = clip;
         musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); // Громкость, полученная через слайдер
-        musicSource.loop = true; // Музыка будет зациклена
+        musicSource.loop = true;
+        musicSource.Play();
+    }
+
+    public void PlayMusicOnTheFirstLevel(string musicName, AudioSource audiosource)
+    {
+        if (musicSource == null)
+        {
+            Debug.LogWarning("AudioManager: Music source is missing!");
+            return;
+        }
+
+        AudioClip clip = audioLibrary.GetClip(musicName);
+        if (clip == null)
+        {
+            Debug.LogWarning($"Music clip '{musicName}' not found!");
+            return;
+        }
+
+        musicSource.clip = clip;
+        musicSource.volume = PlayerPrefs.GetFloat("MusicVolume", 1.0f); 
         musicSource.Play();
     }
 
@@ -337,7 +344,7 @@ public class AudioManager : MonoBehaviour
         if (musicSource != null)
         {
             musicSource.volume = Mathf.Lerp(musicSource.volume, currentMusicVolume, 0.1f); // Плавное обновление громкости
-            sfxSource.volume = Mathf.Lerp(sfxSource.volume, currentSoundVolume, 0.1f); // Плавное обновление громкости
+            //sfxSource.volume = Mathf.Lerp(sfxSource.volume, currentSoundVolume, 0.1f); // Плавное обновление громкости
         }
     }
 
