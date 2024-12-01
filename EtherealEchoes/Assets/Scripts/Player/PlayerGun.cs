@@ -34,6 +34,15 @@ public class PlayerGun : MonoBehaviour
 
     private float reload = 0f;
 
+    private AudioSource auSource;
+
+    [SerializeField]
+    private AudioClip[] shootAudioClips;
+
+    private void Start()
+    {
+        auSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -63,6 +72,8 @@ public class PlayerGun : MonoBehaviour
         { 
             rangeScr.range = range + UnityEngine.Random.Range(-rangeInaccuracy/2, rangeInaccuracy/2);
         }
+
+            AudioManager.Instance.PlayAudio(auSource, shootAudioClips[UnityEngine.Random.Range(0, shootAudioClips.Length)], SoundType.SFX, 0.15f, 0.05f, 0.1f);
     }
 }
 

@@ -52,7 +52,7 @@ public class Menu : MonoBehaviour
 
     private void MakeButtonSound()
     {
-        AudioManager.Instance.PlayAudio(source, buttonSound, SoundType.SFX, 1, 0.2f, 0.1f);
+        AudioManager.Instance.PlayAudio(source, buttonSound, SoundType.SFX, 1, 0f, 0.1f);
     }
 
     //Фуллскрин

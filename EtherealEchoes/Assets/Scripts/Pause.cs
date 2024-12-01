@@ -35,6 +35,7 @@ public class Pause : MonoBehaviour
     public void LoadMainMenu()
     {
         ResumeGame();
+        Destroy(AudioManager.Instance.gameObject);
         SceneManager.LoadScene(0);
     }
 }

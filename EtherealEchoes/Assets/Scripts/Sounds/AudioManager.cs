@@ -43,8 +43,8 @@ public class AudioManager : MonoBehaviour
     {
         if (!source || !clip)
             return;
-        UpdateVolume(source, type);
-        source.volume += Random.Range(-volumeRandomOffset/2, volumeRandomOffset/2);
+        UpdateVolume(source, type, volumeMultiplier);
+        if (source.volume != 0) source.volume += Random.Range(-volumeRandomOffset/2, volumeRandomOffset/2);
         source.pitch = 1 + Random.Range(-randomPitchOffset/2, randomPitchOffset/2);
 
         source.PlayOneShot(clip);
