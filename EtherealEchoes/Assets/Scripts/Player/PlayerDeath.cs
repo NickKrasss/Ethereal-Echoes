@@ -24,7 +24,7 @@ public class PlayerDeath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!dead && healthScr.health <= 0)
+        if (!dead && healthScr.health <= 0 && !(PlayerPrefs.GetInt("GodMode") != 1))
         { 
             dead = true;
             deathScreen.SetActive(true);
@@ -33,12 +33,14 @@ public class PlayerDeath : MonoBehaviour
             GetComponent<WASDMovementScr>().enabled = false;
             GetComponent<SmoothMoveScr>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            Time.timeScale = 0.4f;
         }
         if (dead)
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Time.timeScale = 1f;
             }
         }
     }
