@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Border3DMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: d959596d0c6e76544b12d80ba24f571d, type: 3}
+  m_Name: UnlitMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: fa3c8d2cc7826b343a2bfa2fe49f8a8b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -44,12 +44,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _force: 0.1
-    - _frequency: 15
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &4504193378511189635
+--- !u!114 &5937530010928712050
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

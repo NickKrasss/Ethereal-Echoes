@@ -291,7 +291,7 @@ MonoBehaviour:
     m_Value: 5.6
   focalLength:
     m_OverrideState: 1
-    m_Value: 50
+    m_Value: 111
   bladeCount:
     m_OverrideState: 1
     m_Value: 5
@@ -316,7 +316,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.12
   xMultiplier:
     m_OverrideState: 1
     m_Value: 1
@@ -701,7 +701,7 @@ MonoBehaviour:
     m_Value: 0
   scaleBiasWithMinProbeDistance:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   samplingNoise:
     m_OverrideState: 1
     m_Value: 0.1

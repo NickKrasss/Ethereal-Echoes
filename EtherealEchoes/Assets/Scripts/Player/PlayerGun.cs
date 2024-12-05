@@ -72,7 +72,7 @@ public class PlayerGun : MonoBehaviour
         { 
             rangeScr.range = range + UnityEngine.Random.Range(-rangeInaccuracy/2, rangeInaccuracy/2);
         }
-
+        if (AudioManager.Instance)
             AudioManager.Instance.PlayAudio(auSource, shootAudioClips[UnityEngine.Random.Range(0, shootAudioClips.Length)], SoundType.SFX, 0.15f, 0.05f, 0.1f);
     }
 }

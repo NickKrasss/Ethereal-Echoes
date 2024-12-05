@@ -78,9 +78,9 @@ public class BiterAI : MonoBehaviour
         if (smoothScr.targetMoveVector != Vector2.zero)
         {
             if (smoothScr.targetMoveVector.x < 0)
-                transform.localScale = new Vector2(-1.2f, 1.2f);
+                sprRenderer.flipX = true;
             else
-                transform.localScale = new Vector2(1.2f, 1.2f);
+                sprRenderer.flipX = false;
         }
         animator.SetFloat("MoveRage", (curSpeed - minSpeed)/(maxSpeed - minSpeed));
     }
