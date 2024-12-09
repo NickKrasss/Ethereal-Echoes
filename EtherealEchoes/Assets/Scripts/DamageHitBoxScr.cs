@@ -42,15 +42,15 @@ public class DamageHitBoxScr : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void CheckCollision(GameObject obj)
     {
         foreach (string s in ignoreCollisionTags)
         {
-            if (collision.gameObject.CompareTag(s))
+            if (obj.CompareTag(s))
                 return;
         }
         HealthScr otherHP;
-        if (collision.gameObject.TryGetComponent(out otherHP))
+        if (obj.TryGetComponent(out otherHP))
         {
             Hit(otherHP);
         }
@@ -59,21 +59,21 @@ public class DamageHitBoxScr : MonoBehaviour
             if (destroyOnCollision) Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        CheckCollision(collision.gameObject);
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        CheckCollision(collision.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CheckCollision(collision.gameObject);
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        foreach (string s in ignoreCollisionTags)
-        {
-            if (collision.gameObject.CompareTag(s))
-                return;
-        }
-        HealthScr otherHP;
-        if (collision.gameObject.TryGetComponent(out otherHP))
-        {
-            Hit(otherHP);
-        }
-        else
-        {
-            if (destroyOnCollision) Destroy(gameObject);
-        }
+        CheckCollision(collision.gameObject);
     }
 }

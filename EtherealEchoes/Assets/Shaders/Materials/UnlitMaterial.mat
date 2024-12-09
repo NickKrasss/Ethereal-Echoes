@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WindMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: d521640f48053bd45bd8693cf147a513, type: 3}
+  m_Name: UnlitMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: fa3c8d2cc7826b343a2bfa2fe49f8a8b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -42,14 +42,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _OutlineThickness: 0.18
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WindForce: 0.107
-    - _WindSpeed: 0.17
-    m_Colors: []
+    m_Colors:
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &1465195734092287048
+--- !u!114 &5937530010928712050
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
