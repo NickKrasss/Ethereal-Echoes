@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 2
-  mouseForce: 5
+  mouseForce: 3.5
 --- !u!50 &7090836307859462887
 Rigidbody2D:
   serializedVersion: 4
