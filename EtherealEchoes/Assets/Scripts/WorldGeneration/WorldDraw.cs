@@ -79,32 +79,32 @@ public class WorldDraw : MonoBehaviour
         }
         else
         {
-            borderTilemap.SetTile(new Vector3Int(x, y, -1), walls[Random.Range(0, walls.Length)]);
+            borderTilemap.SetTile(new Vector3Int(x, y, 0), walls[Random.Range(0, walls.Length)]);
             tilemap.SetTile(new Vector3Int(x, y), floors[Random.Range(0, floors.Length)]);
             if (x < worldScr.width - 1 && worldScr.world[x + 1, y] != 0)
             {
-                borderTilemap.SetTile(new Vector3Int(x, y, 0), borders[0]);
+                borderTilemap.SetTile(new Vector3Int(x, y, 1), borders[0]);
                 Instantiate(border3D, new Vector3(x + 1, y + 0.5f, -0.35f), Quaternion.Euler(180, 90, 90));
             }
-            else borderTilemap.SetTile(new Vector3Int(x, y, 0), null);
+            else borderTilemap.SetTile(new Vector3Int(x, y, 1), null);
             if (x > 0 && worldScr.world[x - 1, y] != 0)
             {
-                borderTilemap.SetTile(new Vector3Int(x, y, 1), borders[1]);
+                borderTilemap.SetTile(new Vector3Int(x, y, 2), borders[1]);
                 Instantiate(border3D, new Vector3(x, y + 0.5f, -0.35f), Quaternion.Euler(0, 90, -90));
             }
-            else borderTilemap.SetTile(new Vector3Int(x, y, 1), null);
+            else borderTilemap.SetTile(new Vector3Int(x, y, 2), null);
             if (y < worldScr.height - 1 && worldScr.world[x, y + 1] != 0)
             {
-                borderTilemap.SetTile(new Vector3Int(x, y, 2), borders[2]);
+                borderTilemap.SetTile(new Vector3Int(x, y, 3), borders[2]);
                 Instantiate(border3D, new Vector3(x + 0.5f, y + 1f, -0.35f), Quaternion.Euler(90, 0, 0));
             }
-            else borderTilemap.SetTile(new Vector3Int(x, y, 2), null);
+            else borderTilemap.SetTile(new Vector3Int(x, y, 3), null);
             if (y > 0 && worldScr.world[x, y - 1] != 0)
             {
-                borderTilemap.SetTile(new Vector3Int(x, y, 3), borders[3]);
+                borderTilemap.SetTile(new Vector3Int(x, y, 4), borders[3]);
                 Instantiate(border3D, new Vector3(x + 0.5f, y, -0.35f), Quaternion.Euler(-90, -90, -90));
             }
-            else borderTilemap.SetTile(new Vector3Int(x, y, 3), null);
+            else borderTilemap.SetTile(new Vector3Int(x, y, 4), null);
         }
     }
 
