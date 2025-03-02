@@ -7,10 +7,8 @@ using UnityEngine.AI;
 public class NavMeshTestScr : MonoBehaviour
 {
     
-    [SerializeField] NavMeshAgent testAgent;
     [SerializeField] NavMeshSurface surface;
     [SerializeField] WorldFill wfill;
-    GameObject target;
 
     bool flag = false;
 
@@ -20,16 +18,7 @@ public class NavMeshTestScr : MonoBehaviour
         if (wfill.placesSpawned && !flag)
         {
             surface.BuildNavMeshAsync();
-            testAgent.updateRotation = false;
-            testAgent.updateUpAxis = false;
             flag = true;
         }
-        if (!flag) return;
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player");
-            return;
-        }
-        testAgent.SetDestination(target.transform.position);
     }
 }

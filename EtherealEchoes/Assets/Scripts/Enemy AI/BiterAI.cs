@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(SmoothMoveScr))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class BiterAI : MonoBehaviour
 {
     private SpriteRenderer sprRenderer;
@@ -13,6 +14,8 @@ public class BiterAI : MonoBehaviour
     private GameObject target;
 
     private Animator animator;
+
+    private NavMeshAgent agent;
 
     [Tooltip("Смещение по x")]
     [SerializeField]
@@ -57,27 +60,23 @@ public class BiterAI : MonoBehaviour
 
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         sprRenderer = GetComponent<SpriteRenderer>();
-        smoothScr = GetComponent<SmoothMoveScr>();
         animator = GetComponent<Animator>();
         animator.SetFloat("AnimationSpeed", 0f);
         animator.SetFloat("AttackSpeed", attackSpeed);
         dmgHitbox.transform.localScale = new Vector2(attackRange, attackRange);
         dmgHitbox.SetActive(false);
-    }
 
-    private void UpdateTargetVector()
-    {
-        smoothScr.targetMoveVector = (target.transform.position - transform.position + new Vector3(offset_x, offset_y, 0));
-        smoothScr.targetMoveVector = smoothScr.targetMoveVector.normalized;
-        smoothScr.targetMoveVector *= curSpeed;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
 
     private void UpdateAnimations()
     {
-        if (smoothScr.targetMoveVector != Vector2.zero)
+        if (curSpeed != 0)
         {
-            if (smoothScr.targetMoveVector.x < 0)
+            if (transform.position.x > target.transform.position.x)
                 sprRenderer.flipX = true;
             else
                 sprRenderer.flipX = false;
@@ -90,6 +89,7 @@ public class BiterAI : MonoBehaviour
         if (curSpeed <= 0f)
             curSpeed = minSpeed;
         curSpeed = Mathf.Lerp(curSpeed, maxSpeed, Time.deltaTime * acceleration);
+        agent.speed = curSpeed;
     }
 
     private void CheckAttack()
@@ -127,9 +127,9 @@ public class BiterAI : MonoBehaviour
         else
         {
             UpdateSpeed();
-            UpdateTargetVector();
             UpdateAnimations();
             CheckAttack();
+            agent.SetDestination(target.transform.position);
             animator.SetFloat("AnimationSpeed", 1f);
         }
     }
