@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-[RequireComponent(typeof(WorldFill))]
+[RequireComponent(typeof(WorldObject))]
 public class WorldDraw : MonoBehaviour
 {
     [Tooltip("Тайлмап для пола и стен")]
@@ -47,10 +47,7 @@ public class WorldDraw : MonoBehaviour
 
     private Vector2 playerPreviousPos = Vector2.zero;
 
-    private void Start()
-    {
-        worldScr = GetComponent<WorldFill>();
-    }
+    public World world;
 
     private void Update()
     {
@@ -71,8 +68,8 @@ public class WorldDraw : MonoBehaviour
 
     private void DrawCell(int x, int y)
     {
-        if (!worldScr.isCellInBorders(x, y)) return;
-        if (worldScr.world[x, y] != 0)
+        if (!World.isCellInBorders(world.Map, x, y)) return;
+        if (world.Map[x, y] == 0 || world.Map[x, y] == 2)
         {
             tilemap.SetTile(new Vector3Int(x, y), floors[Random.Range(0, floors.Length)]);
             RotateTile(tilemap, new Vector3Int(x, y), Random.Range(0, 4) * 90);
@@ -81,25 +78,25 @@ public class WorldDraw : MonoBehaviour
         {
             borderTilemap.SetTile(new Vector3Int(x, y, 0), walls[Random.Range(0, walls.Length)]);
             tilemap.SetTile(new Vector3Int(x, y), floors[Random.Range(0, floors.Length)]);
-            if (x < worldScr.width - 1 && worldScr.world[x + 1, y] != 0)
+            if (x < world.Width - 1 && world.Map[x + 1, y] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 1), borders[0]);
                 Instantiate(border3D, new Vector3(x + 1, y + 0.5f, -0.35f), Quaternion.Euler(180, 90, 90));
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 1), null);
-            if (x > 0 && worldScr.world[x - 1, y] != 0)
+            if (x > 0 && world.Map[x - 1, y] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 2), borders[1]);
                 Instantiate(border3D, new Vector3(x, y + 0.5f, -0.35f), Quaternion.Euler(0, 90, -90));
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 2), null);
-            if (y < worldScr.height - 1 && worldScr.world[x, y + 1] != 0)
+            if (y < world.Height - 1 && world.Map[x, y + 1] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 3), borders[2]);
                 Instantiate(border3D, new Vector3(x + 0.5f, y + 1f, -0.35f), Quaternion.Euler(90, 0, 0));
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 3), null);
-            if (y > 0 && worldScr.world[x, y - 1] != 0)
+            if (y > 0 && world.Map[x, y - 1] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 4), borders[3]);
                 Instantiate(border3D, new Vector3(x + 0.5f, y, -0.35f), Quaternion.Euler(-90, -90, -90));
@@ -117,7 +114,7 @@ public class WorldDraw : MonoBehaviour
 
     private void ClearCell(int x, int y)
     {
-        if (!worldScr.isCellInBorders(x, y)) return;
+        if (!World.isCellInBorders(world.Map, x, y)) return;
         tilemap.SetTile(new Vector3Int(x, y), null);
         borderTilemap.SetTile(new Vector3Int(x, y, 0), null);
         borderTilemap.SetTile(new Vector3Int(x, y, 1), null);
@@ -140,10 +137,9 @@ public class WorldDraw : MonoBehaviour
     {
         if (drawEverything)
         {
-            if (worldScr == null) worldScr = GetComponent<WorldFill>();
-            for (int x = 0; x < worldScr.width; x++)
+            for (int x = 0; x < world.Width; x++)
             {
-                for (int y = 0; y < worldScr.height; y++)
+                for (int y = 0; y < world.Height; y++)
                 {
                     ClearCell(x, y);
                     DrawCell(x, y);

@@ -6,8 +6,9 @@ using UnityEditor;
 using UnityEngine;
 
 
-[RequireComponent(typeof(WorldFill))]
-public class GeneratorConnectedSectors : MonoBehaviour
+
+[RequireComponent(typeof(WorldObject))]
+public class GeneratorConnectedSectors : MonoBehaviour, LandscapeGenerator
 {
     
 
@@ -33,15 +34,16 @@ public class GeneratorConnectedSectors : MonoBehaviour
 
     private List<Sector> sectors = new List<Sector>();
 
-    public WorldFill worldScr;
+    private int[,] landscape;
 
-    private void Awake()
+    public int[,] GenerateLandscape(int width, int height)
     {
-        worldScr = GetComponent<WorldFill>();
-    }
-    private void Start()
-    {
-        GenerateWorld();
+        landscape = new int[width, height];
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
+                landscape[x, y] = 1;
+        Generate();
+        return landscape;
     }
 
     private Sector CreateStartSector(int[] center)
@@ -52,7 +54,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
 
         int x2 = center[0] + startSize[0] / 2;
         int y2 = center[1] + startSize[1] / 2;
-        while (!worldScr.isSectorEmpty(x1, y1, x2, y2))
+        while (!World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
         {
             startSize[0] = UnityEngine.Random.Range(startSectorSize[0], startSectorSize[2]);
             startSize[1] = UnityEngine.Random.Range(startSectorSize[1], startSectorSize[3]);
@@ -89,7 +91,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y1 = baseSector.y2+1;
                             int x2 = x;
                             int y2 = y1 + size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         else
@@ -98,7 +100,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y1 = baseSector.y2+1;
                             int x2 = x + size[0];
                             int y2 = y1 + size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         break;
@@ -112,7 +114,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y2 = y;
                             int x2 = x1 + size[0];
                             int y1 = y2 - size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         else
@@ -121,7 +123,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y1 = y;
                             int x2 = x1 + size[0];
                             int y2 = y1 + size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         break;
@@ -135,7 +137,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y2 = y;
                             int x1 = x2 - size[0];
                             int y1 = y2 - size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         else
@@ -144,7 +146,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y1 = y;
                             int x1 = x2 - size[0];
                             int y2 = y1 + size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         break;
@@ -158,7 +160,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y2 = baseSector.y1-1;
                             int x2 = x;
                             int y1 = y2 - size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         else
@@ -167,7 +169,7 @@ public class GeneratorConnectedSectors : MonoBehaviour
                             int y2 = baseSector.y1-1;
                             int x2 = x + size[0];
                             int y1 = y2 - size[1];
-                            if (worldScr.isSectorEmpty(x1, y1, x2, y2))
+                            if (World.isSectorFilledWith(landscape, x1, y1, x2, y2, 1))
                                 return new Sector(x1, y1, x2, y2);
                         }
                         break;
@@ -179,55 +181,55 @@ public class GeneratorConnectedSectors : MonoBehaviour
     private void GenerateSectors(int[] center)
     {
         Sector start = CreateStartSector(center);
-        start.Fill(worldScr);
+        World.Fill(landscape, start, 4);
         sectors.Add(start);
         int count = UnityEngine.Random.Range(sectorsCount[0], sectorsCount[1]);
 
         for (int i = 0; i < count; i++)
         {
             Sector sector = GenerateSector();
-            sector.Fill(worldScr);
+            World.Fill(landscape, sector, 4);
             sectors.Add(sector);
         }
     }
 
     public void BorderStep()
     {
-        int[,] worldCopy = new int[worldScr.width, worldScr.height];
-        for (int x = 1; x < worldScr.width - 1; x++)
+        int[,] worldCopy = new int[landscape.GetLength(0), landscape.GetLength(1)];
+        for (int x = 1; x < landscape.GetLength(0) - 1; x++)
         {
-            for (int y = 1; y < worldScr.height - 1; y++)
+            for (int y = 1; y < landscape.GetLength(1) - 1; y++)
             {
-                worldCopy[x, y] = worldScr.world[x, y];
-                if (worldScr.world[x, y] == 2) continue;
+                worldCopy[x, y] = landscape[x, y];
+                if (landscape[x, y] == 4) continue;
                 int cellsNearby = 0;
                 for (int xx = -1; xx <= 1; xx++)
                 {
                     for (int yy = -1; yy <= 1; yy++)
                     {
                         if (xx == 0 && yy == 0) continue;
-                        if (worldScr.world[x + xx, y + yy] != 0) cellsNearby++;
+                        if (landscape[x + xx, y + yy] != 1) cellsNearby++;
                     }
                 }
 
-                if (worldScr.world[x, y] != 0)
+                if (landscape[x, y] != 1)
                 {
-                    if (cellsNearby <= 3) worldCopy[x, y] = 0;
+                    if (cellsNearby <= 3) worldCopy[x, y] = 1;
                 }
-                else if (cellsNearby >= 4) worldCopy[x, y] = 1;
+                else if (cellsNearby >= 4) worldCopy[x, y] = 0;
             }
         }
-        worldScr.world = worldCopy;
+        landscape = worldCopy;
     }
 
     private void GenerateBorders(int steps)
     {
-        for (int x = 1; x < worldScr.width - 1; x++)
+        for (int x = 1; x < landscape.GetLength(0) - 1; x++)
         {
-            for (int y = 1; y < worldScr.height - 1; y++)
+            for (int y = 1; y < landscape.GetLength(1) - 1; y++)
             {
-                if (worldScr.world[x, y] == 2) continue;
-                worldScr.world[x, y] = UnityEngine.Random.Range(0, 1f) < cellChance ? 1 : 0;
+                if (landscape[x, y] == 4) continue;
+                landscape[x, y] = UnityEngine.Random.Range(0, 1f) < cellChance ? 0 : 1;
             }
         }
         for (int i = 0; i < steps; i++)
@@ -238,29 +240,41 @@ public class GeneratorConnectedSectors : MonoBehaviour
 
     public void DeleteOtherTiles()
     {
-        int[] center = { worldScr.width / 2, worldScr.height / 2 };
+        int[] center = { landscape.GetLength(0) / 2, landscape.GetLength(1) / 2 };
 
         Queue<Tuple<int, int>> queue = new Queue<Tuple<int, int>>();
         queue.Enqueue(new Tuple<int, int>(center[0], center[1]));
+        int xxx = 0;
         while (queue.Any())
         {
-            Tuple<int, int> point = queue.Dequeue();
-            if (worldScr.world[point.Item1, point.Item2] != 1 && worldScr.world[point.Item1, point.Item2] != 2)
-                continue;
-            worldScr.world[point.Item1, point.Item2] = 3;
-            EnqueueIfMatches(worldScr.world, queue, point.Item1 - 1, point.Item2);
-            EnqueueIfMatches(worldScr.world, queue, point.Item1 + 1, point.Item2);
-            EnqueueIfMatches(worldScr.world, queue, point.Item1, point.Item2 - 1);
-            EnqueueIfMatches(worldScr.world, queue, point.Item1, point.Item2 + 1);
-        }
-        for (int x = 0; x < worldScr.width; x++)
-        {
-            for (int y = 0; y < worldScr.height; y++)
+            xxx++;
+            if (xxx > 1000000)
             {
-                if (worldScr.world[x, y] != 3)
-                    worldScr.world[x, y] = 0;
+                Debug.Log(1);
+                break; 
+            }
+            Tuple<int, int> point = queue.Dequeue();
+            if (landscape[point.Item1, point.Item2] != 0 && landscape[point.Item1, point.Item2] != 4)
+                continue;
+            landscape[point.Item1, point.Item2] = 5;
+            EnqueueIfMatches(landscape, queue, point.Item1 - 1, point.Item2);
+            EnqueueIfMatches(landscape, queue, point.Item1 + 1, point.Item2);
+            EnqueueIfMatches(landscape, queue, point.Item1, point.Item2 - 1);
+            EnqueueIfMatches(landscape, queue, point.Item1, point.Item2 + 1);
+        }
+        for (int x = 0; x < landscape.GetLength(0); x++)
+        {
+            for (int y = 0; y < landscape.GetLength(1); y++)
+            {
+                if (landscape[x, y] != 5)
+                {
+                    if (landscape[x, y] != 3)
+                    {
+                        landscape[x, y] = 1;
+                    }
+                }
                 else
-                    worldScr.world[x, y] = 1;
+                    landscape[x, y] = 0;
             }
         }
     }
@@ -268,42 +282,20 @@ public class GeneratorConnectedSectors : MonoBehaviour
     {
         if (x < 0 || x >= array.GetLength(0) || y < 0 || y >= array.GetLength(1))
             return;
-        if (array[x, y] == 1 || array[x, y] == 2)
+        if (array[x, y] == 0 || array[x, y] == 4)
             queue.Enqueue(new Tuple<int, int>(x, y));
     }
 
-    public void GenerateWorld()
+    public void Generate()
     {
         sectors = new List<Sector>();
-        worldScr.world = new int[worldScr.width, worldScr.height];
-        int[] center = { worldScr.width / 2, worldScr.height / 2 };
+        int[] center = { landscape.GetLength(0) / 2, landscape.GetLength(1) / 2 };
         GenerateSectors(center);
 
         GenerateBorders(steps);
 
         DeleteOtherTiles();
-        worldScr.DrawEverything();
-        worldScr.generated = true;
     }
-   
-}
 
-[CustomEditor(typeof(GeneratorConnectedSectors))]
-public class SectorGenUI : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-        GeneratorConnectedSectors gen = (GeneratorConnectedSectors)target;
-        if (GUILayout.Button("Пересоздать"))
-        {
-            gen.GenerateWorld();
-        }
-        if (GUILayout.Button("Шаг сглаживания"))
-        {
-            gen.BorderStep();
-            gen.worldScr.DrawEverything();
-            gen.worldScr.generated = true;
-        }
-    }
+    
 }

@@ -7,18 +7,16 @@ using UnityEngine.AI;
 public class NavMeshTestScr : MonoBehaviour
 {
     
-    [SerializeField] NavMeshSurface surface;
-    [SerializeField] WorldFill wfill;
+    NavMeshSurface surface;
 
-    bool flag = false;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (wfill.placesSpawned && !flag)
-        {
-            surface.BuildNavMeshAsync();
-            flag = true;
-        }
+        surface = GetComponent<NavMeshSurface>();
+    }
+
+    public void Build()
+    {
+        surface.BuildNavMeshAsync();
     }
 }

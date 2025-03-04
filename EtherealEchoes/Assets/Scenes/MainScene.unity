@@ -686,7 +686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 293272650}
-  - component: {fileID: 293272652}
+  - component: {fileID: 293272655}
   - component: {fileID: 293272651}
   - component: {fileID: 293272653}
   - component: {fileID: 293272654}
@@ -732,23 +732,6 @@ MonoBehaviour:
   sectorsSize: 06000000050000000a0000000a000000
   cellChance: 0.3
   steps: 3
-  worldScr: {fileID: 0}
---- !u!114 &293272652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293272649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cdfb6dc4419bf24fbe9a7258db8e03d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 300
-  height: 300
-  generated: 0
-  placesSpawned: 0
 --- !u!114 &293272653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,7 +893,7 @@ MonoBehaviour:
       height: 2
       offset_x: 0
       offset_y: 0
-      offset_z: 1
+      offset_z: 0
       random_offset: 0
       obj: {fileID: 3719771159645246137, guid: 43fe4fcb217822b459b9bf7c863f55b9, type: 3}
       rotationAngle: -25
@@ -958,6 +941,23 @@ MonoBehaviour:
     random_offset: 0
     obj: {fileID: 2109701238067539651, guid: bb98fd7aeaeacc54a82cf6d112d7ab5e, type: 3}
     rotationAngle: -25
+--- !u!114 &293272655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293272649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08d2efa65b092247a2ea92570c03595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 300
+  height: 300
+  worldDraw: {fileID: 293272653}
+  navSurfaces:
+  - {fileID: 1906459171}
 --- !u!1001 &370886862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2799,7 +2799,6 @@ GameObject:
   - component: {fileID: 1906459172}
   - component: {fileID: 1906459171}
   - component: {fileID: 1906459170}
-  - component: {fileID: 1906459173}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
@@ -2869,20 +2868,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 293272650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1906459173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906459168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad2d2cb5bae40a42a22ba71c1281318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  surface: {fileID: 1906459171}
-  wfill: {fileID: 293272652}
 --- !u!1 &2004067020
 GameObject:
   m_ObjectHideFlags: 0
