@@ -32,7 +32,7 @@ public class DamageHitBoxScr : MonoBehaviour
     private bool destroyOnZeroHits = true;
 
     // Нанести урон
-    private void Hit(HealthScr otherHP)
+    private void Hit(DamageTakable otherHP)
     {
         if (otherHP.CanHitBy(damageTag) && damageCount != 0)
         {
@@ -49,7 +49,7 @@ public class DamageHitBoxScr : MonoBehaviour
             if (obj.CompareTag(s))
                 return;
         }
-        HealthScr otherHP;
+        DamageTakable otherHP;
         if (obj.TryGetComponent(out otherHP))
         {
             Hit(otherHP);

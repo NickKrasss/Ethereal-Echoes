@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpSpeed: 2
-  mouseForce: 3.5
+  mouseForce: 3.2
 --- !u!50 &7090836307859462887
 Rigidbody2D:
   serializedVersion: 4
@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 9008921220091778637}
   - component: {fileID: 5107536439198902095}
   - component: {fileID: 6522176396091357108}
+  - component: {fileID: 376824166200482438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -811,15 +812,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e147ff7571ffc4abc32803174aa1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
   damageTags:
   - enemy_melee
   - enemy_projectile
   invincibleTime: 0.5
   destroyOnZeroHealth: 0
   invincible: 0
-  hittedThatFrame: 0
+  bar: {fileID: 0}
 --- !u!114 &8967013534699251132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,6 +1031,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &376824166200482438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1706860d4ed8f2c44b876252b5a086ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMaxHealth: 100
+  CurrentHealth: 100
+  baseDamage: 10
+  baseAttackSpeed: 1
+  baseMoveSpeed: 5
+  baseMaxEnergy: 100
+  CurrentEnergy: 100
+  baseAttackRange: 10
+  baseArmor: 0
+  CanRegenerateHealth: 0
+  CanRegenerateEnergy: 1
+  HealthRegenerationRate: 1
+  EnergyRegenerationRate: 2
+  level: 1
 --- !u!1 &8728558294600975588
 GameObject:
   m_ObjectHideFlags: 0

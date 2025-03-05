@@ -35,8 +35,6 @@ public class WorldDraw : MonoBehaviour
     [SerializeField]
     private bool drawEverything = false;
 
-    private WorldFill worldScr;
-
     [Tooltip("Радиус отрисовки мира.")]
     [SerializeField]
     private int renderRadius = 10;
@@ -124,9 +122,9 @@ public class WorldDraw : MonoBehaviour
 
     public void ClearAllCells()
     {
-        for (int x = 0; x < worldScr.width; x++)
+        for (int x = 0; x < world.Width; x++)
         {
-            for (int y = 0; y < worldScr.height; y++)
+            for (int y = 0; y < world.Height; y++)
             {
                 ClearCell(x, y);
             }

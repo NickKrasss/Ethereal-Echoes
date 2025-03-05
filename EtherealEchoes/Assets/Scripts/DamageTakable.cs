@@ -5,15 +5,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class HealthScr : MonoBehaviour
+[RequireComponent(typeof(Stats))]
+public class DamageTakable : MonoBehaviour
 {
     private Collider2D col;
 
-    [Tooltip("Текущее здоровье")]
-    public float health = 0f;
-
-    [Tooltip("Максимальное здоровье")]
-    public float maxHealth = 0f;
+    private Stats stats;
 
     [Tooltip("Источники урона")]
     [SerializeField]
@@ -33,7 +30,8 @@ public class HealthScr : MonoBehaviour
     [SerializeField]
     private bool invincible = false;
 
-    public bool hittedThatFrame = false;
+    [SerializeField]
+    private Bar bar;
 
     public bool IsInvincible()
     {
@@ -49,14 +47,18 @@ public class HealthScr : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (IsInvincible()) return;
+        damage = stats.GetDamageTaken(damage);
         if (damage < 0) return;
 
-        hittedThatFrame = true;
+        stats.CurrentHealth -= damage;
+        if (stats.CurrentHealth < 0) stats.CurrentHealth = 0;
 
-        health -= damage;
-        if (health < 0) health = 0;
+        if (bar)
+        {
+            bar.Shake();
+        }
 
-        if (destroyOnZeroHealth && health <= 0)
+        if (destroyOnZeroHealth && stats.CurrentHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -64,18 +66,27 @@ public class HealthScr : MonoBehaviour
         {
             currentInvincibleTime = invincibleTime;
         }
+
     }
 
     private void Start()
     {
         col = GetComponent<Collider2D>();
+        stats = GetComponent<Stats>();
     }
 
     private void Update()
     {
-        hittedThatFrame = false;
         if (currentInvincibleTime > 0) currentInvincibleTime -= Time.deltaTime;
         if (currentInvincibleTime < 0) currentInvincibleTime = 0;                   // Просчитывает кадры неуязвимости
+
+        if (!bar) 
+        {
+            if (gameObject.CompareTag("Player"))
+                bar = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Bar>(); 
+        }
+        else bar.SetValue(stats.CurrentHealth / stats.MaxHealth);
+
     }
 
 

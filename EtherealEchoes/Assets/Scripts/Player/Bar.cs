@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HPBar : MonoBehaviour
+public class Bar : MonoBehaviour
 {
-    private HealthScr healthScr;
     private RectTransform line;
     private RectTransform backLine;
 
@@ -22,20 +21,15 @@ public class HPBar : MonoBehaviour
         anim = GetComponent<Animation>();
     }
 
-    private void Update()
+    public void Shake()
     {
-        if (healthScr)
-        {
-            if (healthScr.hittedThatFrame)
-                anim.Play();
-            SetLine(healthScr.health / healthScr.maxHealth);
-            SetBackLine(backLineSpeed * Time.deltaTime);
-        }
-        else
-        {
-            if (GameObject.FindGameObjectWithTag("Player"))
-                healthScr = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthScr>();
-        }
+        anim.Play();
+    }
+
+    public void SetValue(float value)
+    {
+        SetLine(value);
+        SetBackLine(backLineSpeed * Time.deltaTime);
     }
 
     private void SetLine(float x)

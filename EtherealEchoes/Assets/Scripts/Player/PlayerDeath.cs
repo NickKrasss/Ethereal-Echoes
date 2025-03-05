@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(HealthScr))]
+[RequireComponent(typeof(Stats))]
 public class PlayerDeath : MonoBehaviour
 {
 
     [SerializeField]
     private GameObject deathScreen;
 
-    private HealthScr healthScr;
+    private Stats stats;
 
     private bool dead = false;
 
@@ -18,13 +18,13 @@ public class PlayerDeath : MonoBehaviour
     {
         deathScreen = GameObject.FindWithTag("DeathScreen");
         deathScreen.SetActive(false);
-        healthScr = GetComponent<HealthScr>(); 
+        stats = GetComponent<Stats>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!dead && healthScr.health <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
+        if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
             deathScreen.SetActive(true);
