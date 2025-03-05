@@ -8,6 +8,7 @@ public class Stats : MonoBehaviour
     // Основные характеристики
 
     [SerializeField] private float baseMaxHealth = 100f; // Максимальное здоровье
+    [SerializeField] private bool isMaxHealthAffectedByLevel = true;
 
     public float BaseMaxHealth
     {
@@ -17,12 +18,19 @@ public class Stats : MonoBehaviour
 
     public float MaxHealth 
     {
-        get { return getValueAffectedByLevel(baseMaxHealth, level); }
+        get 
+        { 
+            if (isMaxHealthAffectedByLevel)
+                return getValueAffectedByLevel(baseMaxHealth, level);
+            return baseMaxHealth;
+        }
     }
 
+    [HideInInspector]
     public float CurrentHealth; // Текущее здоровье
 
     [SerializeField]  private float baseDamage = 10f; // Урон
+    [SerializeField] private bool isDamageAffectedByLevel = true;
     public float BaseDamage
     {
         get { return baseDamage; }
@@ -31,9 +39,15 @@ public class Stats : MonoBehaviour
 
     public float Damage
     {
-        get { return getValueAffectedByLevel(baseDamage, level); }
+        get
+        {
+            if (isDamageAffectedByLevel)
+                return getValueAffectedByLevel(baseDamage, level);
+            return baseDamage;
+        }
     }
     [SerializeField] private float baseAttackSpeed = 1f; // Скорость атаки (атак в секунду)
+    [SerializeField] private bool isAttackSpeedAffectedByLevel = true;
     public float BaseAttackSpeed
     {
         get { return baseAttackSpeed; }
@@ -42,10 +56,16 @@ public class Stats : MonoBehaviour
 
     public float AttackSpeed
     {
-        get { return getValueAffectedByLevel(baseAttackSpeed, level); }
+        get
+        {
+            if (isAttackSpeedAffectedByLevel)
+                return getValueAffectedByLevel(baseAttackSpeed, level);
+            return baseAttackSpeed;
+        }
     }
 
     [SerializeField] private float baseMoveSpeed = 5f; // Скорость передвижения
+    [SerializeField] private bool isMoveSpeedAffectedByLevel = true;
     public float BaseMoveSpeed
     {
         get { return baseMoveSpeed; }
@@ -54,10 +74,16 @@ public class Stats : MonoBehaviour
 
     public float MoveSpeed
     {
-        get { return getValueAffectedByLevel(baseMoveSpeed, level); }
+        get
+        {
+            if (isMoveSpeedAffectedByLevel)
+                return getValueAffectedByLevel(baseMoveSpeed, level);
+            return baseMoveSpeed;
+        }
     }
 
     [SerializeField] private float baseMaxEnergy = 100f; // Максимальная энергия
+    [SerializeField] private bool isMaxEnergyAffectedByLevel = true;
     public float BaseMaxEnergy
     {
         get { return baseMaxEnergy; }
@@ -66,12 +92,18 @@ public class Stats : MonoBehaviour
 
     public float MaxEnergy
     {
-        get { return getValueAffectedByLevel(baseMaxEnergy, level); }
+        get
+        {
+            if (isMaxEnergyAffectedByLevel)
+                return getValueAffectedByLevel(baseMaxEnergy, level);
+            return baseMaxEnergy;
+        }
     }
 
     public float CurrentEnergy; // Текущая энергия
 
     [SerializeField] private float baseAttackRange = 10f; // Дальность атаки
+    [SerializeField] private bool isAttackRangeAffectedByLevel = true;
     public float BaseAttackRange
     {
         get { return baseAttackRange; }
@@ -80,10 +112,16 @@ public class Stats : MonoBehaviour
 
     public float AttackRange
     {
-        get { return getValueAffectedByLevel(baseAttackRange, level); }
+        get
+        {
+            if (isAttackRangeAffectedByLevel)
+                return getValueAffectedByLevel(baseAttackRange, level);
+            return baseAttackRange;
+        }
     }
 
     [SerializeField] private float baseArmor; // Текущий уровень брони
+    [SerializeField] private bool isArmorAffectedByLevel = true;
     public float BaseArmor
     {
         get { return baseArmor; }
@@ -92,8 +130,19 @@ public class Stats : MonoBehaviour
 
     public float Armor
     {
-        get { return getValueAffectedByLevel(baseArmor, level); }
+        get
+        {
+            if (isArmorAffectedByLevel)
+                return getValueAffectedByLevel(baseArmor, level);
+            return baseArmor;
+        }
     }
+
+    [SerializeField] public float BulletSpeed = 16f;
+
+    [SerializeField] public float Knockback = 5f;
+
+    [SerializeField] public float SpreadDegrees = 0;
 
     public bool CanRegenerateHealth = true; // Может ли восстанавливаться здоровье
     public bool CanRegenerateEnergy = true; // Может ли восстанавливаться энергия
@@ -102,6 +151,11 @@ public class Stats : MonoBehaviour
 
     public int level = 1;
 
+    private void Awake()
+    {
+        CurrentHealth = MaxHealth;
+        CurrentEnergy = MaxEnergy;
+    }
 
     void Update()
     {

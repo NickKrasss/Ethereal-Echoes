@@ -4,11 +4,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(SmoothMoveScr))]
+[RequireComponent(typeof(Stats))]
 public class WASDMovementScr : MonoBehaviour
 {
-    [Tooltip("Скорость передвижения")]
-    [SerializeField]
-    private float moveSpeed = 2f;
+    private Stats stats;
 
     public Vector2 wasdVector;
 
@@ -22,19 +21,6 @@ public class WASDMovementScr : MonoBehaviour
 
     private SmoothMoveScr smoothScr;
 
-    public float MoveSpeed
-    {
-        get
-        {
-            return moveSpeed;
-        }
-        set
-        {
-            moveSpeed = value;
-            if (moveSpeed < 1f)
-                moveSpeed = 1f;
-        }
-    }
 
     // Вычисляет targetMoveVector и обновляет его в SmoothMoveScr
     private void UpdateTargetVector()
@@ -52,7 +38,7 @@ public class WASDMovementScr : MonoBehaviour
         if (Input.GetKey(movementKeys["right"]))
             wasdVector += new Vector2(1, 0);  // Right
 
-        wasdVector = wasdVector.normalized * moveSpeed;              // В любую сторону длина вектора будет равна moveSpeed
+        wasdVector = wasdVector.normalized * stats.MoveSpeed;              // В любую сторону длина вектора будет равна moveSpeed
 
         smoothScr.targetMoveVector = wasdVector;
     }
@@ -69,6 +55,7 @@ public class WASDMovementScr : MonoBehaviour
     private void Start()
     {
         smoothScr = GetComponent<SmoothMoveScr>(); // Находит компонент SmoothMoveScr
+        stats = GetComponent<Stats>();
     }
 
     private void Update() 

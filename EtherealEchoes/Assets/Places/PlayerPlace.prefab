@@ -752,7 +752,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5e8677c48b7024b804b99a0f8fef74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   wasdVector: {x: 0, y: 0}
 --- !u!61 &1416872449337078624
 BoxCollider2D:
@@ -900,15 +899,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1998359662101372552}
   bulletPrefab: {fileID: 1961765644102158381, guid: b8dbb0c095f70624d9c86f5d80cc21a6, type: 3}
-  bulletSpeed: 16
-  bulletDamage: 8
-  bulletKnockback: 5
-  fireRate: 6
-  spreadDegrees: 20
-  range: 12
-  rangeInaccuracy: 2
   shootAudioClips:
   - {fileID: 8300000, guid: 31ae3403c420fcf44ad495bb83a7557f, type: 3}
+  rangeInaccuracy: 2
 --- !u!114 &9008921220091778637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,13 +1038,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
   CurrentHealth: 100
-  baseDamage: 10
-  baseAttackSpeed: 1
-  baseMoveSpeed: 5
+  baseDamage: 5
+  baseAttackSpeed: 5
+  baseMoveSpeed: 4
   baseMaxEnergy: 100
   CurrentEnergy: 100
   baseAttackRange: 10
   baseArmor: 0
+  BulletSpeed: 15
+  Knockback: 5
+  SpreadDegrees: 20
   CanRegenerateHealth: 0
   CanRegenerateEnergy: 1
   HealthRegenerationRate: 1

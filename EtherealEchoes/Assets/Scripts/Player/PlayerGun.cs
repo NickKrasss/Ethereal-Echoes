@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class PlayerGun : MonoBehaviour
 {
     [SerializeField]
@@ -11,27 +12,6 @@ public class PlayerGun : MonoBehaviour
     [SerializeField]
     private GameObject bulletPrefab;
 
-    [SerializeField]
-    private float bulletSpeed = 5f;
-
-    [SerializeField]
-    private float bulletDamage = 8;
-
-    [SerializeField]
-    private float bulletKnockback = 5f;
-
-    [SerializeField]
-    private float fireRate = 4;
-
-    [SerializeField]
-    private float spreadDegrees = 0;
-
-    [SerializeField]
-    private float range = 5;
-
-    [SerializeField]
-    private float rangeInaccuracy = 5;
-
     private float reload = 0f;
 
     private AudioSource auSource;
@@ -39,9 +19,14 @@ public class PlayerGun : MonoBehaviour
     [SerializeField]
     private AudioClip[] shootAudioClips;
 
+    private Stats stats;
+
+    [SerializeField] private float rangeInaccuracy = 2;
+
     private void Start()
     {
         auSource = GetComponent<AudioSource>();
+        stats = GetComponent<Stats>();
     }
 
     private void Update()
@@ -58,19 +43,19 @@ public class PlayerGun : MonoBehaviour
     private void Shoot()
     { 
         GameObject bullet = Instantiate(bulletPrefab, new Vector2(transform.position.x, transform.position.y+1), Quaternion.identity);
-        bullet.GetComponent<DamageHitBoxScr>().damage = bulletDamage;
+        bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();
-        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - new Vector3(transform.position.x, transform.position.y + 1, transform.position.z)).normalized * bulletSpeed;
-        float spread = UnityEngine.Random.Range(-spreadDegrees/2, spreadDegrees/2) * Mathf.Deg2Rad;
+        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - new Vector3(transform.position.x, transform.position.y + 1, transform.position.z)).normalized * stats.BulletSpeed;
+        float spread = UnityEngine.Random.Range(-stats.SpreadDegrees/2, stats.SpreadDegrees / 2) * Mathf.Deg2Rad;
         float x = scr.targetMoveVector.x;
         float y = scr.targetMoveVector.y;
         scr.targetMoveVector = new Vector2(x * Mathf.Cos(spread) - y * Mathf.Sin(spread), x * Mathf.Sin(spread) + y * Mathf.Cos(spread));
-        reload = 1 / fireRate;
+        reload = 1 / stats.AttackSpeed;
 
         DestroyAtRange rangeScr = bullet.GetComponent<DestroyAtRange>();
         if (rangeScr)
         { 
-            rangeScr.range = range + UnityEngine.Random.Range(-rangeInaccuracy/2, rangeInaccuracy/2);
+            rangeScr.range = stats.AttackRange + UnityEngine.Random.Range(-rangeInaccuracy/2, rangeInaccuracy/2);
         }
         if (AudioManager.Instance)
             AudioManager.Instance.PlayAudio(auSource, shootAudioClips[UnityEngine.Random.Range(0, shootAudioClips.Length)], SoundType.SFX, 0.15f, 0.05f, 0.1f);
