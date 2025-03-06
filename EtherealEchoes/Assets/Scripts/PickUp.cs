@@ -50,6 +50,7 @@ public class PickUp : MonoBehaviour
                 collision.gameObject.GetComponent<Stats>().AddEnergy(count);
             }
         }
+        Destroy(gameObject);
     }
-
+ 
 }
