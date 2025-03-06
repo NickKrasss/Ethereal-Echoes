@@ -7,6 +7,8 @@ TagManager:
   - DeathScreen
   - Enemy
   - HPBar
+  - Gears
+  - PickUp
   layers:
   - Default
   - TransparentFX

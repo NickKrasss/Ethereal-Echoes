@@ -3423,7 +3423,7 @@ MonoBehaviour:
   id: 0
   radius: 5
   speed: 50
-  count: 0
+  count: 5
 --- !u!50 &2130173178
 Rigidbody2D:
   serializedVersion: 4

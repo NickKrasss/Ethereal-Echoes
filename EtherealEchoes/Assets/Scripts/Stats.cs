@@ -200,4 +200,29 @@ public class Stats : MonoBehaviour
             CurrentEnergy = Mathf.Clamp(CurrentEnergy, 0, MaxEnergy);
         }
     }
+    //Добавление ХП при PickUpе
+    public void AddHp(int hp)
+    {
+        if (CurrentHealth < MaxHealth)
+        {
+            CurrentHealth += hp;
+            if (CurrentHealth > MaxHealth)
+            {
+                CurrentHealth = MaxHealth;
+            }
+        }
+    }
+    //Добавление Энергии при PickUpе
+    public void AddEnergy(int energy)
+    {
+        if (CurrentEnergy < MaxEnergy)
+        {
+            CurrentEnergy += energy;
+            if (CurrentEnergy > MaxEnergy)
+            {
+                CurrentEnergy = MaxEnergy;
+            }
+        }
+    }
+
 }

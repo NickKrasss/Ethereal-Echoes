@@ -7,10 +7,10 @@ using static UnityEngine.GraphicsBuffer;
 [RequireComponent(typeof(Collider2D))]
 public class PickUp : MonoBehaviour
 {
-    [SerializeField] private int id;
+    public int id;
     [SerializeField] private float radius;
     [SerializeField] private float speed;
-    [SerializeField] private int count;
+    public int count;
     Rigidbody2D rb;
     GameObject player;
     void Update()
@@ -33,5 +33,23 @@ public class PickUp : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (id == 0)
+            {
+                collision.gameObject.GetComponent<GearContainer>().AddGears(count);
+            }
+            else if (id == 1)
+            {
+                collision.gameObject.GetComponent<Stats>().AddHp(count);
+            }
+            else if (id == 2)
+            {
+                collision.gameObject.GetComponent<Stats>().AddEnergy(count);
+            }
+        }
+    }
 
 }
