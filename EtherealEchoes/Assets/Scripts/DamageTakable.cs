@@ -80,12 +80,16 @@ public class DamageTakable : MonoBehaviour
         if (currentInvincibleTime > 0) currentInvincibleTime -= Time.deltaTime;
         if (currentInvincibleTime < 0) currentInvincibleTime = 0;                   // Просчитывает кадры неуязвимости
 
-        if (!bar) 
+        if (!bar)
         {
             if (gameObject.CompareTag("Player"))
-                bar = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Bar>(); 
+                bar = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Bar>();
         }
-        else bar.SetValue(stats.CurrentHealth / stats.MaxHealth);
+        else
+        {
+            bar.SetValue(stats.CurrentHealth / stats.MaxHealth);
+            bar.SetMaxHP(stats.MaxHealth);
+        }
 
     }
 
