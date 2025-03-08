@@ -1,14 +1,16 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DropPickUp : MonoBehaviour
 {
     public GameObject GearPrefab;
-    //Максимально число шестерёнок
+    //РњР°РєСЃРёРјР°Р»СЊРЅРѕ С‡РёСЃР»Рѕ С€РµСЃС‚РµСЂС‘РЅРѕРє
     public int min_gears = 1;
-    //Минимальное число шестерёнок 
+    //РњРёРЅРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ С€РµСЃС‚РµСЂС‘РЅРѕРє 
     public int max_gears = 3;
+    //РЎРёР»Р°, СЃ РєРѕС‚РѕСЂРѕР№ РІС‹Р»РµС‚Р°СЋС‚ С€РµСЃС‚РµСЂС‘РЅРєРё
+    public float dropForce = 0.5f;
     void Start()
     {
         
@@ -39,10 +41,16 @@ public class DropPickUp : MonoBehaviour
             PickUp pickUp = gear.GetComponent<PickUp>();
             if (pickUp != null)
             {
-                pickUp.id = 0; 
-                pickUp.count = Random.Range(1, 4); 
+                pickUp.id = 0;
+                pickUp.count = Random.Range(1, 4);
+            }
+            Rigidbody2D rb = gear.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                float angle = Random.Range(0, 2 * Mathf.PI); 
+                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)); 
+                rb.AddForce(direction * dropForce, ForceMode2D.Impulse);
             }
         }
     }
-
-}
+} 
