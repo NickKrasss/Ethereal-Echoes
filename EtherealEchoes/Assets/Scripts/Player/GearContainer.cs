@@ -7,7 +7,8 @@ public class GearContainer : MonoBehaviour
 {
     public int current_gears;
     public int max_gears;
-
+    // Значение шестерёнки (по умолчанию 1)
+    public int value;
     TMP_Text textMeshPro;  
     public void AddGears(int gears)
     {

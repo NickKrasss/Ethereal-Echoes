@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3274577711334597743}
   m_Layer: 0
   m_Name: Test
-  m_TagString: Untagged
+  m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,4 +167,4 @@ MonoBehaviour:
   id: 0
   radius: 5
   speed: 50
-  count: 5
+  count: 2
