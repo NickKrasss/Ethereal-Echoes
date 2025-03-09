@@ -399,9 +399,9 @@ MonoBehaviour:
   GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
   min_gears: 1
   max_gears: 3
-  dropForce: 0.25
+  dropForce: 0.33
   min_count: 1
-  max_count: 4
+  max_count: 3
 --- !u!1 &1908834181410398721
 GameObject:
   m_ObjectHideFlags: 0
