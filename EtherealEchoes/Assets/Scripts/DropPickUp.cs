@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DropPickUp : MonoBehaviour
@@ -15,6 +16,7 @@ public class DropPickUp : MonoBehaviour
     public int min_count;
     //Максимальное число-значение шестерёнок
     public int max_count;
+
     void Start()
     {
         
@@ -57,4 +59,6 @@ public class DropPickUp : MonoBehaviour
             }
         }
     }
+
+
 } 

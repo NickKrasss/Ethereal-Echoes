@@ -8,13 +8,44 @@ using static UnityEngine.GraphicsBuffer;
 public class PickUp : MonoBehaviour
 {
     public int id;
+    // Общее время жизни
+    public float totalLifetime = 20f;
+    // Текущее время жизни
+    private float currentLifetime = 0f;
+    // Время начала мерцания
+    public float flickerStartTime = 15f;
+    // Интервал мерцания
+    public float blinkInterval = 0.2f;
+    // Время следующего мерцания
+    private float nextBlinkTime = 0f;
+    // Текущая видимость
+    private bool isVisible = true;
+    // Компонент для управления видимостью
+    private SpriteRenderer renderer;
     [SerializeField] private float radius;
     [SerializeField] private float speed;
     public int count;
     Rigidbody2D rb;
     GameObject player;
     void Update()
-    { 
+    {
+        currentLifetime += Time.deltaTime;
+        if (currentLifetime >= totalLifetime)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        if (currentLifetime >= flickerStartTime)
+        {
+            float remainingTime = totalLifetime - currentLifetime;
+            blinkInterval = Mathf.Lerp(0.05f, 0.2f, remainingTime / (totalLifetime - flickerStartTime));
+            if (Time.time >= nextBlinkTime)
+            {
+                isVisible = ! isVisible;
+                nextBlinkTime = Time.time + blinkInterval;
+                renderer.enabled = isVisible;
+            }
+        }
         if (!player)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +62,7 @@ public class PickUp : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>(); 
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -165,6 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  totalLifetime: 10
+  flickerStartTime: 6
+  blinkInterval: 0.2
   radius: 3.5
   speed: 40
   count: 2
