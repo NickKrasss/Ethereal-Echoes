@@ -400,6 +400,8 @@ MonoBehaviour:
   min_gears: 1
   max_gears: 3
   dropForce: 0.25
+  min_count: 1
+  max_count: 4
 --- !u!1 &1908834181410398721
 GameObject:
   m_ObjectHideFlags: 0

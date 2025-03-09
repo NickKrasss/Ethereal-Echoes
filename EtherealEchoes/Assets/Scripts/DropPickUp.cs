@@ -11,6 +11,10 @@ public class DropPickUp : MonoBehaviour
     public int max_gears = 3;
     //Сила, с которой вылетают шестерёнки
     public float dropForce = 0.5f;
+    //Минимальное число-значение шестерёнок
+    public int min_count;
+    //Максимальное число-значение шестерёнок
+    public int max_count;
     void Start()
     {
         
@@ -42,7 +46,7 @@ public class DropPickUp : MonoBehaviour
             if (pickUp != null)
             {
                 pickUp.id = 0;
-                pickUp.count = Random.Range(1, 4);
+                pickUp.count = Random.Range(min_count, max_count);
             }
             Rigidbody2D rb = gear.GetComponent<Rigidbody2D>();
             if (rb != null)
