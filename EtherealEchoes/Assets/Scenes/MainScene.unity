@@ -1802,6 +1802,21 @@ MonoBehaviour:
       random_offset: 0
       obj: {fileID: 2640401802100567129, guid: c5eb58c790a179e4eb9b5acab19e4f5b, type: 3}
       rotationAngle: -25
+  - name: "\u042F\u0449\u0438\u043A\u0438"
+    lowerCount: 10
+    upperCount: 20
+    places:
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 30
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 8886474881732523379, guid: abc9e12c4b6df4a46a26cc17faf1bf1e, type: 3}
+      rotationAngle: -25
   playerPlace:
     canRepeat: 0
     hadArleadySpawned: 0
