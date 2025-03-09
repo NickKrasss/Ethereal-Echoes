@@ -20,6 +20,10 @@ public class Bar : MonoBehaviour
     [SerializeField]
     private float backLineSpeed = 5f;
 
+    [SerializeField] private GameObject gear;
+    [SerializeField] private float gearSpeed;
+    private float gearSpeedMult = 1;
+
     private void Start()
     {
         line = GetComponentsInChildren<Image>()[2].GetComponent<RectTransform>();
@@ -28,6 +32,14 @@ public class Bar : MonoBehaviour
         anim = GetComponent<Animation>();
         barSlotStartScale = barSlot.localScale.x;
         barSlotStartWidth = barSlot.sizeDelta.x;
+    }
+
+    private void Update()
+    {
+        if (gear != null)
+        {
+            gear.transform.Rotate(new Vector3(0, 0, -Time.deltaTime * gearSpeed * gearSpeedMult));
+        }
     }
 
     public void Shake()
@@ -39,6 +51,7 @@ public class Bar : MonoBehaviour
     {
         SetLine(value);
         SetBackLine(backLineSpeed * Time.deltaTime);
+        gearSpeedMult = 7.5f - value*5;
     }
 
     public void SetMaxHP(float maxHP)

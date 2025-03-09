@@ -161,6 +161,7 @@ public class Stats : MonoBehaviour
     {
         RegenerateHealth();
         RegenerateEnergy();
+        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
     }
 
     public static float getValueAffectedByLevel(float value, int level)

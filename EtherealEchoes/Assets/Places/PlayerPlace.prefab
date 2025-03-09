@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 5107536439198902095}
   - component: {fileID: 6522176396091357108}
   - component: {fileID: 376824166200482438}
+  - component: {fileID: 772796836802138900}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -753,6 +754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wasdVector: {x: 0, y: 0}
+  runEnergyCost: 10
+  runMult: 1.5
+  speed: 0
 --- !u!61 &1416872449337078624
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -902,6 +906,7 @@ MonoBehaviour:
   shootAudioClips:
   - {fileID: 8300000, guid: 31ae3403c420fcf44ad495bb83a7557f, type: 3}
   rangeInaccuracy: 2
+  attackEnergyCost: 4
 --- !u!114 &9008921220091778637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,22 +1042,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
+  isMaxHealthAffectedByLevel: 1
   CurrentHealth: 100
   baseDamage: 5
+  isDamageAffectedByLevel: 1
   baseAttackSpeed: 5
+  isAttackSpeedAffectedByLevel: 1
   baseMoveSpeed: 4
+  isMoveSpeedAffectedByLevel: 1
   baseMaxEnergy: 100
+  isMaxEnergyAffectedByLevel: 1
   CurrentEnergy: 100
   baseAttackRange: 10
+  isAttackRangeAffectedByLevel: 1
   baseArmor: 0
+  isArmorAffectedByLevel: 1
   BulletSpeed: 15
   Knockback: 5
-  SpreadDegrees: 20
+  SpreadDegrees: 10
   CanRegenerateHealth: 0
   CanRegenerateEnergy: 1
   HealthRegenerationRate: 1
-  EnergyRegenerationRate: 2
+  EnergyRegenerationRate: 25
   level: 1
+--- !u!114 &772796836802138900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d194527de301704483d1fdf41d98568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bar: {fileID: 0}
+  cooldown: 2
 --- !u!1 &8728558294600975588
 GameObject:
   m_ObjectHideFlags: 0

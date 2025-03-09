@@ -17,5 +17,6 @@ public class PlayerMoveAnimation : MonoBehaviour
     void Update()
     {
         animator.SetFloat("MoveBlend", Mathf.Lerp(animator.GetFloat("MoveBlend"), wasdMovement.wasdVector != Vector2.zero ? 1 : 0, 10 * Time.deltaTime));
+        animator.SetFloat("MoveSpeedMult", Mathf.Sqrt(wasdMovement.speed / 4));
     }
 }
