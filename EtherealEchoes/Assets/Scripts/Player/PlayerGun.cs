@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Stats))]
+[RequireComponent(typeof(EnergySpender))]
 public class PlayerGun : MonoBehaviour
 {
     [SerializeField]
-    private Camera camera;
+    private new Camera camera;
 
     [SerializeField]
     private GameObject bulletPrefab;
@@ -23,15 +24,20 @@ public class PlayerGun : MonoBehaviour
 
     [SerializeField] private float rangeInaccuracy = 2;
 
+    [SerializeField] private float attackEnergyCost;
+
+    private EnergySpender energySpender;
+
     private void Start()
     {
         auSource = GetComponent<AudioSource>();
         stats = GetComponent<Stats>();
+        energySpender = GetComponent<EnergySpender>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && reload <= 0f)
+        if (Input.GetMouseButton(0) && reload <= 0f && energySpender.SpendEnergy(attackEnergyCost))
         {
             Shoot();    
         }
@@ -58,7 +64,7 @@ public class PlayerGun : MonoBehaviour
             rangeScr.range = stats.AttackRange + UnityEngine.Random.Range(-rangeInaccuracy/2, rangeInaccuracy/2);
         }
         if (AudioManager.Instance)
-            AudioManager.Instance.PlayAudio(auSource, shootAudioClips[UnityEngine.Random.Range(0, shootAudioClips.Length)], SoundType.SFX, 0.15f, 0.05f, 0.1f);
+            AudioManager.Instance.PlayAudio(auSource, shootAudioClips[UnityEngine.Random.Range(0, shootAudioClips.Length)], SoundType.SFX, 0.17f, 0.01f, 0.05f);
     }
 }
 

@@ -32,6 +32,7 @@ public class PlayerDeath : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<WASDMovementScr>().enabled = false;
             GetComponent<SmoothMoveScr>().enabled = false;
+            GetComponent<PlayerGun>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             Time.timeScale = 0.4f;
         }

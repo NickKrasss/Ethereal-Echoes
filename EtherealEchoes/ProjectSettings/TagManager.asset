@@ -8,7 +8,7 @@ TagManager:
   - Enemy
   - HPBar
   - Gears
-  - PickUp
+  - EnergyBar
   layers:
   - Default
   - TransparentFX
