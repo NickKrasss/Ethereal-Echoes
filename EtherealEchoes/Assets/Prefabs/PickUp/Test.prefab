@@ -168,6 +168,7 @@ MonoBehaviour:
   totalLifetime: 10
   flickerStartTime: 6
   blinkInterval: 0.2
-  radius: 3.5
-  speed: 40
+  radius: 5
+  speed: 50
   count: 2
+  OffsetY: 0.2

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -23,8 +24,11 @@ public class PickUp : MonoBehaviour
     // Компонент для управления видимостью
     private SpriteRenderer renderer;
     [SerializeField] private float radius;
-    [SerializeField] private float speed;
+    //Скорость PickUpа
+    public float speed;
     public int count;
+    //Позиция Y для PickUpа
+    [SerializeField] private float OffsetY;
     Rigidbody2D rb;
     GameObject player;
     void Update()
@@ -51,9 +55,11 @@ public class PickUp : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
             return;
         }
-        if (Vector2.Distance(player.transform.position,transform.position)  < radius)
+        Vector3 target = new Vector2(player.transform.position.x, player.transform.position.y - OffsetY);
+        if (Vector2.Distance(target,transform.position)  < radius)
         {
-            Vector2 direction = player.transform.position - transform.position;
+
+            Vector2 direction = target  - transform.position;
             direction = direction.normalized;
             rb.AddForce(direction * speed * Time.deltaTime);
         }
@@ -67,6 +73,7 @@ public class PickUp : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
         {
             if (id == 0)
