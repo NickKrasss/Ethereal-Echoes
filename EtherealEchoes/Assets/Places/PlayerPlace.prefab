@@ -823,6 +823,8 @@ MonoBehaviour:
   invincibleTime: 0.5
   destroyOnZeroHealth: 0
   invincible: 0
+  animateOnHit: 1
+  hitAnimationSpeed: 4
   bar: {fileID: 0}
   damageTakenEvent:
     m_PersistentCalls:

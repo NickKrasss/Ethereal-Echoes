@@ -254,6 +254,8 @@ MonoBehaviour:
   invincibleTime: 0.01
   destroyOnZeroHealth: 1
   invincible: 0
+  animateOnHit: 1
+  hitAnimationSpeed: 4
   bar: {fileID: 0}
   damageTakenEvent:
     m_PersistentCalls:
@@ -569,6 +571,7 @@ MonoBehaviour:
   damage: 23
   damageTag: enemy_melee
   damageCount: 1
+  knockbackForce: 0
   damageEveryTick: 0
   destroyOnCollision: 0
   ignoreCollisionTags: []
