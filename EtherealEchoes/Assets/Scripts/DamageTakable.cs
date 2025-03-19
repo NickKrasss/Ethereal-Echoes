@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -33,6 +34,8 @@ public class DamageTakable : MonoBehaviour
     [SerializeField]
     private Bar bar;
 
+    public UnityEvent damageTakenEvent = new UnityEvent();
+
     public bool IsInvincible()
     {
         return invincible || currentInvincibleTime > 0;
@@ -49,6 +52,8 @@ public class DamageTakable : MonoBehaviour
         if (IsInvincible()) return;
         damage = stats.GetDamageTaken(damage);
         if (damage < 0) return;
+
+        damageTakenEvent.Invoke();
 
         stats.CurrentHealth -= damage;
         if (stats.CurrentHealth < 0) stats.CurrentHealth = 0;

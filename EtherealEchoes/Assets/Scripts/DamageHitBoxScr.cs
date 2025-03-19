@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(Collider2D))]
 public class DamageHitBoxScr : MonoBehaviour
@@ -31,19 +32,26 @@ public class DamageHitBoxScr : MonoBehaviour
     [SerializeField]
     private bool destroyOnZeroHits = true;
 
+    [SerializeField]
+    private bool makeParticlesOnHit = true;
+
     // Нанести урон
-    private void Hit(DamageTakable otherHP)
+    private void Hit(DamageTakable otherHP, Vector2 pos)
     {
         if (otherHP.CanHitBy(damageTag) && damageCount != 0)
         {
+            SpriteSplitParticlesScr otherSplitParticlesScr;
             otherHP.TakeDamage(damage);
+            if (makeParticlesOnHit && otherHP.gameObject.TryGetComponent(out otherSplitParticlesScr))
+                otherSplitParticlesScr.CreateParticles(pos);
             damageCount--;
             if (damageCount == 0 && destroyOnZeroHits) Destroy(gameObject);
         }
     }
 
-    private void CheckCollision(GameObject obj)
+    private void CheckCollision(GameObject obj, Vector2 pos)
     {
+        
         foreach (string s in ignoreCollisionTags)
         {
             if (obj.CompareTag(s))
@@ -52,7 +60,7 @@ public class DamageHitBoxScr : MonoBehaviour
         DamageTakable otherHP;
         if (obj.TryGetComponent(out otherHP))
         {
-            Hit(otherHP);
+            Hit(otherHP, pos);
         }
         else
         {
@@ -62,18 +70,18 @@ public class DamageHitBoxScr : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        CheckCollision(collision.gameObject);
+        CheckCollision(collision.gameObject, collision.transform.position);
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        CheckCollision(collision.gameObject);
+        CheckCollision(collision.gameObject, collision.transform.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CheckCollision(collision.gameObject);
+        CheckCollision(collision.gameObject, collision.transform.position);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        CheckCollision(collision.gameObject);
+        CheckCollision(collision.gameObject, collision.transform.position);
     }
 }

@@ -9,6 +9,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent (typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
+
 public class BiterAI : MonoBehaviour
 {
     private SpriteRenderer sprRenderer;
