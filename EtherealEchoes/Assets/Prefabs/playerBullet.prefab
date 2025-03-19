@@ -158,6 +158,7 @@ MonoBehaviour:
   destroyOnCollision: 1
   ignoreCollisionTags:
   - Player
+  - PickUp
   destroyOnZeroHits: 1
 --- !u!50 &1718341627285982487
 Rigidbody2D:
