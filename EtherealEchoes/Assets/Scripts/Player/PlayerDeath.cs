@@ -18,7 +18,7 @@ public class PlayerDeath : MonoBehaviour
     {
         deathScreen = GameObject.FindWithTag("DeathScreen");
         deathScreen.SetActive(false);
-        stats = GetComponent<Stats>(); 
+        stats = GetComponent<Stats>();
     }
 
     // Update is called once per frame
