@@ -17,6 +17,9 @@ public class DamageHitBoxScr : MonoBehaviour
     [SerializeField]
     public int damageCount = -1;
 
+    [SerializeField]
+    public float knockbackForce = 0f;
+
     [Tooltip("true - Ѕудет пытатьс€ нанести урон каждый тик. false - только при столкновении")]
     [SerializeField]
     private bool damageEveryTick = false;
@@ -36,20 +39,29 @@ public class DamageHitBoxScr : MonoBehaviour
     private bool makeParticlesOnHit = true;
 
     // Ќанести урон
-    private void Hit(DamageTakable otherHP, Vector2 pos)
+    private void Hit(DamageTakable otherHP, Vector2 collisionPos)
     {
         if (otherHP.CanHitBy(damageTag) && damageCount != 0)
         {
             SpriteSplitParticlesScr otherSplitParticlesScr;
             otherHP.TakeDamage(damage);
+
             if (makeParticlesOnHit && otherHP.gameObject.TryGetComponent(out otherSplitParticlesScr))
-                otherSplitParticlesScr.CreateParticles(pos);
+                otherSplitParticlesScr.CreateParticles(otherHP.transform.position);
+
+            Rigidbody2D otherrb;
+            if (knockbackForce > 0f && otherHP.gameObject.TryGetComponent(out otherrb))
+            {
+                Vector2 direction = (collisionPos - (Vector2)transform.position).normalized;
+                otherrb.AddForce(direction * knockbackForce, ForceMode2D.Impulse);
+            }
+
             damageCount--;
             if (damageCount == 0 && destroyOnZeroHits) Destroy(gameObject);
         }
     }
 
-    private void CheckCollision(GameObject obj, Vector2 pos)
+    private void CheckCollision(GameObject obj, Vector2 collisionPos)
     {
         
         foreach (string s in ignoreCollisionTags)
@@ -60,7 +72,7 @@ public class DamageHitBoxScr : MonoBehaviour
         DamageTakable otherHP;
         if (obj.TryGetComponent(out otherHP))
         {
-            Hit(otherHP, pos);
+            Hit(otherHP, collisionPos);
         }
         else
         {
@@ -70,18 +82,18 @@ public class DamageHitBoxScr : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        CheckCollision(collision.gameObject, collision.transform.position);
+        CheckCollision(collision.gameObject, collision.GetContact(0).point);
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        CheckCollision(collision.gameObject, collision.transform.position);
+        CheckCollision(collision.gameObject, collision.GetContact(0).point);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        CheckCollision(collision.gameObject, collision.transform.position);
+        CheckCollision(collision.gameObject, collision.offset + (Vector2)collision.transform.position);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        CheckCollision(collision.gameObject, collision.transform.position);
+        CheckCollision(collision.gameObject, collision.offset + (Vector2)collision.transform.position);
     }
 }

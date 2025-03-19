@@ -824,6 +824,9 @@ MonoBehaviour:
   destroyOnZeroHealth: 0
   invincible: 0
   bar: {fileID: 0}
+  damageTakenEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8967013534699251132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,7 +1065,7 @@ MonoBehaviour:
   baseArmor: 0
   isArmorAffectedByLevel: 1
   BulletSpeed: 15
-  Knockback: 5
+  Knockback: 1.5
   SpreadDegrees: 10
   CanRegenerateHealth: 0
   CanRegenerateEnergy: 1

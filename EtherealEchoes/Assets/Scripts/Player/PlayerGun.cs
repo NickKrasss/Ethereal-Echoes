@@ -52,6 +52,7 @@ public class PlayerGun : MonoBehaviour
     { 
         GameObject bullet = Instantiate(bulletPrefab, shootPivot.position, Quaternion.identity);
         bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        bullet.GetComponent<DamageHitBoxScr>().knockbackForce = stats.Knockback;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();
         scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - shootPivot.position).normalized * stats.BulletSpeed;
         float spread = UnityEngine.Random.Range(-stats.SpreadDegrees/2, stats.SpreadDegrees / 2) * Mathf.Deg2Rad;
