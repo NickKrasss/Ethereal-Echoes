@@ -624,7 +624,8 @@ GameObject:
   - component: {fileID: 376824166200482438}
   - component: {fileID: 772796836802138900}
   - component: {fileID: 3193517967192808611}
-  - component: {fileID: 8644979928965730449}
+  - component: {fileID: 9026680385496521364}
+  - component: {fileID: 8865811483424022775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -640,7 +641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8260089239986786887}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -793,7 +794,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.37937257}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -803,7 +804,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 0.3}
+  m_Size: {x: 0.8, y: 0.5885106}
   m_EdgeRadius: 0
 --- !u!114 &8154425997805916933
 MonoBehaviour:
@@ -823,7 +824,12 @@ MonoBehaviour:
   invincibleTime: 0.5
   destroyOnZeroHealth: 0
   invincible: 0
+  animateOnHit: 1
+  hitAnimationSpeed: 4
   bar: {fileID: 0}
+  damageTakenEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8967013534699251132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 0}
+  deadBody: {fileID: 2620895947377863448, guid: 5deb3fa531b569a45ba6c1762d58aaa4, type: 3}
 --- !u!95 &5930369628674281566
 Animator:
   serializedVersion: 7
@@ -909,6 +916,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 31ae3403c420fcf44ad495bb83a7557f, type: 3}
   rangeInaccuracy: 2
   attackEnergyCost: 2.5
+  shootPivot: {fileID: 0}
 --- !u!114 &9008921220091778637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -922,6 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1998359662101372552}
+  isFlipped: 0
 --- !u!114 &5107536439198902095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,7 +1069,7 @@ MonoBehaviour:
   baseArmor: 0
   isArmorAffectedByLevel: 1
   BulletSpeed: 15
-  Knockback: 5
+  Knockback: 1.5
   SpreadDegrees: 10
   CanRegenerateHealth: 0
   CanRegenerateEnergy: 1
@@ -1099,7 +1108,7 @@ MonoBehaviour:
   Timer: 0
   IsLevelingUp: 0
   coef: 1.3
---- !u!114 &8644979928965730449
+--- !u!114 &9026680385496521364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1108,10 +1117,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 8260089239986786887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b5c9b5f5ca889b469f7c02ebab488a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a47c3529d54fa84d82886fd0cb94dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionRadius: 2
+  hand1: {fileID: 1735950741136716777}
+  hand2: {fileID: 7008910838918268172}
+  gun1: {fileID: 1601974267548313793}
+  gun2: {fileID: 3127408123693887754}
+  mainCamera: {fileID: 1998359662101372552}
+  rotationOffsetZ: -160
+--- !u!114 &8865811483424022775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8767b74cf7b2d5348b39e2c2ad2a58aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLifetime: 0.2
+  maxLifetime: 1
+  minSize: 5
+  maxSize: 8
+  minCount: 2
+  maxCount: 5
+  minSpeed: 1
+  maxSpeed: 2.5
+  gravity: 0.1
+  offset: {x: 0, y: 0.7}
+  randOffset: 0.2
+  objSize: 3.2
 --- !u!1 &8728558294600975588
 GameObject:
   m_ObjectHideFlags: 0

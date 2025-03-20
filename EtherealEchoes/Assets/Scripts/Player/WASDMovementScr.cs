@@ -48,9 +48,8 @@ public class WASDMovementScr : MonoBehaviour
             wasdVector += new Vector2(1, 0);  // Right
 
 
-        if (Input.GetKey(movementKeys["run"]))
+        if (Input.GetKey(movementKeys["run"]) && wasdVector != Vector2.zero && energySpender.SpendEnergy(Time.deltaTime * runEnergyCost))
         {
-            if (energySpender.SpendEnergy(Time.deltaTime * runEnergyCost))
                 speed = stats.MoveSpeed * runMult;
         }
         else

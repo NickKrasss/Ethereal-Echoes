@@ -77,14 +77,16 @@ GameObject:
   - component: {fileID: 3694769651812832459}
   - component: {fileID: 6347920241642247879}
   - component: {fileID: 1976373763667696483}
-  - component: {fileID: 7277477724307231433}
   - component: {fileID: 2652803212963730430}
   - component: {fileID: 6508757577367865810}
   - component: {fileID: 3501592577838649090}
   - component: {fileID: 1120520207992557072}
   - component: {fileID: 4387150056013258446}
+  - component: {fileID: 1825011693381757197}
+  - component: {fileID: 230280558180305096}
+  - component: {fileID: 4541262098357294470}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Biter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,23 +256,12 @@ MonoBehaviour:
   invincibleTime: 0.01
   destroyOnZeroHealth: 1
   invincible: 0
+  animateOnHit: 1
+  hitAnimationSpeed: 4
   bar: {fileID: 0}
---- !u!114 &7277477724307231433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1906722637384951226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17338eea246f234f972dad0c4b0367f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
-  range: 70
-  componentsToDisable:
-  - {fileID: 2652803212963730430}
+  damageTakenEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2652803212963730430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +277,7 @@ MonoBehaviour:
   offset_x: 0
   offset_y: 0.35
   minSpeed: 0.5
-  spotRange: 14
+  spotRange: 8.5
   acceleration: 0.13
   dmgHitbox: {fileID: 3694165749101516598}
 --- !u!195 &6508757577367865810
@@ -345,8 +336,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.1}
-  m_Size: {x: 0.7, y: 0.3}
+  m_Offset: {x: -0.000000003891956, y: -0.032648098}
+  m_Size: {x: 0.7000002, y: 0.48322648}
   m_Direction: 1
 --- !u!114 &1120520207992557072
 MonoBehaviour:
@@ -402,6 +393,57 @@ MonoBehaviour:
   dropForce: 0.33
   min_count: 1
   max_count: 3
+--- !u!114 &1825011693381757197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906722637384951226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8767b74cf7b2d5348b39e2c2ad2a58aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLifetime: 0.2
+  maxLifetime: 1
+  minSize: 5
+  maxSize: 8
+  minCount: 2
+  maxCount: 5
+  minSpeed: 1
+  maxSpeed: 2.5
+  gravity: 0.1
+  offset: {x: 0, y: 0.7}
+  randOffset: 0.2
+  objSize: 1
+--- !u!114 &230280558180305096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906722637384951226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a035b9fa14f954290cd7b1bef3a9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadBody: {fileID: 8128459575854119325, guid: 707555f89f46c2f4a9e1b9abd825e7c8, type: 3}
+--- !u!114 &4541262098357294470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906722637384951226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c051a729ae069924aba4d5c3c688d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipX: 1
+  flipY: 0
 --- !u!1 &1908834181410398721
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,10 +600,12 @@ MonoBehaviour:
   damage: 23
   damageTag: enemy_melee
   damageCount: 1
+  knockbackForce: 0
   damageEveryTick: 0
   destroyOnCollision: 0
   ignoreCollisionTags: []
   destroyOnZeroHits: 0
+  makeParticlesOnHit: 1
 --- !u!1 &3719771159645246137
 GameObject:
   m_ObjectHideFlags: 0

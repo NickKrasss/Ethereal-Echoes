@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,9 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField]
     private GameObject deathScreen;
 
+    [SerializeField]
+    private GameObject deadBody;
+
     private Stats stats;
 
     private bool dead = false;
@@ -18,7 +22,7 @@ public class PlayerDeath : MonoBehaviour
     {
         deathScreen = GameObject.FindWithTag("DeathScreen");
         deathScreen.SetActive(false);
-        stats = GetComponent<Stats>(); 
+        stats = GetComponent<Stats>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,8 @@ public class PlayerDeath : MonoBehaviour
         if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
+            DeadBodyScr dbs = Instantiate(deadBody, transform.position, transform.rotation).GetComponent<DeadBodyScr>();
+            dbs.flip = GetComponent<SpriteRenderer>().flipX;
             deathScreen.SetActive(true);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

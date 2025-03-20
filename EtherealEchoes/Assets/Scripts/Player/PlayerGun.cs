@@ -28,6 +28,8 @@ public class PlayerGun : MonoBehaviour
 
     private EnergySpender energySpender;
 
+    [HideInInspector] public Transform shootPivot;
+
     private void Start()
     {
         auSource = GetComponent<AudioSource>();
@@ -48,10 +50,11 @@ public class PlayerGun : MonoBehaviour
 
     private void Shoot()
     { 
-        GameObject bullet = Instantiate(bulletPrefab, new Vector2(transform.position.x, transform.position.y+1), Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, shootPivot.position, Quaternion.identity);
         bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        bullet.GetComponent<DamageHitBoxScr>().knockbackForce = stats.Knockback;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();
-        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - new Vector3(transform.position.x, transform.position.y + 1, transform.position.z)).normalized * stats.BulletSpeed;
+        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - shootPivot.position).normalized * stats.BulletSpeed;
         float spread = UnityEngine.Random.Range(-stats.SpreadDegrees/2, stats.SpreadDegrees / 2) * Mathf.Deg2Rad;
         float x = scr.targetMoveVector.x;
         float y = scr.targetMoveVector.y;
