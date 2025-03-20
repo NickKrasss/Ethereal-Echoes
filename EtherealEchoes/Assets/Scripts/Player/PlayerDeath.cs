@@ -10,6 +10,9 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField]
     private GameObject deathScreen;
 
+    [SerializeField]
+    private GameObject deadBody;
+
     private Stats stats;
 
     private bool dead = false;
@@ -27,6 +30,7 @@ public class PlayerDeath : MonoBehaviour
         if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
+            Instantiate(deadBody, transform.position, transform.rotation);
             deathScreen.SetActive(true);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

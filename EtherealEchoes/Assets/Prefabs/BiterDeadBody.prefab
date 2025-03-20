@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 7136271347662157020}
   m_Layer: 0
   m_Name: BiterDeadBody
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,4 +386,4 @@ MonoBehaviour:
   parts: []
   fallSpeed: 4
   spreadForce: 2.5
-  spreadForceRandomOffset: 0.3
+  spreadForceRandomOffset: 1

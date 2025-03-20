@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 772796836802138900}
   - component: {fileID: 3193517967192808611}
   - component: {fileID: 9026680385496521364}
+  - component: {fileID: 8865811483424022775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -842,6 +843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathScreen: {fileID: 0}
+  deadBody: {fileID: 2620895947377863448, guid: 5deb3fa531b569a45ba6c1762d58aaa4, type: 3}
 --- !u!95 &5930369628674281566
 Animator:
   serializedVersion: 7
@@ -1124,6 +1126,30 @@ MonoBehaviour:
   gun2: {fileID: 3127408123693887754}
   mainCamera: {fileID: 1998359662101372552}
   rotationOffsetZ: -160
+--- !u!114 &8865811483424022775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8767b74cf7b2d5348b39e2c2ad2a58aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLifetime: 0.2
+  maxLifetime: 1
+  minSize: 5
+  maxSize: 8
+  minCount: 2
+  maxCount: 5
+  minSpeed: 1
+  maxSpeed: 2.5
+  gravity: 0.1
+  offset: {x: 0, y: 0.7}
+  randOffset: 0.2
+  objSize: 3.2
 --- !u!1 &8728558294600975588
 GameObject:
   m_ObjectHideFlags: 0
