@@ -334,7 +334,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: b43c831a3137d804ea71b487fde4bed8, type: 3}
-  m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Bounds:
     m_Center: {x: 0, y: 0.0012030602, z: 0}
     m_Extent: {x: 0.5625, y: 1.1394219, z: 0}
-  m_AlwaysUpdate: 0
+  m_AlwaysUpdate: 1
   m_AutoRebind: 0
 --- !u!114 &7136271347662157020
 MonoBehaviour:
@@ -387,3 +387,4 @@ MonoBehaviour:
   fallSpeed: 4
   spreadForce: 2.5
   spreadForceRandomOffset: 1
+  flip: 0

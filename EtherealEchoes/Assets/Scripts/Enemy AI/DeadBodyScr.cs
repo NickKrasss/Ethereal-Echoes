@@ -12,9 +12,12 @@ public class DeadBodyScr : MonoBehaviour
     [SerializeField] private float spreadForce;
     [SerializeField] private float spreadForceRandomOffset;
 
+    public bool flip = false;
+
     private void Start()
     {
         parts = transform.GetComponentsInChildren<Transform>()[1..];
+        GetComponent<SpriteRenderer>().flipX = flip;
         foreach (var part in parts)
         {
             Rigidbody2D rb = part.AddComponent<Rigidbody2D>();

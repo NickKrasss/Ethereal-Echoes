@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,7 +31,8 @@ public class PlayerDeath : MonoBehaviour
         if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
-            Instantiate(deadBody, transform.position, transform.rotation);
+            DeadBodyScr dbs = Instantiate(deadBody, transform.position, transform.rotation).GetComponent<DeadBodyScr>();
+            dbs.flip = GetComponent<SpriteRenderer>().flipX;
             deathScreen.SetActive(true);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;

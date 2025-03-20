@@ -12,6 +12,7 @@ public class SpawnPartsOnDeath : MonoBehaviour
     private void OnDestroy()
     {
         if (!gameObject.scene.isLoaded) return;
-        Instantiate(deadBody, transform.position, transform.rotation);
+        DeadBodyScr dbs = Instantiate(deadBody, transform.position, transform.rotation).GetComponent<DeadBodyScr>();
+        dbs.flip = GetComponent<SpriteRenderer>().flipX;
     }
 }

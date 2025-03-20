@@ -122,7 +122,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 556c58238a1ad0d4fac15b5047a04bac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   fallSpeed: 4
   spreadForce: 2.5
   spreadForceRandomOffset: 1
+  flip: 0
 --- !u!1 &2915017439498180201
 GameObject:
   m_ObjectHideFlags: 0

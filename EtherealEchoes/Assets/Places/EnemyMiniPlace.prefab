@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 4387150056013258446}
   - component: {fileID: 1825011693381757197}
   - component: {fileID: 230280558180305096}
+  - component: {fileID: 4541262098357294470}
   m_Layer: 0
   m_Name: Biter
   m_TagString: Enemy
@@ -276,7 +277,7 @@ MonoBehaviour:
   offset_x: 0
   offset_y: 0.35
   minSpeed: 0.5
-  spotRange: 14
+  spotRange: 8.5
   acceleration: 0.13
   dmgHitbox: {fileID: 3694165749101516598}
 --- !u!195 &6508757577367865810
@@ -429,6 +430,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deadBody: {fileID: 8128459575854119325, guid: 707555f89f46c2f4a9e1b9abd825e7c8, type: 3}
+--- !u!114 &4541262098357294470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906722637384951226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c051a729ae069924aba4d5c3c688d5e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipX: 1
+  flipY: 0
 --- !u!1 &1908834181410398721
 GameObject:
   m_ObjectHideFlags: 0
