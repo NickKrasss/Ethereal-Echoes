@@ -36,11 +36,22 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         GameObject obj = Instantiate(
                         place.obj,
                         new Vector3(sector.center[0] + place.offset_x + Random.Range(-place.random_offset, place.random_offset), sector.center[1] + place.offset_y + Random.Range(-place.random_offset, place.random_offset), place.offset_z),
-                        Quaternion.Euler(place.rotationAngle, 0, 0)
+                        Quaternion.Euler(place.isGroupObject ? 0 : place.rotationAngle, 0, 0)
                         );
+
         obj.transform.SetParent(transform);
         place.hadArleadySpawned = true;
         places.Append(place);
+        if (place.isGroupObject)
+        {
+            foreach (var child in obj.GetComponentsInChildren<Transform>()[1..])
+            {
+                child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
+                child.transform.SetParent(transform);
+            }
+            obj.transform.DetachChildren();
+            Destroy(obj);
+        }
         World.Fill(landscape, sector, 2);
     }
 
@@ -180,5 +191,8 @@ public class Place
 
     [SerializeField]
     public float rotationAngle = -25;
+
+    [SerializeField]
+    public bool isGroupObject = false;
 
 }

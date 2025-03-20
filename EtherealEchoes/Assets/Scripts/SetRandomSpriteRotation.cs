@@ -8,6 +8,6 @@ public class SetRandomSpriteRotation : MonoBehaviour
     private float angle = 180f;
     void Start()
     {
-        transform.rotation = Quaternion.AngleAxis(Random.Range(-angle, angle), Vector3.forward);
+        transform.Rotate(new Vector3(0, 0, Random.Range(-angle/2, angle/2)));
     }
 }
