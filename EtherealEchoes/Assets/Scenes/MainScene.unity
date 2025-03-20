@@ -1995,8 +1995,8 @@ MonoBehaviour:
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 5
-      width: 2
-      height: 2
+      width: 4
+      height: 4
       offset_x: 0
       offset_y: 0
       offset_z: 0
@@ -2007,8 +2007,8 @@ MonoBehaviour:
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 3
-      width: 2
-      height: 2
+      width: 4
+      height: 4
       offset_x: 0
       offset_y: 0
       offset_z: 0
