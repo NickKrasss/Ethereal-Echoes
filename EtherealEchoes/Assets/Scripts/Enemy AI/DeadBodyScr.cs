@@ -22,8 +22,8 @@ public class DeadBodyScr : MonoBehaviour
         {
             Rigidbody2D rb = part.AddComponent<Rigidbody2D>();
             rb.gravityScale = 0f;
-            rb.drag = 4f + Random.Range(-1f, 1f);
-            rb.angularDrag = 4f + Random.Range(-1f, 1f);
+            rb.drag = 7f + Random.Range(-2f, 2f);
+            rb.angularDrag = 7f + Random.Range(-2f, 2f);
             float rand = Random.Range(0, 2 * Mathf.PI);
             Vector2 direction = new Vector2(Mathf.Cos(rand), Mathf.Sin(rand));
             rb.AddForce(direction * (spreadForce + Random.Range(-spreadForceRandomOffset, spreadForceRandomOffset)), ForceMode2D.Impulse);

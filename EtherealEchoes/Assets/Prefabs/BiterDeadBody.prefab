@@ -385,6 +385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parts: []
   fallSpeed: 4
-  spreadForce: 2.5
-  spreadForceRandomOffset: 1
+  spreadForce: 4
+  spreadForceRandomOffset: 1.2
   flip: 0
