@@ -123,4 +123,12 @@ public class Menu : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Application.Quit();
     }
+
+    // Включение/отключение всех звуков в игре
+    public void ToggleSound()
+    {
+        MakeButtonSound();
+        AudioListener.pause = !AudioListener.pause;
+    }
+
 }
