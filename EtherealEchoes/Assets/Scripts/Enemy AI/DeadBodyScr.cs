@@ -41,6 +41,10 @@ public class DeadBodyScr : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(Mathf.LerpAngle(transform.rotation.eulerAngles.x, 0, Time.deltaTime * fallSpeed), transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
         transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.Lerp(transform.position.z, 0, Time.deltaTime * fallSpeed));
-        
+        foreach (var part in parts)
+        {
+            part.transform.rotation = Quaternion.Euler(Mathf.LerpAngle(part.transform.rotation.eulerAngles.x, 0, Time.deltaTime * fallSpeed), part.transform.rotation.eulerAngles.y, part.transform.rotation.eulerAngles.z);
+            part.transform.position = new Vector3(part.transform.position.x, part.transform.position.y, Mathf.Lerp(part.transform.position.z, 0, Time.deltaTime * fallSpeed));
+        }
     }
 }
