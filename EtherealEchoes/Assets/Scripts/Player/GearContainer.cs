@@ -63,4 +63,9 @@ public class GearContainer : MonoBehaviour
         }
     }
 
+    public bool IsFull()
+    {
+        return current_gears == max_gears;
+    }
+
 }

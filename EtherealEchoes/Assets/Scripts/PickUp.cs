@@ -71,13 +71,14 @@ public class PickUp : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>(); 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
         if (collision.gameObject.CompareTag("Player"))
         {
             if (id == 0)
             {
+                if (collision.gameObject.GetComponent<GearContainer>().IsFull()) return;
                 collision.gameObject.GetComponent<GearContainer>().AddGears(count);
             }
             else if (id == 1)

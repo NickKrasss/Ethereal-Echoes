@@ -36,7 +36,7 @@ public class SpriteSplitParticlesScr : MonoBehaviour
     {
         for (int i = 0; i < count; i++)
         {
-            CreateParticle(position + new Vector2(offset.x + Random.Range(-randOffset, randOffset), offset.y + Random.Range(-randOffset, randOffset)), Random.Range(minLifetime, maxLifetime), Random.Range(minSize, maxSize), Random.Range(minSpeed, maxSpeed), gravity);
+            CreateParticle(position + new Vector2(offset.x + Random.Range(-randOffset, randOffset), offset.y + Random.Range(-randOffset, randOffset)), Random.Range(minLifetime, maxLifetime), Random.Range(minSize, maxSize), Random.Range(minSize, maxSize), Random.Range(minSpeed, maxSpeed), gravity);
         }
     }
 
@@ -45,7 +45,7 @@ public class SpriteSplitParticlesScr : MonoBehaviour
         GameObject particle = new GameObject("dads");
         particle.transform.position = position;
         SpriteRenderer particleRenderer = particle.AddComponent<SpriteRenderer>();
-        particleRenderer.sprite = GenerateRandomSprite(size);
+        particleRenderer.sprite = GenerateRandomSprite(spriteRenderer.sprite, size);
         particleRenderer.sortingOrder = spriteRenderer.sortingOrder + 1;
         particle.AddComponent<DestroyAfterTime>().lifeTime = lifeTime;
         particle.transform.localScale = new Vector2(objSize, objSize);
@@ -54,14 +54,29 @@ public class SpriteSplitParticlesScr : MonoBehaviour
         float rand = Random.Range(0, 2 * Mathf.PI);
         rb.velocity = new Vector2(Mathf.Cos(rand), Mathf.Sin(rand))*speed;
         rb.gravityScale = gravity;
-        
     }
 
-    private Sprite GenerateRandomSprite(int size, int attempt = 0)
+    private void CreateParticle(Vector2 position, float lifeTime, int sizex, int sizey, float speed, float gravity)
+    {
+        GameObject particle = new GameObject("dads");
+        particle.transform.position = position;
+        SpriteRenderer particleRenderer = particle.AddComponent<SpriteRenderer>();
+        particleRenderer.sprite = GenerateRandomSprite(spriteRenderer.sprite, sizex, sizey);
+        particleRenderer.sortingOrder = spriteRenderer.sortingOrder + 1;
+        particle.AddComponent<DestroyAfterTime>().lifeTime = lifeTime;
+        particle.transform.localScale = new Vector2(objSize, objSize);
+        Rigidbody2D rb = particle.AddComponent<Rigidbody2D>();
+        rb.drag = 0.2f;
+        float rand = Random.Range(0, 2 * Mathf.PI);
+        rb.velocity = new Vector2(Mathf.Cos(rand), Mathf.Sin(rand)) * speed;
+        rb.gravityScale = gravity;
+    }
+
+    public static Sprite GenerateRandomSprite(Sprite baseSpr, int size, int attempt = 0)
     {
         if (attempt > 20) return null;
 
-        Sprite sprite = spriteRenderer.sprite;
+        Sprite sprite = baseSpr;
         Texture2D texture = sprite.texture;
 
         int x = Random.Range(0, texture.width - size);
@@ -73,10 +88,29 @@ public class SpriteSplitParticlesScr : MonoBehaviour
 
         if (CheckIfRegionHasData(texture, rect))
             return particleSprite;
-        else return GenerateRandomSprite(size, attempt+1);
+        else return GenerateRandomSprite(baseSpr, size, attempt+1);
     }
 
-    private bool CheckIfRegionHasData(Texture2D texture, Rect rect, float alphaThreshold = 0.1f)
+    public static Sprite GenerateRandomSprite(Sprite baseSpr, int sizex, int sizey, int attempt = 0)
+    {
+        if (attempt > 20) return null;
+
+        Sprite sprite = baseSpr;
+        Texture2D texture = sprite.texture;
+
+        int x = Random.Range(0, texture.width - sizex);
+        int y = Random.Range(0, texture.height - sizey);
+
+        Rect rect = new Rect(x, y, sizex, sizey);
+
+        Sprite particleSprite = Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f), sprite.pixelsPerUnit);
+
+        if (CheckIfRegionHasData(texture, rect))
+            return particleSprite;
+        else return GenerateRandomSprite(baseSpr, sizex, sizey, attempt + 1);
+    }
+
+    private static bool CheckIfRegionHasData(Texture2D texture, Rect rect, float alphaThreshold = 0.1f)
     {
         Color[] pixels = texture.GetPixels(
             (int)rect.x,

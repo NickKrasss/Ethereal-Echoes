@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8472955991537066055}
   - component: {fileID: 7372148994809123463}
   - component: {fileID: 7794551714565260305}
+  - component: {fileID: 556718865124275723}
   m_Layer: 0
   m_Name: Crate32
   m_TagString: Untagged
@@ -312,3 +313,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 5
+--- !u!114 &556718865124275723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670355758069285813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0a11ecd290d6146bc3dcbb93a4fbdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  partsCount: 15
+  minSize: 7
+  maxSize: 11
+  fallSpeed: 6
+  spreadForce: 6
+  spreadForceRandomOffset: 2
+  partPosRandomOffset: 0.5

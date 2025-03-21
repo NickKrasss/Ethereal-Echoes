@@ -6,18 +6,19 @@ using UnityEngine;
 
 public class DeadBodyScr : MonoBehaviour
 {
-    [SerializeField] private Transform[] parts;
+    private Transform[] parts;
 
-    [SerializeField] private float fallSpeed;
-    [SerializeField] private float spreadForce;
-    [SerializeField] private float spreadForceRandomOffset;
+    [SerializeField] public float fallSpeed;
+    [SerializeField] public float spreadForce;
+    [SerializeField] public float spreadForceRandomOffset;
 
     public bool flip = false;
 
     private void Start()
     {
         parts = transform.GetComponentsInChildren<Transform>()[1..];
-        GetComponent<SpriteRenderer>().flipX = flip;
+        SpriteRenderer sprRenderer = GetComponent<SpriteRenderer>();
+        if (sprRenderer) sprRenderer.flipX = flip;
         foreach (var part in parts)
         {
             Rigidbody2D rb = part.AddComponent<Rigidbody2D>();

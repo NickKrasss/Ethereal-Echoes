@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 990455072332374237}
   - component: {fileID: 1644087698484707604}
   - component: {fileID: 8566648216325083997}
+  - component: {fileID: 1818322455408424115}
   m_Layer: 0
   m_Name: Crate16
   m_TagString: Untagged
@@ -312,3 +313,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 15
+--- !u!114 &1818322455408424115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564123606991509218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0a11ecd290d6146bc3dcbb93a4fbdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  partsCount: 8
+  minSize: 4
+  maxSize: 8
+  fallSpeed: 6
+  spreadForce: 4
+  spreadForceRandomOffset: 1
+  partPosRandomOffset: 0.2

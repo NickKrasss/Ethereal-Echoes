@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3274577711334597743}
   - component: {fileID: 9040582621262109785}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Gear
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,8 +169,8 @@ MonoBehaviour:
   totalLifetime: 10
   flickerStartTime: 6
   blinkInterval: 0.2
-  radius: 5
-  speed: 50
+  radius: 3
+  speed: 110
   count: 2
   OffsetY: 0.2
 --- !u!96 &9040582621262109785
