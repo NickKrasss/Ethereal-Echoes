@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 9026680385496521364}
   - component: {fileID: 8865811483424022775}
   - component: {fileID: 5484742797877106101}
+  - component: {fileID: 9071697388306572909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1164,6 +1165,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRadius: 2
+--- !u!114 &9071697388306572909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260089239986786887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e768fa2753879aa418eb745c08097b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: -0.95}
+  color: {r: 1, g: 0.8865248, b: 0, a: 0.84313726}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0.84313726}
+  outlineWidth: 0.8
+  fontSize: 2.2
+  fontAsset: {fileID: 11400000, guid: 651db763cfa17cd40a1d582f32b70118, type: 2}
+  sortingOrder: 15
+  minMaxMouseRadius: {x: 4.5, y: 1.5}
 --- !u!1 &8728558294600975588
 GameObject:
   m_ObjectHideFlags: 0

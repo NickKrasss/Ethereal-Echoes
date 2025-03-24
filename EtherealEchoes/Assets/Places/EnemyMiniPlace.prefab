@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 1825011693381757197}
   - component: {fileID: 230280558180305096}
   - component: {fileID: 4541262098357294470}
+  - component: {fileID: 7749841328910305142}
   m_Layer: 0
   m_Name: Biter
   m_TagString: Enemy
@@ -444,6 +445,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flipX: 1
   flipY: 0
+--- !u!114 &7749841328910305142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906722637384951226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e768fa2753879aa418eb745c08097b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: -0.4}
+  color: {r: 0.6037736, g: 0.16015923, b: 0.11107157, a: 0.84313726}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0.84313726}
+  outlineWidth: 0.8
+  fontSize: 2.2
+  fontAsset: {fileID: 11400000, guid: 651db763cfa17cd40a1d582f32b70118, type: 2}
+  sortingOrder: 15
+  minMaxMouseRadius: {x: 4.5, y: 1.5}
 --- !u!1 &1908834181410398721
 GameObject:
   m_ObjectHideFlags: 0
