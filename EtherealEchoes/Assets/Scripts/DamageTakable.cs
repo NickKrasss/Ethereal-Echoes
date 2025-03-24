@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -31,7 +33,15 @@ public class DamageTakable : MonoBehaviour
     private bool invincible = false;
 
     [SerializeField]
+    private bool animateOnHit = true;
+    private float hitProgress = 0f;
+    [SerializeField]
+    private float hitAnimationSpeed = 3f;
+
+    [SerializeField]
     private Bar bar;
+
+    public UnityEvent damageTakenEvent = new UnityEvent();
 
     public bool IsInvincible()
     {
@@ -49,6 +59,12 @@ public class DamageTakable : MonoBehaviour
         if (IsInvincible()) return;
         damage = stats.GetDamageTaken(damage);
         if (damage < 0) return;
+
+        damageTakenEvent.Invoke();
+        if (animateOnHit)
+        {
+            hitProgress = 1f;
+        }
 
         stats.CurrentHealth -= damage;
         if (stats.CurrentHealth < 0) stats.CurrentHealth = 0;
@@ -79,7 +95,12 @@ public class DamageTakable : MonoBehaviour
     {
         if (currentInvincibleTime > 0) currentInvincibleTime -= Time.deltaTime;
         if (currentInvincibleTime < 0) currentInvincibleTime = 0;                   // Просчитывает кадры неуязвимости
-
+        if (hitProgress > 0) hitProgress -= Time.deltaTime * hitAnimationSpeed;
+        if (hitProgress < 0) hitProgress = 0;
+        if (animateOnHit)
+        {
+            GetComponent<SpriteRenderer>().material.SetFloat("_HitProgress", hitProgress);
+        }
         if (!bar)
         {
             if (gameObject.CompareTag("Player"))

@@ -7,8 +7,9 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
+[RequireComponent(typeof(DamageTakable))]
 public class BiterAI : MonoBehaviour
 {
     private SpriteRenderer sprRenderer;
@@ -60,6 +61,8 @@ public class BiterAI : MonoBehaviour
         animator = GetComponent<Animator>();
         stats = GetComponent<Stats>();
 
+
+
         animator.SetFloat("AnimationSpeed", 0f);
         animator.SetFloat("AttackSpeed", stats.AttackSpeed);
 
@@ -69,6 +72,8 @@ public class BiterAI : MonoBehaviour
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        GetComponent<DamageTakable>().damageTakenEvent.AddListener(SpotPlayer);
     }
 
     private void UpdateAnimations()
@@ -80,7 +85,7 @@ public class BiterAI : MonoBehaviour
             else
                 sprRenderer.flipX = false;
         }
-        animator.SetFloat("MoveRage", (curSpeed - minSpeed)/(stats.MoveSpeed - minSpeed));
+        animator.SetFloat("MoveRage", (curSpeed - minSpeed) / (stats.MoveSpeed - minSpeed));
     }
 
     private void UpdateSpeed()
@@ -92,8 +97,8 @@ public class BiterAI : MonoBehaviour
     }
 
     private void CheckAttack()
-    { 
-        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange/10) && !animator.GetBool("isAttackingMini"))
+    {
+        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10) && !animator.GetBool("isAttackingMini"))
         {
             StartCoroutine(Bite());
         }
@@ -102,12 +107,17 @@ public class BiterAI : MonoBehaviour
     private IEnumerator Bite()
     {
         animator.SetBool("isAttackingMini", true);
-        yield return new WaitForSeconds(0.75f * (1/stats.AttackSpeed));
+        yield return new WaitForSeconds(0.75f * (1 / stats.AttackSpeed));
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.25f * (1/stats.AttackSpeed));
+        yield return new WaitForSeconds(0.25f * (1 / stats.AttackSpeed));
         dmgHitbox.SetActive(false);
         animator.SetBool("isAttackingMini", false);
+    }
+
+    public void SpotPlayer()
+    {
+        spottedTarget = true;
     }
 
     void Update()
@@ -121,7 +131,7 @@ public class BiterAI : MonoBehaviour
         if (!spottedTarget)
         {
             if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
-                spottedTarget = true;
+                SpotPlayer();
         }
         else
         {

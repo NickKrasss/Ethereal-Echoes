@@ -49,6 +49,8 @@ public class DropPickUp : MonoBehaviour
             {
                 pickUp.id = 0;
                 pickUp.count = Random.Range(min_count, max_count);
+                float scaleFactor = 0.2f + (pickUp.count - 1) * 0.04f;
+                gear.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1f);
             }
             Rigidbody2D rb = gear.GetComponent<Rigidbody2D>();
             if (rb != null)

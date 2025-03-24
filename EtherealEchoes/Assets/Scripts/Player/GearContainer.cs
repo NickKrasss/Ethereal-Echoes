@@ -28,7 +28,7 @@ public class GearContainer : MonoBehaviour
             }
         }
     }
-    // Задача - Через некоторое время исчазают шестерёнки + начинают мерцать
+
     private void Update()
     {
         if (!textMeshPro)
@@ -61,6 +61,11 @@ public class GearContainer : MonoBehaviour
                 Timer = 0f;
             }
         }
+    }
+
+    public bool IsFull()
+    {
+        return current_gears == max_gears;
     }
 
 }
