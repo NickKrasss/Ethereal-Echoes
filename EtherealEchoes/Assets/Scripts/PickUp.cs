@@ -31,6 +31,11 @@ public class PickUp : MonoBehaviour
     [SerializeField] private float OffsetY;
     Rigidbody2D rb;
     GameObject player;
+
+    [SerializeField]
+    private AudioClip[] pickupSounds;
+    [SerializeField]
+    private float volume;
     void Update()
     {
         currentLifetime += Time.deltaTime;
@@ -80,14 +85,22 @@ public class PickUp : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<GearContainer>().IsFull()) return;
                 collision.gameObject.GetComponent<GearContainer>().AddGears(count);
+                if (AudioManager.Instance)
+                    AudioManager.Instance.PlayAudio(pickupSounds[UnityEngine.Random.Range(0, pickupSounds.Length)], SoundType.SFX, volume);
             }
             else if (id == 1)
             {
+                if (collision.gameObject.GetComponent<Stats>().CurrentHealth >= collision.gameObject.GetComponent<Stats>().MaxHealth) return;
                 collision.gameObject.GetComponent<Stats>().AddHp(count);
+                if (AudioManager.Instance)
+                    AudioManager.Instance.PlayAudio(pickupSounds[UnityEngine.Random.Range(0, pickupSounds.Length)], SoundType.SFX, volume);
             }
             else if (id == 2)
             {
+                if (collision.gameObject.GetComponent<Stats>().CurrentEnergy >= collision.gameObject.GetComponent<Stats>().MaxEnergy) return;
                 collision.gameObject.GetComponent<Stats>().AddEnergy(count);
+                if (AudioManager.Instance)
+                    AudioManager.Instance.PlayAudio(pickupSounds[UnityEngine.Random.Range(0, pickupSounds.Length)], SoundType.SFX, volume);
             }
             Destroy(gameObject);
         }  

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -43,6 +44,20 @@ public class DamageTakable : MonoBehaviour
 
     public UnityEvent damageTakenEvent = new UnityEvent();
 
+    [SerializeField]
+    private bool playSoundOnHit;
+    [SerializeField]
+    private float volumeOnHit;
+    [SerializeField]
+    private AudioClip[] damageTakenSounds;
+
+    [SerializeField]
+    private bool playSoundOnDeath;
+    [SerializeField]
+    private float volumeOnDeath;
+    [SerializeField]
+    private AudioClip[] deathSounds;
+
     public bool IsInvincible()
     {
         return invincible || currentInvincibleTime > 0;
@@ -61,6 +76,11 @@ public class DamageTakable : MonoBehaviour
         if (damage < 0) return;
 
         damageTakenEvent.Invoke();
+        if (playSoundOnHit)
+        {
+            if (AudioManager.Instance)
+                AudioManager.Instance.PlayAudio(damageTakenSounds[UnityEngine.Random.Range(0, damageTakenSounds.Length)], SoundType.SFX, volumeOnHit);
+        }
         if (animateOnHit)
         {
             hitProgress = 1f;
@@ -76,6 +96,11 @@ public class DamageTakable : MonoBehaviour
 
         if (destroyOnZeroHealth && stats.CurrentHealth <= 0)
         {
+            if (playSoundOnDeath)
+            {
+                if (AudioManager.Instance)
+                    AudioManager.Instance.PlayAudio(deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)], SoundType.SFX, volumeOnDeath);
+            }
             Destroy(gameObject);
         }
         else

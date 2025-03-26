@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 [RequireComponent(typeof(SmoothMoveScr))]
@@ -16,6 +17,9 @@ public class WASDMovementScr : MonoBehaviour
 
     [SerializeField] private float runEnergyCost = 2;
     [SerializeField] private float runMult = 1.4f;
+
+    [SerializeField] private AudioClip[] steps;
+    [SerializeField] private float stepVolume;
 
     // Клавиши для передвижения
     private Dictionary<string, KeyCode> movementKeys = new Dictionary<string, KeyCode> {
@@ -60,6 +64,12 @@ public class WASDMovementScr : MonoBehaviour
         wasdVector = wasdVector.normalized * speed;              // В любую сторону длина вектора будет равна moveSpeed
 
         smoothScr.targetMoveVector = wasdVector;
+    }
+
+    public void Step()
+    {
+        if (AudioManager.Instance)
+            AudioManager.Instance.PlayAudio(steps[UnityEngine.Random.Range(0, steps.Length)], SoundType.SFX, stepVolume);
     }
 
     // Обновляет бинды из настроек

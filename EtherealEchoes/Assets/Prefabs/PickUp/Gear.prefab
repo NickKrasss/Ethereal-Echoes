@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 35662fd6939d5a2439f2e313d7cbf98b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,6 +173,12 @@ MonoBehaviour:
   speed: 110
   count: 2
   OffsetY: 0.2
+  pickupSounds:
+  - {fileID: 8300000, guid: e65e5aa978107d94ba80a2f82d10732c, type: 3}
+  - {fileID: 8300000, guid: d550c453e922ede4caee0db876648adb, type: 3}
+  - {fileID: 8300000, guid: d4172dcb62b28114ebaf1ad67fc48e2b, type: 3}
+  - {fileID: 8300000, guid: 4cbbb7dcc3b38b9409c564db827d1631, type: 3}
+  volume: 4
 --- !u!96 &9040582621262109785
 TrailRenderer:
   serializedVersion: 3

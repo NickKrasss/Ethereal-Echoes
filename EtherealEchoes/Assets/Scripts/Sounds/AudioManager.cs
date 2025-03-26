@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     [Header("Слайдер громкости звуков")]
     [SerializeField] private Slider soundVolumeSlider; // Слайдер громкости звуков
 
+    private List<AudioSource> audioSources = new List<AudioSource>();
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -38,17 +40,24 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Метод для проигрывания аудио
-    public void PlayAudio(AudioSource source, AudioClip clip, SoundType type, float volumeMultiplier = 1f, float volumeRandomOffset = 0f, float randomPitchOffset = 0f)
+    private void Update()
     {
-        if (!source || !clip)
-            return;
+        CheckAllSourcses();
+    }
+
+    // Метод для проигрывания аудио
+    public AudioSource PlayAudio(AudioClip clip, SoundType type, float volumeMultiplier = 1f, float volumeRandomOffset = 0f, float randomPitchOffset = 0f)
+    {
+        AudioSource source = CreateAudioSource();
+        if (!clip)
+            return source;
         UpdateVolume(source, type, volumeMultiplier);
         var rvol = Random.Range(-volumeRandomOffset / 2, volumeRandomOffset / 2);
         if (source.volume > 0 && source.volume + rvol > 0) source.volume += rvol;
         source.pitch = 1 + Random.Range(-randomPitchOffset/2, randomPitchOffset/2);
 
         source.PlayOneShot(clip);
+        return source;
     }
 
     public void UpdateVolume(AudioSource source, SoundType type, float volumeMultiplier = 1f)
@@ -62,6 +71,28 @@ public class AudioManager : MonoBehaviour
     public void SmoothVolumeChange(AudioSource source, float volume, float speed)
     { 
         source.volume = Mathf.Lerp(source.volume, volume, speed*Time.deltaTime);
+    }
+
+    private AudioSource CreateAudioSource()
+    {
+        GameObject auSourceObj = new GameObject($"AudioSource_{audioSources.Count}");
+        //auSourceObj.transform.SetParent(transform);
+        AudioSource auSource = auSourceObj.AddComponent<AudioSource>();
+        audioSources.Add(auSource);
+        return auSource;
+    }
+
+    private void CheckAllSourcses()
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            if (!source.isPlaying)
+            {
+                Destroy(source.gameObject);
+                audioSources.Remove(source);
+                break;
+            }
+        }
     }
 
     // Обработчик изменения громкости музыки
