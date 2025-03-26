@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7505892797540696823}
   - component: {fileID: 5986782165929571572}
   - component: {fileID: 2395283478395120456}
+  - component: {fileID: -9046849876025178174}
   m_Layer: 0
   m_Name: dump64_1_0
   m_TagString: Untagged
@@ -165,6 +166,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flipX: 1
   flipY: 0
+--- !u!114 &-9046849876025178174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178507431320858424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccc4b955a7068a4cac1eb60fc484926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconSpr: {fileID: -6000169884300189835, guid: 9aecdad4ef1046c4d83280252b06c33d, type: 3}
+  size: 1.2
 --- !u!1001 &1119927907631645529
 PrefabInstance:
   m_ObjectHideFlags: 0

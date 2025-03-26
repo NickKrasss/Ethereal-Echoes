@@ -35,6 +35,7 @@ public class PlayerGun : MonoBehaviour
         auSource = GetComponent<AudioSource>();
         stats = GetComponent<Stats>();
         energySpender = GetComponent<EnergySpender>();
+        G.Instance.playerObj = gameObject;
     }
 
     private void Update()

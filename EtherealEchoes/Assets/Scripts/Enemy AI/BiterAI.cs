@@ -124,7 +124,7 @@ public class BiterAI : MonoBehaviour
     {
         if (!target)
         {
-            target = GameObject.FindGameObjectWithTag("Player");
+            target = G.Instance.playerObj;
             return;
         }
 

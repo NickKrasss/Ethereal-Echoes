@@ -9,6 +9,7 @@ TagManager:
   - HPBar
   - Gears
   - EnergyBar
+  - PickUp
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - WalkableTilemap
+  - NotWalkableTilemap
+  - Minimap
   - 
   - 
   - 

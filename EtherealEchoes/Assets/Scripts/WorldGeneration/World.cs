@@ -21,7 +21,6 @@ public class World
     public LandscapeGenerator LandGenerator { get { return landGen; } }
     public PlaceGenerator PlaceGenerator { get { return placeGen; } }
 
-
     public World(int width, int height, LandscapeGenerator landGen, PlaceGenerator placeGen)
     {
         this.width = width;

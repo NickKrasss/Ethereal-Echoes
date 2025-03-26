@@ -79,25 +79,25 @@ public class WorldDraw : MonoBehaviour
             if (x < world.Width - 1 && world.Map[x + 1, y] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 1), borders[0]);
-                Instantiate(border3D, new Vector3(x + 1, y + 0.5f, -0.35f), Quaternion.Euler(180, 90, 90));
+                Instantiate(border3D, new Vector3(x + 1, y + 0.5f, -0.35f), Quaternion.Euler(180, 90, 90)).transform.SetParent(G.Instance.currentWorldObj.transform);
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 1), null);
             if (x > 0 && world.Map[x - 1, y] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 2), borders[1]);
-                Instantiate(border3D, new Vector3(x, y + 0.5f, -0.35f), Quaternion.Euler(0, 90, -90));
+                Instantiate(border3D, new Vector3(x, y + 0.5f, -0.35f), Quaternion.Euler(0, 90, -90)).transform.SetParent(G.Instance.currentWorldObj.transform);
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 2), null);
             if (y < world.Height - 1 && world.Map[x, y + 1] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 3), borders[2]);
-                Instantiate(border3D, new Vector3(x + 0.5f, y + 1f, -0.35f), Quaternion.Euler(90, 0, 0));
+                Instantiate(border3D, new Vector3(x + 0.5f, y + 1f, -0.35f), Quaternion.Euler(90, 0, 0)).transform.SetParent(G.Instance.currentWorldObj.transform);
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 3), null);
             if (y > 0 && world.Map[x, y - 1] != 1)
             {
                 borderTilemap.SetTile(new Vector3Int(x, y, 4), borders[3]);
-                Instantiate(border3D, new Vector3(x + 0.5f, y, -0.35f), Quaternion.Euler(-90, -90, -90));
+                Instantiate(border3D, new Vector3(x + 0.5f, y, -0.35f), Quaternion.Euler(-90, -90, -90)).transform.SetParent(G.Instance.currentWorldObj.transform);
             }
             else borderTilemap.SetTile(new Vector3Int(x, y, 4), null);
         }

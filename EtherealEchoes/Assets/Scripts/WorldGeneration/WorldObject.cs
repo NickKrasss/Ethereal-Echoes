@@ -19,6 +19,7 @@ public class WorldObject : MonoBehaviour
 
     private void Start()
     {
+        G.Instance.currentWorldObj = gameObject;
         landGen = GetComponent<LandscapeGenerator>();
         placeGen = GetComponent<PlaceGenerator>();
         world = new World(width, height, landGen, placeGen);
@@ -26,6 +27,8 @@ public class WorldObject : MonoBehaviour
 
         worldDraw.world = world;
         worldDraw.DrawEverything();
+
+        G.Instance.currentWorld = world;
 
         foreach (var sur in navSurfaces)
             sur.BuildNavMeshAsync();

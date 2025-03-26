@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 7372148994809123463}
   - component: {fileID: 7794551714565260305}
   - component: {fileID: 556718865124275723}
+  - component: {fileID: 281482674666528060}
   m_Layer: 0
   m_Name: Crate32
   m_TagString: Untagged
@@ -333,3 +334,17 @@ MonoBehaviour:
   spreadForce: 6
   spreadForceRandomOffset: 2
   partPosRandomOffset: 0.5
+--- !u!114 &281482674666528060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3670355758069285813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccc4b955a7068a4cac1eb60fc484926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconSpr: {fileID: -346459992092283803, guid: 037ab8720e5654b45be8acf3b6a49384, type: 3}
+  size: 0.5
