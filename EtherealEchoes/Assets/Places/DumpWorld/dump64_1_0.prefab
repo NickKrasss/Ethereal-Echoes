@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0413bdee80617424685ecdb98d61f70f, type: 2}
+  - {fileID: 2100000, guid: fdd1bc8f1a039f24b9e84080403396ae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -194,11 +194,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7640966106022542453, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
-  maxEnemies: 4
+  maxEnemies: 5
   cooldown: 5
   radius: 5
   force: 2.3
   rotationAngle: -25
+  eliteChance: 3
 --- !u!1001 &1119927907631645529
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -75,7 +75,7 @@ public class BiterAI : MonoBehaviour
 
         GetComponent<DamageTakable>().damageTakenEvent.AddListener(SpotPlayer);
 
-        stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(0, 4); 
+        stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4); 
     }
 
     private void UpdateAnimations()

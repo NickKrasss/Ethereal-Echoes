@@ -5,7 +5,7 @@ using UnityEngine;
 public class MinimapIcon : MonoBehaviour
 {
     [SerializeField] private Sprite iconSpr;
-    [SerializeField] private float size;
+    [SerializeField] public float size;
     void Start()
     {
         GameObject icon = new GameObject($"{gameObject.name}_icon");

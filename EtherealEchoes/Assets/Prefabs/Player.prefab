@@ -605,11 +605,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_gears: 0
-  max_gears: 15
+  max_gears: 30
   value: 0
   Timer: 0
   IsLevelingUp: 0
-  coef: 1.3
+  coef: 1.8
 --- !u!114 &2001512490785923025
 MonoBehaviour:
   m_ObjectHideFlags: 0

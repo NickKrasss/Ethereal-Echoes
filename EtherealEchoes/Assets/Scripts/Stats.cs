@@ -166,7 +166,7 @@ public class Stats : MonoBehaviour
 
     public static float getValueAffectedByLevel(float value, int level)
     {
-        return value * (1 + 0.02f * level);
+        return value * (1 + 0.035f * level);
     }
 
     public float GetDamageTaken(float incomingDamage)

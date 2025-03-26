@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6069921362489510490}
   - component: {fileID: 5899897736694038566}
   - component: {fileID: -1293974983551956010}
+  - component: {fileID: -7856626996876592275}
   m_Layer: 0
   m_Name: dump128_1_0
   m_TagString: Untagged
@@ -59,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0413bdee80617424685ecdb98d61f70f, type: 2}
+  - {fileID: 2100000, guid: fdd1bc8f1a039f24b9e84080403396ae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -180,6 +181,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -6000169884300189835, guid: 9aecdad4ef1046c4d83280252b06c33d, type: 3}
   size: 2
+--- !u!114 &-7856626996876592275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640401802100567129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3a1c46454f2824abab0f93480e6a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 7640966106022542453, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+  maxEnemies: 4
+  cooldown: 15
+  radius: 7
+  force: 2.6
+  rotationAngle: -25
+  eliteChance: 100
 --- !u!1001 &6424544668466407425
 PrefabInstance:
   m_ObjectHideFlags: 0
