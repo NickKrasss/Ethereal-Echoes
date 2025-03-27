@@ -8,11 +8,6 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [Header("Слайдер громкости музыки")]
-    [SerializeField] private Slider musicVolumeSlider; // Слайдер громкости музыки
-    [Header("Слайдер громкости звуков")]
-    [SerializeField] private Slider soundVolumeSlider; // Слайдер громкости звуков
-
     private List<AudioSource> audioSources = new List<AudioSource>();
 
     private void Awake()
@@ -26,18 +21,7 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
- 
-        if (musicVolumeSlider != null)
-        {
-            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-            musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
-        }
 
-        if (soundVolumeSlider != null)
-        {
-            soundVolumeSlider.value = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
-            soundVolumeSlider.onValueChanged.AddListener(OnSoundVolumeChanged);
-        }
     }
 
     private void Update()
@@ -68,6 +52,7 @@ public class AudioManager : MonoBehaviour
             source.volume = PlayerPrefs.GetFloat("MusicVolume", 1.0f) * volumeMultiplier;
     }
 
+
     public void SmoothVolumeChange(AudioSource source, float volume, float speed)
     { 
         source.volume = Mathf.Lerp(source.volume, volume, speed*Time.deltaTime);
@@ -86,6 +71,11 @@ public class AudioManager : MonoBehaviour
     {
         foreach (AudioSource source in audioSources)
         {
+            if (source == null)
+            { 
+                audioSources.Remove(source);
+                break;
+            }
             if (!source.isPlaying)
             {
                 Destroy(source.gameObject);
@@ -95,19 +85,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Обработчик изменения громкости музыки
-    private void OnMusicVolumeChanged(float volume)
-    {
-        PlayerPrefs.SetFloat("MusicVolume", volume); // Сохраняем значение в PlayerPrefs
-        PlayerPrefs.Save(); // Сохраняем изменения
-    }
-
-    // Обработчик изменения громкости звуков
-    private void OnSoundVolumeChanged(float volume)
-    {
-        PlayerPrefs.SetFloat("SoundsVolume", volume); // Сохраняем значение в PlayerPrefs
-        PlayerPrefs.Save(); // Сохраняем изменения
-    }
+    
 }
 
 public enum SoundType
