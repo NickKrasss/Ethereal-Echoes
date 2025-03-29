@@ -43,7 +43,7 @@ public class GearContainer : MonoBehaviour
             textMeshPro = GameObject.FindGameObjectWithTag("Gears").GetComponent<TMP_Text>();
             return;
         }
-        textMeshPro.text = $"{current_gears} / {max_gears}";
+        textMeshPro.text = current_gears == max_gears ? $"{current_gears} / {max_gears}\nЗажмите R для повышения уровня" : $"{current_gears} / {max_gears}";
         LevelUp();
     }
     //Прокачка уровня
@@ -55,7 +55,7 @@ public class GearContainer : MonoBehaviour
             if (Input.GetKey(KeyCode.R))
             {
                 Timer += deltaTime;
-                if (Timer > 3f)
+                if (Timer > 1.5f)
                 {
                     gameObject.GetComponent<Stats>().level++;
                     current_gears = 0;
