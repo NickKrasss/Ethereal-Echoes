@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(SpriteRenderer))]
-[RequireComponent(typeof(SmoothMoveScr))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Stats))]
+[RequireComponent(typeof(DamageTakable))]
 public class BiterAI : MonoBehaviour
 {
     private SpriteRenderer sprRenderer;
@@ -13,6 +17,8 @@ public class BiterAI : MonoBehaviour
     private GameObject target;
 
     private Animator animator;
+
+    private NavMeshAgent agent;
 
     [Tooltip("Смещение по x")]
     [SerializeField]
@@ -26,10 +32,6 @@ public class BiterAI : MonoBehaviour
     [SerializeField]
     private float minSpeed = 1.0f;
 
-    [Tooltip("Максимальная скорость следования")]
-    [SerializeField]
-    private float maxSpeed = 1.0f;
-
     [Tooltip("Дальность видимости")]
     [SerializeField]
     private float spotRange = 30f;
@@ -37,14 +39,6 @@ public class BiterAI : MonoBehaviour
     [Tooltip("Ускорение")]
     [SerializeField]
     private float acceleration = 0.1f;
-
-    [Tooltip("Дальность укуса")]
-    [SerializeField]
-    private float attackRange = 0.5f;
-
-    [Tooltip("Скорость атаки")]
-    [SerializeField]
-    private float attackSpeed = 1f;
 
     private bool spottedTarget = false;
 
@@ -55,46 +49,58 @@ public class BiterAI : MonoBehaviour
     [SerializeField]
     private GameObject dmgHitbox;
 
+    private Rigidbody2D rb;
+
+    private Stats stats;
+
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
-        smoothScr = GetComponent<SmoothMoveScr>();
         animator = GetComponent<Animator>();
-        animator.SetFloat("AnimationSpeed", 0f);
-        animator.SetFloat("AttackSpeed", attackSpeed);
-        dmgHitbox.transform.localScale = new Vector2(attackRange, attackRange);
-        dmgHitbox.SetActive(false);
-    }
+        stats = GetComponent<Stats>();
 
-    private void UpdateTargetVector()
-    {
-        smoothScr.targetMoveVector = (target.transform.position - transform.position + new Vector3(offset_x, offset_y, 0));
-        smoothScr.targetMoveVector = smoothScr.targetMoveVector.normalized;
-        smoothScr.targetMoveVector *= curSpeed;
+
+
+        animator.SetFloat("AnimationSpeed", 0f);
+        animator.SetFloat("AttackSpeed", stats.AttackSpeed);
+
+        dmgHitbox.transform.localScale = new Vector2(stats.AttackRange, stats.AttackRange);
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        dmgHitbox.SetActive(false);
+
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+        GetComponent<DamageTakable>().damageTakenEvent.AddListener(SpotPlayer);
+
+        stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4); 
     }
 
     private void UpdateAnimations()
     {
-        if (smoothScr.targetMoveVector != Vector2.zero)
+        if (curSpeed != 0)
         {
-            if (smoothScr.targetMoveVector.x < 0)
-                transform.localScale = new Vector2(-1.2f, 1.2f);
+            if (transform.position.x > target.transform.position.x)
+                sprRenderer.flipX = true;
             else
-                transform.localScale = new Vector2(1.2f, 1.2f);
+                sprRenderer.flipX = false;
         }
-        animator.SetFloat("MoveRage", (curSpeed - minSpeed)/(maxSpeed - minSpeed));
+        animator.SetFloat("MoveRage", (curSpeed - minSpeed) / (stats.MoveSpeed - minSpeed));
     }
 
     private void UpdateSpeed()
     {
         if (curSpeed <= 0f)
             curSpeed = minSpeed;
-        curSpeed = Mathf.Lerp(curSpeed, maxSpeed, Time.deltaTime * acceleration);
+        curSpeed = Mathf.Lerp(curSpeed, stats.MoveSpeed, Time.deltaTime * acceleration);
+        agent.speed = curSpeed;
     }
 
     private void CheckAttack()
-    { 
-        if (Vector2.Distance(transform.position, target.transform.position) < attackRange - (attackRange/10) && !animator.GetBool("isAttackingMini"))
+    {
+        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10) && !animator.GetBool("isAttackingMini"))
         {
             StartCoroutine(Bite());
         }
@@ -103,33 +109,39 @@ public class BiterAI : MonoBehaviour
     private IEnumerator Bite()
     {
         animator.SetBool("isAttackingMini", true);
-        yield return new WaitForSeconds(0.75f * attackSpeed);
+        yield return new WaitForSeconds(0.75f * (1 / stats.AttackSpeed));
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.25f * attackSpeed);
+        yield return new WaitForSeconds(0.25f * (1 / stats.AttackSpeed));
         dmgHitbox.SetActive(false);
         animator.SetBool("isAttackingMini", false);
+    }
+
+    public void SpotPlayer()
+    {
+        spottedTarget = true;
     }
 
     void Update()
     {
         if (!target)
         {
-            target = GameObject.FindGameObjectWithTag("Player");
+            target = G.Instance.playerObj;
             return;
         }
 
         if (!spottedTarget)
         {
             if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
-                spottedTarget = true;
+                SpotPlayer();
         }
         else
         {
             UpdateSpeed();
-            UpdateTargetVector();
             UpdateAnimations();
             CheckAttack();
+            agent.SetDestination(new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
+            
             animator.SetFloat("AnimationSpeed", 1f);
         }
     }

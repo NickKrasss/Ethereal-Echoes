@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: -5948936215542042195}
   - component: {fileID: -6929493740111361404}
   - component: {fileID: -394903902034786963}
+  - component: {fileID: 7990767894007128446}
+  - component: {fileID: 4791797344989238445}
   m_Layer: 0
   m_Name: playerBullet
   m_TagString: Untagged
@@ -158,6 +160,9 @@ MonoBehaviour:
   destroyOnCollision: 1
   ignoreCollisionTags:
   - Player
+  - PickUp
+  destroyOnZeroHits: 1
+  makeParticlesOnHit: 1
 --- !u!50 &1718341627285982487
 Rigidbody2D:
   serializedVersion: 4
@@ -244,3 +249,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 10
+--- !u!114 &7990767894007128446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961765644102158381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8767b74cf7b2d5348b39e2c2ad2a58aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLifetime: 0.1
+  maxLifetime: 0.4
+  minSize: 1
+  maxSize: 3
+  minCount: 3
+  maxCount: 6
+  minSpeed: 3
+  maxSpeed: 3.5
+  gravity: 0.1
+  offset: {x: 0, y: 0}
+  randOffset: 0.05
+  objSize: 1.5
+--- !u!114 &4791797344989238445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961765644102158381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b2b9ce9ebd27548b0b1b3ef8b0c809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WorldFill))]
-public class PlaceSpawner : MonoBehaviour
+[RequireComponent(typeof(WorldObject))]
+public class PlaceSpawner : MonoBehaviour, PlaceGenerator
 {
     [SerializeField]
     private PlaceType[] placeTypes;
@@ -11,31 +12,23 @@ public class PlaceSpawner : MonoBehaviour
     [SerializeField]
     private Place playerPlace;
 
-    private WorldFill worldScr;
+    private Place[] places;
 
-    private void Awake()
+    private int[,] landscape;
+
+    public (int[,], Place[]) GeneratePlaces(int[,] map)
     {
-        worldScr = GetComponent<WorldFill>();
-    }
+        landscape = map;
+        places = new Place[] { };
+        int x = landscape.GetLength(0) / 2;
+        int y = landscape.GetLength(1) / 2;
+        int x1 = x - playerPlace.width / 2; int y1 = y - playerPlace.height / 2;
+        int x2 = x1 + playerPlace.width; int y2 = y1 + playerPlace.height;
+        Sector sector = new Sector(x1, y1, x2, y2);
+        SpawnPlace(playerPlace, sector);
 
-    private void Update()
-    {
-        
-        if (!worldScr.placesSpawned)
-        {
-            if (worldScr.generated)
-            {
-                int x = worldScr.width / 2;
-                int y = worldScr.height / 2;
-                int x1 = x - playerPlace.width / 2; int y1 = y - playerPlace.height / 2;
-                int x2 = x1 + playerPlace.width; int y2 = y1 + playerPlace.height;
-                Sector sector = new Sector(x1, y1, x2, y2);
-                SpawnPlace(playerPlace, sector);
-
-                SpawnPlaces();
-                worldScr.placesSpawned = true;
-            }
-        }
+        SpawnPlaces();
+        return (landscape, places);
     }
 
     private void SpawnPlace(Place place, Sector sector)
@@ -43,11 +36,23 @@ public class PlaceSpawner : MonoBehaviour
         GameObject obj = Instantiate(
                         place.obj,
                         new Vector3(sector.center[0] + place.offset_x + Random.Range(-place.random_offset, place.random_offset), sector.center[1] + place.offset_y + Random.Range(-place.random_offset, place.random_offset), place.offset_z),
-                        Quaternion.Euler(place.rotationAngle, 0, 0)
+                        Quaternion.Euler(place.isGroupObject ? 0 : place.rotationAngle, 0, 0)
                         );
-        obj.transform.SetParent(worldScr.transform);
+
+        obj.transform.SetParent(transform);
         place.hadArleadySpawned = true;
-        sector.Fill(worldScr, 0);
+        places.Append(place);
+        if (place.isGroupObject)
+        {
+            foreach (var child in obj.GetComponentsInChildren<Transform>()[1..])
+            {
+                child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
+                child.transform.SetParent(transform);
+            }
+            obj.transform.DetachChildren();
+            Destroy(obj);
+        }
+        World.Fill(landscape, sector, 2);
     }
 
     public void SpawnPlaces()
@@ -59,7 +64,7 @@ public class PlaceSpawner : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 Place place = GetRandomPlace(placeType);
-                Sector sector = findSectorFilledWith(place.width, place.height, 1);
+                Sector sector = findSectorFilledWith(place.width, place.height, 0);
                 SpawnPlace(place, sector);
             }
         }
@@ -70,7 +75,7 @@ public class PlaceSpawner : MonoBehaviour
         
         Sector sector = null;
         int attempts = 0;
-        while (!worldScr.isSectorEmpty(sector, digit))
+        while (!World.isSectorFilledWith(landscape, sector, digit))
         {
             attempts++;
             if (attempts >= 40000)
@@ -79,12 +84,19 @@ public class PlaceSpawner : MonoBehaviour
                 return null; 
             }
 
-            int x = Random.Range(0, worldScr.width);
-            int y = Random.Range(0, worldScr.height);
-            while (worldScr.world[x, y] != digit)
+            int x = Random.Range(0, landscape.GetLength(0));
+            int y = Random.Range(0, landscape.GetLength(1));
+            int xxx = 0;
+            while (landscape[x, y] != digit)
             {
-                x = Random.Range(0, worldScr.width);
-                y = Random.Range(0, worldScr.height);
+                xxx++;
+                if (xxx > 100000)
+                {
+                    Debug.Log(digit);
+                    break;
+                }
+                x = Random.Range(0, landscape.GetLength(0));
+                y = Random.Range(0, landscape.GetLength(1));
             }
             if (width == 0 || height == 0)
                 return new Sector(x, y, x, y);
@@ -110,7 +122,9 @@ public class PlaceSpawner : MonoBehaviour
         }
         return null;
     }
+
 }
+
 
 [System.Serializable]
 public class PlaceType
@@ -177,5 +191,8 @@ public class Place
 
     [SerializeField]
     public float rotationAngle = -25;
+
+    [SerializeField]
+    public bool isGroupObject = false;
 
 }

@@ -17,6 +17,20 @@ public class CameraRotationByMouseScr : MonoBehaviour
     [SerializeField]
     private float mouseForce = 1.0f;
 
+    private float cameraShakeForce;
+
+    private void Awake()
+    {
+        StartCoroutine(UpdateShakeForce());
+    }
+
+    IEnumerator UpdateShakeForce()
+    {
+        cameraShakeForce = PlayerPrefs.GetFloat("CameraShakeForce", 1.0f);
+        yield return new WaitForSeconds(2);
+        StartCoroutine(UpdateShakeForce());
+    }
+
     // Приближает currentRotation к targetRotation
     private void UpdateCurrent()
     {
@@ -28,8 +42,8 @@ public class CameraRotationByMouseScr : MonoBehaviour
     // Вычисляет targetRotation
     private void UpdateTarget()
     {
-        Vector2 mousePos = new Vector2(Input.mousePosition.x - Camera.main.pixelWidth/2, Input.mousePosition.y - Camera.main.pixelHeight / 2);
-        targetRotation = new Vector2(mousePos.x * mouseForce / Camera.main.pixelWidth, mousePos.y * mouseForce / Camera.main.pixelHeight);
+        Vector2 mousePos = new Vector2(Input.mousePosition.x - Camera.main.scaledPixelWidth/2, Input.mousePosition.y - Camera.main.scaledPixelHeight / 2);
+        targetRotation = new Vector2(cameraShakeForce * mouseForce * (mousePos.x / Camera.main.scaledPixelWidth > 1 ? 1 : mousePos.x / Camera.main.scaledPixelWidth), cameraShakeForce * mouseForce * (mousePos.y / Camera.main.scaledPixelHeight > 1 ? 1 : mousePos.y / Camera.main.scaledPixelHeight));
     }
 
     private void Update()

@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(HealthScr))]
+[RequireComponent(typeof(Stats))]
 public class PlayerDeath : MonoBehaviour
 {
 
     [SerializeField]
     private GameObject deathScreen;
 
-    private HealthScr healthScr;
+    [SerializeField]
+    private GameObject deadBody;
+
+    private Stats stats;
 
     private bool dead = false;
 
@@ -18,20 +22,23 @@ public class PlayerDeath : MonoBehaviour
     {
         deathScreen = GameObject.FindWithTag("DeathScreen");
         deathScreen.SetActive(false);
-        healthScr = GetComponent<HealthScr>(); 
+        stats = GetComponent<Stats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!dead && healthScr.health <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
+        if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
+            DeadBodyScr dbs = Instantiate(deadBody, transform.position, transform.rotation).GetComponent<DeadBodyScr>();
+            dbs.flip = GetComponent<SpriteRenderer>().flipX;
             deathScreen.SetActive(true);
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<WASDMovementScr>().enabled = false;
             GetComponent<SmoothMoveScr>().enabled = false;
+            GetComponent<PlayerGun>().enabled = false;
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             Time.timeScale = 0.4f;
         }
