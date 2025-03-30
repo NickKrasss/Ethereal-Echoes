@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    private AudioSource source;
     [SerializeField] private AudioClip buttonSound;
 
     public TMP_Dropdown dropdown;
@@ -19,10 +18,17 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject gameOptions;
     [SerializeField] private GameObject postEffectOptions;
     [SerializeField] private GameObject toggle;
+
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider soundVolumeSlider;
+    [SerializeField] private Slider cameraShakeSlider;
+    [SerializeField] private Toggle godModeToggle;
+
+
+
     //Загрузка сцены настроек
     public void LoadOptionsMenu(string s)
     {
-        source = GetComponent<AudioSource>();
         mainMenu.SetActive(s[0] == '1');
         optionsMenu.SetActive(s[1] == '1');
         audioOptions.SetActive(s[2] == '1');
@@ -34,6 +40,42 @@ public class Menu : MonoBehaviour
     private void Awake()
     {
         PlayerPrefs.SetInt("GodMode", 0);
+        if (godModeToggle != null)
+            godModeToggle.isOn = false;
+        if (musicVolumeSlider != null)
+        {
+            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+            musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
+        }
+
+        if (soundVolumeSlider != null)
+        {
+            soundVolumeSlider.value = PlayerPrefs.GetFloat("SoundsVolume", 1.0f);
+            soundVolumeSlider.onValueChanged.AddListener(OnSoundVolumeChanged);
+        }
+
+        if (cameraShakeSlider != null)
+        {
+            cameraShakeSlider.value = PlayerPrefs.GetFloat("CameraShakeForce", 1.0f);
+            cameraShakeSlider.onValueChanged.AddListener(OnCameraShakeForceChanged);
+        }
+    }
+    private void OnMusicVolumeChanged(float volume)
+    {
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    private void OnSoundVolumeChanged(float volume)
+    {
+        PlayerPrefs.SetFloat("SoundsVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    private void OnCameraShakeForceChanged(float volume)
+    {
+        PlayerPrefs.SetFloat("CameraShakeForce", volume);
+        PlayerPrefs.Save();
     }
 
     public void GetGodModeValue()
@@ -122,13 +164,6 @@ public class Menu : MonoBehaviour
         MakeButtonSound();
         yield return new WaitForSeconds(0.2f);
         Application.Quit();
-    }
-
-    // Включение/отключение всех звуков в игре
-    public void ToggleSound()
-    {
-        MakeButtonSound();
-        AudioListener.pause = !AudioListener.pause;
     }
 
 }
