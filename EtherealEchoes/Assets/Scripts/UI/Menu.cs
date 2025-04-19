@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -10,7 +11,12 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private AudioClip buttonSound;
 
-    public TMP_Dropdown dropdown;
+    #region Resolution
+    public TMP_Dropdown screenResolutions_dropdown;
+    int currentResolutionIndex = 0;
+    List<string> resolutionOptions = new List<string>();
+    #endregion
+
     public string sceneToLoad;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject optionsMenu;
@@ -23,7 +29,6 @@ public class Menu : MonoBehaviour
     [SerializeField] private Slider soundVolumeSlider;
     [SerializeField] private Slider cameraShakeSlider;
     [SerializeField] private Toggle godModeToggle;
-
 
 
     //Загрузка сцены настроек
@@ -42,6 +47,8 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetInt("GodMode", 0);
         if (godModeToggle != null)
             godModeToggle.isOn = false;
+
+
         if (musicVolumeSlider != null)
         {
             musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
@@ -59,6 +66,36 @@ public class Menu : MonoBehaviour
             cameraShakeSlider.value = PlayerPrefs.GetFloat("CameraShakeForce", 1.0f);
             cameraShakeSlider.onValueChanged.AddListener(OnCameraShakeForceChanged);
         }
+
+        currentResolutionIndex = PlayerPrefs.GetInt("ResolutionIndex", 0);
+    }
+
+    private void Start()
+    {
+        #region Adding available resolution options to the dropdown
+        screenResolutions_dropdown.ClearOptions();
+
+        Resolution[] resolutions = Screen.resolutions;
+        resolutionOptions = new List<string>();
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+
+            resolutionOptions.Add(option);
+        }
+
+        resolutionOptions.Reverse(); // start from highest resolution
+        resolutionOptions = resolutionOptions.Distinct().ToList(); // remove duplicates
+
+        screenResolutions_dropdown.AddOptions(resolutionOptions);
+        screenResolutions_dropdown.value = currentResolutionIndex;
+
+        screenResolutions_dropdown.RefreshShownValue();
+
+        // Set the current resolution
+        ChangeResolution(currentResolutionIndex);
+        #endregion
     }
     private void OnMusicVolumeChanged(float volume)
     {
@@ -104,41 +141,15 @@ public class Menu : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
     }
     //Настройка разрешений
-    public void ChangeRelosution()
+    public void ChangeResolution(int index)
     {
+        PlayerPrefs.SetInt("ResolutionIndex", index);
+        PlayerPrefs.Save();
 
-        if (dropdown.value == 0)
-        {
-            Screen.SetResolution(1920, 1080, Screen.fullScreen);
-        }
-        else if (dropdown.value == 1)
-        {
-            Screen.SetResolution(1366, 768, Screen.fullScreen);
-        }
-        else if (dropdown.value == 2)
-        {
-            Screen.SetResolution(1280, 800, Screen.fullScreen);
-        }
-        else if (dropdown.value == 3)
-        {
-            Screen.SetResolution(1440, 900, Screen.fullScreen);
-        }
-        else if (dropdown.value == 4)
-        {
-            Screen.SetResolution(1280, 1024, Screen.fullScreen);
-        }
-        else if (dropdown.value == 5)
-        {
-            Screen.SetResolution(1600, 900, Screen.fullScreen);
-        }
-        else if (dropdown.value == 6)
-        {
-            Screen.SetResolution(2560, 1440, Screen.fullScreen);
-        }
-        else if (dropdown.value == 7)
-        {
-            Screen.SetResolution(3840, 2160, Screen.fullScreen);
-        }
+        int width = int.Parse(resolutionOptions[index].Split(" x ")[0]);
+        int height = int.Parse(resolutionOptions[index].Split(" x ")[1]);
+
+        Screen.SetResolution(width, height, Screen.fullScreen);
     }
 
     public void StartGame()
