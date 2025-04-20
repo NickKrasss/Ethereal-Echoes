@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class WorldObject : MonoBehaviour
 {
+    [SerializeField] public string worldName;
+
     [SerializeField] private int width;
     [SerializeField] private int height;
     [SerializeField] private LandscapeGenerator landGen;
@@ -14,6 +16,10 @@ public class WorldObject : MonoBehaviour
     [SerializeField] private WorldDraw worldDraw;
 
     [SerializeField] private NavMeshSurface[] navSurfaces;
+
+    [SerializeField] private GameObject[] bosses;
+
+    [SerializeField] public int worldTime;
 
     public World world;
 

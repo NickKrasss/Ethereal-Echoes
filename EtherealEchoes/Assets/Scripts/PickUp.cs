@@ -9,25 +9,25 @@ using static UnityEngine.GraphicsBuffer;
 public class PickUp : MonoBehaviour
 {
     public int id;
-    // Общее время жизни
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     public float totalLifetime = 20f;
-    // Текущее время жизни
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
     private float currentLifetime = 0f;
-    // Время начала мерцания
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public float flickerStartTime = 15f;
-    // Интервал мерцания
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     public float blinkInterval = 0.2f;
-    // Время следующего мерцания
+    // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private float nextBlinkTime = 0f;
-    // Текущая видимость
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private bool isVisible = true;
-    // Компонент для управления видимостью
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     private SpriteRenderer renderer;
     [SerializeField] private float radius;
-    //Скорость PickUpа
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ PickUpпїЅ
     public float speed;
     public int count;
-    //Позиция Y для PickUpа
+    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Y пїЅпїЅпїЅ PickUpпїЅ
     [SerializeField] private float OffsetY;
     Rigidbody2D rb;
     GameObject player;

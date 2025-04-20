@@ -15,25 +15,9 @@ public class MinimapScr : MonoBehaviour
 
     private WorldObject worldObj;
 
-    bool flag = false;
-
-    void Start()
+    public void GenerateTexture()
     {
         worldObj = G.Instance.currentWorldObj.GetComponent<WorldObject>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (flag) return;
-        if (worldObj.world == null) return;
-        GenerateTexture();
-        flag = true;
-    }
-
-
-    void GenerateTexture()
-    {
         int width = worldObj.world.Width;
         int height = worldObj.world.Height;
         Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);

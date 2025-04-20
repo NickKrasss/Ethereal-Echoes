@@ -1,20 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 public class GearContainer : MonoBehaviour
 {
     public int current_gears;
     public int max_gears;
-    // Значение шестерёнки (по умолчанию 1)
     public int value;
-    // Таймер для отслеживания времени
     public float Timer;
-    // Флаг, указывающий, что персонаж прокачивается
     public bool IsLevelingUp;
-    //Коэффициент прокачки
     public float coef = 1.1f;
     TMP_Text textMeshPro;
 
@@ -43,10 +38,10 @@ public class GearContainer : MonoBehaviour
             textMeshPro = GameObject.FindGameObjectWithTag("Gears").GetComponent<TMP_Text>();
             return;
         }
-        textMeshPro.text = current_gears == max_gears ? $"{current_gears} / {max_gears}\nЗажмите R для повышения уровня" : $"{current_gears} / {max_gears}";
+        textMeshPro.text = current_gears == max_gears ? $"{current_gears} / {max_gears}\nР—Р°Р¶РјРёС‚Рµ R РґР»СЏ РїРѕРІС‹С€РµРЅРёСЏ СѓСЂРѕРІРЅСЏ" : $"{current_gears} / {max_gears}";
         LevelUp();
     }
-    //Прокачка уровня
+
     public void LevelUp()
     {
         float deltaTime = Time.deltaTime;

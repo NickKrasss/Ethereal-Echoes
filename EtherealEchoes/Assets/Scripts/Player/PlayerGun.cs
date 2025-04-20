@@ -7,8 +7,6 @@ using UnityEngine;
 [RequireComponent(typeof(EnergySpender))]
 public class PlayerGun : MonoBehaviour
 {
-    [SerializeField]
-    private new Camera camera;
 
     [SerializeField]
     private GameObject bulletPrefab;
@@ -54,7 +52,7 @@ public class PlayerGun : MonoBehaviour
         bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         bullet.GetComponent<DamageHitBoxScr>().knockbackForce = stats.Knockback;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();
-        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - shootPivot.position).normalized * stats.BulletSpeed;
+        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(Camera.main) - shootPivot.position).normalized * stats.BulletSpeed;
         float spread = UnityEngine.Random.Range(-stats.SpreadDegrees/2, stats.SpreadDegrees / 2) * Mathf.Deg2Rad;
         float x = scr.targetMoveVector.x;
         float y = scr.targetMoveVector.y;

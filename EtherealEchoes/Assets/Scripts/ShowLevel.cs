@@ -25,6 +25,7 @@ public class ShowLevel : MonoBehaviour
         stats = GetComponent<Stats>();
 
         textObj = new GameObject(gameObject.name + "_lvlTextObject");
+        textObj.transform.parent = G.Instance.currentWorldObj.transform;
         textObj.layer = 5;
 
         tmp = textObj.AddComponent<TextMeshPro>();

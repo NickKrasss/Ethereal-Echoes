@@ -57,5 +57,6 @@ public class SpawnerScr : MonoBehaviour
         hitProgress = 1f;
         enemyObj.GetComponent<Rigidbody2D>().AddForce(direction * force, ForceMode2D.Impulse);
         enemyObj.GetComponent<EliteScr>().chance = eliteChance;
+        enemyObj.transform.parent = G.Instance.currentWorldObj.transform;
     }
 }

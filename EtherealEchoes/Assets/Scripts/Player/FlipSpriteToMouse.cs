@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FlipSpriteToMouse : MonoBehaviour
 {
-    [SerializeField]
-    private Camera cam;
 
     public bool isFlipped;
 
@@ -13,7 +11,7 @@ public class FlipSpriteToMouse : MonoBehaviour
     {
         if (Time.timeScale != 0f)
         {
-            isFlipped = WorldMousePosition.GetWorldMousePosition(cam).x < transform.position.x;
+            isFlipped = WorldMousePosition.GetWorldMousePosition(Camera.main).x < transform.position.x;
             transform.localScale = new Vector3(isFlipped ? -1 : 1, transform.localScale.y, 1);
         }
     }

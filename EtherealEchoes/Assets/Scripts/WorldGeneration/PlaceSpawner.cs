@@ -80,7 +80,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
             attempts++;
             if (attempts >= 40000)
             {
-                Debug.Log("Не нашлось");
+                Debug.Log("пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
                 return null; 
             }
 
