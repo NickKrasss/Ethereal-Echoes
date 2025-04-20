@@ -44,6 +44,7 @@ public class ShowLevel : MonoBehaviour
 
     private void Update()
     {
+        if (textObj == null) return;
         textObj.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0);
         tmp.text = $"{stats.level} lvl";
 

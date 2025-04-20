@@ -85,6 +85,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void EndAllSounds()
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            if (source == null)
+            {
+                audioSources.Remove(source);
+                break;
+            }
+            else
+            {
+                Destroy(source.gameObject);
+                audioSources.Remove(source);
+                break;
+            }
+        }
+    }
     
 }
 

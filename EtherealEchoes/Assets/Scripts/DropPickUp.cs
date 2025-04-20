@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class DropPickUp : MonoBehaviour
 {
@@ -17,16 +18,6 @@ public class DropPickUp : MonoBehaviour
     //Максимальное число-значение шестерёнок
     public int max_count;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void OnDestroy()
     {
         if (gameObject.scene.isLoaded) 
@@ -40,10 +31,12 @@ public class DropPickUp : MonoBehaviour
 
     public void RandomGears()
     {
+        if (G.Instance.isWorldLoading) return;
         int gearCount = Random.Range(min_gears, max_gears + 1);
         for (int i = 0; i < gearCount; i++)
         {
             GameObject gear = Instantiate(GearPrefab, transform.position, Quaternion.identity);
+            gear.transform.SetParent(G.Instance.currentWorldObj.transform);
             PickUp pickUp = gear.GetComponent<PickUp>();
             if (pickUp != null)
             {

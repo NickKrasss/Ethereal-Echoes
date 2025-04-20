@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(EnergySpender))]
@@ -49,6 +50,7 @@ public class PlayerGun : MonoBehaviour
     private void Shoot()
     { 
         GameObject bullet = Instantiate(bulletPrefab, shootPivot.position, Quaternion.identity);
+        bullet.transform.SetParent(G.Instance.currentWorldObj.transform);
         bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         bullet.GetComponent<DamageHitBoxScr>().knockbackForce = stats.Knockback;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();

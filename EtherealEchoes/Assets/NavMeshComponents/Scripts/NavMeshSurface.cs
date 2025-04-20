@@ -124,8 +124,6 @@ namespace NavMeshPlus.Components
             var isPrefab = isInPreviewScene || EditorUtility.IsPersistent(this);
             if (isPrefab)
             {
-                //Debug.LogFormat("NavMeshData from {0}.{1} will not be added to the NavMesh world because the gameObject is a prefab.",
-                //    gameObject.name, name);
                 return;
             }
 #endif
@@ -178,8 +176,6 @@ namespace NavMeshPlus.Components
 
             var sources = CollectSources(builderState);
 
-            // Use unscaled bounds - this differs in behaviour from e.g. collider components.
-            // But is similar to reflection probe - and since navmesh data has no scaling support - it is the right choice here.
             var sourcesBounds = new Bounds(m_Center, Abs(m_Size));
             if (m_CollectObjects == CollectObjects.All || m_CollectObjects == CollectObjects.Children)
             {
@@ -203,7 +199,6 @@ namespace NavMeshPlus.Components
             }
         }
 
-        // Source: https://github.com/Unity-Technologies/NavMeshComponents/issues/97#issuecomment-528692289
         public AsyncOperation BuildNavMeshAsync()
         {
             RemoveData();

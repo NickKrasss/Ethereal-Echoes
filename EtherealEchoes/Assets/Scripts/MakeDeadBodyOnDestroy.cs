@@ -18,8 +18,10 @@ public class MakeDeadBodyOnDestroy : MonoBehaviour
     private void OnDestroy()
     {
         if (!gameObject.scene.isLoaded) return;
+        if (G.Instance.isWorldLoading) return;
         if (baseSprite == null) baseSprite = GetComponent<SpriteRenderer>().sprite;
         GameObject deadBody = new GameObject(gameObject.name + "_deadBody");
+        deadBody.transform.SetParent(G.Instance.currentWorldObj.transform);
         deadBody.transform.position = transform.position;
         deadBody.transform.rotation = transform.rotation;
 

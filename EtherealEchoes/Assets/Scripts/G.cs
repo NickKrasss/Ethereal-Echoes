@@ -14,6 +14,7 @@ public class G : MonoBehaviour
 
     public int currentTime = 0;
 
+    public bool isWorldLoading = false;
     void Awake()
     {
         if (Instance == null)

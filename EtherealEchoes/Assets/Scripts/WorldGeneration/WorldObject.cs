@@ -36,7 +36,6 @@ public class WorldObject : MonoBehaviour
 
         G.Instance.currentWorld = world;
 
-        foreach (var sur in navSurfaces)
-            sur.BuildNavMeshAsync();
+        
     }
 }
