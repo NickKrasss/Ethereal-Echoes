@@ -10,6 +10,8 @@ public class G : MonoBehaviour
     public GameObject currentWorldObj;
     public GameObject playerObj;
 
+    public Light gameLight;
+
     public int currentLevel = 0;
 
     public int currentTime = 0;

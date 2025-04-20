@@ -197,10 +197,12 @@ MonoBehaviour:
   width: 300
   height: 300
   worldDraw: {fileID: 4996715439337361043}
-  navSurfaces:
-  - {fileID: 0}
   bosses: []
   worldTime: 300
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightIntensity: 0.7
+  shadowStrength: 0.54
+  lightRotation: {x: -0.11338938, y: 0.36376938, z: 0.044665266, w: 0.92348236}
 --- !u!114 &2835651369594507403
 MonoBehaviour:
   m_ObjectHideFlags: 0

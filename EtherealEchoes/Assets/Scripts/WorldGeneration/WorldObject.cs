@@ -15,13 +15,17 @@ public class WorldObject : MonoBehaviour
 
     [SerializeField] private WorldDraw worldDraw;
 
-    [SerializeField] private NavMeshSurface[] navSurfaces;
-
     [SerializeField] private GameObject[] bosses;
 
     [SerializeField] public int worldTime;
 
+    [SerializeField] private Color lightColor;
+    [SerializeField] private float lightIntensity;
+    [SerializeField] private float shadowStrength;
+    [SerializeField] private Quaternion lightRotation;
+
     public World world;
+
 
     private void Start()
     {
@@ -36,6 +40,9 @@ public class WorldObject : MonoBehaviour
 
         G.Instance.currentWorld = world;
 
-        
+        G.Instance.gameLight.color = lightColor;
+        G.Instance.gameLight.intensity = lightIntensity;
+        G.Instance.gameLight.transform.rotation = lightRotation;
+        G.Instance.gameLight.shadowStrength = shadowStrength;
     }
 }

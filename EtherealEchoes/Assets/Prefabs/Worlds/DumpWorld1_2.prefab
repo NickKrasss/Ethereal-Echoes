@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 8048c35883beb0b4d9d39696ba86a418, type: 3}
+  - {fileID: 8300000, guid: 48a7c06cbe40bbf4580ce4ec62342d0c, type: 3}
 --- !u!1 &3484994954673678288
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,10 +197,12 @@ MonoBehaviour:
   width: 300
   height: 300
   worldDraw: {fileID: 4996715439337361043}
-  navSurfaces:
-  - {fileID: 0}
   bosses: []
   worldTime: 300
+  lightColor: {r: 0.3537736, g: 0.42048076, b: 1, a: 1}
+  lightIntensity: 2
+  shadowStrength: 1
+  lightRotation: {x: 0.17055683, y: 0.6010678, z: 0.13325344, w: -0.76933175}
 --- !u!114 &2835651369594507403
 MonoBehaviour:
   m_ObjectHideFlags: 0
