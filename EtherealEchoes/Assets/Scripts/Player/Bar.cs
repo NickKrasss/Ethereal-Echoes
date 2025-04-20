@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class Bar : MonoBehaviour
 {
-    private RectTransform line;
-    private RectTransform backLine;
-    private RectTransform barSlot;
+    [SerializeField] private RectTransform line;
+    [SerializeField] private RectTransform backLine;
+    [SerializeField] private RectTransform barSlot;
 
     private float barSlotStartScale;
     private float barSlotStartWidth;
@@ -26,9 +26,10 @@ public class Bar : MonoBehaviour
 
     private void Start()
     {
-        line = GetComponentsInChildren<Image>()[2].GetComponent<RectTransform>();
+/*        line = GetComponentsInChildren<Image>()[2].GetComponent<RectTransform>();
         backLine = GetComponentsInChildren<Image>()[1].GetComponent<RectTransform>();
         barSlot = GetComponentsInChildren<Image>()[3].GetComponent<RectTransform>();   
+*/
         anim = GetComponent<Animation>();
         barSlotStartScale = barSlot.localScale.x;
         barSlotStartWidth = barSlot.sizeDelta.x;
