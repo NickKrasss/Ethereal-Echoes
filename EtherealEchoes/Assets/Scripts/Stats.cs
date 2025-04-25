@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    // Основные характеристики
+    public static Stats Instance { get; private set; } 
 
+    // Основные характеристики
     [SerializeField] private float baseMaxHealth = 100f; // Максимальное здоровье
     [SerializeField] private bool isMaxHealthAffectedByLevel = true;
 
@@ -153,6 +154,11 @@ public class Stats : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         CurrentHealth = MaxHealth;
         CurrentEnergy = MaxEnergy;
     }
