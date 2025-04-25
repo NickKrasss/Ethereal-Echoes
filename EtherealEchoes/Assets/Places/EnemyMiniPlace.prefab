@@ -40,6 +40,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1619487284174801430}
     m_Modifications:
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938738355793620021, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3189121952962680083, guid: 7ca4ef7bdbfb170459381cc897c4def4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
