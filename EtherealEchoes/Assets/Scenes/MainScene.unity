@@ -2936,8 +2936,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 840649666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.26106772, y: 0.8981481}
-  m_AnchorMax: {x: 0.7389323, y: 0.9629629}
+  m_AnchorMin: {x: 0.26106772, y: 1.1453704}
+  m_AnchorMax: {x: 0.7389323, y: 1.2101852}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3531,8 +3531,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 840649666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15234375, y: 0.037037037}
-  m_AnchorMax: {x: 0.84765625, y: 0.1574074}
+  m_AnchorMin: {x: 0.15234375, y: -0.2462963}
+  m_AnchorMax: {x: 0.84765625, y: -0.12592593}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3550,7 +3550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4239,13 +4239,14 @@ GameObject:
   m_Component:
   - component: {fileID: 965458251}
   - component: {fileID: 965458252}
+  - component: {fileID: 965458253}
   m_Layer: 5
   m_Name: PowerUpCards_Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &965458251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4299,6 +4300,29 @@ MonoBehaviour:
   - {fileID: 1108325738}
   - {fileID: 965535052}
   - {fileID: 394601197}
+  animator: {fileID: 965458253}
+--- !u!95 &965458253
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965458250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc2ea2b6f9c601c4c9c1153aa0238e6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &965535051
 GameObject:
   m_ObjectHideFlags: 0
@@ -6104,7 +6128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1436128411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7835,7 +7859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
