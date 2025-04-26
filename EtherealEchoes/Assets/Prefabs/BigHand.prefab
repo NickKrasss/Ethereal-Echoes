@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 234423044824405860}
   - component: {fileID: 7798953741851787906}
   - component: {fileID: 8177239333433586432}
+  - component: {fileID: 7005050404735217421}
   m_Layer: 0
   m_Name: BigHand
   m_TagString: Untagged
@@ -469,3 +470,25 @@ MonoBehaviour:
     m_Extent: {x: 3.906251, y: 3.1406255, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!95 &7005050404735217421
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158186915513522144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce25993c335f74a47b7d7b77c5bd5dfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
