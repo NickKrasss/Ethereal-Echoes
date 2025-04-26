@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public static Stats Instance { get; private set; } 
+    
 
     // Основные характеристики
     [SerializeField] private float baseMaxHealth = 100f; // Максимальное здоровье
@@ -27,7 +27,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    [HideInInspector]
+    [SerializeField]
     public float CurrentHealth; // Текущее здоровье
 
     [SerializeField]  private float baseDamage = 10f; // Урон
@@ -154,11 +154,6 @@ public class Stats : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
-
         CurrentHealth = MaxHealth;
         CurrentEnergy = MaxEnergy;
     }
@@ -167,7 +162,10 @@ public class Stats : MonoBehaviour
     {
         RegenerateHealth();
         RegenerateEnergy();
-        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+        if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
     }
 
     public static float getValueAffectedByLevel(float value, int level)

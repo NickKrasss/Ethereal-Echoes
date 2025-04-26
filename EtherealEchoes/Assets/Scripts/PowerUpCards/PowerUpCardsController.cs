@@ -22,29 +22,46 @@ public class PowerUpCardsController : MonoBehaviour
 
     // list of instantiated power up cards
     List<PowerUpCard> cards = new List<PowerUpCard>();
+    List<string> listOfCurrentCards = new List<string>();
     int generatedCardsCount = 0;
     Coroutine delayedActionCoroutine;
 
     private void Initialize(Vector2 probabilityRanges)
     {
+
         // clear the list of cards
         cards = new List<PowerUpCard>();
 
         for (int i = 0; i < 3; i++)
         {
-            // generate a random probability
-            int probability = UnityEngine.Random.Range(0, 100);
-            PowerUpCard card;
+            // generate a random 
+            PowerUpCard card = null;
+            
 
-            // instantiate a card based on the probability
-            if (probability < probabilityRanges.x)
-                card = InstantiatePowerUpCard(powerUpCards_common, powerUpCardPlaceholders[i]);
-            else if (probability < probabilityRanges.y && probability >= probabilityRanges.x)
-                card = InstantiatePowerUpCard(powerUpCards_rare, powerUpCardPlaceholders[i]);
-            else
-                card = InstantiatePowerUpCard(powerUpCards_legendary, powerUpCardPlaceholders[i]);
+            while (card == null)
+            {
+                int probability = UnityEngine.Random.Range(0, 100);
 
-            cards.Add(card);
+                // instantiate a card based on the probability
+                if (probability < probabilityRanges.x)
+                    card = InstantiatePowerUpCard(powerUpCards_common, powerUpCardPlaceholders[i]);
+                else if (probability < probabilityRanges.y && probability >= probabilityRanges.x)
+                    card = InstantiatePowerUpCard(powerUpCards_rare, powerUpCardPlaceholders[i]);
+                else
+                    card = InstantiatePowerUpCard(powerUpCards_legendary, powerUpCardPlaceholders[i]);
+
+
+                if (!listOfCurrentCards.Contains(card.cardName))
+                {
+                    listOfCurrentCards.Add(card.cardName);
+                    cards.Add(card);
+                    break;
+                }
+                else
+                {
+                    card = null;
+                }
+            }
         }
 
         // set up mouse hover and click actions for each card
@@ -59,6 +76,7 @@ public class PowerUpCardsController : MonoBehaviour
 
         // trigger the opening animation
         animator.SetTrigger("OpenScreen");
+        listOfCurrentCards = new List<string>();
     }
 
     void Close()
@@ -109,4 +127,10 @@ public class PowerUpCardsController : MonoBehaviour
     // Method to change the description of the card
     void ChangeDescription(string text) =>
         cardDescription.text = text;
+
+    private void Start()
+    {
+        Vector2 def = new Vector2(80, 90);
+        Initialize(def);
+    }
 }

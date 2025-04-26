@@ -4281,15 +4281,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpCards_common:
   - {fileID: 3677659825151704599, guid: b5233d2fc9bbaca41ba8ccb0275ac4e1, type: 3}
-  - {fileID: 3677659825151704599, guid: 64cc8901e42174d41860fcdcaf70efb7, type: 3}
+  - {fileID: 3677659825151704599, guid: 97c5c87c71c4ff449862270456f07601, type: 3}
   - {fileID: 3677659825151704599, guid: 1230efaac26e1de489d617e25ce2deec, type: 3}
-  - {fileID: 3677659825151704599, guid: 13c1900475374bb4384df3fd6601d2d7, type: 3}
-  - {fileID: 3677659825151704599, guid: 17c1191a9992de248acf95608d89d3cb, type: 3}
+  - {fileID: 3677659825151704599, guid: a2972e6f9b9ccec40be732edfac74be7, type: 3}
+  - {fileID: 3677659825151704599, guid: 49865644fd921a741baaf16977e0cdbf, type: 3}
   powerUpCards_rare:
   - {fileID: 3677659825151704599, guid: 7ca1893e693b1cc44b425f35c24f158a, type: 3}
-  - {fileID: 3677659825151704599, guid: 16e9be1f05451734fb41fc8e6e4816a0, type: 3}
-  - {fileID: 3677659825151704599, guid: 941c3adbf9bf8004d9536d64185aadd3, type: 3}
-  - {fileID: 3677659825151704599, guid: f17dd4e91e676f140bacb419881a8de1, type: 3}
+  - {fileID: 3677659825151704599, guid: 7ca1893e693b1cc44b425f35c24f158a, type: 3}
+  - {fileID: 3677659825151704599, guid: 7ca1893e693b1cc44b425f35c24f158a, type: 3}
+  - {fileID: 3677659825151704599, guid: 7ca1893e693b1cc44b425f35c24f158a, type: 3}
   powerUpCards_legendary:
   - {fileID: 3677659825151704599, guid: 799b2ec9235df154c8c8bcc8c307dde5, type: 3}
   - {fileID: 3677659825151704599, guid: d597bdfdec2f23243baebc36cb557932, type: 3}

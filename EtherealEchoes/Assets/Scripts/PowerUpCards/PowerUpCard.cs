@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
@@ -29,16 +30,18 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     bool isChangingColor;
     Coroutine changeColorCoroutine;
 
-    private void Awake()
+    public void Awake()
     {
         // set the initial color of the card
         cardTint.color = idleColor;
     }
-
+    
     void SetValue(CharacteristicUnit unit)
     {
+        var player = GameObject.FindGameObjectWithTag("Player");
+
         // get the property name from the Stats instance
-        System.Reflection.PropertyInfo propName = Stats.Instance.GetType().GetProperty(unit.propertyName);
+        System.Reflection.PropertyInfo propName = player.GetComponent<Stats>().GetType().GetProperty(unit.propertyName);
 
         // generate a random value based on the specified range
         if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
@@ -50,27 +53,27 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         if (propName != null)
         {
             if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                value = (float)((float)propName.GetValue(Stats.Instance) * randomValue);
+                value = (float)((float)propName.GetValue(player.GetComponent<Stats>()) * randomValue);
             else
-                value = (float)((float)propName.GetValue(Stats.Instance) + randomValue);
+                value = (float)((float)propName.GetValue(player.GetComponent<Stats>()) + randomValue);
 
             // set the new value
-            propName.SetValue(Stats.Instance, value, null);
+            propName.SetValue(player.GetComponent<Stats>(), value, null);
         }
         else
         {
             // if required characteristic is a field then edit as field
-            var fieldInfo = Stats.Instance.GetType().GetField(unit.propertyName);
+            var fieldInfo = player.GetComponent<Stats>().GetType().GetField(unit.propertyName);
 
             if (fieldInfo != null)
             {
                 if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                    value = (float)((float)fieldInfo.GetValue(Stats.Instance) * randomValue);
+                    value = (float)((float)fieldInfo.GetValue(player.GetComponent<Stats>()) * randomValue);
                 else
-                    value = (float)((float)fieldInfo.GetValue(Stats.Instance) + randomValue);
+                    value = (float)((float)fieldInfo.GetValue(player.GetComponent<Stats>()) + randomValue);
 
                 // set the new value
-                fieldInfo.SetValue(Stats.Instance, value);
+                fieldInfo.SetValue(player.GetComponent<Stats>(), value);
             }
         }
 
@@ -78,29 +81,29 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         // same implementation as above (maybe refactor this in the future)
         if (!string.IsNullOrEmpty(unit.propertyNameCurrent))
         {
-            System.Reflection.PropertyInfo propNameCurrent = Stats.Instance.GetType().GetProperty(unit.propertyNameCurrent);
+            System.Reflection.PropertyInfo propNameCurrent = player.GetComponent<Stats>().GetType().GetProperty(unit.propertyNameCurrent);
 
             if (propNameCurrent != null)
             {
                 if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                    value = (float)((float)propNameCurrent.GetValue(Stats.Instance) * randomValue);
+                    value = (float)((float)propNameCurrent.GetValue(player.GetComponent<Stats>()) * randomValue);
                 else
-                    value = (float)((float)propNameCurrent.GetValue(Stats.Instance) + randomValue);
+                    value = (float)((float)propNameCurrent.GetValue(player.GetComponent<Stats>()) + randomValue);
 
-                propNameCurrent.SetValue(Stats.Instance, value, null);
+                propNameCurrent.SetValue(player.GetComponent<Stats>(), value, null);
             }
             else
             {
-                var fieldInfoCurrent = Stats.Instance.GetType().GetField(unit.propertyNameCurrent);
+                var fieldInfoCurrent = player.GetComponent<Stats>().GetType().GetField(unit.propertyNameCurrent);
 
                 if (fieldInfoCurrent != null)
                 {
                     if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                        value = (float)((float)fieldInfoCurrent.GetValue(Stats.Instance) * randomValue);
+                        value = (float)((float)fieldInfoCurrent.GetValue(player.GetComponent<Stats>()) * randomValue);
                     else
-                        value = (float)((float)fieldInfoCurrent.GetValue(Stats.Instance) + randomValue);
+                        value = (float)((float)fieldInfoCurrent.GetValue(player.GetComponent<Stats>()) + randomValue);
 
-                    fieldInfoCurrent.SetValue(Stats.Instance, value);
+                    fieldInfoCurrent.SetValue(player.GetComponent<Stats>(), value);
                 }
             }
         }
@@ -183,7 +186,7 @@ public class CharacteristicUnit
 
     [Space(20)]
     public int2 rangePercent; // range in percent
-    public int2 rangeValue; // range in units
+    public float2 rangeValue; // range in units
 }
 
 // TODO: Enable the powerup to change parameters outside of Stats
