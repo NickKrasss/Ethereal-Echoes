@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7034477926791633931}
   - component: {fileID: 2076174719352278351}
   m_Layer: 0
-  m_Name: Kittle
+  m_Name: Kettle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
