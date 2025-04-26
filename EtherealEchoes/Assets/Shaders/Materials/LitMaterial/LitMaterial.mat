@@ -48,7 +48,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _HitColor: {r: 0.103773594, g: 0.08370417, b: 0.08370417, a: 0}
+    - _HitColor: {r: 0.8113208, g: 0.2946778, b: 0.2946778, a: 0}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
