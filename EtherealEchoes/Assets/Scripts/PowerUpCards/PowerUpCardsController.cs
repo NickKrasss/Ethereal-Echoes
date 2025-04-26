@@ -12,7 +12,7 @@ public class PowerUpCardsController : MonoBehaviour
     private void Awake() => Instance = this;
 
     // list of power up cards
-    [SerializeField] List<GameObject> powerUpCards_common, powerUpCards_rare, powerUpCards_legendary;
+    [SerializeField] List<GameObject> powerUpCards_common, powerUpCards_rare, powerUpCards_epic, powerUpCards_legendary;
     [Space(10)]
 
     // UI elements
@@ -23,10 +23,11 @@ public class PowerUpCardsController : MonoBehaviour
     // list of instantiated power up cards
     List<PowerUpCard> cards = new List<PowerUpCard>();
     List<string> listOfCurrentCards = new List<string>();
+    List<PowerUpCard> cardsUsedInGame = new List<PowerUpCard>();
     int generatedCardsCount = 0;
     Coroutine delayedActionCoroutine;
 
-    private void Initialize(Vector2 probabilityRanges)
+    private void Initialize(Vector3 probabilityRanges)
     {
 
         // clear the list of cards
@@ -47,14 +48,18 @@ public class PowerUpCardsController : MonoBehaviour
                     card = InstantiatePowerUpCard(powerUpCards_common, powerUpCardPlaceholders[i]);
                 else if (probability < probabilityRanges.y && probability >= probabilityRanges.x)
                     card = InstantiatePowerUpCard(powerUpCards_rare, powerUpCardPlaceholders[i]);
+                else if (probability < probabilityRanges.z && probability >= probabilityRanges.y)
+                    card = InstantiatePowerUpCard(powerUpCards_epic, powerUpCardPlaceholders[i]);
                 else
                     card = InstantiatePowerUpCard(powerUpCards_legendary, powerUpCardPlaceholders[i]);
+
 
 
                 if (!listOfCurrentCards.Contains(card.cardName))
                 {
                     listOfCurrentCards.Add(card.cardName);
                     cards.Add(card);
+                    cardsUsedInGame.Add(card);
                     break;
                 }
                 else
@@ -77,6 +82,11 @@ public class PowerUpCardsController : MonoBehaviour
         // trigger the opening animation
         animator.SetTrigger("OpenScreen");
         listOfCurrentCards = new List<string>();
+    }
+
+    void activityCard()
+    {
+
     }
 
     void Close()
@@ -130,7 +140,7 @@ public class PowerUpCardsController : MonoBehaviour
 
     private void Start()
     {
-        Vector2 def = new Vector2(80, 90);
+        Vector3 def = new (88, 97, 99);
         Initialize(def);
     }
 }

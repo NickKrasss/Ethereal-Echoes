@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using System.Reflection.Emit;
 
 public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
@@ -14,12 +15,14 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     // properties to change 
     public List<CharacteristicUnit> valuesToChange;
+    public bool isCardOrbEffect;
 
     // actions
     public Action actionOnMouseHover, actionOnClick;
 
     // temp variables
     float value;
+    float endValue;
     float randomValue;
 
     // UI elements
@@ -35,7 +38,9 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         // set the initial color of the card
         cardTint.color = idleColor;
     }
+
     
+
     void SetValue(CharacteristicUnit unit)
     {
         var player = GameObject.FindGameObjectWithTag("Player");
@@ -44,21 +49,22 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         System.Reflection.PropertyInfo propName = player.GetComponent<Stats>().GetType().GetProperty(unit.propertyName);
 
         // generate a random value based on the specified range
-        if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-            randomValue = UnityEngine.Random.Range(unit.rangePercent.x, unit.rangePercent.y + 1) / 100f + 1;
+        if (unit.rangePercent != 0)
+            value = unit.rangePercent / 100f + 1;
         else
-            randomValue = UnityEngine.Random.Range(unit.rangeValue.x, unit.rangeValue.y + 1);
+            value = unit.rangeValue;
+
 
         // if required characteristic is a property then edit as property
         if (propName != null)
         {
-            if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                value = (float)((float)propName.GetValue(player.GetComponent<Stats>()) * randomValue);
+            if (unit.rangePercent != 0 )
+                endValue = (float)((float)propName.GetValue(player.GetComponent<Stats>()) * value);
             else
-                value = (float)((float)propName.GetValue(player.GetComponent<Stats>()) + randomValue);
+                endValue = (float)((float)propName.GetValue(player.GetComponent<Stats>()) + value);
 
             // set the new value
-            propName.SetValue(player.GetComponent<Stats>(), value, null);
+            propName.SetValue(player.GetComponent<Stats>(), endValue, null);
         }
         else
         {
@@ -67,13 +73,13 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
             if (fieldInfo != null)
             {
-                if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                    value = (float)((float)fieldInfo.GetValue(player.GetComponent<Stats>()) * randomValue);
+                if (unit.rangePercent != 0)
+                    endValue = (float)((float)fieldInfo.GetValue(player.GetComponent<Stats>()) * value);
                 else
-                    value = (float)((float)fieldInfo.GetValue(player.GetComponent<Stats>()) + randomValue);
+                    endValue = (float)((float)fieldInfo.GetValue(player.GetComponent<Stats>()) + value);
 
                 // set the new value
-                fieldInfo.SetValue(player.GetComponent<Stats>(), value);
+                fieldInfo.SetValue(player.GetComponent<Stats>(), endValue);
             }
         }
 
@@ -85,12 +91,12 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
             if (propNameCurrent != null)
             {
-                if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                    value = (float)((float)propNameCurrent.GetValue(player.GetComponent<Stats>()) * randomValue);
+                if (unit.rangePercent != 0 )
+                    endValue = (float)((float)propNameCurrent.GetValue(player.GetComponent<Stats>()) * value);
                 else
-                    value = (float)((float)propNameCurrent.GetValue(player.GetComponent<Stats>()) + randomValue);
+                    endValue = (float)((float)propNameCurrent.GetValue(player.GetComponent<Stats>()) + value);
 
-                propNameCurrent.SetValue(player.GetComponent<Stats>(), value, null);
+                propNameCurrent.SetValue(player.GetComponent<Stats>(), endValue, null);
             }
             else
             {
@@ -98,12 +104,12 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
                 if (fieldInfoCurrent != null)
                 {
-                    if (unit.rangePercent.x != 0 && unit.rangePercent.y != 0)
-                        value = (float)((float)fieldInfoCurrent.GetValue(player.GetComponent<Stats>()) * randomValue);
+                    if (unit.rangePercent != 0 )
+                        endValue = (float)((float)fieldInfoCurrent.GetValue(player.GetComponent<Stats>()) * value);
                     else
-                        value = (float)((float)fieldInfoCurrent.GetValue(player.GetComponent<Stats>()) + randomValue);
+                        endValue = (float)((float)fieldInfoCurrent.GetValue(player.GetComponent<Stats>()) + value);
 
-                    fieldInfoCurrent.SetValue(player.GetComponent<Stats>(), value);
+                    fieldInfoCurrent.SetValue(player.GetComponent<Stats>(), endValue);
                 }
             }
         }
@@ -125,6 +131,18 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     // this method is called when the mouse clicks on the card
     public void OnPointerClick(PointerEventData eventData)
     {
+        var player = GameObject.FindGameObjectWithTag("Player");
+
+        if (isCardOrbEffect)
+        {
+            if (cardName == "Ученый")
+            {
+                var gears = player.GetComponent<GearContainer>().current_gears;
+                player.GetComponent<GearContainer>().current_gears += (int)(gears * 0.1);
+
+                return;
+            }
+        }
         // set the value for each characteristic unit
         foreach (CharacteristicUnit unit in valuesToChange)
         {
@@ -135,7 +153,7 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         actionOnClick?.Invoke();
 
         // show the info pop up with the card description
-        InfoPopUpScreenController.Instance.Show("<size=15>Применено улучшение:</size>\n" + cardDescription, 5f, 1f);
+        InfoPopUpScreenController.Instance.Show("<size=18>Применено улучшение:</size>\n" + cardDescription, 5f, 1f);
 
         // start the color change coroutine to change back to idle color
         changeColorCoroutine = StartCoroutine(changeColor(hoveredColor, 0.15f, () =>
@@ -183,10 +201,11 @@ public class CharacteristicUnit
 {
     public string propertyName;
     public string propertyNameCurrent;
+    public bool isCardOrbEffect;
 
     [Space(20)]
-    public int2 rangePercent; // range in percent
-    public float2 rangeValue; // range in units
+    public int rangePercent; // range in percent
+    public float rangeValue; // range in units
 }
 
 // TODO: Enable the powerup to change parameters outside of Stats

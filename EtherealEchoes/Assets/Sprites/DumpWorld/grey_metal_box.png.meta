@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 53d4bfabf3f1cc342ac9008b2e6c6e57
+guid: 5373ef3482d415e4d9a1dcf716bdd714
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4901805800095283050
-    second: DumpWorldWall2_0
+      213: 8553959486371099471
+    second: grey_metal_box_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,10 +46,10 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 9
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DumpWorldWall2_0
+      name: grey_metal_box_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 31
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6980f5f789949fbb0800000000000000
-      internalID: -4901805800095283050
+      spriteID: f437b3005d4c5b670800000000000000
+      internalID: 8553959486371099471
       vertices: []
       indices: 
       edges: []
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DumpWorldWall2_0: -4901805800095283050
+      grey_metal_box_0: 8553959486371099471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

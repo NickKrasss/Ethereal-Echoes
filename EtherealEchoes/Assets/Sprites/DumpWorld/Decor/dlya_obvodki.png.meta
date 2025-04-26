@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 53d4bfabf3f1cc342ac9008b2e6c6e57
+guid: d301a084c0f47a04fb8f8700cfd1c66e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4901805800095283050
-    second: DumpWorldWall2_0
+      213: 759917129889868967
+    second: dlya_obvodki_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DumpWorldWall2_0
+      name: dlya_obvodki_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 960
+        height: 540
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6980f5f789949fbb0800000000000000
-      internalID: -4901805800095283050
+      spriteID: 7ace1d97a94cb8a00800000000000000
+      internalID: 759917129889868967
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DumpWorldWall2_0: -4901805800095283050
+      dlya_obvodki_0: 759917129889868967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
