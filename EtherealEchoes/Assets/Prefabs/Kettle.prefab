@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 2479479947855920969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.07256494, w: 0.99736375}
-  m_LocalPosition: {x: 0.3067236, y: -0.043823995, z: 0}
+  m_LocalPosition: {x: 0.34857908, y: -0.036641154, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7034477926791633931}
   - component: {fileID: 2076174719352278351}
   m_Layer: 0
-  m_Name: Kittle
+  m_Name: Kettle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +353,7 @@ Animator:
   m_GameObject: {fileID: 4967645512628000230}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d21464bee7c98e94583f4269e0a537d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5e9790d6466da9f4f965e1633e5dee6c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
