@@ -86,13 +86,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417708984696258290}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.08777814, w: 0.99614006}
+  m_LocalRotation: {x: 0, y: 0, z: -0.08778217, w: 0.9961397}
   m_LocalPosition: {x: -0.10610454, y: -0.0040082587, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6894878947499149382}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 709.928}
 --- !u!1 &766555624613285052
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 3460037221820791749}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.08777824, w: 0.99614006}
-  m_LocalPosition: {x: 0.25633097, y: 0.85610026, z: 0}
+  m_LocalPosition: {x: 0.37040418, y: 0.8258859, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 3234566008700901010}
   - component: {fileID: 5668685114206211014}
   - component: {fileID: 9053085570070448174}
+  - component: {fileID: 1170090561638843379}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -440,6 +441,28 @@ MonoBehaviour:
     m_Extent: {x: 0, y: 0, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!95 &1170090561638843379
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628819843460539915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f946736e71719794e81ba584221a9f02, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6692442013286972632
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8801430780839587761}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.106199674, w: 0.99434483}
+  m_LocalRotation: {x: 0, y: 0, z: -0.10620333, w: 0.9943445}
   m_LocalPosition: {x: 0.40487286, y: -0.037004147, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

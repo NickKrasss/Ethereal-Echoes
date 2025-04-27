@@ -398,9 +398,9 @@ TextureImporter:
         rgba: 4278190335
     - name: wheel
       guid: e872be50faac9eb47a37451444043bbd
-      position: {x: -42.757053, y: -19.535587, z: 3}
-      rotation: {x: 0, y: 0, z: -0.091843136, w: 0.9957735}
-      length: 22.252558
+      position: {x: -42.278652, y: -19.410007, z: 3}
+      rotation: {x: 0, y: 0, z: -0.09665966, w: 0.9953175}
+      length: 21.80622
       parentId: 0
       color:
         serializedVersion: 2
@@ -425,36 +425,36 @@ TextureImporter:
         rgba: 4294967040
     - name: gear_small_1
       guid: 69ab528a452d17e4d835041a4f2d8cb7
-      position: {x: -99.19871, y: 28.09388, z: 1}
-      rotation: {x: 0, y: 0, z: -0.10235945, w: 0.9947475}
-      length: 13.904619
+      position: {x: -99.425186, y: 27.825327, z: 1}
+      rotation: {x: 0, y: 0, z: -0.09143158, w: 0.9958114}
+      length: 14.075061
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294901760
     - name: gear_small_2
       guid: 2d01574fd58b0b1418c9220b20b4c9ab
-      position: {x: -83.05813, y: 6.5966296, z: 1}
-      rotation: {x: 0, y: 0, z: -0.08777814, w: 0.99614006}
-      length: 8.810627
+      position: {x: -82.84417, y: 6.562402, z: 1}
+      rotation: {x: 0, y: 0, z: -0.087992646, w: 0.99612117}
+      length: 8.59398
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4294902015
     - name: gear_small_3
       guid: f1f63e317be738a408cc8723509510fb
-      position: {x: -70.87174, y: 27.493063, z: 1}
-      rotation: {x: 0, y: 0, z: -0.10887428, w: 0.99405557}
-      length: 8.92967
+      position: {x: -70.59131, y: 27.150702, z: 1}
+      rotation: {x: 0, y: 0, z: -0.09302304, w: 0.995664}
+      length: 8.586137
       parentId: 0
       color:
         serializedVersion: 2
         rgba: 4278223103
     - name: gear_small_4
       guid: e82c0e6b52444df45bee40f6db1e7aeb
-      position: {x: -79.62493, y: 43.99541, z: 1}
-      rotation: {x: 0, y: 0, z: -0.09864611, w: 0.9951226}
-      length: 22.38345
+      position: {x: -78.35384, y: 43.37138, z: 1}
+      rotation: {x: 0, y: 0, z: -0.09006375, w: 0.99593604}
+      length: 21.017708
       parentId: 0
       color:
         serializedVersion: 2
@@ -488,9 +488,9 @@ TextureImporter:
         rgba: 4294901888
     - name: cannon
       guid: 28bc7708daa1722449c6618eb8a1b668
-      position: {x: -9.055297, y: 61.32936, z: 3}
-      rotation: {x: 0, y: 0, z: -0.08777818, w: 0.99614006}
-      length: 22.95124
+      position: {x: -4.9711227, y: 60.864323, z: 3}
+      rotation: {x: 0, y: 0, z: -0.09455006, w: 0.9955201}
+      length: 18.850422
       parentId: 0
       color:
         serializedVersion: 2
