@@ -13,7 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 1
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -45,7 +45,7 @@ Material:
     - _HitForce: 1.4
     - _HitProgress: 0
     - _OutlineThickness: 1
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     m_Colors:
     - _HitColor: {r: 0.8207547, g: 0.2981043, b: 0.2981043, a: 0}
