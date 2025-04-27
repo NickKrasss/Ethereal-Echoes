@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: ebc6fd12332eca44e929aa4256ec274f
+guid: 67d6e372034eecc41b3c97e62bdbcd02
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7836718496246585046
-    second: spr_cyber_rabbit_0
+      213: -2298504634678579639
+    second: spr_rabbit 1_0
   - first:
-      213: -3117589894134255705
-    second: spr_cyber_rabbit_1
+      213: 3011990463689045938
+    second: spr_rabbit 1_1
   - first:
-      213: -9202272742481152242
-    second: spr_cyber_rabbit_2
+      213: 7869313077615746869
+    second: spr_rabbit 1_2
   - first:
-      213: -5131503118439636136
-    second: spr_cyber_rabbit_3
+      213: -7323429854437169050
+    second: spr_rabbit 1_3
   - first:
-      213: 5638570059162535220
-    second: spr_cyber_rabbit_4
+      213: 5004193841891727414
+    second: spr_rabbit 1_4
   - first:
-      213: 7157076709869930936
-    second: spr_cyber_rabbit_5
+      213: 2135251281430769518
+    second: spr_rabbit 1_5
   - first:
-      213: 5630459000438474497
-    second: spr_cyber_rabbit_6
+      213: -2812757309097852623
+    second: spr_rabbit 1_6
   - first:
-      213: 4029933503896660012
-    second: spr_cyber_rabbit_7
+      213: 4774063410162260405
+    second: spr_rabbit 1_7
   - first:
-      213: -1002873195820720404
-    second: spr_cyber_rabbit_8
+      213: 4890525590285022382
+    second: spr_rabbit 1_8
   - first:
-      213: 6028733343209563380
-    second: spr_cyber_rabbit_9
+      213: 1284591492451490797
+    second: spr_rabbit 1_9
   - first:
-      213: 4120310372785999488
-    second: spr_cyber_rabbit_10
+      213: 8180297058930462552
+    second: spr_rabbit 1_10
   - first:
-      213: -3870809153842150210
-    second: spr_cyber_rabbit_11
+      213: -1238583919500799873
+    second: spr_rabbit 1_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,52 +133,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spr_cyber_rabbit_0
+      name: spr_rabbit 1_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 77
-        width: 23
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a292d726c026e3390800000000000000
-      internalID: -7836718496246585046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_cyber_rabbit_1
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 93
-        width: 26
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7afa7cc42881cb4d0800000000000000
-      internalID: -3117589894134255705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_cyber_rabbit_2
-      rect:
-        serializedVersion: 2
-        x: 118
+        x: 42
         y: 86
         width: 20
         height: 19
@@ -189,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e07b62a42b5fa4080800000000000000
-      internalID: -9202272742481152242
+      spriteID: 94ee46776321a10e0800000000000000
+      internalID: -2298504634678579639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_3
+      name: spr_rabbit 1_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 30
-        width: 77
-        height: 37
+        x: 82
+        y: 93
+        width: 26
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 853a8950a1d39c8b0800000000000000
-      internalID: -5131503118439636136
+      spriteID: 2b7bc075e5dbcc920800000000000000
+      internalID: 3011990463689045938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_4
+      name: spr_rabbit 1_2
       rect:
         serializedVersion: 2
-        x: 114
-        y: 50
-        width: 17
-        height: 17
+        x: 131
+        y: 77
+        width: 23
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,17 +189,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43549892899304e40800000000000000
-      internalID: 5638570059162535220
+      spriteID: 53f5f99fc8a653d60800000000000000
+      internalID: 7869313077615746869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_5
+      name: spr_rabbit 1_3
       rect:
         serializedVersion: 2
-        x: 154
+        x: 17
         y: 65
         width: 9
         height: 9
@@ -252,20 +210,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b9c40a095b035360800000000000000
-      internalID: 7157076709869930936
+      spriteID: 66828cc3953fd5a90800000000000000
+      internalID: -7323429854437169050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_6
+      name: spr_rabbit 1_4
       rect:
         serializedVersion: 2
-        x: 143
+        x: 49
         y: 50
-        width: 10
-        height: 10
+        width: 17
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,17 +231,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 107498321a8632e40800000000000000
-      internalID: 5630459000438474497
+      spriteID: 638572d29c7727540800000000000000
+      internalID: 5004193841891727414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_7
+      name: spr_rabbit 1_5
       rect:
         serializedVersion: 2
-        x: 172
+        x: 88
+        y: 30
+        width: 77
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6fe0e73abfe1ad10800000000000000
+      internalID: 2135251281430769518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_rabbit 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 46
         width: 8
         height: 9
@@ -294,17 +273,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c28a4389b233de730800000000000000
-      internalID: 4029933503896660012
+      spriteID: 131c6d7412417f8d0800000000000000
+      internalID: -2812757309097852623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_8
+      name: spr_rabbit 1_7
       rect:
         serializedVersion: 2
-        x: 152
+        x: 27
+        y: 50
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b959e1a061e04240800000000000000
+      internalID: 4774063410162260405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_rabbit 1_8
+      rect:
+        serializedVersion: 2
+        x: 19
         y: 28
         width: 9
         height: 9
@@ -315,59 +315,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cee585054241512f0800000000000000
-      internalID: -1002873195820720404
+      spriteID: ea475edfc13aed340800000000000000
+      internalID: 4890525590285022382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spr_cyber_rabbit_9
+      name: spr_rabbit 1_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 15
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f42f87b80d5aa350800000000000000
-      internalID: 6028733343209563380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_cyber_rabbit_10
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 0
-        width: 16
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08e444624784e2930800000000000000
-      internalID: 4120310372785999488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spr_cyber_rabbit_11
-      rect:
-        serializedVersion: 2
-        x: 101
+        x: 57
         y: 3
         width: 22
         height: 22
@@ -378,8 +336,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb488ef359f184ac0800000000000000
-      internalID: -3870809153842150210
+      spriteID: deb5f050829c3d110800000000000000
+      internalID: 1284591492451490797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_rabbit 1_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85f09b285d0468170800000000000000
+      internalID: 8180297058930462552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_rabbit 1_11
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 4
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70d4adcc7aafcee0800000000000000
+      internalID: -1238583919500799873
       vertices: []
       indices: 
       edges: []
@@ -395,18 +395,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      spr_cyber_rabbit_0: -7836718496246585046
-      spr_cyber_rabbit_1: -3117589894134255705
-      spr_cyber_rabbit_10: 4120310372785999488
-      spr_cyber_rabbit_11: -3870809153842150210
-      spr_cyber_rabbit_2: -9202272742481152242
-      spr_cyber_rabbit_3: -5131503118439636136
-      spr_cyber_rabbit_4: 5638570059162535220
-      spr_cyber_rabbit_5: 7157076709869930936
-      spr_cyber_rabbit_6: 5630459000438474497
-      spr_cyber_rabbit_7: 4029933503896660012
-      spr_cyber_rabbit_8: -1002873195820720404
-      spr_cyber_rabbit_9: 6028733343209563380
+      spr_rabbit 1_0: -2298504634678579639
+      spr_rabbit 1_1: 3011990463689045938
+      spr_rabbit 1_10: 8180297058930462552
+      spr_rabbit 1_11: -1238583919500799873
+      spr_rabbit 1_2: 7869313077615746869
+      spr_rabbit 1_3: -7323429854437169050
+      spr_rabbit 1_4: 5004193841891727414
+      spr_rabbit 1_5: 2135251281430769518
+      spr_rabbit 1_6: -2812757309097852623
+      spr_rabbit 1_7: 4774063410162260405
+      spr_rabbit 1_8: 4890525590285022382
+      spr_rabbit 1_9: 1284591492451490797
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
