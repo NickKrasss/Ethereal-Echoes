@@ -130,6 +130,20 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         changeColorCoroutine = StartCoroutine(changeColor(hoveredColor, 0.15f));
     }
 
+    static int countEqualsStringNames(List<string> stringNames, string name)
+    {
+        int count = 0;
+        foreach (var names in stringNames)
+        {
+            if (names == name)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
     // this method is called when the mouse clicks on the card
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -139,10 +153,71 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         {
             if (cardName == "Ученый")
             {
-                var gears = player.GetComponent<GearContainer>().current_gears;
-                player.GetComponent<GearContainer>().current_gears += (int)(gears * 0.1);
-
+                
+                if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") == 0)
+                {
+                    G.Instance.extraGearsOffset += (float)(0.1);
+                }
+                else
+                {
+                    G.Instance.extraGearsOffset *= (float)(1.1);
+                }
+                G.Instance.powerUpCards.Add("Ученый");
                 return;
+            }
+            if (cardName == "Снайпер")
+            {
+                if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") > 1)
+                {
+                    G.Instance.criticalHitChance += (float)(G.Instance.criticalHitChance * 0.15);
+                    G.Instance.powerUpCards.Add("Снайпер");
+                }
+                else if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") == 0)
+                {
+                    G.Instance.criticalHitChance += 15;
+                    G.Instance.powerUpCards.Add("Снайпер");
+                }
+                return;
+            }
+            if (cardName == "Карманник")
+            {
+                if (countEqualsStringNames(G.Instance.powerUpCards, "Карманник") == 0)
+                {
+                    G.Instance.extraGearsOffset += (float)(0.2);
+                }
+                else
+                {
+                    G.Instance.extraGearsOffset *= (float)(1.2);
+                }
+                G.Instance.powerUpCards.Add("Карманник");
+                return;
+            }
+            if (cardName == "Фортуна")
+            {
+                for (var i = 0; i <= G.Instance.dropChancesCommonChest.Count; i++)
+                {
+                    G.Instance.dropChancesCommonChest[i] -= 2;
+                    G.Instance.dropChancesRareChest[i] -= 2;
+                    G.Instance.dropChancesStatsPlace[i] -= 2;
+                    G.Instance.dropChancesArtifactPlace[i] -= 2;
+                }
+                G.Instance.powerUpCards.Add("Фортуна");
+                return;
+            }
+            if (cardName == "Невосприимчивость")
+            {
+                if (G.Instance.blockDamageChance == 0)
+                {
+                    G.Instance.blockDamageChance += 7;
+                }
+                else
+                {
+                    G.Instance.blockDamageChance += (float)(G.Instance.blockDamageChance * 0.07);
+                }
+            }
+            if (cardName == "Орлиный глаз")
+            {
+                G.Instance.criticalHitAmount += G.Instance.criticalHitAmount * 0.15;
             }
         }
         // set the value for each characteristic unit
@@ -150,6 +225,7 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         {
             SetValue(unit);
         }
+        G.Instance.powerUpCards.Add(cardName);
 
         // invoke the action on click
         actionOnClick?.Invoke();

@@ -3012,6 +3012,9 @@ MonoBehaviour:
   currentLevel: 1
   currentTime: 0
   isWorldLoading: 0
+  powerUpCards: []
+  currentLevel: 1
+  criticalHitChance: 0
 --- !u!4 &580600541
 Transform:
   m_ObjectHideFlags: 0
@@ -4240,10 +4243,10 @@ MonoBehaviour:
   - {fileID: 3677659825151704599, guid: 758382bd7ffa4524ca2e043d37cb49b0, type: 3}
   - {fileID: 3677659825151704599, guid: 14defcaf92db71c49962df1bf0f37ae5, type: 3}
   powerUpCards_epic:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3677659825151704599, guid: 947daf7e3879e08498f08175348254c8, type: 3}
+  - {fileID: 3677659825151704599, guid: 716f77e6353fb9148b8e321f7659ab6d, type: 3}
+  - {fileID: 3677659825151704599, guid: dd3bb902fe79cc24684f1193b13fa5e6, type: 3}
+  - {fileID: 3677659825151704599, guid: 947daf7e3879e08498f08175348254c8, type: 3}
   powerUpCards_legendary:
   - {fileID: 3677659825151704599, guid: 799b2ec9235df154c8c8bcc8c307dde5, type: 3}
   - {fileID: 3677659825151704599, guid: d597bdfdec2f23243baebc36cb557932, type: 3}
