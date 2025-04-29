@@ -215,11 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98940645114f0524fbc09a6c03323589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSectorSize: 06000000050000000f0000000f000000
+  startSectorSize: 05000000050000000500000005000000
   sectorsCount: 5000000064000000
-  sectorsSize: 06000000050000000a0000000a000000
-  cellChance: 0.3
-  steps: 3
+  sectorsSize: 06000000050000000900000009000000
+  cellChance: 0.1
+  steps: 2
 --- !u!114 &4996715439337361043
 MonoBehaviour:
   m_ObjectHideFlags: 0
