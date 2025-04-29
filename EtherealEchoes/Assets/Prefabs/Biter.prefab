@@ -596,6 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 14
   isMaxHealthAffectedByLevel: 1
+  levelMult: 0.07
   CurrentHealth: 20
   baseDamage: 10
   isDamageAffectedByLevel: 1
@@ -734,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 4
-  levelBuff: 15
+  levelBuff: 6
   sizeMult: 1.2
   newMaterial: {fileID: 2100000, guid: f0dfa0c3f34433440993d10b382491bb, type: 2}
 --- !u!1 &7854293412450206799

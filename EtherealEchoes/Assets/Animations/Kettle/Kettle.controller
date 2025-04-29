@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: isAttackingMini
+    m_ConditionEvent: isAttacking
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7201192502046908467}
@@ -73,8 +73,8 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Move
-  m_Speed: 1
-  m_CycleOffset: 0
+  m_Speed: 0.7
+  m_CycleOffset: 0.9
   m_Transitions:
   - {fileID: -2293109370554699618}
   m_StateMachineBehaviours: []
@@ -88,7 +88,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 00e22d8aad2337941b659e8110bcecdc, type: 2}
   m_Tag: 
-  m_SpeedParameter: AnimationSpeed
+  m_SpeedParameter: moveSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -101,25 +101,13 @@ AnimatorController:
   m_Name: Kettle
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: MoveRage
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: isAttackingMini
+  - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: AnimationSpeed
-    m_Type: 1
-    m_DefaultFloat: 1
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: AttackSpeed
+  - m_Name: moveSpeed
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
@@ -237,7 +225,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0

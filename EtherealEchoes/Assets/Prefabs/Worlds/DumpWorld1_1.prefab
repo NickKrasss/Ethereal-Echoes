@@ -430,7 +430,7 @@ MonoBehaviour:
       isGroupObject: 0
     - canRepeat: 1
       hadArleadySpawned: 0
-      frequency: 30
+      frequency: 1
       width: 2
       height: 2
       offset_x: 0

@@ -58,8 +58,7 @@ public class KettleAI : MonoBehaviour
 
 
 
-        animator.SetFloat("AnimationSpeed", 0f);
-        animator.SetFloat("AttackSpeed", stats.AttackSpeed);
+        animator.SetFloat("moveSpeed", 0f);
 
         dmgHitbox.transform.localScale = new Vector2(stats.AttackRange, stats.AttackRange);
         dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
@@ -75,7 +74,7 @@ public class KettleAI : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        if (curSpeed != 0)
+        if (agent.speed != 0)
         {
             if (transform.position.x > target.transform.position.x)
                 sprRenderer.flipX = true;
@@ -87,25 +86,32 @@ public class KettleAI : MonoBehaviour
     private void UpdateSpeed()
     {
         agent.speed = stats.MoveSpeed;
+        animator.SetFloat("moveSpeed", agent.speed);
     }
 
     private void CheckAttack()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10) && !animator.GetBool("isAttackingMini"))
+        if (Vector2.Distance(transform.position, target.transform.position) < spotRange && !animator.GetBool("isAttacking") && stats.CurrentEnergy >= 50)
         {
             StartCoroutine(Bite());
+            stats.CurrentEnergy -= 50;
         }
+    }
+
+    public void DashEvent()
+    {
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
+        dmgHitbox.SetActive(true);
+        Vector2 targetPos = (new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
+        rb.AddForce((targetPos-(Vector2)transform.position).normalized * stats.BulletSpeed, ForceMode2D.Impulse);
     }
 
     private IEnumerator Bite()
     {
-        animator.SetBool("isAttackingMini", true);
-        yield return new WaitForSeconds(0.75f * (1 / stats.AttackSpeed));
-        dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
-        dmgHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.25f * (1 / stats.AttackSpeed));
+        animator.SetBool("isAttacking", true);
+        yield return new WaitForSeconds(1.2f);
         dmgHitbox.SetActive(false);
-        animator.SetBool("isAttackingMini", false);
+        animator.SetBool("isAttacking", false);
     }
 
     public void SpotPlayer()
@@ -132,8 +138,6 @@ public class KettleAI : MonoBehaviour
             UpdateAnimations();
             CheckAttack();
             agent.SetDestination(new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
-
-            animator.SetFloat("AnimationSpeed", 1f);
         }
     }
 }

@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 1511611526482306538}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7022805, w: 0.71190035}
-  m_LocalPosition: {x: 0.26909065, y: -0.05212629, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -391,8 +391,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 2
+  m_Mass: 3
+  m_LinearDrag: 1.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -440,7 +440,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.25, y: -0.5}
+  m_Offset: {x: 0, y: -0.5}
   m_Size: {x: 1.3, y: 0.8}
   m_Direction: 1
 --- !u!114 &3702484313980576122
@@ -457,27 +457,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 70
   isMaxHealthAffectedByLevel: 1
+  levelMult: 0.07
   CurrentHealth: 0
   baseDamage: 30
   isDamageAffectedByLevel: 1
   baseAttackSpeed: 3
   isAttackSpeedAffectedByLevel: 1
-  baseMoveSpeed: 5
+  baseMoveSpeed: 0.7
   isMoveSpeedAffectedByLevel: 1
-  baseMaxEnergy: 100
-  isMaxEnergyAffectedByLevel: 1
+  baseMaxEnergy: 50
+  isMaxEnergyAffectedByLevel: 0
   CurrentEnergy: 0
   baseAttackRange: 2
   isAttackRangeAffectedByLevel: 0
   baseArmor: 2
   isArmorAffectedByLevel: 1
-  BulletSpeed: 16
+  BulletSpeed: 40
   Knockback: 5
   SpreadDegrees: 15
   CanRegenerateHealth: 0
   CanRegenerateEnergy: 1
   HealthRegenerationRate: 1
-  EnergyRegenerationRate: 2
+  EnergyRegenerationRate: 10
   level: 1
 --- !u!114 &8230079296369570464
 MonoBehaviour:
@@ -594,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e768fa2753879aa418eb745c08097b53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.23, y: -0.8}
+  offset: {x: 0, y: -0.8}
   color: {r: 0.6037736, g: 0.16015923, b: 0.11107157, a: 0.84313726}
   outlineColor: {r: 0, g: 0, b: 0, a: 0.84313726}
   outlineWidth: 0.8
@@ -629,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 4
-  levelBuff: 15
+  levelBuff: 6
   sizeMult: 1.2
   newMaterial: {fileID: 2100000, guid: f0dfa0c3f34433440993d10b382491bb, type: 2}
 --- !u!114 &-7882587770959400894
@@ -668,7 +669,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.8
+  m_BaseOffset: 0.2575
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &4968156462295245495
@@ -858,7 +859,7 @@ Transform:
   m_GameObject: {fileID: 6879046730838330436}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.262, y: -0.253, z: 0}
+  m_LocalPosition: {x: 0, y: -0.253, z: 0}
   m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
