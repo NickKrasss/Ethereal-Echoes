@@ -1,33 +1,66 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TransitionOverlayController : MonoBehaviour
 {
     public static TransitionOverlayController Instance { get; private set; }
-    private void Awake() => Instance = this;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        StopAllCoroutines();
+        background.color = new Color(0, 0, 0, 0);
+        text.color = new Color(1, 1, 1, 0);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    bool fadedIn;
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (fadedIn)
+        {
+            StopAllCoroutines();
+            FadeOut(0.5f, 0.5f);
+        }
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     [SerializeField] Image background;
     [SerializeField] TMP_Text text;
 
-    private void Start()
+    public void FadeIn(float duration, float delay = 0f, Action action = null)
     {
-        FadeOut(2f, 1f);
+        StartCoroutine(fadeAction(new Color(0, 0, 0, 1), new Color(1, 1, 1, 1), duration, delay, action));
+        fadedIn = true; 
     }
 
-    public void FadeIn(float duration, float delay = 0f)
+    public void FadeOut(float duration, float delay = 0f, Action action = null)
     {
-        StartCoroutine(fadeAction(new Color(0, 0, 0, 1), duration, delay));
+        StartCoroutine(fadeAction(new Color(0, 0, 0, 0), new Color(1, 1, 1, 0), duration, delay, action));
+        fadedIn = false;
     }
 
-    public void FadeOut(float duration, float delay = 0f)
-    {
-        StartCoroutine(fadeAction(new Color(0, 0, 0, 0), duration, delay));
-    }
-
-    IEnumerator fadeAction(Color desiredColor, float time, float delay = 0f)
+    IEnumerator fadeAction(Color desiredColor, Color desiredTextColor, float time, float delay = 0f, Action action = null)
     {
         yield return new WaitForSeconds(delay);
 
@@ -38,11 +71,13 @@ public class TransitionOverlayController : MonoBehaviour
         while (elapsedTime < time)
         {
             elapsedTime += Time.unscaledDeltaTime;
-            text.color = Color.Lerp(startTextColor, new Color(1, 1, 1, desiredColor.a - 1), elapsedTime / time);
+            text.color = Color.Lerp(startTextColor, desiredTextColor, elapsedTime / time);
             background.color = Color.Lerp(startColor, desiredColor, elapsedTime / time);
             yield return null;
         }
-        text.color = new Color(1, 1, 1, desiredColor.a - 1);
+        text.color = desiredTextColor;
         background.color = desiredColor;
+
+        action?.Invoke();
     }
 }

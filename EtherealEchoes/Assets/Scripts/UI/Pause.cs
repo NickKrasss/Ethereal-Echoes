@@ -34,8 +34,11 @@ public class Pause : MonoBehaviour
     }
     public void LoadMainMenu()
     {
-        ResumeGame();
+        Time.timeScale = 1f;
+        isPaused = false;
+        AudioListener.pause = false;
         Destroy(AudioManager.Instance.gameObject);
-        SceneManager.LoadScene(0);
+        TransitionOverlayController.Instance.FadeIn(0.15f, 0f, () => SceneManager.LoadScene(0));
+        //SceneManager.LoadScene(0);
     }
 }

@@ -165,7 +165,8 @@ public class Menu : MonoBehaviour
     private IEnumerator StartGameIE()
     {
         MakeButtonSound();
-        yield return new WaitForSeconds(0.2f);
+        TransitionOverlayController.Instance.FadeIn(0.5f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
     }
 

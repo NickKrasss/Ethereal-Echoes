@@ -1,4 +1,4 @@
-using NavMeshPlus.Components;
+﻿using NavMeshPlus.Components;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameCycle());
     }
 
+    // kowie: я не особо хочу разбираться в том, что здесь происходит, если честно...
     private IEnumerator GameCycle()
     {
         G.Instance.isWorldLoading = true;

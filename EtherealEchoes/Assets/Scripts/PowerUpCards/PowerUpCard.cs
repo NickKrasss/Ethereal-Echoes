@@ -231,7 +231,7 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         actionOnClick?.Invoke();
 
         // show the info pop up with the card description
-        InfoPopUpScreenController.Instance.Show("<size=18>Применено улучшение:</size>\n" + cardDescription, 5f, 1f);
+        InfoPopUpScreenController.Instance.Show("<size=0.75em>Применено улучшение:</size>\n" + cardDescription, 5f, 1f);
 
         // start the color change coroutine to change back to idle color
         changeColorCoroutine = StartCoroutine(changeColor(hoveredColor, 0.15f, () =>
