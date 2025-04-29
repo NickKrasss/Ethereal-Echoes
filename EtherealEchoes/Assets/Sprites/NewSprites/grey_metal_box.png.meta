@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      grey_metal_box_0: 8553959486371099471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
