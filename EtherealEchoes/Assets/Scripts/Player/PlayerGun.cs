@@ -54,9 +54,10 @@ public class PlayerGun : MonoBehaviour
         if (G.Instance.powerUpCards.Contains("Ñíàéïåğ"))
         {
             int probability = UnityEngine.Random.Range(0, 100);
-            if (probability < G.Instance.criticalHitChance)
+            if (probability <= G.Instance.criticalHitChance)
             {
-                bullet.GetComponent<DamageHitBoxScr>().damage = (float)(stats.Damage * 1.75);
+                bullet.GetComponent<DamageHitBoxScr>().damage = (float)(stats.Damage * G.Instance.criticalHitAmount);
+                //Debug.Log($"ÃÎÉÄÀ {(float)(stats.Damage * 1.75)}");
             }
         }
         else

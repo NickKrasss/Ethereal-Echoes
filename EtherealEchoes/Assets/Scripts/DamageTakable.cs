@@ -74,6 +74,8 @@ public class DamageTakable : MonoBehaviour
         if (IsInvincible()) return;
         damage = stats.GetDamageTaken(damage);
         if (damage < 0) return;
+ 
+        
 
         damageTakenEvent.Invoke();
         if (playSoundOnHit)
@@ -86,7 +88,21 @@ public class DamageTakable : MonoBehaviour
             hitProgress = 1f;
         }
 
+        if (gameObject.CompareTag("Player"))
+        {
+            if (G.Instance.powerUpCards.Contains("Невосприимчивость"))
+            {
+                int probability = UnityEngine.Random.Range(0, 100);
+                if (probability <= G.Instance.blockDamageChance)
+                {
+                    damage = 0;
+                }
+            }
+        }
+
+
         stats.CurrentHealth -= damage;
+
         if (stats.CurrentHealth < 0) stats.CurrentHealth = 0;
 
         if (bar)

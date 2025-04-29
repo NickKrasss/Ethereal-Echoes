@@ -84,7 +84,15 @@ public class PickUp : MonoBehaviour
             if (id == 0)
             {
                 if (collision.gameObject.GetComponent<GearContainer>().IsFull()) return;
-                collision.gameObject.GetComponent<GearContainer>().AddGears(count);
+                if (G.Instance.extraGearsOffset > 0)
+                {
+                    var newGearCount = count + (int)(count * G.Instance.extraGearsOffset);
+                    collision.gameObject.GetComponent<GearContainer>().AddGears(newGearCount);
+                }
+                else
+                {
+                    collision.gameObject.GetComponent<GearContainer>().AddGears(count);
+                }
                 if (AudioManager.Instance)
                     AudioManager.Instance.PlayAudio(pickupSounds[UnityEngine.Random.Range(0, pickupSounds.Length)], SoundType.SFX, volume);
             }
