@@ -43,7 +43,9 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     void SetValue(CharacteristicUnit unit)
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
+        var player = G.Instance.playerObj;
+
+        if (player == null) return;
 
         // get the property name from the Stats instance
         System.Reflection.PropertyInfo propName = player.GetComponent<Stats>().GetType().GetProperty(unit.propertyName);
