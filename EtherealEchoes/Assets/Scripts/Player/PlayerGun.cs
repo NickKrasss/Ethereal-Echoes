@@ -51,7 +51,19 @@ public class PlayerGun : MonoBehaviour
     private void Shoot()
     { 
         GameObject bullet = Instantiate(bulletPrefab, shootPivot.position, Quaternion.identity);
-        bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        if (G.Instance.powerUpCards.Contains("Снайпер"))
+        {
+            int probability = UnityEngine.Random.Range(0, 100);
+            if (probability < G.Instance.criticalHitChance)
+            {
+                bullet.GetComponent<DamageHitBoxScr>().damage = (float)(stats.Damage * 1.75);
+            }
+        }
+        else
+        {
+            bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        }
+        
         bullet.GetComponent<DamageHitBoxScr>().knockbackForce = stats.Knockback;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();
         scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - shootPivot.position).normalized * stats.BulletSpeed;

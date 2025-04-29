@@ -140,7 +140,7 @@ public class PowerUpCardsController : MonoBehaviour
 
     private void Start()
     {
-        Vector3 def = new (88, 97, 99);
+        Vector3 def = new (0, 0, 100);
         Initialize(def);
     }
 }

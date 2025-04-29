@@ -161,11 +161,13 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
             {
                 if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") > 1)
                 {
-                    G.Instance.criticalHitChance *= 1.15;
+                    G.Instance.criticalHitChance += (float)(G.Instance.criticalHitChance * 0.15);
+                    G.Instance.powerUpCards.Add("Снайпер");
                 }
                 else if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") == 0)
                 {
-                    G.Instance.criticalHitChance += 0.15;
+                    G.Instance.criticalHitChance += 15;
+                    G.Instance.powerUpCards.Add("Снайпер");
                 }
             }
         }
@@ -174,6 +176,7 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
         {
             SetValue(unit);
         }
+        G.Instance.powerUpCards.Add(cardName);
 
         // invoke the action on click
         actionOnClick?.Invoke();
