@@ -3008,13 +3008,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWorldObj: {fileID: 0}
   playerObj: {fileID: 0}
-  gameLight: {fileID: 1338582342}
-  currentLevel: 1
-  currentTime: 0
-  isWorldLoading: 0
-  powerUpCards: []
+  blockDamageChance: 0
+  extraGearsOffset: 0
   currentLevel: 1
   criticalHitChance: 0
+  criticalHitAmount: 1.75
+  powerUpCards: []
+  dropChancesCommonChest: 580000006700000096000000
+  dropChancesRareChest: 4c0000006300000096000000
+  dropChancesStatsPlace: 4b000000f0000000f0000000
+  dropChancesArtifactPlace: 350000003e00000096000000
+  dropChancesBoss: 000000000000000064000000
 --- !u!4 &580600541
 Transform:
   m_ObjectHideFlags: 0
@@ -4242,11 +4246,18 @@ MonoBehaviour:
   - {fileID: 3677659825151704599, guid: d4cf86fb439e1da438585f7b7c665e9a, type: 3}
   - {fileID: 3677659825151704599, guid: 758382bd7ffa4524ca2e043d37cb49b0, type: 3}
   - {fileID: 3677659825151704599, guid: 14defcaf92db71c49962df1bf0f37ae5, type: 3}
+  - {fileID: 3677659825151704599, guid: 7486fb33c3f8ea74aa653b42f76d97d4, type: 3}
   powerUpCards_epic:
+  - {fileID: 3677659825151704599, guid: 0ba6c5c726a89df4b8d5bfd119700530, type: 3}
+  - {fileID: 3677659825151704599, guid: a8ed0c44775b5454d87f27cb5050a085, type: 3}
+  - {fileID: 3677659825151704599, guid: 635e3cb7f4913594c8788d858fe18de9, type: 3}
+  - {fileID: 3677659825151704599, guid: 2c486241af70d96408908afe09ee8930, type: 3}
   - {fileID: 3677659825151704599, guid: 947daf7e3879e08498f08175348254c8, type: 3}
-  - {fileID: 3677659825151704599, guid: 716f77e6353fb9148b8e321f7659ab6d, type: 3}
-  - {fileID: 3677659825151704599, guid: dd3bb902fe79cc24684f1193b13fa5e6, type: 3}
-  - {fileID: 3677659825151704599, guid: 947daf7e3879e08498f08175348254c8, type: 3}
+  - {fileID: 3677659825151704599, guid: 15d908804d5b4524782f7dcc84e74da8, type: 3}
+  - {fileID: 3677659825151704599, guid: a0836d46bed3e724aae4e05cfda22e7b, type: 3}
+  - {fileID: 3677659825151704599, guid: b36cdf41b6c6c71418e325a3d01d9b00, type: 3}
+  - {fileID: 3677659825151704599, guid: 04e3e747bc6ad6a4690c98781c1979da, type: 3}
+  - {fileID: 3677659825151704599, guid: 8daccdf73c7d85140a55d713dfd754d9, type: 3}
   powerUpCards_legendary:
   - {fileID: 3677659825151704599, guid: 799b2ec9235df154c8c8bcc8c307dde5, type: 3}
   - {fileID: 3677659825151704599, guid: d597bdfdec2f23243baebc36cb557932, type: 3}

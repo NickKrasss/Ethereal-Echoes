@@ -27,7 +27,7 @@ public class G : MonoBehaviour
 
      
 
-    public int currentLevel = 0;
+    //public int currentLevel = 0;
 
     public int currentTime = 0;
 
