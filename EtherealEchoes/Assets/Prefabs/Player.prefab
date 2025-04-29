@@ -425,7 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5add23751599f44186d2fa2b285464b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
   bulletPrefab: {fileID: 1961765644102158381, guid: b8dbb0c095f70624d9c86f5d80cc21a6, type: 3}
   shootAudioClips:
   - {fileID: 8300000, guid: c9131b3e818a4964aa20bb45502c63a1, type: 3}
@@ -447,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd836b4c14c3664da937f781c9e02fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   isFlipped: 0
 --- !u!114 &2333539334186902026
 MonoBehaviour:
@@ -490,7 +488,7 @@ MonoBehaviour:
   baseArmor: 0
   isArmorAffectedByLevel: 1
   BulletSpeed: 15
-  Knockback: 1.5
+  Knockback: 1
   SpreadDegrees: 10
   CanRegenerateHealth: 0
   CanRegenerateEnergy: 1
@@ -547,7 +545,6 @@ MonoBehaviour:
   hand2: {fileID: 560521923656089673}
   gun1: {fileID: 8122422137823980932}
   gun2: {fileID: 5612947365309527119}
-  mainCamera: {fileID: 0}
   rotationOffsetZ: -160
 --- !u!114 &2128593417735611826
 MonoBehaviour:

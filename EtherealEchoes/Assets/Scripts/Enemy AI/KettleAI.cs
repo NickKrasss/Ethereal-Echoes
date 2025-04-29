@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class BiterAI : MonoBehaviour
+public class KettleAI : MonoBehaviour
 {
     private SpriteRenderer sprRenderer;
 
@@ -36,15 +36,10 @@ public class BiterAI : MonoBehaviour
     [SerializeField]
     private float spotRange = 30f;
 
-    [Tooltip("Ускорение")]
-    [SerializeField]
-    private float acceleration = 0.1f;
 
     private bool spottedTarget = false;
 
     private float curSpeed = 0f;
-
-    private SmoothMoveScr smoothScr;
 
     [SerializeField]
     private GameObject dmgHitbox;
@@ -75,7 +70,7 @@ public class BiterAI : MonoBehaviour
 
         GetComponent<DamageTakable>().damageTakenEvent.AddListener(SpotPlayer);
 
-        stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4); 
+        stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4);
     }
 
     private void UpdateAnimations()
@@ -87,15 +82,11 @@ public class BiterAI : MonoBehaviour
             else
                 sprRenderer.flipX = false;
         }
-        animator.SetFloat("MoveRage", (curSpeed - minSpeed) / (stats.MoveSpeed - minSpeed));
     }
 
     private void UpdateSpeed()
     {
-        if (curSpeed <= 0f)
-            curSpeed = minSpeed;
-        curSpeed = Mathf.Lerp(curSpeed, stats.MoveSpeed, Time.deltaTime * acceleration);
-        agent.speed = curSpeed;
+        agent.speed = stats.MoveSpeed;
     }
 
     private void CheckAttack()
@@ -106,24 +97,14 @@ public class BiterAI : MonoBehaviour
         }
     }
 
-    public void AttackEvent()
-    {
-        StartCoroutine(AttactEventCoroutine());
-        
-    }
-
-    private IEnumerator AttactEventCoroutine()
-    {
-        dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
-        dmgHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        dmgHitbox.SetActive(false);
-    }
-
     private IEnumerator Bite()
     {
         animator.SetBool("isAttackingMini", true);
-        yield return new WaitForSeconds((1 / stats.AttackSpeed));
+        yield return new WaitForSeconds(0.75f * (1 / stats.AttackSpeed));
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
+        dmgHitbox.SetActive(true);
+        yield return new WaitForSeconds(0.25f * (1 / stats.AttackSpeed));
+        dmgHitbox.SetActive(false);
         animator.SetBool("isAttackingMini", false);
     }
 
@@ -151,7 +132,7 @@ public class BiterAI : MonoBehaviour
             UpdateAnimations();
             CheckAttack();
             agent.SetDestination(new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
-            
+
             animator.SetFloat("AnimationSpeed", 1f);
         }
     }

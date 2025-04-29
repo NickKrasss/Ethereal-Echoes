@@ -600,7 +600,7 @@ MonoBehaviour:
   baseDamage: 10
   isDamageAffectedByLevel: 1
   baseAttackSpeed: 1
-  isAttackSpeedAffectedByLevel: 1
+  isAttackSpeedAffectedByLevel: 0
   baseMoveSpeed: 5.4
   isMoveSpeedAffectedByLevel: 1
   baseMaxEnergy: 100
