@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    // Основные характеристики
+    
 
+    // Основные характеристики
     [SerializeField] private float baseMaxHealth = 100f; // Максимальное здоровье
     [SerializeField] private bool isMaxHealthAffectedByLevel = true;
 
@@ -26,7 +27,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    [HideInInspector]
+    [SerializeField]
     public float CurrentHealth; // Текущее здоровье
 
     [SerializeField]  private float baseDamage = 10f; // Урон
@@ -161,7 +162,10 @@ public class Stats : MonoBehaviour
     {
         RegenerateHealth();
         RegenerateEnergy();
-        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+        if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
     }
 
     public static float getValueAffectedByLevel(float value, int level)
