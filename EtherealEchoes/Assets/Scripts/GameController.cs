@@ -24,12 +24,12 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameCycle());
     }
 
-    // kowie: я не особо хочу разбираться в том, что здесь происходит, если честно...
     private IEnumerator GameCycle()
     {
         G.Instance.isWorldLoading = true;
-
-        NextWorld();
+        GameObject world = null;
+        
+        world = NextWorld();
         yield return new WaitForEndOfFrame();
         GenerateNavmesh();
         minimapScr.GenerateTexture();
@@ -37,7 +37,9 @@ public class GameController : MonoBehaviour
         Camera.main.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, Camera.main.transform.position.z);
 
         G.Instance.isWorldLoading = false;
-
+        yield return new WaitForSeconds(1f);
+        TransitionOverlayController.Instance.FadeOut(0.5f, 0f);
+        yield return new WaitForSeconds(1f);
         while (true) 
         {
             while (G.Instance.currentTime > 0)
@@ -45,9 +47,12 @@ public class GameController : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 G.Instance.currentTime -= 1;
             }
-
+            yield return new WaitForSeconds(1f);
+            TransitionOverlayController.Instance.FadeIn(0.5f, 0f);
+            yield return new WaitForSeconds(1f);
             G.Instance.isWorldLoading = true;
             G.Instance.playerObj.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, G.Instance.playerObj.transform.position.z);
+
             if (NextWorld() == null)
             {
                 break;
@@ -59,7 +64,9 @@ public class GameController : MonoBehaviour
             minimapScr.GenerateTexture();
             AudioManager.Instance.EndAllSounds();
             G.Instance.isWorldLoading = false;
-
+            yield return new WaitForSeconds(1f);
+            TransitionOverlayController.Instance.FadeOut(0.5f, 0f);
+            yield return new WaitForSeconds(1f);
         }
         
 
@@ -75,28 +82,17 @@ public class GameController : MonoBehaviour
 
     private GameObject NextWorld()
     {
-        GameObject world = null;
 
         if (G.Instance.currentWorldObj != null)
         {
-            TransitionOverlayController.Instance.FadeIn(0.5f, 0f, () =>
-            {
-                Destroy(G.Instance.currentWorldObj);
-                G.Instance.currentWorldObj = null;
-                currentWorldInd++;
-                G.Instance.currentLevel++;
-
-                TransitionOverlayController.Instance.FadeOut(0.5f, 3f, () =>
-                {
-                    world = _NextWorld();
-                });
-            });
+            Destroy(G.Instance.currentWorldObj);
+            G.Instance.currentWorldObj = null;
+            currentWorldInd++;
+            G.Instance.currentLevel++;
         }
+        GameObject world = _NextWorld();
 
-        if (G.Instance.currentWorldObj == null)
-            return _NextWorld();
-        else
-            return world;
+        return world;
 
         GameObject _NextWorld()
         {
