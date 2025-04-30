@@ -40,6 +40,8 @@ public class WorldObject : MonoBehaviour
 
         G.Instance.currentWorld = world;
 
+        if (G.Instance.gameLight == null) return; 
+
         G.Instance.gameLight.color = lightColor;
         G.Instance.gameLight.intensity = lightIntensity;
         G.Instance.gameLight.transform.rotation = lightRotation;

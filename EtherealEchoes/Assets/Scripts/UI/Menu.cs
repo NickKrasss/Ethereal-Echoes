@@ -154,11 +154,13 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
+        StopAllCoroutines();
         StartCoroutine(StartGameIE());
     }
 
     public void ExitGame()
     {
+        StopAllCoroutines();
         StartCoroutine(ExitGameIE());
     }
 
