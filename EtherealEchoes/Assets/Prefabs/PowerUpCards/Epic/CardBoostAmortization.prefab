@@ -346,13 +346,13 @@ MonoBehaviour:
   - propertyName: BaseMoveSpeed
     propertyNameCurrent: 
     isCardOrbEffect: 0
-    rangePercent: 0
-    rangeValue: 10
+    rangePercent: 10
+    rangeValue: 0
   - propertyName: BaseAttackSpeed
     propertyNameCurrent: 
     isCardOrbEffect: 0
-    rangePercent: 0
-    rangeValue: 5
+    rangePercent: 10
+    rangeValue: 0
   isCardOrbEffect: 0
   cardTint: {fileID: 528469523623500583}
   idleColor: {r: 0, g: 0, b: 0, a: 0}
