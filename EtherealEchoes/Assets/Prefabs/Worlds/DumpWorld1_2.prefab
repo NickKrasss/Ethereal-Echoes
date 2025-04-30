@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98940645114f0524fbc09a6c03323589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSectorSize: 05000000050000000500000005000000
+  startSectorSize: 0a0000000a0000000a0000000a000000
   sectorsCount: 5000000064000000
   sectorsSize: 06000000050000000900000009000000
   cellChance: 0.1
@@ -484,8 +484,8 @@ MonoBehaviour:
     canRepeat: 0
     hadArleadySpawned: 0
     frequency: 100
-    width: 12
-    height: 12
+    width: 10
+    height: 10
     offset_x: 0
     offset_y: 0
     offset_z: -0.2

@@ -78,7 +78,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         while (!World.isSectorFilledWith(landscape, sector, digit))
         {
             attempts++;
-            if (attempts >= 40000)
+            if (attempts >= 4000000)
             {
                 Debug.Log("�� �������");
                 return null; 
@@ -90,7 +90,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
             while (landscape[x, y] != digit)
             {
                 xxx++;
-                if (xxx > 100000)
+                if (xxx > 10000000)
                 {
                     Debug.Log(digit);
                     break;
