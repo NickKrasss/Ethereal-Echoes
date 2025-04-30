@@ -12,6 +12,7 @@ public class GearContainer : MonoBehaviour
     public bool IsLevelingUp;
     public float coef = 1.1f;
     TMP_Text textMeshPro;
+    TMP_Text upgradeText;
 
     [SerializeField]
     private AudioClip levelUpSound;
@@ -38,7 +39,13 @@ public class GearContainer : MonoBehaviour
             textMeshPro = GameObject.FindGameObjectWithTag("Gears").GetComponent<TMP_Text>();
             return;
         }
-        textMeshPro.text = current_gears == max_gears ? $"{current_gears} / {max_gears}\nЗажмите R для повышения уровня" : $"{current_gears} / {max_gears}";
+        if (!upgradeText)
+        {
+            upgradeText = GameObject.FindGameObjectWithTag("UpgradeText").GetComponent<TMP_Text>();
+            return;
+        }
+        textMeshPro.text = $"{current_gears} / {max_gears}";
+        upgradeText.text = IsFull() ? $"Зажмите <b><color=#8B0000>R</b></color> для повышения уровня." : "";
         LevelUp();
     }
 
@@ -66,7 +73,6 @@ public class GearContainer : MonoBehaviour
             }
         }
     }
-
     public bool IsFull()
     {
         return current_gears == max_gears;

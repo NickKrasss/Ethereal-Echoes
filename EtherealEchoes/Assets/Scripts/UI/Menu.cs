@@ -154,18 +154,21 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
+        StopAllCoroutines();
         StartCoroutine(StartGameIE());
     }
 
     public void ExitGame()
     {
+        StopAllCoroutines();
         StartCoroutine(ExitGameIE());
     }
 
     private IEnumerator StartGameIE()
     {
         MakeButtonSound();
-        yield return new WaitForSeconds(0.2f);
+        TransitionOverlayController.Instance.FadeIn(0.5f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(1);
     }
 

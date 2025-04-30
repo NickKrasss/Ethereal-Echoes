@@ -1,7 +1,8 @@
-using NavMeshPlus.Components;
+﻿using NavMeshPlus.Components;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameCycle());
     }
 
+    // kowie: я не особо хочу разбираться в том, что здесь происходит, если честно...
     private IEnumerator GameCycle()
     {
         G.Instance.isWorldLoading = true;
@@ -73,22 +75,40 @@ public class GameController : MonoBehaviour
 
     private GameObject NextWorld()
     {
+        GameObject world = null;
+
         if (G.Instance.currentWorldObj != null)
         {
-            Destroy(G.Instance.currentWorldObj);
-            G.Instance.currentWorldObj = null;
-            currentWorldInd++;
-            G.Instance.currentLevel++;
+            TransitionOverlayController.Instance.FadeIn(0.5f, 0f, () =>
+            {
+                Destroy(G.Instance.currentWorldObj);
+                G.Instance.currentWorldObj = null;
+                currentWorldInd++;
+                G.Instance.currentLevel++;
+
+                TransitionOverlayController.Instance.FadeOut(0.5f, 3f, () =>
+                {
+                    world = _NextWorld();
+                });
+            });
         }
 
-        if (worlds.Length <= currentWorldInd)
-            return null;
+        if (G.Instance.currentWorldObj == null)
+            return _NextWorld();
+        else
+            return world;
 
-        G.Instance.currentTime = worlds[currentWorldInd].GetComponent<WorldObject>().worldTime;
+        GameObject _NextWorld()
+        {
+            if (worlds.Length <= currentWorldInd)
+                return null;
 
-        GameObject world = Instantiate(worlds[currentWorldInd]);
+            G.Instance.currentTime = worlds[currentWorldInd].GetComponent<WorldObject>().worldTime;
 
-        
-        return world;
+            GameObject world = Instantiate(worlds[currentWorldInd]);
+            UIController.Instance.ShowWorldName(worlds[currentWorldInd].GetComponent<WorldObject>().worldName);
+
+            return world;
+        }
     }
 }

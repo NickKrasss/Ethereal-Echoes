@@ -46,7 +46,8 @@ public class PlayerDeath : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                TransitionOverlayController.Instance.FadeIn(0.5f, 0f, () => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 Time.timeScale = 1f;
             }
         }

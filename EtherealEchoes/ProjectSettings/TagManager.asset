@@ -10,6 +10,8 @@ TagManager:
   - Gears
   - EnergyBar
   - PickUp
+  - MainLight
+  - UpgradeText
   layers:
   - Default
   - TransparentFX

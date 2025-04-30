@@ -43,5 +43,10 @@ public class G : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (gameLight == null)
+        {
+            gameLight = GameObject.FindWithTag("MainLight").GetComponent<Light>();
+        }
     }
 }

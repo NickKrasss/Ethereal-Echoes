@@ -226,7 +226,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gears_0: -7121309101972749489
+      gears_1: 3394653240272682139
+      gears_2: 6324380982363126411
+      gears_3: -8380146599018834487
+      gears_4: -439257461312874013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
