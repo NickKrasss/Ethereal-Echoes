@@ -11,6 +11,7 @@ TagManager:
   - EnergyBar
   - PickUp
   - MainLight
+  - UpgradeText
   layers:
   - Default
   - TransparentFX

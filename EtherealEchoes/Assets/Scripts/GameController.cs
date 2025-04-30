@@ -86,7 +86,7 @@ public class GameController : MonoBehaviour
                 currentWorldInd++;
                 G.Instance.currentLevel++;
 
-                TransitionOverlayController.Instance.FadeOut(0.5f, 0.5f, () =>
+                TransitionOverlayController.Instance.FadeOut(0.5f, 3f, () =>
                 {
                     world = _NextWorld();
                 });
