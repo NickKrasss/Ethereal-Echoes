@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -22,7 +22,7 @@ public class UIController : MonoBehaviour
         if (!PlayerPrefs.HasKey("TutorialSeen"))
         {
             // Show the tutorial pop-up
-            InfoPopUpScreenController.Instance.ShowMultiple(5f, 2f, "Movement - <color=grey>WASD</color>\r\nAttack - <color=grey>Left Mouse</color>\r\nIncrese level - <color=grey>Hold R</color>", "Defeat all the enemies!\nTry not to die..\n<color=red>Good luck :)</color>");
+            InfoPopUpScreenController.Instance.ShowMultiple(5f, 2f, "Ходьба - <color=grey>WASD</color>\r\nСтрельба - <color=grey>ЛКМ</color>\r\nПовышение уровня - <color=grey>Удерживайте R</color>", "Сверху находится таймер. Следите за ним, потому что по его истечении игрок переместится на другой мир с боссами и более тяжелыми врагами.", "Победите всех врагов, собирайте улучшения. \n<color=red>Удачи :)</color>");
 
             // Set the PlayerPrefs key to indicate that the tutorial has been seen
             PlayerPrefs.SetInt("TutorialSeen", 1);
@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         TimeSpan time = TimeSpan.FromSeconds(G.Instance.currentTime);
-        timerText.text = time.ToString(@"mm\:ss");
+        timerText.text = time.ToString(@"m\:ss");
     }
 
     public void ShowWorldName(string worldName)
