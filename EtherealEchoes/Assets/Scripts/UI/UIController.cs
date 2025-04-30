@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     [SerializeField] TMP_Text worldNameText;
+    [SerializeField] TMP_Text timerText;
 
     public static UIController Instance { get; private set; }
     private void Awake()
@@ -26,6 +28,12 @@ public class UIController : MonoBehaviour
             PlayerPrefs.SetInt("TutorialSeen", 1);
             PlayerPrefs.Save();
         }
+    }
+
+    private void Update()
+    {
+        TimeSpan time = TimeSpan.FromSeconds(G.Instance.currentTime);
+        timerText.text = time.ToString(@"mm\:ss");
     }
 
     public void ShowWorldName(string worldName)
