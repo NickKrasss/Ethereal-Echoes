@@ -88,8 +88,8 @@ public class GameController : MonoBehaviour
         G.Instance.currentTime = worlds[currentWorldInd].GetComponent<WorldObject>().worldTime;
 
         GameObject world = Instantiate(worlds[currentWorldInd]);
+        UIController.Instance.ShowWorldName(worlds[currentWorldInd].GetComponent<WorldObject>().worldName);
 
-        
         return world;
     }
 }
