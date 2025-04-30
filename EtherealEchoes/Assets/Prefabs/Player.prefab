@@ -491,9 +491,9 @@ MonoBehaviour:
   BulletSpeed: 15
   Knockback: 1
   SpreadDegrees: 10
-  CanRegenerateHealth: 0
+  CanRegenerateHealth: 1
   CanRegenerateEnergy: 1
-  HealthRegenerationRate: 1
+  HealthRegenerationRate: 0
   EnergyRegenerationRate: 25
   level: 1
 --- !u!114 &7798684644142995025

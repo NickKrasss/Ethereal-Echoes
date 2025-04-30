@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class KettleAI : MonoBehaviour
+public class MantisAI : MonoBehaviour
 {
     private SpriteRenderer sprRenderer;
 
@@ -32,10 +32,10 @@ public class KettleAI : MonoBehaviour
     [SerializeField]
     private float spotRange = 30f;
 
+    [SerializeField]
+    private float radius = 30f;
 
     private bool spottedTarget = false;
-
-    private float curSpeed = 0f;
 
     [SerializeField]
     private GameObject dmgHitbox;
@@ -52,18 +52,15 @@ public class KettleAI : MonoBehaviour
         animator = GetComponent<Animator>();
         stats = GetComponent<Stats>();
 
-
-
         animator.SetFloat("moveSpeed", 0f);
 
-        dmgHitbox.transform.localScale = new Vector2(stats.AttackRange, stats.AttackRange);
         dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         dmgHitbox.SetActive(false);
 
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        GetComponent<DamageTakable>().damageTakenEvent.AddListener(SpotPlayer);
+        GetComponent<DamageTakable>().damageTakenEvent.AddListener(() => { spottedTarget = true; });
 
         stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4);
     }
@@ -87,19 +84,22 @@ public class KettleAI : MonoBehaviour
 
     private void CheckAttack()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) < spotRange*0.75f && !animator.GetBool("isAttacking") && stats.CurrentEnergy >= 50)
+        if (Vector2.Distance(transform.position, target.transform.position) < spotRange && !animator.GetBool("isAttacking") && stats.CurrentEnergy >= 50)
         {
             StartCoroutine(Bite());
             stats.CurrentEnergy -= 50;
         }
     }
 
-    public void DashEvent()
+    public void MeleeAttackEvent()
     {
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
-        Vector2 targetPos = (new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
-        rb.AddForce((targetPos-(Vector2)transform.position).normalized * stats.BulletSpeed, ForceMode2D.Impulse);
+    }
+
+    public void RangeAttackEvent()
+    { 
+    
     }
 
     private IEnumerator Bite()
@@ -108,11 +108,6 @@ public class KettleAI : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         dmgHitbox.SetActive(false);
         animator.SetBool("isAttacking", false);
-    }
-
-    public void SpotPlayer()
-    {
-        spottedTarget = true;
     }
 
     void Update()
@@ -126,14 +121,15 @@ public class KettleAI : MonoBehaviour
         if (!spottedTarget)
         {
             if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
-                SpotPlayer();
+                spottedTarget = true;
         }
         else
         {
             UpdateSpeed();
             UpdateAnimations();
             CheckAttack();
-            agent.SetDestination(new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
+            Vector2 targetPos = new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y);
+            agent.SetDestination(targetPos);
         }
     }
 }

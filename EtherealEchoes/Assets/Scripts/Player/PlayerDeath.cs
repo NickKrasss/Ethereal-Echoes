@@ -31,6 +31,7 @@ public class PlayerDeath : MonoBehaviour
         if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
+            G.Instance.playerDead = true;
             DeadBodyScr dbs = Instantiate(deadBody, transform.position, transform.rotation).GetComponent<DeadBodyScr>();
             dbs.flip = GetComponent<SpriteRenderer>().flipX;
             deathScreen.SetActive(true);

@@ -392,7 +392,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 3
-  m_LinearDrag: 1.5
+  m_LinearDrag: 2.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -455,9 +455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1706860d4ed8f2c44b876252b5a086ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 70
+  baseMaxHealth: 50
   isMaxHealthAffectedByLevel: 1
-  levelMult: 0.07
+  levelMult: 0.08
   CurrentHealth: 0
   baseDamage: 30
   isDamageAffectedByLevel: 1
@@ -472,7 +472,7 @@ MonoBehaviour:
   isAttackRangeAffectedByLevel: 0
   baseArmor: 2
   isArmorAffectedByLevel: 1
-  BulletSpeed: 40
+  BulletSpeed: 55
   Knockback: 5
   SpreadDegrees: 15
   CanRegenerateHealth: 0
@@ -527,8 +527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 2
-  max_gears: 4
+  min_gears: 3
+  max_gears: 6
   dropForce: 0.33
   min_count: 2
   max_count: 4
