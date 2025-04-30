@@ -67,7 +67,7 @@ public class SpiderAI : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        if (stats.MoveSpeed != 0)
+        if (agent.speed != 0)
         {
             if (transform.position.x > target.transform.position.x)
                 sprRenderer.flipX = true;
