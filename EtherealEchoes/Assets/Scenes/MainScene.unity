@@ -8486,6 +8486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2938628850819177785, guid: 965d0e3bdd9947b4984344277d0de638, type: 3}
+      propertyPath: baseMoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4024686032379483290, guid: 965d0e3bdd9947b4984344277d0de638, type: 3}
       propertyPath: m_Name
       value: SpiderMini
