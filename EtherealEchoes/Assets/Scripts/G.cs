@@ -31,13 +31,15 @@ public class G : MonoBehaviour
 
     public int currentTime = 0;
 
+    public bool playerDead = false;
+
     public bool isWorldLoading = false;
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {

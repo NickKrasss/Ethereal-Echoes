@@ -11,6 +11,8 @@ public class Stats : MonoBehaviour
     [SerializeField] private float baseMaxHealth = 100f; // Максимальное здоровье
     [SerializeField] private bool isMaxHealthAffectedByLevel = true;
 
+    [SerializeField] private float levelMult = 0.035f;
+
     public float BaseMaxHealth
     {
         get { return baseMaxHealth; }
@@ -168,9 +170,9 @@ public class Stats : MonoBehaviour
         }
     }
 
-    public static float getValueAffectedByLevel(float value, int level)
+    public float getValueAffectedByLevel(float value, int level)
     {
-        return value * (1 + 0.035f * level);
+        return value * (1 + levelMult * level);
     }
 
     public float GetDamageTaken(float incomingDamage)

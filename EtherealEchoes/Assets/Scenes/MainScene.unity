@@ -3195,6 +3195,7 @@ MonoBehaviour:
   dropChancesArtifactPlace: 350000003e00000096000000
   dropChancesBoss: 000000000000000064000000
   currentTime: 0
+  playerDead: 0
   isWorldLoading: 0
 --- !u!4 &580600541
 Transform:

@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
             while (G.Instance.currentTime > 0)
             {
                 yield return new WaitForSeconds(1);
-                G.Instance.currentTime -= 1;
+                if (!G.Instance.playerDead) G.Instance.currentTime -= 1;
             }
             yield return new WaitForSeconds(1f);
             TransitionOverlayController.Instance.FadeIn(0.5f, 0f);

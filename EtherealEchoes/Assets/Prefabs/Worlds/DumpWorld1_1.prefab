@@ -378,22 +378,6 @@ MonoBehaviour:
       obj: {fileID: 5946053243610653485, guid: 8c9e604f8cbf83e4797a1ecb3d32ecfa, type: 3}
       rotationAngle: -25
       isGroupObject: 0
-  - name: "\u0412\u0440\u0430\u0433\u0438"
-    lowerCount: 50
-    upperCount: 60
-    places:
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 30
-      width: 2
-      height: 2
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0
-      obj: {fileID: 3719771159645246137, guid: 43fe4fcb217822b459b9bf7c863f55b9, type: 3}
-      rotationAngle: -25
-      isGroupObject: 0
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
       2"
     lowerCount: 3
@@ -426,6 +410,34 @@ MonoBehaviour:
       offset_z: 0
       random_offset: 0
       obj: {fileID: 2640401802100567129, guid: c5eb58c790a179e4eb9b5acab19e4f5b, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+  - name: "\u0412\u0440\u0430\u0433\u0438"
+    lowerCount: 60
+    upperCount: 70
+    places:
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 30
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 3719771159645246137, guid: 43fe4fcb217822b459b9bf7c863f55b9, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 8
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 5908809674767586987, guid: 843e894266336ff4b8a439b95a859268, type: 3}
       rotationAngle: -25
       isGroupObject: 0
   - name: "\u042F\u0449\u0438\u043A\u0438"
