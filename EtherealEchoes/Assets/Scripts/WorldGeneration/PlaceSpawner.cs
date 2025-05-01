@@ -46,8 +46,11 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         {
             foreach (var child in obj.GetComponentsInChildren<Transform>()[1..])
             {
-                child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
-                child.transform.SetParent(transform);
+                if (child.parent == obj.transform)
+                {
+                    if (place.rotationAngle != 0) child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
+                    child.transform.SetParent(transform);
+                }
             }
             obj.transform.DetachChildren();
             Destroy(obj);

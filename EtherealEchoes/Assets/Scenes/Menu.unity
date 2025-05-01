@@ -2193,6 +2193,7 @@ MonoBehaviour:
   dropChancesArtifactPlace: 350000003e00000096000000
   dropChancesBoss: 000000000000000064000000
   currentTime: 0
+  playerDead: 0
   isWorldLoading: 0
 --- !u!4 &2042100720
 Transform:
@@ -2416,6 +2417,10 @@ PrefabInstance:
     - target: {fileID: 4851741994370222212, guid: f64d05b1a467da64ab6c39a041872274, type: 3}
       propertyPath: m_Name
       value: SettingsUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851741994370222212, guid: f64d05b1a467da64ab6c39a041872274, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7291874443592151803, guid: f64d05b1a467da64ab6c39a041872274, type: 3}
       propertyPath: m_Pivot.x
