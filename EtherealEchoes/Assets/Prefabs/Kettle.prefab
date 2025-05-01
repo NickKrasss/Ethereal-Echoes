@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 5773832453267656102}
   m_Layer: 0
   m_Name: Kettle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1706860d4ed8f2c44b876252b5a086ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 50
+  baseMaxHealth: 70
   isMaxHealthAffectedByLevel: 1
   levelMult: 0.08
   CurrentHealth: 0
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a035b9fa14f954290cd7b1bef3a9f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadBody: {fileID: 8128459575854119325, guid: 707555f89f46c2f4a9e1b9abd825e7c8, type: 3}
+  deadBody: {fileID: 4264414293284429077, guid: 9d0ed40aad87e0b47b20fabe1004e182, type: 3}
 --- !u!114 &5229448239364932388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset_x: 0
   offset_y: 0.3
-  minSpeed: 1
   spotRange: 8.5
   dmgHitbox: {fileID: 6879046730838330436}
 --- !u!195 &5773832453267656102
@@ -845,7 +844,7 @@ GameObject:
   - component: {fileID: 8125893563041919620}
   m_Layer: 0
   m_Name: DamageHitbox
-  m_TagString: Untagged
+  m_TagString: DamageHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

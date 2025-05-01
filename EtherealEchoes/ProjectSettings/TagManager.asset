@@ -10,6 +10,7 @@ TagManager:
   - Gears
   - EnergyBar
   - PickUp
+  - DamageHitbox
   layers:
   - Default
   - TransparentFX
