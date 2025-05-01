@@ -198,7 +198,7 @@ MonoBehaviour:
   cooldown: 3
   radius: 5
   force: 0.7
-  rotationAngle: -25
+  rotationAngle: 0
   eliteChance: 2
 --- !u!1001 &4688673038728588583
 PrefabInstance:

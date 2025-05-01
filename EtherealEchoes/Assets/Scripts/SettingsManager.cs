@@ -36,7 +36,7 @@ public class SettingsManager : MonoBehaviour
     {
         instance = this;
 
-        PlayerPrefs.SetInt("GodMode", 1);
+        PlayerPrefs.SetInt("GodMode", 0);
         PlayerPrefs.Save();
         godModeToggle.isOn = false;
 

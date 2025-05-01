@@ -12,6 +12,7 @@ TagManager:
   - PickUp
   - MainLight
   - UpgradeText
+  - DamageHitbox
   layers:
   - Default
   - TransparentFX

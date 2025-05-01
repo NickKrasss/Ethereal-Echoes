@@ -53,7 +53,7 @@ public class SpiderAI : MonoBehaviour
 
 
 
-        animator.SetFloat("AnimationSpeed", 0f);
+        animator.SetFloat("speed", 0f);
 
         dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
 
@@ -105,7 +105,7 @@ public class SpiderAI : MonoBehaviour
             UpdateSpeed();
             UpdateAnimations();
             agent.SetDestination(new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));
-            animator.SetFloat("AnimationSpeed", 1f);
+            animator.SetFloat("speed", 1f);
             if (dmgHitbox == null)
             {
                 Destroy(gameObject);

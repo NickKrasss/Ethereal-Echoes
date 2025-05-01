@@ -440,6 +440,18 @@ MonoBehaviour:
       obj: {fileID: 5908809674767586987, guid: 843e894266336ff4b8a439b95a859268, type: 3}
       rotationAngle: -25
       isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 15
+      width: 1
+      height: 1
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 4024686032379483290, guid: 965d0e3bdd9947b4984344277d0de638, type: 3}
+      rotationAngle: 0
+      isGroupObject: 0
   - name: "\u042F\u0449\u0438\u043A\u0438"
     lowerCount: 25
     upperCount: 30
