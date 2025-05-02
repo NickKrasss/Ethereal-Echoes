@@ -199,8 +199,8 @@ MonoBehaviour:
   worldDraw: {fileID: 4996715439337361043}
   bosses: []
   worldTime: 180
-  lightColor: {r: 1, g: 1, b: 1, a: 1}
-  lightIntensity: 0.5
+  lightColor: {r: 0, g: 0, b: 0, a: 1}
+  lightIntensity: 2
   shadowStrength: 0
   lightRotation: {x: 0.11338932, y: -0.3637693, z: -0.044665232, w: -0.9234824}
 --- !u!114 &2835651369594507403
@@ -392,6 +392,18 @@ MonoBehaviour:
       obj: {fileID: 8905741939895738020, guid: d9202be510dfc52478a495f571044cd1, type: 3}
       rotationAngle: 0
       isGroupObject: 1
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 12
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 664207259825226160, guid: 2826c1dc7db599a4a8f0408c8ff96f7b, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
   - name: "\u042F\u0449\u0438\u043A\u0438"
     lowerCount: 15
     upperCount: 20

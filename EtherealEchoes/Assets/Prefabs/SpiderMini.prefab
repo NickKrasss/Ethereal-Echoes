@@ -437,7 +437,7 @@ MonoBehaviour:
   baseAttackSpeed: 1
   isAttackSpeedAffectedByLevel: 1
   baseMoveSpeed: 7.5
-  isMoveSpeedAffectedByLevel: 1
+  isMoveSpeedAffectedByLevel: 0
   baseMaxEnergy: 100
   isMaxEnergyAffectedByLevel: 1
   CurrentEnergy: 0
