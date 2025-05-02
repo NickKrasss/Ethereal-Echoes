@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 4996715439337361043}
   - component: {fileID: 1209760425906497448}
   m_Layer: 0
-  m_Name: DumpWorld1_2
+  m_Name: Tower I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,16 +193,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08d2efa65b092247a2ea92570c03595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldName: "\u0421\u0432\u0430\u043B\u043A\u0430 II"
+  worldName: "\u0411\u0430\u0448\u043D\u044F I"
   width: 300
   height: 300
   worldDraw: {fileID: 4996715439337361043}
   bosses: []
   worldTime: 180
-  lightColor: {r: 0.3537736, g: 0.42048076, b: 1, a: 1}
-  lightIntensity: 2
-  shadowStrength: 1
-  lightRotation: {x: 0.17055683, y: 0.6010678, z: 0.13325344, w: -0.76933175}
+  lightColor: {r: 1, g: 1, b: 1, a: 1}
+  lightIntensity: 0.5
+  shadowStrength: 0
+  lightRotation: {x: 0.11338932, y: -0.3637693, z: -0.044665232, w: -0.9234824}
 --- !u!114 &2835651369594507403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,10 +216,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSectorSize: 0a0000000a0000000a0000000a000000
-  sectorsCount: 5000000064000000
-  sectorsSize: 06000000050000000900000009000000
+  sectorsCount: 280000003c000000
+  sectorsSize: 04000000040000000b0000000b000000
   cellChance: 0.1
-  steps: 2
+  steps: 0
 --- !u!114 &4996715439337361043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,28 +235,16 @@ MonoBehaviour:
   tilemap: {fileID: 6582594887667421950}
   borderTilemap: {fileID: 5030724002839322395}
   floors:
-  - {fileID: 11400000, guid: 8966dffd7c230724db7ce45f0a804925, type: 2}
-  - {fileID: 11400000, guid: 3d7f291711db01341ba67a0c985ca6da, type: 2}
-  - {fileID: 11400000, guid: 171ed09878469524cb3eead7adb5593e, type: 2}
-  - {fileID: 11400000, guid: 1a1cab4b46461fb47b5d1007698a42b2, type: 2}
-  - {fileID: 11400000, guid: 37e20694a033bd2499266f11a378eea5, type: 2}
-  - {fileID: 11400000, guid: 3e9b5cc626ea30448afb473df4570c85, type: 2}
+  - {fileID: 11400000, guid: 93c85613e8fa0be40990d2b587895f91, type: 2}
   walls:
-  - {fileID: 11400000, guid: 5a8f132ebf438ac4fab7e23e31053452, type: 2}
-  - {fileID: 11400000, guid: 06861177ef0a8e746a9355a54ffa4c52, type: 2}
-  - {fileID: 11400000, guid: b7f4054b9784ce6478bd1fac0d1d9cea, type: 2}
-  - {fileID: 11400000, guid: 808a328fe817f88409e64b26e6fb1c28, type: 2}
-  - {fileID: 11400000, guid: f92acb69b315edc4098e1d079e17d3a7, type: 2}
-  - {fileID: 11400000, guid: f7f234d1582ad914fa022c9bccc97695, type: 2}
-  - {fileID: 11400000, guid: 50f583977a1f13b4ab1c3dc9b52deb63, type: 2}
-  - {fileID: 11400000, guid: ea8df742ac956cb4d91a676646872e9f, type: 2}
-  - {fileID: 11400000, guid: 06366f001edb46b45be751b3279aa393, type: 2}
+  - {fileID: 11400000, guid: d9f3b4193c683f04aae7b9416a48abd4, type: 2}
+  - {fileID: 11400000, guid: 6838a49d34cc7804e8d7081e7f371e9b, type: 2}
   borders:
-  - {fileID: 11400000, guid: 85e0f76a4733e0645946c99497aead94, type: 2}
-  - {fileID: 11400000, guid: 682eafe3add080e4aa45e65403e66fdc, type: 2}
-  - {fileID: 11400000, guid: e767ea52bf465d14a975ce3289c029c0, type: 2}
-  - {fileID: 11400000, guid: ac40faaa684e9484e82cb16abc068d71, type: 2}
-  border3D: {fileID: 3333157269680471627, guid: 05950a505f947d9489288b3d6957a42a, type: 3}
+  - {fileID: 11400000, guid: c15f420a77c8ca8468b712352c0c8447, type: 2}
+  - {fileID: 11400000, guid: fd71a1d2f3c14ca478f74b6e9d2989b7, type: 2}
+  - {fileID: 11400000, guid: abb03d17881bccc46b954a85383c9089, type: 2}
+  - {fileID: 11400000, guid: 2435c6bca7679324eac900535f8aa73d, type: 2}
+  border3D: {fileID: 3333157269680471627, guid: 6bad4a47b421edb45999335d03d5b784, type: 3}
   drawEverything: 1
   renderRadius: 30
   playerObj: {fileID: 0}
@@ -274,81 +262,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeTypes:
   - name: "\u0414\u0435\u043A\u043E\u0440"
-    lowerCount: 200
-    upperCount: 400
+    lowerCount: 50
+    upperCount: 100
     places:
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 80
-      width: 1
-      height: 1
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0.1
-      obj: {fileID: 4125833847172952227, guid: 84be1cbe14cd93f479d2cb5fbbfc85a8, type: 3}
-      rotationAngle: -25
-      isGroupObject: 0
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 8
-      width: 1
-      height: 1
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0.1
-      obj: {fileID: 3992787351196463640, guid: fb22ccf4166cad0499fb0b4f8b9acf67, type: 3}
-      rotationAngle: -25
-      isGroupObject: 0
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 8
-      width: 2
-      height: 2
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0.1
-      obj: {fileID: 8713156409584342714, guid: 7b74c7ab565c6d946a35740411801756, type: 3}
-      rotationAngle: -25
-      isGroupObject: 0
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 15
-      width: 1
-      height: 1
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0.1
-      obj: {fileID: 1378984770355432450, guid: 999c093cda270214ab9b5438709f2de9, type: 3}
-      rotationAngle: -1
-      isGroupObject: 0
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 5
-      width: 1
-      height: 1
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0.1
-      obj: {fileID: 7234527968700818171, guid: 91ec32c5b8bce98449a9b366a664deac, type: 3}
-      rotationAngle: -1
-      isGroupObject: 0
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 8
-      width: 1
-      height: 1
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0.1
-      obj: {fileID: 4916611322191718825, guid: ab69331d8e8ced64fa5de2b19ae9d023, type: 3}
-      rotationAngle: -1
-      isGroupObject: 0
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 50
@@ -392,7 +308,7 @@ MonoBehaviour:
       offset_y: 0
       offset_z: 0
       random_offset: 0
-      obj: {fileID: 1178507431320858424, guid: 9e33cc11b7df12043901d18dface2a24, type: 3}
+      obj: {fileID: 1178507431320858424, guid: 8b105b61dca3a6d4f9aebeaeaedae96b, type: 3}
       rotationAngle: -25
       isGroupObject: 0
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
@@ -409,12 +325,12 @@ MonoBehaviour:
       offset_y: 0
       offset_z: -0.3
       random_offset: 0
-      obj: {fileID: 2640401802100567129, guid: c5eb58c790a179e4eb9b5acab19e4f5b, type: 3}
+      obj: {fileID: 2640401802100567129, guid: e1c90b2004e19be4bae3060b9d09c0fe, type: 3}
       rotationAngle: -25
       isGroupObject: 0
   - name: "\u0412\u0440\u0430\u0433\u0438"
-    lowerCount: 50
-    upperCount: 60
+    lowerCount: 20
+    upperCount: 30
     places:
     - canRepeat: 1
       hadArleadySpawned: 0
@@ -425,19 +341,7 @@ MonoBehaviour:
       offset_y: 0
       offset_z: 0
       random_offset: 0
-      obj: {fileID: 3719771159645246137, guid: 43fe4fcb217822b459b9bf7c863f55b9, type: 3}
-      rotationAngle: -25
-      isGroupObject: 0
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 10
-      width: 2
-      height: 2
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0
-      obj: {fileID: 5908809674767586987, guid: 843e894266336ff4b8a439b95a859268, type: 3}
+      obj: {fileID: 4967645512628000230, guid: 51e27d581d6e85b47b281539a91eecb7, type: 3}
       rotationAngle: -25
       isGroupObject: 0
     - canRepeat: 1
@@ -489,8 +393,8 @@ MonoBehaviour:
       rotationAngle: 0
       isGroupObject: 1
   - name: "\u042F\u0449\u0438\u043A\u0438"
-    lowerCount: 25
-    upperCount: 30
+    lowerCount: 15
+    upperCount: 20
     places:
     - canRepeat: 1
       hadArleadySpawned: 0

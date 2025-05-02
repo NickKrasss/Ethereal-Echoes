@@ -105,6 +105,7 @@ public class MantisAI : MonoBehaviour
 
     public void MeleeAttackEvent()
     {
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         StartCoroutine(MeleeCoroutine());
     }
 

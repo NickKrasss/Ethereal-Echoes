@@ -441,7 +441,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.5}
-  m_Size: {x: 1.3, y: 0.8}
+  m_Size: {x: 0.9, y: 0.8}
   m_Direction: 1
 --- !u!114 &3702484313980576122
 MonoBehaviour:
@@ -464,7 +464,7 @@ MonoBehaviour:
   baseAttackSpeed: 3
   isAttackSpeedAffectedByLevel: 1
   baseMoveSpeed: 0.7
-  isMoveSpeedAffectedByLevel: 1
+  isMoveSpeedAffectedByLevel: 0
   baseMaxEnergy: 50
   isMaxEnergyAffectedByLevel: 0
   CurrentEnergy: 0

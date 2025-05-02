@@ -118,6 +118,7 @@ public class BiterAI : MonoBehaviour
 
     private IEnumerator AttactEventCoroutine()
     {
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
         yield return new WaitForSeconds(0.2f);

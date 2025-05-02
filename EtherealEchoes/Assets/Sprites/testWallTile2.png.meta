@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4200f534e499acb4d9731dfe3702a869
+guid: 67622090f9ce42c4faddb082c2f33224
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4382576776119158839
-    second: dump32_1_0
+      213: -3767810665857942770
+    second: testWallTile2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,22 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dump32_1_0
+      name: testWallTile2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 38
-      alignment: 9
-      pivot: {x: 0.50000006, y: 0.05364484}
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7388575ab5a02dc30800000000000000
-      internalID: 4382576776119158839
+      spriteID: e0bfb90892c06bbc0800000000000000
+      internalID: -3767810665857942770
       vertices: []
       indices: 
       edges: []
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c115a7d448254f8489086cbc15c92a9f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dump32_1_0: 4382576776119158839
+      testWallTile2_0: -3767810665857942770
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

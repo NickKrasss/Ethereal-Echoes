@@ -2580,7 +2580,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.05
+  m_fontSize: 42.8
   m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2931,7 +2931,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.65
+  m_fontSize: 42.7
   m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5634,7 +5634,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.1
+  m_fontSize: 52.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7809,6 +7809,7 @@ MonoBehaviour:
   worlds:
   - {fileID: 3484994954673678288, guid: beb53346dda7b184c88140d43782a1fd, type: 3}
   - {fileID: 3484994954673678288, guid: 566d7d9a5296c0e459c8440e33759f48, type: 3}
+  - {fileID: 3484994954673678288, guid: 9af4b4f8ab4c34040a99b8ef562318b0, type: 3}
   playerPrefab: {fileID: 1450796366560007938, guid: 6380bcfc4feda2e488f0bdc02a1ea641, type: 3}
   minimapScr: {fileID: 744628007}
   surfaces:
