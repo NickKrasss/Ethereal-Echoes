@@ -58,10 +58,12 @@ public class GameController : MonoBehaviour
                 break;
             }
             G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
+            G.Instance.playerObj.GetComponent<Stats>().CurrentEnergy = G.Instance.playerObj.GetComponent<Stats>().MaxEnergy;
             yield return new WaitForEndOfFrame();
             GenerateNavmesh();
 
             G.Instance.playerObj.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2, G.Instance.playerObj.transform.position.z);
+            G.Instance.playerObj.GetComponent<ShowLevel>().MakeText();
 
             Camera.main.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, Camera.main.transform.position.z);
             minimapScr.GenerateTexture();

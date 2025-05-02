@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface PlaceGenerator
 {
-    public (int[,], Place[]) GeneratePlaces(int[,] map);
+    public (int[,], Place[]) GeneratePlaces(int[,] map, List<(int, int)> clearPoints = null);
 }
