@@ -475,8 +475,8 @@ MonoBehaviour:
     - canRepeat: 1
       hadArleadySpawned: 0
       frequency: 15
-      width: 4
-      height: 4
+      width: 1
+      height: 1
       offset_x: 0
       offset_y: 0
       offset_z: 0

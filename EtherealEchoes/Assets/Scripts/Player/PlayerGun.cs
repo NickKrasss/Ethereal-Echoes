@@ -42,6 +42,10 @@ public class PlayerGun : MonoBehaviour
         {
             Shoot();    
         }
+        else if (PlayerPrefs.GetInt("GodMode") == 1 && Input.GetMouseButton(0) && reload <= 0f)
+        {
+            Shoot();
+        }
         if (reload > 0f)
             reload -= Time.deltaTime;
         else if (reload < 0f) reload = 0f;

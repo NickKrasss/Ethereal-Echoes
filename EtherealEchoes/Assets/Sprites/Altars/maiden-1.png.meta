@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7e9fbb6dcf2f268489e5872a08d9a5ec
+guid: ef695e631ce070e41b3282edbf997700
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1049461823314036041
-    second: heal_0
+      213: 9033332874296102364
+    second: maiden-1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heal_0
+      name: maiden-1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 128
-        height: 118
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ba780038009f61f0800000000000000
-      internalID: -1049461823314036041
+      spriteID: cdd07467368dc5d70800000000000000
+      internalID: 9033332874296102364
       vertices: []
       indices: 
       edges: []
@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      maiden-1_0: 9033332874296102364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
