@@ -9,6 +9,7 @@ public class G : MonoBehaviour
     public World currentWorld;
     public GameObject currentWorldObj;
     public GameObject playerObj;
+    public PowerUpCardsController powerUpCardsController;
 
     
     public Light gameLight;

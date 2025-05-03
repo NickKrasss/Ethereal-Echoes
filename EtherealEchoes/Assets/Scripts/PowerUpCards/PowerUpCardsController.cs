@@ -27,7 +27,7 @@ public class PowerUpCardsController : MonoBehaviour
     int generatedCardsCount = 0;
     Coroutine delayedActionCoroutine;
 
-    private void Initialize(Vector3 probabilityRanges)
+    public void Initialize(List<int> probabilityRanges)
     {
 
         // clear the list of cards
@@ -44,11 +44,11 @@ public class PowerUpCardsController : MonoBehaviour
                 int probability = UnityEngine.Random.Range(0, 100);
 
                 // instantiate a card based on the probability
-                if (probability < probabilityRanges.x)
+                if (probability < probabilityRanges[0])
                     card = InstantiatePowerUpCard(powerUpCards_common, powerUpCardPlaceholders[i]);
-                else if (probability < probabilityRanges.y && probability >= probabilityRanges.x)
+                else if (probability < probabilityRanges[1] && probability >= probabilityRanges[0])
                     card = InstantiatePowerUpCard(powerUpCards_rare, powerUpCardPlaceholders[i]);
-                else if (probability < probabilityRanges.z && probability >= probabilityRanges.y)
+                else if (probability < probabilityRanges[2] && probability >= probabilityRanges[1])
                     card = InstantiatePowerUpCard(powerUpCards_epic, powerUpCardPlaceholders[i]);
                 else
                     card = InstantiatePowerUpCard(powerUpCards_legendary, powerUpCardPlaceholders[i]);
@@ -140,7 +140,7 @@ public class PowerUpCardsController : MonoBehaviour
 
     private void Start()
     {
-        Vector3 def = new (0, 0, 100);
-        Initialize(def);
+        //Vector3 def = new (0, 0, 100);
+        //Initialize(def);
     }
 }
