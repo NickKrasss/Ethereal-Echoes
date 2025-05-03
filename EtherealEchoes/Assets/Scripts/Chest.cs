@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+
 public class Chest : MonoBehaviour, PurchasableItem, Interactable
 {
+    [SerializeField] public Animator animator;
     //Множитель
     public float mult;
     //Разброс
     [SerializeField]private int spread;
     //Базовая стоимость
     [SerializeField]private int basePrice;
+
     public int Price;
     //Открыт или нет
     public bool isOpened = false;

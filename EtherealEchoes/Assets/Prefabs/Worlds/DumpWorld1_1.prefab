@@ -480,6 +480,18 @@ MonoBehaviour:
       obj: {fileID: 5986996266021070576, guid: 1ea7e12ddb14fcd4fb2956f08453d9a5, type: 3}
       rotationAngle: -25
       isGroupObject: 1
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 30
+      width: 4
+      height: 4
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.2
+      obj: {fileID: 8307609287610611758, guid: 593ad95d213351848a81e5c3e9510d58, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
   playerPlace:
     canRepeat: 0
     hadArleadySpawned: 0
