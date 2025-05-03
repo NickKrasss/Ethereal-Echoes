@@ -7,16 +7,30 @@ using UnityEngine;
 public class Chest : MonoBehaviour, PurchasableItem, Interactable
 {
     [SerializeField] public Animator animator;
-    //Множитель
+    // Множитель
     public float mult;
-    //Разброс
-    [SerializeField]private int spread;
-    //Базовая стоимость
-    [SerializeField]private int basePrice;
+    // Разброс
+    [SerializeField] private int spread;
+    // Базовая стоимость
+    [SerializeField] private int basePrice;
+    [SerializeField] private GameObject highlightUI;
 
     public int Price;
-    //Открыт или нет
+    // Открыт или нет
     public bool isOpened = false;
+
+    public void SetHighlight(bool state)
+    {
+        if (state)
+        {
+            highlightUI.SetActive(true);
+        }
+        else
+        {
+            highlightUI.SetActive(false);
+        }
+    }
+
     private void Start()
     {
         Price = (int)((basePrice + Random.Range(-spread, spread)) * mult);
@@ -36,10 +50,12 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
         if (Price <= interactor.GetComponent<GearContainer>().current_gears)
         {
             interactor.GetComponent<GearContainer>().current_gears -= Price;
+            animator.SetTrigger("Open");
             return true;
         }
         return false;
     }
+
     public bool Interact(GameObject interactor)
     {
         if(!isOpened)
@@ -47,16 +63,13 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
             if (Buy(interactor))
             {
                 isOpened = true;
-                Destroy(gameObject);
+                animator.ResetTrigger("Open");
+                //Destroy(gameObject);
             }
         }
         return isOpened;
     }
-    public void SetHighlight(bool state)
-    {
 
-
-    }
     public GameObject GetGameObject()
     {
         return gameObject;
