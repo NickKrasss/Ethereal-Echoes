@@ -86,7 +86,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
             attempts++;
             if (attempts >= 4000000)
             {
-                Debug.Log("�� �������");
+                throw new System.Exception(clearPoints.Count.ToString());
                 return null; 
             }
 

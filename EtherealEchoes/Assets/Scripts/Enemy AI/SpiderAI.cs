@@ -85,6 +85,7 @@ public class SpiderAI : MonoBehaviour
     public void SpotPlayer()
     {
         spottedTarget = true;
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
     }
 
     void Update()

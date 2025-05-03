@@ -407,7 +407,7 @@ MonoBehaviour:
       height: 4
       offset_x: 0
       offset_y: 0
-      offset_z: 0
+      offset_z: -0.3
       random_offset: 0
       obj: {fileID: 2640401802100567129, guid: c5eb58c790a179e4eb9b5acab19e4f5b, type: 3}
       rotationAngle: -25
@@ -988,9 +988,9 @@ CompositeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
-  m_EdgeRadius: 0.1
+  m_EdgeRadius: 0
   m_ColliderPaths:
   - m_Collider: {fileID: 3457021713429262349}
     m_ColliderPaths: []

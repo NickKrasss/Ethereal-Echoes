@@ -96,6 +96,7 @@ public class KettleAI : MonoBehaviour
 
     public void DashEvent()
     {
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
         Vector2 targetPos = (new Vector2(target.transform.position.x - offset_x, target.transform.position.y - offset_y));

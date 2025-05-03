@@ -494,7 +494,7 @@ MonoBehaviour:
   CanRegenerateHealth: 1
   CanRegenerateEnergy: 1
   HealthRegenerationRate: 0
-  EnergyRegenerationRate: 25
+  EnergyRegenerationRate: 35
   level: 1
 --- !u!114 &7798684644142995025
 MonoBehaviour:
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 0}
-  cooldown: 2
+  cooldown: 1
 --- !u!114 &5391476528600455654
 MonoBehaviour:
   m_ObjectHideFlags: 0
