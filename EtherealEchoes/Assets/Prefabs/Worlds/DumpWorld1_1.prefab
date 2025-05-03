@@ -198,7 +198,7 @@ MonoBehaviour:
   height: 300
   worldDraw: {fileID: 4996715439337361043}
   bosses: []
-  worldTime: 300
+  worldTime: 180
   lightColor: {r: 1, g: 1, b: 1, a: 1}
   lightIntensity: 0.7
   shadowStrength: 0.54
@@ -378,22 +378,6 @@ MonoBehaviour:
       obj: {fileID: 5946053243610653485, guid: 8c9e604f8cbf83e4797a1ecb3d32ecfa, type: 3}
       rotationAngle: -25
       isGroupObject: 0
-  - name: "\u0412\u0440\u0430\u0433\u0438"
-    lowerCount: 50
-    upperCount: 60
-    places:
-    - canRepeat: 1
-      hadArleadySpawned: 0
-      frequency: 30
-      width: 2
-      height: 2
-      offset_x: 0
-      offset_y: 0
-      offset_z: 0
-      random_offset: 0
-      obj: {fileID: 3719771159645246137, guid: 43fe4fcb217822b459b9bf7c863f55b9, type: 3}
-      rotationAngle: -25
-      isGroupObject: 0
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
       2"
     lowerCount: 3
@@ -428,6 +412,82 @@ MonoBehaviour:
       obj: {fileID: 2640401802100567129, guid: c5eb58c790a179e4eb9b5acab19e4f5b, type: 3}
       rotationAngle: -25
       isGroupObject: 0
+  - name: "\u0412\u0440\u0430\u0433\u0438"
+    lowerCount: 70
+    upperCount: 80
+    places:
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 30
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 3719771159645246137, guid: 43fe4fcb217822b459b9bf7c863f55b9, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 8
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 5908809674767586987, guid: 843e894266336ff4b8a439b95a859268, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 15
+      width: 1
+      height: 1
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 4024686032379483290, guid: 965d0e3bdd9947b4984344277d0de638, type: 3}
+      rotationAngle: 0
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 2
+      width: 3
+      height: 3
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 6387822029610481816, guid: c23e226fff856c14188014ab5bcf7649, type: 3}
+      rotationAngle: 0
+      isGroupObject: 1
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 2
+      width: 4
+      height: 4
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 7505127419077697874, guid: 822bef1515e627344859233a545223f5, type: 3}
+      rotationAngle: 0
+      isGroupObject: 1
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 1
+      width: 5
+      height: 5
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0
+      obj: {fileID: 8905741939895738020, guid: d9202be510dfc52478a495f571044cd1, type: 3}
+      rotationAngle: 0
+      isGroupObject: 1
   - name: "\u042F\u0449\u0438\u043A\u0438"
     lowerCount: 25
     upperCount: 30
@@ -940,9 +1000,9 @@ CompositeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.1
   m_ColliderPaths:
   - m_Collider: {fileID: 3457021713429262349}
     m_ColliderPaths: []

@@ -32,7 +32,7 @@ public class DropPickUp : MonoBehaviour
     public void RandomGears()
     {
         if (G.Instance.isWorldLoading) return;
-        int gearCount = Random.Range(min_gears, max_gears + 1);
+        int gearCount = Random.Range(min_gears, max_gears + 1) + G.Instance.currentLevel-1;
         for (int i = 0; i < gearCount; i++)
         {
             GameObject gear = Instantiate(GearPrefab, transform.position, Quaternion.identity);

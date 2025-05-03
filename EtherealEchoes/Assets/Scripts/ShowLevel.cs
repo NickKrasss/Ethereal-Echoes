@@ -24,6 +24,11 @@ public class ShowLevel : MonoBehaviour
     {
         stats = GetComponent<Stats>();
 
+        MakeText();
+    }
+
+    public void MakeText()
+    {
         textObj = new GameObject(gameObject.name + "_lvlTextObject");
         textObj.transform.parent = G.Instance.currentWorldObj.transform;
         textObj.layer = 5;
@@ -41,7 +46,6 @@ public class ShowLevel : MonoBehaviour
         tmp.outlineColor = outlineColor;
         tmp.outlineWidth = outlineWidth;
     }
-
     private void Update()
     {
         if (textObj == null) return;

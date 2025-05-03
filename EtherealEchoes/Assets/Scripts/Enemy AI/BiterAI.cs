@@ -100,21 +100,28 @@ public class BiterAI : MonoBehaviour
 
     private void CheckAttack()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10) && !animator.GetBool("isAttackingMini"))
+        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10))
         {
-            StartCoroutine(Bite());
+            animator.SetBool("isAttackingMini", true);
+        }
+        else 
+        {
+            animator.SetBool("isAttackingMini", false);
         }
     }
 
-    private IEnumerator Bite()
+    public void AttackEvent()
     {
-        animator.SetBool("isAttackingMini", true);
-        yield return new WaitForSeconds(0.75f * (1 / stats.AttackSpeed));
+        StartCoroutine(AttactEventCoroutine());
+        
+    }
+
+    private IEnumerator AttactEventCoroutine()
+    {
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.25f * (1 / stats.AttackSpeed));
+        yield return new WaitForSeconds(0.2f);
         dmgHitbox.SetActive(false);
-        animator.SetBool("isAttackingMini", false);
     }
 
     public void SpotPlayer()

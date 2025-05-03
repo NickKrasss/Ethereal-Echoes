@@ -34,7 +34,7 @@ public class World
     {
         this.map = landGen.GenerateLandscape(width, height);
 
-        var placesResult = placeGen.GeneratePlaces(map);
+        var placesResult = placeGen.GeneratePlaces(map, landGen.getClearPoints());
         this.map = placesResult.Item1;
         this.places = placesResult.Item2;
     }

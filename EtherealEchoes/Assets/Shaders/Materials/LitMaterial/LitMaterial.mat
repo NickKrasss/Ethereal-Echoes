@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _HitForce: 1.4
     - _HitProgress: 0
-    - _OutlineThickness: 0.18
+    - _OutlineThickness: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

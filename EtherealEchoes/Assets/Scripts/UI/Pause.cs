@@ -6,9 +6,10 @@ public class Pause : MonoBehaviour
 {
     private bool isPaused = false;
     public GameObject pauseScreen;
+    float cachedVolume; 
     void Start()
     {
-
+        cachedVolume = AudioListener.volume;
     }
     void Update()
     {
@@ -23,14 +24,18 @@ public class Pause : MonoBehaviour
         pauseScreen.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        AudioListener.pause = true;
+        AudioListener.volume = cachedVolume / 2f;
+        //AudioListener.pause = true;
+        SettingsManager.instance.Exit();
     }
     public void ResumeGame()
     {
         Time.timeScale = 1f;
         isPaused = false;
-        AudioListener.pause = false;
+        AudioListener.volume = cachedVolume;
+        //AudioListener.pause = false;
         pauseScreen.SetActive(false);
+        SettingsManager.instance.Exit();
     }
     public void LoadMainMenu()
     {

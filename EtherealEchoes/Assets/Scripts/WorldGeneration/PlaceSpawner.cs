@@ -16,10 +16,13 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
 
     private int[,] landscape;
 
-    public (int[,], Place[]) GeneratePlaces(int[,] map)
+    private List<(int, int)> clearPoints;
+
+    public (int[,], Place[]) GeneratePlaces(int[,] map, List<(int, int)> _clearPoints = null)
     {
         landscape = map;
         places = new Place[] { };
+        clearPoints = _clearPoints;
         int x = landscape.GetLength(0) / 2;
         int y = landscape.GetLength(1) / 2;
         int x1 = x - playerPlace.width / 2; int y1 = y - playerPlace.height / 2;
@@ -46,8 +49,11 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         {
             foreach (var child in obj.GetComponentsInChildren<Transform>()[1..])
             {
-                child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
-                child.transform.SetParent(transform);
+                if (child.parent == obj.transform)
+                {
+                    if (place.rotationAngle != 0) child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
+                    child.transform.SetParent(transform);
+                }
             }
             obj.transform.DetachChildren();
             Destroy(obj);
@@ -84,8 +90,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
                 return null; 
             }
 
-            int x = Random.Range(0, landscape.GetLength(0));
-            int y = Random.Range(0, landscape.GetLength(1));
+            (int x, int y) = clearPoints[Random.Range(0, clearPoints.Count)];
             int xxx = 0;
             while (landscape[x, y] != digit)
             {
@@ -95,8 +100,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
                     Debug.Log(digit);
                     break;
                 }
-                x = Random.Range(0, landscape.GetLength(0));
-                y = Random.Range(0, landscape.GetLength(1));
+                (x, y) = clearPoints[Random.Range(0, clearPoints.Count)];
             }
             if (width == 0 || height == 0)
                 return new Sector(x, y, x, y);

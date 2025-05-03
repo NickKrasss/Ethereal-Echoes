@@ -16,9 +16,7 @@ public class EliteScr : MonoBehaviour
         {
             Stats stats = GetComponent<Stats>();
             stats.level += levelBuff;
-            stats.BaseMaxHealth *= 3;
             stats.CurrentHealth = GetComponent<Stats>().BaseMaxHealth;
-            stats.BaseDamage *= 3;
             GetComponent<DropPickUp>().max_count *= 2;
             GetComponent<DropPickUp>().min_count *= 2;
             GetComponent<Renderer>().material = newMaterial;

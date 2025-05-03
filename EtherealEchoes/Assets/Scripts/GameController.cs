@@ -45,20 +45,25 @@ public class GameController : MonoBehaviour
             while (G.Instance.currentTime > 0)
             {
                 yield return new WaitForSeconds(1);
-                G.Instance.currentTime -= 1;
+                if (!G.Instance.playerDead) G.Instance.currentTime -= 1;
             }
             yield return new WaitForSeconds(1f);
             TransitionOverlayController.Instance.FadeIn(0.5f, 0f);
             yield return new WaitForSeconds(1f);
             G.Instance.isWorldLoading = true;
-            G.Instance.playerObj.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, G.Instance.playerObj.transform.position.z);
+            
 
             if (NextWorld() == null)
             {
                 break;
             }
+            G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
+            G.Instance.playerObj.GetComponent<Stats>().CurrentEnergy = G.Instance.playerObj.GetComponent<Stats>().MaxEnergy;
             yield return new WaitForEndOfFrame();
             GenerateNavmesh();
+
+            G.Instance.playerObj.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2, G.Instance.playerObj.transform.position.z);
+            G.Instance.playerObj.GetComponent<ShowLevel>().MakeText();
 
             Camera.main.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, Camera.main.transform.position.z);
             minimapScr.GenerateTexture();

@@ -36,6 +36,8 @@ public class GeneratorConnectedSectors : MonoBehaviour, LandscapeGenerator
 
     private int[,] landscape;
 
+    private List<(int, int)> clearPoints = new List<(int, int)> ();
+
     public int[,] GenerateLandscape(int width, int height)
     {
         landscape = new int[width, height];
@@ -274,7 +276,10 @@ public class GeneratorConnectedSectors : MonoBehaviour, LandscapeGenerator
                     }
                 }
                 else
+                {
                     landscape[x, y] = 0;
+                    clearPoints.Add((x, y));
+                }
             }
         }
     }
@@ -297,5 +302,8 @@ public class GeneratorConnectedSectors : MonoBehaviour, LandscapeGenerator
         DeleteOtherTiles();
     }
 
-    
+    public List<(int, int)> getClearPoints()
+    {
+        return clearPoints;
+    }
 }
