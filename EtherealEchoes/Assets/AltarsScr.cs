@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AltarsScr : MonoBehaviour, IPointerEnterHandler
+public class AltarsScr : MonoBehaviour//, IPointerEnterHandler
 {
     public Action actionOnMouseHover, actionOnClick;
     [SerializeField] public string altarType;
@@ -61,33 +61,32 @@ public class AltarsScr : MonoBehaviour, IPointerEnterHandler
         return false;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
 
-        actionOnMouseHover?.Invoke();
+    //    actionOnMouseHover?.Invoke();
 
-        if (altarType == "chest")
-        {
-            InfoPopUpScreenController.Instance.Show("В этом особенно дорогом сундуке хранятся самые лучшие артефакты...", 4f);
-        }
 
-        //if (altarType == "maiden")
-        //{
-        //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
-        //    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
-        //}
+    //    //InfoPopUpScreenController.Instance.Show("На алтарях можно получить бонусы к характеристикам или новые предметы, можно потерять жизненные силы, а можно и напротив, только стать сильнее", 4f);
+        
 
-        //if (altarType == "book")
-        //{
-        //    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
-        //}
+    //    //if (altarType == "maiden")
+    //    //{
+    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
+    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
+    //    //}
 
-        //if (altarType == "heal")
-        //{
-        //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
-        //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
-        //}
-    }
+    //    //if (altarType == "book")
+    //    //{
+    //    //    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
+    //    //}
+
+    //    //if (altarType == "heal")
+    //    //{
+    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
+    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
+    //    //}
+    //}
 
     public bool Interact(GameObject interactor)
     {
