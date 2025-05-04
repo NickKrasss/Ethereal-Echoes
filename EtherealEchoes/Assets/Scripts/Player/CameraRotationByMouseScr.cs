@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CameraRotationByMouseScr : MonoBehaviour
 {
-    // Поворот камеры в данный момент
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     private Vector2 currentRotation;
 
     private Vector2 targetRotation;
 
-    [Tooltip("Сила \"Трения\". Чем меньше - тем плавнее")]
+    [Tooltip("пїЅпїЅпїЅпїЅ \"пїЅпїЅпїЅпїЅпїЅпїЅ\". пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField]
     private float lerpSpeed = 1.0f;
 
-    [Tooltip("Зависимость поворота от мыши. Чем больше - тем сильнее камера поворачивается")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField]
     private float mouseForce = 1.0f;
 
@@ -31,7 +31,7 @@ public class CameraRotationByMouseScr : MonoBehaviour
         StartCoroutine(UpdateShakeForce());
     }
 
-    // Приближает currentRotation к targetRotation
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ currentRotation пїЅ targetRotation
     private void UpdateCurrent()
     {
         float x = Mathf.Lerp(currentRotation.x, targetRotation.x, lerpSpeed * Time.deltaTime);
@@ -39,7 +39,7 @@ public class CameraRotationByMouseScr : MonoBehaviour
         currentRotation = new Vector2(x, y);
     }
 
-    // Вычисляет targetRotation
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ targetRotation
     private void UpdateTarget()
     {
         Vector2 mousePos = new Vector2(Input.mousePosition.x - Camera.main.scaledPixelWidth/2, Input.mousePosition.y - Camera.main.scaledPixelHeight / 2);
@@ -50,6 +50,6 @@ public class CameraRotationByMouseScr : MonoBehaviour
     {
         UpdateCurrent();
         UpdateTarget();
-        transform.localRotation = Quaternion.Euler(-currentRotation.y, currentRotation.x, 0);
+        transform.localRotation = Quaternion.Euler(-currentRotation.y-25, currentRotation.x, 0);
     }
 }

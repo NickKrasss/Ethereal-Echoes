@@ -43,6 +43,7 @@ public class SpriteSplitParticlesScr : MonoBehaviour
     private void CreateParticle(Vector2 position, float lifeTime, int size, float speed, float gravity)
     {
         GameObject particle = new GameObject("particle");
+        particle.transform.SetParent(G.Instance.currentWorldObj.transform);
         particle.transform.position = position;
         SpriteRenderer particleRenderer = particle.AddComponent<SpriteRenderer>();
         particleRenderer.sprite = GenerateRandomSprite(spriteRenderer.sprite, size);
@@ -59,6 +60,7 @@ public class SpriteSplitParticlesScr : MonoBehaviour
     private void CreateParticle(Vector2 position, float lifeTime, int sizex, int sizey, float speed, float gravity)
     {
         GameObject particle = new GameObject("particle");
+        particle.transform.SetParent(G.Instance.currentWorldObj.transform);
         particle.transform.position = position;
         SpriteRenderer particleRenderer = particle.AddComponent<SpriteRenderer>();
         particleRenderer.sprite = GenerateRandomSprite(spriteRenderer.sprite, sizex, sizey);

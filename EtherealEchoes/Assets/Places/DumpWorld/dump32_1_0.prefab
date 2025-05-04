@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3648292054200814203}
   - component: {fileID: 3170510626544372145}
   - component: {fileID: -6604458662117026816}
+  - component: {fileID: -7471346368567568062}
   m_Layer: 0
   m_Name: dump32_1_0
   m_TagString: Untagged
@@ -180,6 +181,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -6000169884300189835, guid: 9aecdad4ef1046c4d83280252b06c33d, type: 3}
   size: 0.7
+--- !u!114 &-7471346368567568062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946053243610653485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da3a1c46454f2824abab0f93480e6a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4024686032379483290, guid: 965d0e3bdd9947b4984344277d0de638, type: 3}
+  maxEnemies: 8
+  cooldown: 3
+  radius: 5
+  force: 0.7
+  rotationAngle: 0
+  eliteChance: 2
 --- !u!1001 &4688673038728588583
 PrefabInstance:
   m_ObjectHideFlags: 0

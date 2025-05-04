@@ -6,25 +6,25 @@ using UnityEngine;
 public class FollowObjectScr : MonoBehaviour
 {
 
-    [Tooltip("Тэг преследуемого обьекта")]
+    [Tooltip("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField]
     private string followedObjectTag;
 
     public GameObject followedObject;
 
-    [Tooltip("Смещение по x")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ x")]
     [SerializeField]
     private float offset_x = 0f;
 
-    [Tooltip("Смещение по y")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ y")]
     [SerializeField]
     private float offset_y = 0f;
 
-    [Tooltip("Скорость следования")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField]
     private float moveSpeed = 1.0f;
 
-    [Tooltip("Зависимость от дистанции")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     [SerializeField]
     private bool dependsOnDistance = true;
 
@@ -44,7 +44,7 @@ public class FollowObjectScr : MonoBehaviour
         }
     }
 
-    // Вычисляет targetMoveVector и обновляет его в SmoothMoveScr
+    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ targetMoveVector пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ SmoothMoveScr
     private void UpdateTargetVector()
     {
         smoothScr.targetMoveVector = (followedObject.transform.position - transform.position + new Vector3(offset_x, offset_y, 0));
@@ -55,7 +55,7 @@ public class FollowObjectScr : MonoBehaviour
 
     private void Start()
     {
-        smoothScr = GetComponent<SmoothMoveScr>(); // Находит компонент SmoothMoveScr
+        smoothScr = GetComponent<SmoothMoveScr>(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ SmoothMoveScr
     }
 
     private void Update()

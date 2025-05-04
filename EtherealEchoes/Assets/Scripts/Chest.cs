@@ -1,26 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using TMPro;
 using UnityEngine;
+using static Unity.Burst.Intrinsics.X86.Avx;
+using UnityEngine.TextCore.Text;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+
 
 public class Chest : MonoBehaviour, PurchasableItem, Interactable
 {
-    //Множитель
-    public float mult;
-    //Разброс
-    [SerializeField]private int spread;
-    //Базовая стоимость
-    [SerializeField]private int basePrice;
+    [SerializeField] public string chestRarecy;
+
+    [SerializeField] public int spread;
+    [SerializeField] public int basePrice;
+    [SerializeField] public GameObject highlightUI;
+
+    [SerializeField]
+    private TextMeshPro tmp;
+
+    [HideInInspector]
     public int Price;
-    //Открыт или нет
+    [HideInInspector]
     public bool isOpened = false;
+
+    [SerializeField]
+    private GameObject top;
+
+    public void SetHighlight(bool state)
+    {
+        if (state)
+        {
+            highlightUI.SetActive(true);
+        }
+        else
+        {
+            highlightUI.SetActive(false);
+        }
+    }
+
     private void Start()
     {
-        Price = (int)((basePrice + Random.Range(-spread, spread)) * mult);
+
+        Price = (int)(basePrice + (G.Instance.currentLevel-1) * 5 + Random.Range(-spread, spread)) * G.Instance.currentLevel;
         if (Price < 1)
         {
             Price = 1;
         }
+        tmp.text = $"{Price} $";
     }
+
 
     public int GetPrice()
     {
@@ -32,10 +61,13 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
         if (Price <= interactor.GetComponent<GearContainer>().current_gears)
         {
             interactor.GetComponent<GearContainer>().current_gears -= Price;
+            
             return true;
         }
         return false;
     }
+    
+
     public bool Interact(GameObject interactor)
     {
         if(!isOpened)
@@ -43,16 +75,30 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
             if (Buy(interactor))
             {
                 isOpened = true;
-                Destroy(gameObject);
+                tmp.gameObject.SetActive(false);
+                top.SetActive(false);
+                GetComponent<MinimapIcon>().icon.SetActive(false);
+
+                if (chestRarecy == "common")
+                {
+                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesCommonChest);
+                }
+
+                if (chestRarecy == "rare")
+                {
+                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesRareChest);
+                }
+
+                if (chestRarecy == "epic")
+                {
+                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesArtifactPlace);
+                }
+
             }
         }
         return isOpened;
     }
-    public void SetHighlight(bool state)
-    {
 
-
-    }
     public GameObject GetGameObject()
     {
         return gameObject;

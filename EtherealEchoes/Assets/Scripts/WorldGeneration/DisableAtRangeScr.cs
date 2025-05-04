@@ -18,13 +18,14 @@ public class DisableAtRangeScr : MonoBehaviour
 
     private GameObject target;
 
-    private void Start()
-    {
-        target = GameObject.FindGameObjectWithTag(targetTag);
-    }
-
     void Update()
     {
+        if (!target)
+        {
+            target = GameObject.FindGameObjectWithTag(targetTag);
+            return;
+        }
+
         if (on)
         {
             if (Vector2.Distance(transform.position, target.transform.position) > range)

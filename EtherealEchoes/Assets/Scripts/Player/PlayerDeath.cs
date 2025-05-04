@@ -31,6 +31,7 @@ public class PlayerDeath : MonoBehaviour
         if (!dead && stats.CurrentHealth <= 0 && PlayerPrefs.GetInt("GodMode") != 1)
         { 
             dead = true;
+            G.Instance.playerDead = true;
             DeadBodyScr dbs = Instantiate(deadBody, transform.position, transform.rotation).GetComponent<DeadBodyScr>();
             dbs.flip = GetComponent<SpriteRenderer>().flipX;
             deathScreen.SetActive(true);
@@ -46,7 +47,8 @@ public class PlayerDeath : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.Space))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                TransitionOverlayController.Instance.FadeIn(0.5f, 0f, () => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 Time.timeScale = 1f;
             }
         }

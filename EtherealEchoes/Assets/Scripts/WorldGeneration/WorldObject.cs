@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class WorldObject : MonoBehaviour
 {
+    [SerializeField] public string worldName;
+
     [SerializeField] private int width;
     [SerializeField] private int height;
     [SerializeField] private LandscapeGenerator landGen;
@@ -13,12 +15,21 @@ public class WorldObject : MonoBehaviour
 
     [SerializeField] private WorldDraw worldDraw;
 
-    [SerializeField] private NavMeshSurface[] navSurfaces;
+    [SerializeField] private GameObject[] bosses;
+
+    [SerializeField] public int worldTime;
+
+    [SerializeField] private Color lightColor;
+    [SerializeField] private float lightIntensity;
+    [SerializeField] private float shadowStrength;
+    [SerializeField] private Quaternion lightRotation;
 
     public World world;
 
+
     private void Start()
     {
+        G.Instance.isWorldLoading = true;
         G.Instance.currentWorldObj = gameObject;
         landGen = GetComponent<LandscapeGenerator>();
         placeGen = GetComponent<PlaceGenerator>();
@@ -30,7 +41,11 @@ public class WorldObject : MonoBehaviour
 
         G.Instance.currentWorld = world;
 
-        foreach (var sur in navSurfaces)
-            sur.BuildNavMeshAsync();
+        if (G.Instance.gameLight == null) return; 
+
+        G.Instance.gameLight.color = lightColor;
+        G.Instance.gameLight.intensity = lightIntensity;
+        G.Instance.gameLight.transform.rotation = lightRotation;
+        G.Instance.gameLight.shadowStrength = shadowStrength;
     }
 }

@@ -2,13 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(EnergySpender))]
 public class PlayerGun : MonoBehaviour
 {
-    [SerializeField]
-    private new Camera camera;
 
     [SerializeField]
     private GameObject bulletPrefab;
@@ -43,6 +42,10 @@ public class PlayerGun : MonoBehaviour
         {
             Shoot();    
         }
+        else if (PlayerPrefs.GetInt("GodMode") == 1 && Input.GetMouseButton(0) && reload <= 0f)
+        {
+            Shoot();
+        }
         if (reload > 0f)
             reload -= Time.deltaTime;
         else if (reload < 0f) reload = 0f;
@@ -51,10 +54,27 @@ public class PlayerGun : MonoBehaviour
     private void Shoot()
     { 
         GameObject bullet = Instantiate(bulletPrefab, shootPivot.position, Quaternion.identity);
+        
+        
+        bullet.transform.SetParent(G.Instance.currentWorldObj.transform);
         bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        if (G.Instance.powerUpCards.Contains("Снайпер"))
+        {
+            int probability = UnityEngine.Random.Range(0, 100);
+            if (probability <= G.Instance.criticalHitChance)
+            {
+                bullet.GetComponent<DamageHitBoxScr>().damage = (float)(stats.Damage * G.Instance.criticalHitAmount);
+                //Debug.Log($"����� {(float)(stats.Damage * 1.75)}");
+            }
+        }
+        else
+        {
+            bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
+        }
+        
         bullet.GetComponent<DamageHitBoxScr>().knockbackForce = stats.Knockback;
         SmoothMoveScr scr = bullet.GetComponent<SmoothMoveScr>();
-        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(camera) - shootPivot.position).normalized * stats.BulletSpeed;
+        scr.targetMoveVector = (WorldMousePosition.GetWorldMousePosition(Camera.main) - shootPivot.position).normalized * stats.BulletSpeed;
         float spread = UnityEngine.Random.Range(-stats.SpreadDegrees/2, stats.SpreadDegrees / 2) * Mathf.Deg2Rad;
         float x = scr.targetMoveVector.x;
         float y = scr.targetMoveVector.y;

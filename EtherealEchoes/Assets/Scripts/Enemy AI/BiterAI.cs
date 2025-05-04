@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class BiterAI : MonoBehaviour
+public class BiterAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -53,8 +53,11 @@ public class BiterAI : MonoBehaviour
 
     private Stats stats;
 
+    private float worldTime;
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -100,21 +103,29 @@ public class BiterAI : MonoBehaviour
 
     private void CheckAttack()
     {
-        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10) && !animator.GetBool("isAttackingMini"))
+        if (Vector2.Distance(transform.position, target.transform.position) < stats.AttackRange - (stats.AttackRange / 10))
         {
-            StartCoroutine(Bite());
+            animator.SetBool("isAttackingMini", true);
+        }
+        else 
+        {
+            animator.SetBool("isAttackingMini", false);
         }
     }
 
-    private IEnumerator Bite()
+    public void AttackEvent()
     {
-        animator.SetBool("isAttackingMini", true);
-        yield return new WaitForSeconds(0.75f * (1 / stats.AttackSpeed));
+        StartCoroutine(AttactEventCoroutine());
+        
+    }
+
+    private IEnumerator AttactEventCoroutine()
+    {
+        dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         dmgHitbox.GetComponent<DamageHitBoxScr>().damageCount = 1;
         dmgHitbox.SetActive(true);
-        yield return new WaitForSeconds(0.25f * (1 / stats.AttackSpeed));
+        yield return new WaitForSeconds(0.2f);
         dmgHitbox.SetActive(false);
-        animator.SetBool("isAttackingMini", false);
     }
 
     public void SpotPlayer()
@@ -132,7 +143,7 @@ public class BiterAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
                 SpotPlayer();
         }
         else
@@ -144,5 +155,10 @@ public class BiterAI : MonoBehaviour
             
             animator.SetFloat("AnimationSpeed", 1f);
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

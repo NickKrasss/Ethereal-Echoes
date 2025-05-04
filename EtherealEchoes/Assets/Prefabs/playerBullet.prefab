@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4791797344989238445}
   m_Layer: 0
   m_Name: playerBullet
-  m_TagString: Untagged
+  m_TagString: DamageHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,11 +156,13 @@ MonoBehaviour:
   damage: 10
   damageTag: PlayerBullet
   damageCount: 1
+  knockbackForce: 0
   damageEveryTick: 0
   destroyOnCollision: 1
   ignoreCollisionTags:
   - Player
   - PickUp
+  - DamageHitbox
   destroyOnZeroHits: 1
   makeParticlesOnHit: 1
 --- !u!50 &1718341627285982487

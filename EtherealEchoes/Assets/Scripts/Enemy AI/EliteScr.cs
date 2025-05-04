@@ -15,12 +15,10 @@ public class EliteScr : MonoBehaviour
         if (Random.Range(0f, 100f) <= chance)
         {
             Stats stats = GetComponent<Stats>();
-            stats.level += levelBuff;
-            stats.BaseMaxHealth *= 3;
+            stats.BaseMaxHealth *= 2.5f;
+            stats.BaseDamage *= 2.5f;
             stats.CurrentHealth = GetComponent<Stats>().BaseMaxHealth;
-            stats.BaseDamage *= 3;
-            GetComponent<DropPickUp>().max_count *= 2;
-            GetComponent<DropPickUp>().min_count *= 2;
+            GetComponent<DropPickUp>().mult *= 2;
             GetComponent<Renderer>().material = newMaterial;
             GetComponent<MinimapIcon>().size *= sizeMult;
             transform.localScale = new Vector3(transform.localScale.x * sizeMult, transform.localScale.y * sizeMult, transform.localScale.z * sizeMult);

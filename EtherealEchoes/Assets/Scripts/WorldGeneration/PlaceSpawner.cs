@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObject))]
@@ -16,10 +17,15 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
 
     private int[,] landscape;
 
-    public (int[,], Place[]) GeneratePlaces(int[,] map)
+    private List<(int, int)> clearPoints;
+
+    private List<GameObject> placeObjects = new List<GameObject>();
+
+    public (bool, int[,], Place[]) GeneratePlaces(int[,] map, List<(int, int)> _clearPoints = null)
     {
         landscape = map;
         places = new Place[] { };
+        clearPoints = _clearPoints;
         int x = landscape.GetLength(0) / 2;
         int y = landscape.GetLength(1) / 2;
         int x1 = x - playerPlace.width / 2; int y1 = y - playerPlace.height / 2;
@@ -27,8 +33,17 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         Sector sector = new Sector(x1, y1, x2, y2);
         SpawnPlace(playerPlace, sector);
 
-        SpawnPlaces();
-        return (landscape, places);
+        if (!SpawnPlaces()) return (false, null, null);
+        return (true, landscape, places);
+    }
+
+    public void ClearPlaces()
+    { 
+        while (placeObjects.Count != 0)
+        {
+            Destroy(placeObjects[0]);
+            placeObjects.RemoveAt(0);
+        }
     }
 
     private void SpawnPlace(Place place, Sector sector)
@@ -46,16 +61,22 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         {
             foreach (var child in obj.GetComponentsInChildren<Transform>()[1..])
             {
-                child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
-                child.transform.SetParent(transform);
+                if (child.parent == obj.transform)
+                {
+                    if (place.rotationAngle != 0) child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
+                    child.transform.SetParent(transform);
+                    placeObjects.Add(child.gameObject);
+                }
             }
             obj.transform.DetachChildren();
             Destroy(obj);
         }
+        else
+            placeObjects.Add(obj);
         World.Fill(landscape, sector, 2);
     }
 
-    public void SpawnPlaces()
+    public bool SpawnPlaces()
     {
         foreach (PlaceType placeType in placeTypes)
         {
@@ -65,9 +86,14 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
             {
                 Place place = GetRandomPlace(placeType);
                 Sector sector = findSectorFilledWith(place.width, place.height, 0);
+                if (sector == null)
+                {
+                    return false;
+                }
                 SpawnPlace(place, sector);
             }
         }
+        return true;
     }
 
     private Sector findSectorFilledWith(int width, int height, int digit)
@@ -78,25 +104,23 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         while (!World.isSectorFilledWith(landscape, sector, digit))
         {
             attempts++;
-            if (attempts >= 40000)
+            if (attempts >= 400000)
             {
-                Debug.Log("Не нашлось");
+                Debug.Log("Error, Regenerating world.");
                 return null; 
             }
 
-            int x = Random.Range(0, landscape.GetLength(0));
-            int y = Random.Range(0, landscape.GetLength(1));
+            (int x, int y) = clearPoints[Random.Range(0, clearPoints.Count)];
             int xxx = 0;
             while (landscape[x, y] != digit)
             {
                 xxx++;
-                if (xxx > 100000)
+                if (xxx > 10000000)
                 {
-                    Debug.Log(digit);
-                    break;
+                    Debug.Log("Error, Regenerating world.");
+                    return null;
                 }
-                x = Random.Range(0, landscape.GetLength(0));
-                y = Random.Range(0, landscape.GetLength(1));
+                (x, y) = clearPoints[Random.Range(0, clearPoints.Count)];
             }
             if (width == 0 || height == 0)
                 return new Sector(x, y, x, y);

@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 4713945546505271801}
   m_Layer: 0
   m_Name: DamageHitbox
-  m_TagString: Untagged
+  m_TagString: DamageHitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,13 +594,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1706860d4ed8f2c44b876252b5a086ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 14
+  baseMaxHealth: 20
   isMaxHealthAffectedByLevel: 1
+  levelMult: 0.1
   CurrentHealth: 20
   baseDamage: 10
   isDamageAffectedByLevel: 1
   baseAttackSpeed: 1
-  isAttackSpeedAffectedByLevel: 1
+  isAttackSpeedAffectedByLevel: 0
   baseMoveSpeed: 5.4
   isMoveSpeedAffectedByLevel: 1
   baseMaxEnergy: 100
@@ -630,12 +631,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 1
-  max_gears: 3
-  dropForce: 0.33
-  min_count: 1
-  max_count: 3
+  drops:
+  - obj: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
+    minCount: 1
+    maxCount: 3
+    minContent: 1
+    maxContent: 3
+    dropForce: 0.33
+    scaleFactor: 0.04
+    chance: 1
+  mult: 1
 --- !u!114 &7579450855761866946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -4652039622327434660, guid: 73e6654e810e90b46ac3df9a36ca9b86, type: 3}
   size: 1
+  icon: {fileID: 0}
 --- !u!114 &4318175251742443878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,7 +740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 4
-  levelBuff: 15
+  levelBuff: 6
   sizeMult: 1.2
   newMaterial: {fileID: 2100000, guid: f0dfa0c3f34433440993d10b382491bb, type: 2}
 --- !u!1 &7854293412450206799

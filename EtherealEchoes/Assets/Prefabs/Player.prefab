@@ -336,7 +336,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playSoundOnHit: 1
-  volumeOnHit: 15
+  volumeOnHit: 18
   damageTakenSounds:
   - {fileID: 8300000, guid: aeb48cd44d7d559498c7e9681c4bc2ed, type: 3}
   - {fileID: 8300000, guid: 056d3f6a1e9f1ac48b2c2d61a6f1134b, type: 3}
@@ -425,7 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5add23751599f44186d2fa2b285464b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
   bulletPrefab: {fileID: 1961765644102158381, guid: b8dbb0c095f70624d9c86f5d80cc21a6, type: 3}
   shootAudioClips:
   - {fileID: 8300000, guid: c9131b3e818a4964aa20bb45502c63a1, type: 3}
@@ -447,7 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd836b4c14c3664da937f781c9e02fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   isFlipped: 0
 --- !u!114 &2333539334186902026
 MonoBehaviour:
@@ -475,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
   isMaxHealthAffectedByLevel: 1
+  levelMult: 0.045
   CurrentHealth: 100
   baseDamage: 5
   isDamageAffectedByLevel: 1
@@ -490,12 +489,12 @@ MonoBehaviour:
   baseArmor: 0
   isArmorAffectedByLevel: 1
   BulletSpeed: 15
-  Knockback: 1.5
+  Knockback: 1
   SpreadDegrees: 10
-  CanRegenerateHealth: 0
+  CanRegenerateHealth: 1
   CanRegenerateEnergy: 1
-  HealthRegenerationRate: 1
-  EnergyRegenerationRate: 25
+  HealthRegenerationRate: 0.3
+  EnergyRegenerationRate: 35
   level: 1
 --- !u!114 &7798684644142995025
 MonoBehaviour:
@@ -510,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 0}
-  cooldown: 2
+  cooldown: 1
 --- !u!114 &5391476528600455654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,11 +523,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_gears: 0
-  max_gears: 30
+  max_gears: 15
   value: 0
   Timer: 0
   IsLevelingUp: 0
-  coef: 1.8
+  coef: 1.4
   levelUpSound: {fileID: 8300000, guid: 71044d1a616d8324d9070bde0c944302, type: 3}
   volume: 10
 --- !u!114 &2001512490785923025
@@ -547,7 +546,6 @@ MonoBehaviour:
   hand2: {fileID: 560521923656089673}
   gun1: {fileID: 8122422137823980932}
   gun2: {fileID: 5612947365309527119}
-  mainCamera: {fileID: 0}
   rotationOffsetZ: -160
 --- !u!114 &2128593417735611826
 MonoBehaviour:
@@ -620,6 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -4045754349387262653, guid: 77123e0e4691e8447a78d4fb19402c4b, type: 3}
   size: 1.5
+  icon: {fileID: 0}
 --- !u!1 &1905522804626233141
 GameObject:
   m_ObjectHideFlags: 0

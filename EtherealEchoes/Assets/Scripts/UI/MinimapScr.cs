@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -14,26 +16,18 @@ public class MinimapScr : MonoBehaviour
     [SerializeField] private Color notWalkableColor;
 
     private WorldObject worldObj;
+    private void Start()
+    {
+        SettingsManager.instance.onResolutionChanged += Resize;
+    }
+    private void OnDisable()
+    {
+        SettingsManager.instance.onResolutionChanged -= Resize;
+    }
 
-    bool flag = false;
-
-    void Start()
+    public void GenerateTexture()
     {
         worldObj = G.Instance.currentWorldObj.GetComponent<WorldObject>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (flag) return;
-        if (worldObj.world == null) return;
-        GenerateTexture();
-        flag = true;
-    }
-
-
-    void GenerateTexture()
-    {
         int width = worldObj.world.Width;
         int height = worldObj.world.Height;
         Texture2D texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
@@ -47,7 +41,26 @@ public class MinimapScr : MonoBehaviour
         }
         texture.Apply();
         minimapLayer.GetComponent<SpriteRenderer>().sprite = Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f), pixelsPerUnit: 1);
-        minimapLayer.transform.position = new Vector2(worldObj.world.Width / 2, worldObj.world.Height/2);
-        //minimapLayer.transform.localScale = new Vector2(worldObj.world.Width, worldObj.world.Height);
+        Resize();
+    }
+
+    void SetSize()
+    {
+        minimapLayer.transform.position = new Vector2(worldObj.world.Width / 2, worldObj.world.Height / 2);
+        minimapLayer.transform.localScale = new Vector2(1080f / Screen.height, 1080f / Screen.height);
+    }
+
+    [ContextMenu("SetSize")]
+    void Resize()
+    {
+        StopAllCoroutines();
+        StartCoroutine(reSize());
+    }
+    IEnumerator reSize()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        SetSize();
     }
 }

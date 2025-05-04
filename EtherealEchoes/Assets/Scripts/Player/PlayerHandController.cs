@@ -13,8 +13,6 @@ public class PlayerHandController : MonoBehaviour
     [SerializeField] private Transform gun1;
     [SerializeField] private Transform gun2;
 
-    [SerializeField] private Camera mainCamera;
-
     [SerializeField] private float rotationOffsetZ = -160f;
 
     private FlipSpriteToMouse flipScr;
@@ -29,7 +27,7 @@ public class PlayerHandController : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
 
-        Vector2 mousePosition = WorldMousePosition.GetWorldMousePosition(mainCamera);
+        Vector2 mousePosition = WorldMousePosition.GetWorldMousePosition(Camera.main);
 
         Transform hand = flipScr.isFlipped ? hand2 : hand1;
         Transform gun = flipScr.isFlipped ? gun2 : gun1;
