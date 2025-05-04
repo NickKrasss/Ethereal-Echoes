@@ -18,7 +18,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
 
     private List<(int, int)> clearPoints;
 
-    public (int[,], Place[]) GeneratePlaces(int[,] map, List<(int, int)> _clearPoints = null)
+    public (bool, int[,], Place[]) GeneratePlaces(int[,] map, List<(int, int)> _clearPoints = null)
     {
         landscape = map;
         places = new Place[] { };
@@ -30,8 +30,8 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         Sector sector = new Sector(x1, y1, x2, y2);
         SpawnPlace(playerPlace, sector);
 
-        SpawnPlaces();
-        return (landscape, places);
+        if (!SpawnPlaces()) return (false, null, null);
+        return (true, landscape, places);
     }
 
     private void SpawnPlace(Place place, Sector sector)
@@ -61,7 +61,7 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         World.Fill(landscape, sector, 2);
     }
 
-    public void SpawnPlaces()
+    public bool SpawnPlaces()
     {
         foreach (PlaceType placeType in placeTypes)
         {
@@ -71,9 +71,14 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
             {
                 Place place = GetRandomPlace(placeType);
                 Sector sector = findSectorFilledWith(place.width, place.height, 0);
+                if (sector == null)
+                {
+                    return false;
+                }
                 SpawnPlace(place, sector);
             }
         }
+        return true;
     }
 
     private Sector findSectorFilledWith(int width, int height, int digit)
@@ -84,9 +89,9 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
         while (!World.isSectorFilledWith(landscape, sector, digit))
         {
             attempts++;
-            if (attempts >= 4000000)
+            if (attempts >= 400000)
             {
-                throw new System.Exception(clearPoints.Count.ToString());
+                Debug.Log("Error, Regenerating world.");
                 return null; 
             }
 
@@ -97,8 +102,8 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
                 xxx++;
                 if (xxx > 10000000)
                 {
-                    Debug.Log(digit);
-                    break;
+                    Debug.Log("Error, Regenerating world.");
+                    return null;
                 }
                 (x, y) = clearPoints[Random.Range(0, clearPoints.Count)];
             }

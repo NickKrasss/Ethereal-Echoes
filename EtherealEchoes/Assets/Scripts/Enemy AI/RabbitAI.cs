@@ -55,9 +55,11 @@ public class RabbitAI : MonoBehaviour
     [SerializeField]
     private float shootVolume;
 
-
+    private float worldTime;
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -149,7 +151,7 @@ public class RabbitAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
             {
                 spottedTarget = true;
                 animator.SetBool("spotted", true);

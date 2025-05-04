@@ -35,8 +35,12 @@ public class World
         this.map = landGen.GenerateLandscape(width, height);
 
         var placesResult = placeGen.GeneratePlaces(map, landGen.getClearPoints());
-        this.map = placesResult.Item1;
-        this.places = placesResult.Item2;
+        while (!placesResult.Item1)
+        {
+            placesResult = placeGen.GeneratePlaces(map, landGen.getClearPoints());
+        }
+        this.map = placesResult.Item2;
+        this.places = placesResult.Item3;
     }
 
     public static bool Fill(int[,] landscape, Sector sector, int fillDigit = 1)
