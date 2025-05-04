@@ -493,7 +493,7 @@ MonoBehaviour:
   SpreadDegrees: 10
   CanRegenerateHealth: 1
   CanRegenerateEnergy: 1
-  HealthRegenerationRate: 0
+  HealthRegenerationRate: 0.3
   EnergyRegenerationRate: 35
   level: 1
 --- !u!114 &7798684644142995025

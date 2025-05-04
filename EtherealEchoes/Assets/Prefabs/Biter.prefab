@@ -596,7 +596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 20
   isMaxHealthAffectedByLevel: 1
-  levelMult: 0.08
+  levelMult: 0.1
   CurrentHealth: 20
   baseDamage: 10
   isDamageAffectedByLevel: 1
@@ -726,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -4652039622327434660, guid: 73e6654e810e90b46ac3df9a36ca9b86, type: 3}
   size: 1
+  icon: {fileID: 0}
 --- !u!114 &4318175251742443878
 MonoBehaviour:
   m_ObjectHideFlags: 0
