@@ -89,6 +89,11 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
                     G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesRareChest);
                 }
 
+                if (chestRarecy == "epic")
+                {
+                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesArtifactPlace);
+                }
+
             }
         }
         return isOpened;

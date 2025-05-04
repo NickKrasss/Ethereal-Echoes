@@ -20,11 +20,11 @@ public class G : MonoBehaviour
     public double criticalHitAmount = 1.75;
 
     public List<string> powerUpCards;
-    public List<int> dropChancesCommonChest = new List<int> { 100, 103, 150 };
-    public List<int> dropChancesRareChest = new List<int> { 5, 99, 150 };
-    public List<int> dropChancesStatsPlace = new List<int> { 75, 240, 240 };
+    public List<int> dropChancesCommonChest = new List<int> { 70, 100, 105 };
+    public List<int> dropChancesRareChest = new List<int> { 5, 99, 130 };
+    //public List<int> dropChancesStatsPlace = new List<int> { 75, 240, 240 };
     public List<int> dropChancesArtifactPlace = new List<int> { 53, 62, 150 };
-    public List<int> dropChancesBoss = new List<int> { 0, 0, 100 };
+    //public List<int> dropChancesBoss = new List<int> { 0, 0, 100 };
 
      
 
