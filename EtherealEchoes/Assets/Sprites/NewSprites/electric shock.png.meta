@@ -112,36 +112,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: electric shock_0
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 171
-        width: 49
-        height: 53
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a9852e0f8744bcff0800000000000000
-      internalID: -14842887537534822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: electric shock_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 0
         y: 0
-        width: 167
-        height: 205
+        width: 256
+        height: 256
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,73 +132,10 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: electric shock_2
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 188
-        width: 36
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27af0d5cfc0b43880800000000000000
-      internalID: -8632080179338872206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: electric shock_3
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 190
-        width: 29
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 277109e9b5ec918e0800000000000000
-      internalID: -1722118489594914958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: electric shock_4
-      rect:
-        serializedVersion: 2
-        x: 187
-        y: 157
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84bd21d66622875c0800000000000000
-      internalID: -4217583227720508600
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5925a2d06e681e24e951ad263d8d4331
     internalID: 0
     vertices: []
     indices: 

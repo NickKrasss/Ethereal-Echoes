@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e70d3a70a319a408a8279bd89e7a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435 2"
+  cardName: "<color=lightblue>\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435 2</color>"
   cardDescription: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
     \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u043D\u0430 25."
   valuesToChange:
