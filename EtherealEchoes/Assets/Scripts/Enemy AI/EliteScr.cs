@@ -18,8 +18,7 @@ public class EliteScr : MonoBehaviour
             stats.BaseMaxHealth *= 2.5f;
             stats.BaseDamage *= 2.5f;
             stats.CurrentHealth = GetComponent<Stats>().BaseMaxHealth;
-            GetComponent<DropPickUp>().max_count *= 2;
-            GetComponent<DropPickUp>().min_count *= 2;
+            GetComponent<DropPickUp>().mult *= 2;
             GetComponent<Renderer>().material = newMaterial;
             GetComponent<MinimapIcon>().size *= sizeMult;
             transform.localScale = new Vector3(transform.localScale.x * sizeMult, transform.localScale.y * sizeMult, transform.localScale.z * sizeMult);

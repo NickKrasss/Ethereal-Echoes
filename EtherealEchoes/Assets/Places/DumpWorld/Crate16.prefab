@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 14
   isMaxHealthAffectedByLevel: 0
+  levelMult: 0.035
   CurrentHealth: 0
   baseDamage: 0
   isDamageAffectedByLevel: 0
@@ -282,12 +283,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 2
-  max_gears: 5
-  dropForce: 0.5
-  min_count: 1
-  max_count: 3
+  drops:
+  - obj: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
+    minCount: 1
+    maxCount: 3
+    minContent: 2
+    maxContent: 5
+    dropForce: 0.5
+    scaleFactor: 0.04
+    chance: 1
+  - obj: {fileID: 1364544117230996726, guid: 62c7989045cc979458edc4875ed32c87, type: 3}
+    minCount: 1
+    maxCount: 1
+    minContent: 20
+    maxContent: 30
+    dropForce: 0.3
+    scaleFactor: 0.008
+    chance: 0.2
+  mult: 1
 --- !u!114 &1644087698484707604
 MonoBehaviour:
   m_ObjectHideFlags: 0

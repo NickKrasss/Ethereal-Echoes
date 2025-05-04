@@ -526,12 +526,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 3
-  max_gears: 6
-  dropForce: 0.33
-  min_count: 2
-  max_count: 4
+  drops:
+  - obj: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
+    minCount: 2
+    maxCount: 4
+    minContent: 3
+    maxContent: 6
+    dropForce: 0.33
+    chance: 1
+  mult: 1
 --- !u!114 &5107063262637565491
 MonoBehaviour:
   m_ObjectHideFlags: 0
