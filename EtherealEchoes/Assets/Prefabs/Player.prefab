@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
   isMaxHealthAffectedByLevel: 1
-  levelMult: 0.08
+  levelMult: 0.045
   CurrentHealth: 100
   baseDamage: 5
   isDamageAffectedByLevel: 1
@@ -618,6 +618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -4045754349387262653, guid: 77123e0e4691e8447a78d4fb19402c4b, type: 3}
   size: 1.5
+  icon: {fileID: 0}
 --- !u!1 &1905522804626233141
 GameObject:
   m_ObjectHideFlags: 0

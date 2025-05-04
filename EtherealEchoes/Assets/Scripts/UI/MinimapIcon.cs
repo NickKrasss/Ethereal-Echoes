@@ -6,9 +6,10 @@ public class MinimapIcon : MonoBehaviour
 {
     [SerializeField] private Sprite iconSpr;
     [SerializeField] public float size;
+    public GameObject icon;
     void Start()
     {
-        GameObject icon = new GameObject($"{gameObject.name}_icon");
+        icon = new GameObject($"{gameObject.name}_icon");
         icon.transform.parent = transform;
         icon.transform.position = transform.position;
         SpriteRenderer iconRenderer = icon.AddComponent<SpriteRenderer>();

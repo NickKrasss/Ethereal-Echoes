@@ -76,7 +76,8 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
             {
                 isOpened = true;
                 tmp.gameObject.SetActive(false);
-                top.SetActive(false);   
+                top.SetActive(false);
+                GetComponent<MinimapIcon>().icon.SetActive(false);
 
                 if (chestRarecy == "common")
                 {
