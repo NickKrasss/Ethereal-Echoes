@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      steek plate_0: -2939593273559235906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

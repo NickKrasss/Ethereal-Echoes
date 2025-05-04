@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 53409a59fe02a9243a8a1a6851ce776f
+guid: d0a031fb22562e34f841f073e15b7d6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -205270267638800340
-    second: heart_0
+      213: -14842887537534822
+    second: electric shock_0
   - first:
-      213: 7904136456745960365
-    second: heart_1
+      213: 6500922132403585289
+    second: electric shock_1
+  - first:
+      213: -8632080179338872206
+    second: electric shock_2
+  - first:
+      213: -1722118489594914958
+    second: electric shock_3
+  - first:
+      213: -4217583227720508600
+    second: electric shock_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart_0
+      name: electric shock_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 29
-        width: 152
-        height: 170
+        x: 11
+        y: 171
+        width: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,20 +126,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c20a07677cbb62df0800000000000000
-      internalID: -205270267638800340
+      spriteID: a9852e0f8744bcff0800000000000000
+      internalID: -14842887537534822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heart_1
+      name: electric shock_1
       rect:
         serializedVersion: 2
-        x: 147
-        y: 191
-        width: 37
-        height: 37
+        x: 40
+        y: 0
+        width: 167
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,8 +147,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: da3ce80ca3221bd60800000000000000
-      internalID: 7904136456745960365
+      spriteID: 901046e6c3ae73a50800000000000000
+      internalID: 6500922132403585289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electric shock_2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 188
+        width: 36
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27af0d5cfc0b43880800000000000000
+      internalID: -8632080179338872206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electric shock_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 190
+        width: 29
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277109e9b5ec918e0800000000000000
+      internalID: -1722118489594914958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electric shock_4
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 157
+        width: 43
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84bd21d66622875c0800000000000000
+      internalID: -4217583227720508600
       vertices: []
       indices: 
       edges: []
@@ -154,9 +226,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      heart_0: -205270267638800340
-      heart_1: 7904136456745960365
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

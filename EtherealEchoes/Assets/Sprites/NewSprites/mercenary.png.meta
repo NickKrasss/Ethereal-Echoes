@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 53409a59fe02a9243a8a1a6851ce776f
+guid: e92114bba2efe3944afe86be8ca4a751
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -205270267638800340
-    second: heart_0
-  - first:
-      213: 7904136456745960365
-    second: heart_1
+      213: 3213645506620586734
+    second: mercenary_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heart_0
+      name: mercenary_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 29
-        width: 152
-        height: 170
+        x: 42
+        y: 23
+        width: 169
+        height: 219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,29 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c20a07677cbb62df0800000000000000
-      internalID: -205270267638800340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heart_1
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 191
-        width: 37
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da3ce80ca3221bd60800000000000000
-      internalID: 7904136456745960365
+      spriteID: eea7628cf89299c20800000000000000
+      internalID: 3213645506620586734
       vertices: []
       indices: 
       edges: []
@@ -154,9 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      heart_0: -205270267638800340
-      heart_1: 7904136456745960365
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
