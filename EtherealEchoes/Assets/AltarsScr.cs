@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -51,6 +52,35 @@ public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPoi
 //    public int Price;
 //    public bool isOpened = false;
 
+=======
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using TMPro;
+//using UnityEngine;
+//using UnityEngine.EventSystems;
+
+//public class AltarsScr : MonoBehaviour, Interactable//, IPointerEnterHandler
+//{
+//    public Action actionOnMouseHover, actionOnClick;
+//    [SerializeField] public string altarType;
+//    [SerializeField] public int spread;
+//    [SerializeField] public int basePrice;
+//    [SerializeField] public GameObject highlightUI;
+
+
+//    // äëÿ òåêñòà
+//    [SerializeField] public Vector2 offset;
+//    [SerializeField] public UnityEngine.Color color;
+//    [SerializeField] public UnityEngine.Color outlineColor;
+//    [SerializeField] public float outlineWidth;
+//    [SerializeField] public float fontSize;
+//    [SerializeField] public TMP_FontAsset fontAsset;
+
+//    public int Price;
+//    public bool isOpened = false;
+
+>>>>>>> Stashed changes
 //    public void SetHighlight(bool state)
 //    {
 //        if (state)
@@ -62,6 +92,7 @@ public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPoi
 //            highlightUI.SetActive(false);
 //        }
 //    }
+<<<<<<< Updated upstream
 
 //    public GameObject GetGameObject()
 //    {
@@ -109,6 +140,41 @@ public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPoi
 //    //public void OnPointerEnter(PointerEventData eventData)
 //    //{
 
+=======
+
+//    public GameObject GetGameObject()
+//    {
+//        return gameObject;
+//    }
+
+//    private void Start()
+//    {
+//        Price = (basePrice + UnityEngine.Random.Range(-spread, spread));
+//        if (Price < 1)
+//        {
+//            Price = 1;
+//        }
+//    }
+//    public int GetPrice()
+//    {
+//        return Price;
+//    }
+
+//    public bool Buy(GameObject interactor)
+//    {
+//        if (Price <= interactor.GetComponent<GearContainer>().current_gears)
+//        {
+//            interactor.GetComponent<GearContainer>().current_gears -= Price;
+
+//            return true;
+//        }
+//        return false;
+//    }
+
+//    //public void OnPointerEnter(PointerEventData eventData)
+//    //{
+
+>>>>>>> Stashed changes
 //    //    actionOnMouseHover?.Invoke();
 
 
@@ -132,6 +198,9 @@ public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPoi
 //    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
 //    //    //}
 //    //}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 //    public bool Interact(GameObject interactor)
