@@ -1,20 +1,20 @@
-using System;
+п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AltarsScr : MonoBehaviour, Interactable//, IPointerEnterHandler
+public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPointerExitHandler
 {
     public Action actionOnMouseHover, actionOnClick;
     [SerializeField] public string altarType;
     [SerializeField] public int spread;
     [SerializeField] public int basePrice;
     [SerializeField] public GameObject highlightUI;
+    [SerializeField] string popUpDescription;
 
-
-    // для текста
+    // Г¤Г«Гї ГІГҐГЄГ±ГІГ 
     [SerializeField] public Vector2 offset;
     [SerializeField] public UnityEngine.Color color;
     [SerializeField] public UnityEngine.Color outlineColor;
@@ -66,32 +66,18 @@ public class AltarsScr : MonoBehaviour, Interactable//, IPointerEnterHandler
         return false;
     }
 
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
+    // Executed when the mouse is over the altar
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        actionOnMouseHover?.Invoke();
 
-    //    actionOnMouseHover?.Invoke();
-
-
-    //    //InfoPopUpScreenController.Instance.Show("На алтарях можно получить бонусы к характеристикам или новые предметы, можно потерять жизненные силы, а можно и напротив, только стать сильнее", 4f);
-        
-
-    //    //if (altarType == "maiden")
-    //    //{
-    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
-    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
-    //    //}
-
-    //    //if (altarType == "book")
-    //    //{
-    //    //    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
-    //    //}
-
-    //    //if (altarType == "heal")
-    //    //{
-    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
-    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
-    //    //}
-    //}
+        InfoPopUpScreenController.Instance.Show(popUpDescription, 5f);
+    }
+    // Executed when the mouse exits the altar
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        InfoPopUpScreenController.Instance.HidePopUpImmediately();
+    }
 
     public bool Interact(GameObject interactor)
     {
