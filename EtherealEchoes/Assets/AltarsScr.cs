@@ -1,11 +1,11 @@
-п»їusing System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AltarsScr : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class AltarsScr : MonoBehaviour, Interactable//, IPointerEnterHandler
 {
     public Action actionOnMouseHover, actionOnClick;
     [SerializeField] public string altarType;
@@ -14,7 +14,7 @@ public class AltarsScr : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] public GameObject highlightUI;
 
 
-    // Г¤Г«Гї ГІГҐГЄГ±ГІГ 
+    // для текста
     [SerializeField] public Vector2 offset;
     [SerializeField] public UnityEngine.Color color;
     [SerializeField] public UnityEngine.Color outlineColor;
@@ -35,6 +35,11 @@ public class AltarsScr : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             highlightUI.SetActive(false);
         }
+    }
+
+    public GameObject GetGameObject()
+    {
+        return gameObject;
     }
 
     private void Start()
@@ -61,18 +66,33 @@ public class AltarsScr : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         return false;
     }
 
-    // Executed when the mouse is over the altar
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        actionOnMouseHover?.Invoke();
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
 
-        InfoPopUpScreenController.Instance.Show("*С‚РµРєСЃС‚ РґР»СЏ Р°Р»С‚Р°СЂСЏ*", 5f);
-    }
-    // Executed when the mouse exits the altar
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        InfoPopUpScreenController.Instance.HidePopUpImmediately();
-    }
+    //    actionOnMouseHover?.Invoke();
+
+
+    //    //InfoPopUpScreenController.Instance.Show("На алтарях можно получить бонусы к характеристикам или новые предметы, можно потерять жизненные силы, а можно и напротив, только стать сильнее", 4f);
+        
+
+    //    //if (altarType == "maiden")
+    //    //{
+    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
+    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
+    //    //}
+
+    //    //if (altarType == "book")
+    //    //{
+    //    //    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
+    //    //}
+
+    //    //if (altarType == "heal")
+    //    //{
+    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
+    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
+    //    //}
+    //}
+
     public bool Interact(GameObject interactor)
     {
         if (!isOpened)

@@ -580,6 +580,58 @@ MonoBehaviour:
       obj: {fileID: 8307609287610611758, guid: 0a8e39d2264a8694991d83da0c1d8d5c, type: 3}
       rotationAngle: -25
       isGroupObject: 0
+  - name: "\u0410\u043B\u0442\u0430\u0440\u0438"
+    lowerCount: 5
+    upperCount: 5
+    places:
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 25
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.2
+      obj: {fileID: 5534670900497227371, guid: 3bcfab3ac7533f64dbdb865e9d632bef, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 25
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.2
+      obj: {fileID: 5534670900497227371, guid: 669e8430eea025d4dbaf79fde0d849b8, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 25
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.2
+      obj: {fileID: 5534670900497227371, guid: bf378823cdab0184cb1695a3fbbaf183, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 25
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.2
+      obj: {fileID: 5534670900497227371, guid: 4de08313026fa4f4b9d7cd18b78cbced, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
   playerPlace:
     canRepeat: 0
     hadArleadySpawned: 0
