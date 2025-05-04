@@ -25,6 +25,10 @@ public class GameController : MonoBehaviour
 
     private bool hunt = false;
 
+    [SerializeField] private GameObject ded;
+
+    [SerializeField] private GameObject timer;
+
 
     private void Start()
     {
@@ -75,6 +79,8 @@ public class GameController : MonoBehaviour
         Instantiate(playerPrefab, new Vector2(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2), Quaternion.Euler(-25, 0, 0));
         Camera.main.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, Camera.main.transform.position.z);
 
+       
+
         G.Instance.isWorldLoading = false;
         yield return new WaitForSeconds(1f);
         TransitionOverlayController.Instance.FadeOut(0.5f, 0f);
@@ -107,7 +113,12 @@ public class GameController : MonoBehaviour
             Camera.main.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, Camera.main.transform.position.z);
             minimapScr.GenerateTexture();
             AudioManager.Instance.EndAllSounds();
-            
+
+            if (currentWorldInd == 5)
+            {
+                timer.SetActive(false);
+                Instantiate(ded, new Vector2(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2) + Vector2.up * 15, Quaternion.identity);
+            }
             yield return new WaitForSeconds(1f);
             G.Instance.isWorldLoading = false;
             TransitionOverlayController.Instance.FadeOut(0.5f, 0f);

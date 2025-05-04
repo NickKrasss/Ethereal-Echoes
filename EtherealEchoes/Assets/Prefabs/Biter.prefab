@@ -598,7 +598,7 @@ MonoBehaviour:
   isMaxHealthAffectedByLevel: 1
   levelMult: 0.08
   CurrentHealth: 20
-  baseDamage: 15
+  baseDamage: 10
   isDamageAffectedByLevel: 1
   baseAttackSpeed: 1
   isAttackSpeedAffectedByLevel: 0
@@ -638,6 +638,7 @@ MonoBehaviour:
     minContent: 1
     maxContent: 3
     dropForce: 0.33
+    scaleFactor: 0.04
     chance: 1
   mult: 1
 --- !u!114 &7579450855761866946

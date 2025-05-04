@@ -7813,11 +7813,14 @@ MonoBehaviour:
   - {fileID: 3484994954673678288, guid: 9af4b4f8ab4c34040a99b8ef562318b0, type: 3}
   - {fileID: 3484994954673678288, guid: 9c76879ad5c584245ada34311dfd7f5c, type: 3}
   - {fileID: 3484994954673678288, guid: c37eb0f97099649498d14a3ab232b243, type: 3}
+  - {fileID: 3484994954673678288, guid: 72391fdb1b053ff43b851ce4deb368d8, type: 3}
   playerPrefab: {fileID: 1450796366560007938, guid: 6380bcfc4feda2e488f0bdc02a1ea641, type: 3}
   minimapScr: {fileID: 744628007}
   surfaces:
   - {fileID: 249865044}
   skullImage: {fileID: 1854103487}
+  ded: {fileID: 1267219552245858873, guid: dcbeebd1ab760a448a9a34c25787e2c1, type: 3}
+  timer: {fileID: 1036898434}
 --- !u!4 &1755179387
 Transform:
   m_ObjectHideFlags: 0
