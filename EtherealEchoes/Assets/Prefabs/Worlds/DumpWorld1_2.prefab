@@ -553,33 +553,45 @@ MonoBehaviour:
       rotationAngle: -25
       isGroupObject: 1
   - name: "\u0421\u0443\u043D\u0434\u0443\u043A\u0438"
-    lowerCount: 17
-    upperCount: 23
+    lowerCount: 10
+    upperCount: 13
     places:
     - canRepeat: 1
       hadArleadySpawned: 0
-      frequency: 57
+      frequency: 100
       width: 2
       height: 2
       offset_x: 0
       offset_y: 0
       offset_z: 0
       random_offset: 0.2
-      obj: {fileID: 8307609287610611758, guid: 593ad95d213351848a81e5c3e9510d58, type: 3}
-      rotationAngle: -25
+      obj: {fileID: 738483672030346271, guid: c3b742c6553ce454babb2074c8378860, type: 3}
+      rotationAngle: 0
       isGroupObject: 0
     - canRepeat: 1
       hadArleadySpawned: 0
-      frequency: 14
-      width: 4
-      height: 4
+      frequency: 40
+      width: 2
+      height: 2
       offset_x: 0
       offset_y: 0
       offset_z: 0
       random_offset: 0.2
-      obj: {fileID: 8307609287610611758, guid: 0a8e39d2264a8694991d83da0c1d8d5c, type: 3}
-      rotationAngle: -25
-      isGroupObject: 1
+      obj: {fileID: 738483672030346271, guid: f3c0bdec346226a4aa2bb32ab7692784, type: 3}
+      rotationAngle: 0
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 15
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.2
+      obj: {fileID: 738483672030346271, guid: 3ed21f11de6a59941b6ee15424043f37, type: 3}
+      rotationAngle: 0
+      isGroupObject: 0
   playerPlace:
     canRepeat: 0
     hadArleadySpawned: 0

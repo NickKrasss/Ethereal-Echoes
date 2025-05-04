@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
   isMaxHealthAffectedByLevel: 1
-  levelMult: 0.1
+  levelMult: 0.08
   CurrentHealth: 100
   baseDamage: 5
   isDamageAffectedByLevel: 1
@@ -523,11 +523,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current_gears: 0
-  max_gears: 30
+  max_gears: 15
   value: 0
   Timer: 0
   IsLevelingUp: 0
-  coef: 1.8
+  coef: 1.4
   levelUpSound: {fileID: 8300000, guid: 71044d1a616d8324d9070bde0c944302, type: 3}
   volume: 10
 --- !u!114 &2001512490785923025

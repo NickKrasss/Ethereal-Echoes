@@ -3187,6 +3187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWorldObj: {fileID: 0}
   playerObj: {fileID: 0}
+  powerUpCardsController: {fileID: 965458252}
   gameLight: {fileID: 1338582342}
   blockDamageChance: 0
   extraGearsOffset: 0
