@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class MantisAI : MonoBehaviour
+public class MantisAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -221,5 +221,10 @@ public class MantisAI : MonoBehaviour
             Walk();
             CheckAttack();
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

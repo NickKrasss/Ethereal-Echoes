@@ -413,7 +413,7 @@ MonoBehaviour:
       rotationAngle: -25
       isGroupObject: 0
   - name: "\u0412\u0440\u0430\u0433\u0438"
-    lowerCount: 50
+    lowerCount: 60
     upperCount: 70
     places:
     - canRepeat: 1
@@ -490,7 +490,7 @@ MonoBehaviour:
       isGroupObject: 0
     - canRepeat: 1
       hadArleadySpawned: 0
-      frequency: 10
+      frequency: 15
       width: 2
       height: 2
       offset_x: 0

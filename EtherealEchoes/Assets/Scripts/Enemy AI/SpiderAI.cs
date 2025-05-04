@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class SpiderAI : MonoBehaviour
+public class SpiderAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -116,5 +116,10 @@ public class SpiderAI : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

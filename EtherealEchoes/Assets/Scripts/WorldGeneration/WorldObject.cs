@@ -29,6 +29,7 @@ public class WorldObject : MonoBehaviour
 
     private void Start()
     {
+        G.Instance.isWorldLoading = true;
         G.Instance.currentWorldObj = gameObject;
         landGen = GetComponent<LandscapeGenerator>();
         placeGen = GetComponent<PlaceGenerator>();

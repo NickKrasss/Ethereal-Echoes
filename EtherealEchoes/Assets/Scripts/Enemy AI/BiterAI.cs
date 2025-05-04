@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class BiterAI : MonoBehaviour
+public class BiterAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -155,5 +155,10 @@ public class BiterAI : MonoBehaviour
             
             animator.SetFloat("AnimationSpeed", 1f);
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

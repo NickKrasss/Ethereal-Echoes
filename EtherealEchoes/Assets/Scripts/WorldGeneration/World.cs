@@ -33,11 +33,12 @@ public class World
     public void GenerateWorld()
     {
         this.map = landGen.GenerateLandscape(width, height);
-
         var placesResult = placeGen.GeneratePlaces(map, landGen.getClearPoints());
         while (!placesResult.Item1)
         {
-            placesResult = placeGen.GeneratePlaces(map, landGen.getClearPoints());
+            this.map = landGen.GenerateLandscape(width, height);
+            placeGen.ClearPlaces();
+            placesResult = placeGen.GeneratePlaces(this.map, landGen.getClearPoints());
         }
         this.map = placesResult.Item2;
         this.places = placesResult.Item3;

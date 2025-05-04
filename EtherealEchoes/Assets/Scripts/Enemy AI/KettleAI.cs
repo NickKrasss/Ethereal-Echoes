@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class KettleAI : MonoBehaviour
+public class KettleAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -72,6 +72,10 @@ public class KettleAI : MonoBehaviour
         stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4);
     }
 
+    public void Spot()
+    {
+        spottedTarget = true;
+    }
     private void UpdateAnimations()
     {
         if (agent.speed != 0)

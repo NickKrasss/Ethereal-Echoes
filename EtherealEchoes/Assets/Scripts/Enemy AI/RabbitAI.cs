@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class RabbitAI : MonoBehaviour
+public class RabbitAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -163,5 +163,11 @@ public class RabbitAI : MonoBehaviour
             Walk();
             CheckAttack();
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
+        animator.SetBool("spotted", true);
     }
 }

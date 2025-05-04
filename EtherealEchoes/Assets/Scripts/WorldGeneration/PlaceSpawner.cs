@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(WorldObject))]
@@ -18,6 +19,8 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
 
     private List<(int, int)> clearPoints;
 
+    private List<GameObject> placeObjects = new List<GameObject>();
+
     public (bool, int[,], Place[]) GeneratePlaces(int[,] map, List<(int, int)> _clearPoints = null)
     {
         landscape = map;
@@ -32,6 +35,15 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
 
         if (!SpawnPlaces()) return (false, null, null);
         return (true, landscape, places);
+    }
+
+    public void ClearPlaces()
+    { 
+        while (placeObjects.Count != 0)
+        {
+            Destroy(placeObjects[0]);
+            placeObjects.RemoveAt(0);
+        }
     }
 
     private void SpawnPlace(Place place, Sector sector)
@@ -53,11 +65,14 @@ public class PlaceSpawner : MonoBehaviour, PlaceGenerator
                 {
                     if (place.rotationAngle != 0) child.transform.rotation = Quaternion.Euler(place.rotationAngle, 0, 0);
                     child.transform.SetParent(transform);
+                    placeObjects.Add(child.gameObject);
                 }
             }
             obj.transform.DetachChildren();
             Destroy(obj);
         }
+        else
+            placeObjects.Add(obj);
         World.Fill(landscape, sector, 2);
     }
 
