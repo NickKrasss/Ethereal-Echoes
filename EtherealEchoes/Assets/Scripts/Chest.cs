@@ -7,12 +7,10 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 using UnityEngine.TextCore.Text;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
-[RequireComponent(typeof(Animator))]
 
 public class Chest : MonoBehaviour, PurchasableItem, Interactable
 {
     [SerializeField] public string chestRarecy;
-    private Animator animator;
 
     [SerializeField] public int spread;
     [SerializeField] public int basePrice;
@@ -25,6 +23,9 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
     public int Price;
     [HideInInspector]
     public bool isOpened = false;
+
+    [SerializeField]
+    private GameObject top;
 
     public void SetHighlight(bool state)
     {
@@ -40,7 +41,6 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
 
         Price = (int)(basePrice + (G.Instance.currentLevel-1) * 5 + Random.Range(-spread, spread)) * G.Instance.currentLevel;
         if (Price < 1)
@@ -74,9 +74,9 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
         {
             if (Buy(interactor))
             {
-                animator.SetTrigger("Open");
                 isOpened = true;
                 tmp.gameObject.SetActive(false);
+                top.SetActive(false);   
 
                 if (chestRarecy == "common")
                 {

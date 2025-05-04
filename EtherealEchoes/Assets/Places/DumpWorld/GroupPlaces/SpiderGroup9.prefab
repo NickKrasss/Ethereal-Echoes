@@ -582,12 +582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &4116408862833186442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1892,12 +1888,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 2
-  max_gears: 5
-  dropForce: 0.5
-  min_count: 1
-  max_count: 3
+  drops:
+  - obj: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
+    minCount: 1
+    maxCount: 3
+    minContent: 2
+    maxContent: 5
+    dropForce: 0.5
+    scaleFactor: 0.04
+    chance: 1
+  - obj: {fileID: 1364544117230996726, guid: 62c7989045cc979458edc4875ed32c87, type: 3}
+    minCount: 1
+    maxCount: 1
+    minContent: 20
+    maxContent: 30
+    dropForce: 0.3
+    scaleFactor: 0.008
+    chance: 0.2
+  mult: 1
 --- !u!114 &5154704350589889078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2447,12 +2455,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 3
-  max_gears: 8
-  dropForce: 0.6
-  min_count: 2
-  max_count: 4
+  drops:
+  - obj: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
+    minCount: 2
+    maxCount: 4
+    minContent: 3
+    maxContent: 8
+    dropForce: 0.6
+    scaleFactor: 0.04
+    chance: 1
+  - obj: {fileID: 1364544117230996726, guid: 62c7989045cc979458edc4875ed32c87, type: 3}
+    minCount: 1
+    maxCount: 3
+    minContent: 20
+    maxContent: 30
+    dropForce: 0.3
+    scaleFactor: 0.008
+    chance: 0.3
+  mult: 1
 --- !u!114 &4514830151342073844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3970,12 +3990,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &3989756289196250193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4543,12 +4559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &1868146974237498228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5213,12 +5225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &4300460739337203364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5950,12 +5958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &135244619311781355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6495,12 +6499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &1648391009122572095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,12 +7277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &5504751971962307632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8146,12 +8142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf123ba3ec2c3440821184c2b9cb83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GearPrefab: {fileID: 1364544117230996726, guid: b6081392e277b414ca5a76ff00d3596e, type: 3}
-  min_gears: 0
-  max_gears: 1
-  dropForce: 0.2
-  min_count: 1
-  max_count: 1
+  drops: []
+  mult: 1
 --- !u!114 &8668277759749775063
 MonoBehaviour:
   m_ObjectHideFlags: 0

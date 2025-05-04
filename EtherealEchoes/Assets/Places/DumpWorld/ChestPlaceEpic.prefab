@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7900133024566262429}
   m_Layer: 0
-  m_Name: ChestPlace
+  m_Name: ChestPlaceEpic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: -980306409
   m_SortingLayer: 2
   m_SortingOrder: 10
-  m_Sprite: {fileID: -5724188423514897675, guid: 257e1f67fab8acb4b9b0f20bcf291fcd, type: 3}
+  m_Sprite: {fileID: 4187126864175882213, guid: f7d496a2fda3a83428e51d8dd5b516da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 5663126832541157413}
   - component: {fileID: 2363050560202146885}
   - component: {fileID: 2233661476771345629}
-  - component: {fileID: 6269486336904019230}
+  - component: {fileID: 2857503987124776144}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -618,7 +618,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.21643952, y: 0, z: 0, w: 0.97629607}
   m_LocalPosition: {x: 0, y: 0, z: -0.125}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9083993798929194950}
@@ -667,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: -980306409
   m_SortingLayer: 2
   m_SortingOrder: 9
-  m_Sprite: {fileID: -5717530929550124475, guid: d986a6b2321beec419f2f67babedfe3a, type: 3}
+  m_Sprite: {fileID: 6498809639451817567, guid: cec203650eaea9344b88a1b51b8f2a7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -690,9 +690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d8dadd2e55d1848b97d9aafc3b34cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestRarecy: common
+  chestRarecy: epic
   spread: 5
-  basePrice: 13
+  basePrice: 30
   highlightUI: {fileID: 6088399823264958077}
   tmp: {fileID: 7311751850850411479}
   Price: 0
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angle: 12
---- !u!114 &6269486336904019230
+--- !u!114 &2857503987124776144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,4 +770,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconSpr: {fileID: -8761634576737407227, guid: 9b6a810476d6afe44a19113d022a81e9, type: 3}
-  size: 1.5
+  size: 1.9
