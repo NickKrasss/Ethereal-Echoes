@@ -12,50 +12,19 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 public class Chest : MonoBehaviour, PurchasableItem, Interactable
 {
     [SerializeField] public string chestRarecy;
-    [SerializeField] public Animator animator;
-    [SerializeField] public float mult;
+    private Animator animator;
+
     [SerializeField] public int spread;
     [SerializeField] public int basePrice;
     [SerializeField] public GameObject highlightUI;
 
-    [SerializeField] public Vector2 offset;
-    [SerializeField] public UnityEngine.Color color;
-    [SerializeField] public UnityEngine.Color outlineColor;
-    [SerializeField] public float outlineWidth;
-    [SerializeField] public float fontSize;
-    [SerializeField] public TMP_FontAsset fontAsset;
-
-    private GameObject textObj;
+    [SerializeField]
     private TextMeshPro tmp;
 
+    [HideInInspector]
     public int Price;
-    // Открыт или нет
+    [HideInInspector]
     public bool isOpened = false;
-
-    public void MakeText()
-    {
-        textObj = new GameObject(gameObject.name + "_lvlTextObject");
-        textObj.transform.parent = G.Instance.currentWorldObj.transform;
-        textObj.layer = 5;
-
-        tmp = textObj.AddComponent<TextMeshPro>();
-        textObj.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0);
-
-        tmp.color = color;
-        tmp.fontSize = fontSize;
-        tmp.alignment = TextAlignmentOptions.Center;
-        tmp.font = fontAsset;
-        //tmp.sortingOrder = sortingOrder;
-        tmp.sortingLayerID = SortingLayer.NameToID("Front");
-
-        tmp.outlineColor = outlineColor;
-        tmp.outlineWidth = outlineWidth;
-    }
-
-    private void Awake()
-    {
-        MakeText();
-    }
 
     public void SetHighlight(bool state)
     {
@@ -71,24 +40,16 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
 
     private void Start()
     {
-        Price = (basePrice + Random.Range(-spread, spread));
+        animator = GetComponent<Animator>();
+
+        Price = (int)(basePrice + (G.Instance.currentLevel-1) * 5 + Random.Range(-spread, spread)) * G.Instance.currentLevel;
         if (Price < 1)
         {
             Price = 1;
         }
+        tmp.text = $"{Price} $";
     }
 
-    private void Update()
-    {
-
-        //if (textObj == null) return;
-        //textObj.transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0);
-        //tmp.text = $"{Price}";
-
-        //доделать текст
-
-        
-    }
 
     public int GetPrice()
     {
@@ -115,8 +76,7 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
             {
                 animator.SetTrigger("Open");
                 isOpened = true;
-                //Destroy(gameObject);
-                //animator.ResetTrigger("Open");
+                tmp.gameObject.SetActive(false);
 
                 if (chestRarecy == "common")
                 {
@@ -136,11 +96,5 @@ public class Chest : MonoBehaviour, PurchasableItem, Interactable
     public GameObject GetGameObject()
     {
         return gameObject;
-    }
-
-    private void OnDestroy()
-    {
-        if (!gameObject.scene.isLoaded) return;
-        Destroy(textObj);
     }
 }
