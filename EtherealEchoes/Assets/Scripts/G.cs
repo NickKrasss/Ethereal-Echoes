@@ -24,8 +24,6 @@ public class G : MonoBehaviour
     public List<int> dropChancesRareChest = new List<int> { 5, 99, 330 };
     public List<int> dropChancesStatsPlace = new List<int> { 75, 240, 240 };
     public List<int> dropChancesArtifactPlace = new List<int> { 20, 50, 300 };
-    public List<int> dropChancesBoss = new List<int> { 0, 0, 100 };
-
      
 
     //public int currentLevel = 0;
