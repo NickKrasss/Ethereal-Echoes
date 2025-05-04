@@ -262,8 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placeTypes:
   - name: "\u0414\u0435\u043A\u043E\u0440"
-    lowerCount: 50
-    upperCount: 100
+    lowerCount: 100
+    upperCount: 150
     places:
     - canRepeat: 1
       hadArleadySpawned: 0
@@ -276,6 +276,90 @@ MonoBehaviour:
       random_offset: 0.1
       obj: {fileID: 2806586419427512917, guid: 7ce76f8ede3137d48b4605b13d13cb6b, type: 3}
       rotationAngle: -1
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 3924172294180251243, guid: 229addeda2878d24f8b9599e67636ab9, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 6656570364200679747, guid: 181ac2df32799554bacca3ed94d4d8c6, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 5764682308880786206, guid: 54bd9a6758623f94f9ac66bcf0786783, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 323215306171926894, guid: 6bf236b17bd967b44ba7c16f9b977082, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 7932798946166366428, guid: 9cfd09259153b9744ab79706a5f017ae, type: 3}
+      rotationAngle: -25
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 5188913736628002766, guid: 6173bdc125264d144b8be23a5f01435c, type: 3}
+      rotationAngle: -1
+      isGroupObject: 0
+    - canRepeat: 1
+      hadArleadySpawned: 0
+      frequency: 10
+      width: 2
+      height: 2
+      offset_x: 0
+      offset_y: 0
+      offset_z: 0
+      random_offset: 0.1
+      obj: {fileID: 5545608459910677252, guid: 0441c60ff2b27d946ad02c6a46ce74e1, type: 3}
+      rotationAngle: -25
       isGroupObject: 0
   - name: "\u0421\u043F\u0430\u0432\u043D\u0435\u0440 \u0443\u0440\u043E\u0432\u0435\u043D\u044C
       1"
