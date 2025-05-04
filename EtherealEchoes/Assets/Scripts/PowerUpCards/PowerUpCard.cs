@@ -154,13 +154,13 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
             if (cardName == "Ученый")
             {
                 
-                if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") == 0)
+                if (countEqualsStringNames(G.Instance.powerUpCards, "Ученый") == 0)
                 {
-                    G.Instance.extraGearsOffset += (float)(0.1);
+                    G.Instance.extraGearsOffset += (float)(0.15);
                 }
                 else
                 {
-                    G.Instance.extraGearsOffset *= (float)(1.1);
+                    G.Instance.extraGearsOffset *= (float)(1.15);
                 }
                 G.Instance.powerUpCards.Add("Ученый");
                 return;
@@ -169,12 +169,12 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
             {
                 if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") > 1)
                 {
-                    G.Instance.criticalHitChance += (float)(G.Instance.criticalHitChance * 0.15);
+                    G.Instance.criticalHitChance += (float)(G.Instance.criticalHitChance * 0.2);
                     G.Instance.powerUpCards.Add("Снайпер");
                 }
                 else if (countEqualsStringNames(G.Instance.powerUpCards, "Снайпер") == 0)
                 {
-                    G.Instance.criticalHitChance += 15;
+                    G.Instance.criticalHitChance += 20;
                     G.Instance.powerUpCards.Add("Снайпер");
                 }
                 return;
@@ -183,11 +183,11 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
             {
                 if (countEqualsStringNames(G.Instance.powerUpCards, "Карманник") == 0)
                 {
-                    G.Instance.extraGearsOffset += (float)(0.2);
+                    G.Instance.extraGearsOffset += (float)(0.3);
                 }
                 else
                 {
-                    G.Instance.extraGearsOffset *= (float)(1.2);
+                    G.Instance.extraGearsOffset *= (float)(1.3);
                 }
                 G.Instance.powerUpCards.Add("Карманник");
                 return;
@@ -196,10 +196,10 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
             {
                 for (var i = 0; i <= G.Instance.dropChancesCommonChest.Count; i++)
                 {
-                    G.Instance.dropChancesCommonChest[i] -= 2;
-                    G.Instance.dropChancesRareChest[i] -= 2;
-                    G.Instance.dropChancesStatsPlace[i] -= 2;
-                    G.Instance.dropChancesArtifactPlace[i] -= 2;
+                    G.Instance.dropChancesCommonChest[i] -= 4;
+                    G.Instance.dropChancesRareChest[i] -= 4;
+                    G.Instance.dropChancesStatsPlace[i] -= 4;
+                    G.Instance.dropChancesArtifactPlace[i] -= 4;
                 }
                 G.Instance.powerUpCards.Add("Фортуна");
                 return;
@@ -217,8 +217,9 @@ public class PowerUpCard : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
             }
             if (cardName == "Орлиный глаз")
             {
-                G.Instance.criticalHitAmount += G.Instance.criticalHitAmount * 0.15;
+                G.Instance.criticalHitAmount += G.Instance.criticalHitAmount * 0.20;
             }
+
         }
         // set the value for each characteristic unit
         foreach (CharacteristicUnit unit in valuesToChange)

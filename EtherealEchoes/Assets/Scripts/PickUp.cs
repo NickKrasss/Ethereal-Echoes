@@ -86,7 +86,7 @@ public class PickUp : MonoBehaviour
                 if (collision.gameObject.GetComponent<GearContainer>().IsFull()) return;
                 if (G.Instance.extraGearsOffset > 0)
                 {
-                    var newGearCount = count + (int)(count * G.Instance.extraGearsOffset);
+                    var newGearCount = (int)(count + (count * G.Instance.extraGearsOffset));
                     collision.gameObject.GetComponent<GearContainer>().AddGears(newGearCount);
                 }
                 else

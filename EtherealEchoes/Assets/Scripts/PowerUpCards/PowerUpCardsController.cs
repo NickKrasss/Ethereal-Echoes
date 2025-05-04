@@ -141,6 +141,6 @@ public class PowerUpCardsController : MonoBehaviour
     private void Start()
     {
         //Vector3 def = new (0, 0, 100);
-        //Initialize(def);
+        Initialize(G.Instance.dropChancesCommonChest);
     }
 }
