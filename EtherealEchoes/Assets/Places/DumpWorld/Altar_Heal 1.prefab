@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 8080251860757865189}
   - component: {fileID: 2041531609856177642}
   m_Layer: 0
-  m_Name: Altar_Maiden
+  m_Name: Altar_Heal 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -322,10 +322,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3781aae3ef1997f49944c3bc38d6fac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  altarType: maiden
+  altarType: chest
   spread: 0
   basePrice: 0
-  highlightUI: {fileID: 0}
+  highlightUI: {fileID: 3558143092743404843}
   offset: {x: 0, y: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   outlineColor: {r: 0, g: 0, b: 0, a: 0}

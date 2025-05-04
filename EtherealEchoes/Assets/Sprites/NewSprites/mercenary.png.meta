@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mercenary_0: 3213645506620586734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
