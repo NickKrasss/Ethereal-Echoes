@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class AltarsScr : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPointerExitHandler
 {
     public Action actionOnMouseHover, actionOnClick;
     [SerializeField] public string altarType;
@@ -35,6 +35,11 @@ public class AltarsScr : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             highlightUI.SetActive(false);
         }
+    }
+
+    public GameObject GetGameObject()
+    {
+        return gameObject;
     }
 
     private void Start()
