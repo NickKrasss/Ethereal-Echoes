@@ -58,7 +58,7 @@ public class PlayerGun : MonoBehaviour
         
         bullet.transform.SetParent(G.Instance.currentWorldObj.transform);
         bullet.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
-        if (G.Instance.powerUpCards.Contains("�������"))
+        if (G.Instance.powerUpCards.Contains("Снайпер"))
         {
             int probability = UnityEngine.Random.Range(0, 100);
             if (probability <= G.Instance.criticalHitChance)

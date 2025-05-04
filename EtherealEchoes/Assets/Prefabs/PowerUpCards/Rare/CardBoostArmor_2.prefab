@@ -130,7 +130,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.35
+  m_fontSize: 41.65
   m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -337,15 +337,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e70d3a70a319a408a8279bd89e7a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: "\u0411\u0440\u043E\u043D\u044F_2"
+  cardName: "\u0411\u0440\u043E\u043D\u044F 2"
   cardDescription: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0431\u0440\u043E\u043D\u044E \u043D\u0430 4."
+    \u0431\u0440\u043E\u043D\u044E \u043D\u0430 6."
   valuesToChange:
   - propertyName: BaseArmor
     propertyNameCurrent: 
     isCardOrbEffect: 0
     rangePercent: 0
-    rangeValue: 4
+    rangeValue: 6
   isCardOrbEffect: 0
   cardTint: {fileID: 528469523623500583}
   idleColor: {r: 0, g: 0, b: 0, a: 0}

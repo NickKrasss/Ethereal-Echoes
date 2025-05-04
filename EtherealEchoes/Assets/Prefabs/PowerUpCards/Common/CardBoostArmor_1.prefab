@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 13c220721586c9e4aafacdafc5929fcb, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0.98039216, g: 0.9137255, b: 0.6901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -339,13 +339,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: "\u0411\u0440\u043E\u043D\u044F"
   cardDescription: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0431\u0440\u043E\u043D\u044E \u043D\u0430 2."
+    \u0431\u0440\u043E\u043D\u044E \u043D\u0430 4."
   valuesToChange:
   - propertyName: BaseArmor
     propertyNameCurrent: 
     isCardOrbEffect: 0
     rangePercent: 0
-    rangeValue: 2
+    rangeValue: 4
   isCardOrbEffect: 0
   cardTint: {fileID: 528469523623500583}
   idleColor: {r: 0, g: 0, b: 0, a: 0}

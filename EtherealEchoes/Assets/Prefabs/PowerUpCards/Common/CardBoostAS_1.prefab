@@ -339,12 +339,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: "\u041B\u043E\u0432\u043A\u043E\u0441\u0442\u044C"
   cardDescription: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438
-    \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0430 \u043D\u0430 5%."
+    \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0430 \u043D\u0430 6%."
   valuesToChange:
   - propertyName: BaseAttackSpeed
     propertyNameCurrent: 
     isCardOrbEffect: 0
-    rangePercent: 5
+    rangePercent: 6
     rangeValue: 0
   isCardOrbEffect: 0
   cardTint: {fileID: 528469523623500583}
