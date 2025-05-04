@@ -322,14 +322,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3781aae3ef1997f49944c3bc38d6fac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  altarType: chest
+  altarType: book
   spread: 4
   basePrice: 8
-  highlightUI: {fileID: 0}
+  highlightUI: {fileID: 3558143092743404843}
   offset: {x: 0, y: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   outlineColor: {r: 0, g: 0, b: 0, a: 0}
-  outlineWidth: 0
+  outlineWidth: 1
   fontSize: 0
   fontAsset: {fileID: 0}
   Price: 0

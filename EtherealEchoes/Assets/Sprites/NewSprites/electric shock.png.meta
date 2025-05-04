@@ -226,7 +226,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      electric shock_0: -14842887537534822
+      electric shock_1: 6500922132403585289
+      electric shock_2: -8632080179338872206
+      electric shock_3: -1722118489594914958
+      electric shock_4: -4217583227720508600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

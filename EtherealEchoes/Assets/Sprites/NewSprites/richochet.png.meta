@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      richochet_0: -2789983657916335286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

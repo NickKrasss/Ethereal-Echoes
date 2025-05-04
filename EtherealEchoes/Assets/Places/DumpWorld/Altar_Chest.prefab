@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4991392807839484471}
   - component: {fileID: 1471811263172860040}
   - component: {fileID: 6852961441035751993}
-  - component: {fileID: 3682015995750525689}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -176,14 +175,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 1471811263172860040}
   m_maskType: 0
---- !u!33 &3682015995750525689
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3558143092743404843}
-  m_Mesh: {fileID: 0}
 --- !u!1 &5534670900497227371
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   altarType: chest
   spread: 4
-  basePrice: 32
-  highlightUI: {fileID: 0}
+  basePrice: 2
+  highlightUI: {fileID: 3558143092743404843}
   offset: {x: 0, y: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   outlineColor: {r: 0, g: 0, b: 0, a: 0}

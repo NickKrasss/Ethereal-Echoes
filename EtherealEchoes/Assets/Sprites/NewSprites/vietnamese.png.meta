@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vietnamese_0: -3911643130283300861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

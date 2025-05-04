@@ -324,8 +324,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   altarType: chest
   spread: 4
-  basePrice: 32
-  highlightUI: {fileID: 0}
+  basePrice: 2
+  highlightUI: {fileID: 3558143092743404843}
   offset: {x: 0, y: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   outlineColor: {r: 0, g: 0, b: 0, a: 0}
