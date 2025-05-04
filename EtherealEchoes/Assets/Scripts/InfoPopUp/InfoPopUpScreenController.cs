@@ -38,6 +38,15 @@ public class InfoPopUpScreenController : MonoBehaviour
 
                 // wait for 0.4 seconds before showing the new message
                 StartCoroutine(waitAndInvokeAction(0.4f, () =>
+                
+            // wait for 0.5 seconds before showing the new message
+            StartCoroutine(waitAndInvokeAction(0.4f, () =>
+            {
+                animator.SetTrigger("HidePopUp");
+
+                // wait for 0.5 seconds before showing the new message
+                StartCoroutine(waitAndInvokeAction(0.25f, () =>
+
                 {
                     text.text = message;
                     animator.SetTrigger("ShowPopUp");
