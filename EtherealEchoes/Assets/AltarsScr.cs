@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 п»їusing System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,51 +22,77 @@ public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPoi
     [SerializeField] public float outlineWidth;
     [SerializeField] public float fontSize;
     [SerializeField] public TMP_FontAsset fontAsset;
+=======
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using TMPro;
+//using UnityEngine;
+//using UnityEngine.EventSystems;
 
-    public int Price;
-    public bool isOpened = false;
+//public class AltarsScr : MonoBehaviour, Interactable//, IPointerEnterHandler
+//{
+//    public Action actionOnMouseHover, actionOnClick;
+//    [SerializeField] public string altarType;
+//    [SerializeField] public int spread;
+//    [SerializeField] public int basePrice;
+//    [SerializeField] public GameObject highlightUI;
 
-    public void SetHighlight(bool state)
-    {
-        if (state)
-        {
-            highlightUI.SetActive(true);
-        }
-        else
-        {
-            highlightUI.SetActive(false);
-        }
-    }
 
-    public GameObject GetGameObject()
-    {
-        return gameObject;
-    }
+//    // для текста
+//    [SerializeField] public Vector2 offset;
+//    [SerializeField] public UnityEngine.Color color;
+//    [SerializeField] public UnityEngine.Color outlineColor;
+//    [SerializeField] public float outlineWidth;
+//    [SerializeField] public float fontSize;
+//    [SerializeField] public TMP_FontAsset fontAsset;
+>>>>>>> Stashed changes
 
-    private void Start()
-    {
-        Price = (basePrice + UnityEngine.Random.Range(-spread, spread));
-        if (Price < 1)
-        {
-            Price = 1;
-        }
-    }
-    public int GetPrice()
-    {
-        return Price;
-    }
+//    public int Price;
+//    public bool isOpened = false;
 
-    public bool Buy(GameObject interactor)
-    {
-        if (Price <= interactor.GetComponent<GearContainer>().current_gears)
-        {
-            interactor.GetComponent<GearContainer>().current_gears -= Price;
+//    public void SetHighlight(bool state)
+//    {
+//        if (state)
+//        {
+//            highlightUI.SetActive(true);
+//        }
+//        else
+//        {
+//            highlightUI.SetActive(false);
+//        }
+//    }
 
-            return true;
-        }
-        return false;
-    }
+//    public GameObject GetGameObject()
+//    {
+//        return gameObject;
+//    }
 
+//    private void Start()
+//    {
+//        Price = (basePrice + UnityEngine.Random.Range(-spread, spread));
+//        if (Price < 1)
+//        {
+//            Price = 1;
+//        }
+//    }
+//    public int GetPrice()
+//    {
+//        return Price;
+//    }
+
+//    public bool Buy(GameObject interactor)
+//    {
+//        if (Price <= interactor.GetComponent<GearContainer>().current_gears)
+//        {
+//            interactor.GetComponent<GearContainer>().current_gears -= Price;
+
+//            return true;
+//        }
+//        return false;
+//    }
+
+<<<<<<< Updated upstream
     // Executed when the mouse is over the altar
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -78,42 +105,70 @@ public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPoi
     {
         InfoPopUpScreenController.Instance.HidePopUpImmediately();
     }
+=======
+//    //public void OnPointerEnter(PointerEventData eventData)
+//    //{
 
-    public bool Interact(GameObject interactor)
-    {
-        if (!isOpened)
-        {
-            if (Buy(interactor))
-            {
-                //animator.SetTrigger("Open");
-                isOpened = true;
-                //Destroy(gameObject);
-                //animator.ResetTrigger("Open");
+//    //    actionOnMouseHover?.Invoke();
 
-                if (altarType == "chest")
-                {
-                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesRareChest);
-                }
 
-                if (altarType == "maiden")
-                {
-                    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
-                    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
-                }
+//    //    //InfoPopUpScreenController.Instance.Show("На алтарях можно получить бонусы к характеристикам или новые предметы, можно потерять жизненные силы, а можно и напротив, только стать сильнее", 4f);
+        
 
-                if (altarType == "book")
-                {
-                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
-                }
+//    //    //if (altarType == "maiden")
+//    //    //{
+//    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
+//    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
+//    //    //}
 
-                if (altarType == "heal")
-                {
-                    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
-                    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
-                }
+//    //    //if (altarType == "book")
+//    //    //{
+//    //    //    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
+//    //    //}
 
-            }
-        }
-        return isOpened;
-    }
-}
+//    //    //if (altarType == "heal")
+//    //    //{
+//    //    //    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
+//    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
+//    //    //}
+//    //}
+>>>>>>> Stashed changes
+
+//    public bool Interact(GameObject interactor)
+//    {
+//        if (!isOpened)
+//        {
+//            if (Buy(interactor))
+//            {
+//                //animator.SetTrigger("Open");
+//                isOpened = true;
+//                //Destroy(gameObject);
+//                //animator.ResetTrigger("Open");
+
+//                if (altarType == "chest")
+//                {
+//                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesRareChest);
+//                }
+
+//                if (altarType == "maiden")
+//                {
+//                    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().CurrentHealth / 2;
+//                    G.Instance.playerObj.GetComponent<Stats>().BaseDamage += (float)1.5;
+//                }
+
+//                if (altarType == "book")
+//                {
+//                    G.Instance.powerUpCardsController.Initialize(G.Instance.dropChancesStatsPlace);
+//                }
+
+//                if (altarType == "heal")
+//                {
+//                    G.Instance.playerObj.GetComponent<Stats>().CurrentHealth = G.Instance.playerObj.GetComponent<Stats>().MaxHealth;
+//                    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
+//                }
+
+//            }
+//        }
+//        return isOpened;
+//    }
+//}
