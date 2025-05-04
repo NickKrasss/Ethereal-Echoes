@@ -31,21 +31,25 @@ public class InfoPopUpScreenController : MonoBehaviour
         // if pop up is already showing, hide it and show the new message
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Show"))
         {
-            animator.SetTrigger("HidePopUp");
-
-            // wait for 0.5 seconds before showing the new message
-            StartCoroutine(waitAndInvokeAction(0.5f, () => 
+            // wait for 0.25 seconds before showing the new message
+            StartCoroutine(waitAndInvokeAction(0.25f, () =>
             {
-                text.text = message;
-                animator.SetTrigger("ShowPopUp");
+                animator.SetTrigger("HidePopUp");
 
-                // wait for the specified duration and then hide the pop up
-                StartCoroutine(waitAndInvokeAction(duration, () =>
+                // wait for 0.4 seconds before showing the new message
+                StartCoroutine(waitAndInvokeAction(0.4f, () =>
                 {
-                    animator.SetTrigger("HidePopUp");
+                    text.text = message;
+                    animator.SetTrigger("ShowPopUp");
 
-                    // If an action is provided, invoke it after the duration
-                    action?.Invoke();
+                    // wait for the specified duration and then hide the pop up
+                    StartCoroutine(waitAndInvokeAction(duration, () =>
+                    {
+                        animator.SetTrigger("HidePopUp");
+
+                        // If an action is provided, invoke it after the duration
+                        action?.Invoke();
+                    }));
                 }));
             }));
         }
@@ -90,5 +94,12 @@ public class InfoPopUpScreenController : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         action.Invoke();
+    }
+
+    public void HidePopUpImmediately(Action action = null)
+    {
+        animator.SetTrigger("HidePopUp");
+        StopAllCoroutines();
+        StartCoroutine(waitAndInvokeAction(0.2f, action));
     }
 }
