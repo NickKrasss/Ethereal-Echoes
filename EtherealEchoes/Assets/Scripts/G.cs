@@ -11,7 +11,7 @@ public class G : MonoBehaviour
     public GameObject playerObj;
     public PowerUpCardsController powerUpCardsController;
 
-    
+
     public Light gameLight;
     public float blockDamageChance = 0;
     public float extraGearsOffset = 0;
@@ -51,5 +51,6 @@ public class G : MonoBehaviour
         {
             gameLight = GameObject.FindWithTag("MainLight").GetComponent<Light>();
         }
+
     }
 }

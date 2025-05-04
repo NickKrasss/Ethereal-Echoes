@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class BiterAI : MonoBehaviour
+public class BiterAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -53,8 +53,11 @@ public class BiterAI : MonoBehaviour
 
     private Stats stats;
 
+    private float worldTime;
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -140,7 +143,7 @@ public class BiterAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
                 SpotPlayer();
         }
         else
@@ -152,5 +155,10 @@ public class BiterAI : MonoBehaviour
             
             animator.SetFloat("AnimationSpeed", 1f);
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

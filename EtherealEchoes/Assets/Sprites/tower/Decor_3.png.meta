@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fb1adaa1071d5914192cd6e940637b0b
+guid: fddce49cb510e7b4c86aead714e1dd27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7324782304291205637
-    second: luck_0
+      213: 5156605112867473462
+    second: Decor_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,22 +100,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: luck_0
+      name: Decor_3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.50118834, y: 0.25401074}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 502385882bad6a560800000000000000
-      internalID: 7324782304291205637
+      spriteID: 638cd6f7701ff8740800000000000000
+      internalID: 5156605112867473462
       vertices: []
       indices: 
       edges: []
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3dd47cae261da29448a6b09ad6b621d3
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      luck_0: 7324782304291205637
+      Decor_3_0: 5156605112867473462
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class SpiderAI : MonoBehaviour
+public class SpiderAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -43,8 +43,12 @@ public class SpiderAI : MonoBehaviour
 
     private Stats stats;
 
+    private float worldTime;
+
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -98,7 +102,7 @@ public class SpiderAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
                 SpotPlayer();
         }
         else
@@ -112,5 +116,10 @@ public class SpiderAI : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

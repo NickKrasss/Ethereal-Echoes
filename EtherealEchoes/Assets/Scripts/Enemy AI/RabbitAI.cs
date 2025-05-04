@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class RabbitAI : MonoBehaviour
+public class RabbitAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -55,9 +55,11 @@ public class RabbitAI : MonoBehaviour
     [SerializeField]
     private float shootVolume;
 
-
+    private float worldTime;
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -149,7 +151,7 @@ public class RabbitAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
             {
                 spottedTarget = true;
                 animator.SetBool("spotted", true);
@@ -161,5 +163,11 @@ public class RabbitAI : MonoBehaviour
             Walk();
             CheckAttack();
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
+        animator.SetBool("spotted", true);
     }
 }

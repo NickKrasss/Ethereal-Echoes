@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -16,12 +17,50 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private NavMeshSurface[] surfaces;
 
+    [SerializeField] private Image skullImage;
+
+    private float targetAlpha = 0;
+
     private int currentWorldInd = 0;
+
+    private bool hunt = false;
 
 
     private void Start()
     {
         StartCoroutine(GameCycle());
+        StartCoroutine(HuntCycle());
+    }
+
+    private void Update()
+    {
+        skullImage.color = new Color(skullImage.color.r, skullImage.color.g, skullImage.color.b, Mathf.Lerp(skullImage.color.a, targetAlpha, Time.deltaTime*3));
+        if (G.Instance.currentTime < 30)
+        {
+            targetAlpha = G.Instance.currentTime%2;
+            hunt = true;
+        }
+        else
+        {
+            targetAlpha = 0;
+            hunt = false;
+        }
+    }
+
+    private IEnumerator HuntCycle()
+    {
+        if (hunt)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (enemies.Length > 7)
+            {
+                int ind = Random.Range(0, enemies.Length - 7);
+                for (int i = 0; i < 4; i++)
+                    enemies[ind+i].GetComponent<EnemyAI>().Spot();
+            }
+        }
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(HuntCycle());
     }
 
     private IEnumerator GameCycle()
@@ -68,8 +107,9 @@ public class GameController : MonoBehaviour
             Camera.main.transform.position = new Vector3(G.Instance.currentWorld.Width / 2, G.Instance.currentWorld.Height / 2 - 5, Camera.main.transform.position.z);
             minimapScr.GenerateTexture();
             AudioManager.Instance.EndAllSounds();
-            G.Instance.isWorldLoading = false;
+            
             yield return new WaitForSeconds(1f);
+            G.Instance.isWorldLoading = false;
             TransitionOverlayController.Instance.FadeOut(0.5f, 0f);
             yield return new WaitForSeconds(1f);
         }

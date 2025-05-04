@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class MantisAI : MonoBehaviour
+public class MantisAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -67,16 +67,17 @@ public class MantisAI : MonoBehaviour
     [SerializeField]
     private int shotCount;
 
+    private float worldTime;
 
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         stats = GetComponent<Stats>();
-
-        animator.SetFloat("moveSpeed", 0f);
 
         dmgHitbox.GetComponent<DamageHitBoxScr>().damage = stats.Damage;
         dmgHitbox.SetActive(false);
@@ -208,7 +209,7 @@ public class MantisAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
             {
                 spottedTarget = true;
             }
@@ -220,5 +221,10 @@ public class MantisAI : MonoBehaviour
             Walk();
             CheckAttack();
         }
+    }
+
+    public void Spot()
+    {
+        spottedTarget = true;
     }
 }

@@ -33,10 +33,15 @@ public class World
     public void GenerateWorld()
     {
         this.map = landGen.GenerateLandscape(width, height);
-
         var placesResult = placeGen.GeneratePlaces(map, landGen.getClearPoints());
-        this.map = placesResult.Item1;
-        this.places = placesResult.Item2;
+        while (!placesResult.Item1)
+        {
+            this.map = landGen.GenerateLandscape(width, height);
+            placeGen.ClearPlaces();
+            placesResult = placeGen.GeneratePlaces(this.map, landGen.getClearPoints());
+        }
+        this.map = placesResult.Item2;
+        this.places = placesResult.Item3;
     }
 
     public static bool Fill(int[,] landscape, Sector sector, int fillDigit = 1)

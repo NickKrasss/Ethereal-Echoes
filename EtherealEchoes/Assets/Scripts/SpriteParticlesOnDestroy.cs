@@ -15,6 +15,7 @@ public class SpriteParticlesOnDestroy : MonoBehaviour
     private void OnDestroy()
     {
         if (!gameObject.scene.isLoaded) return;
+        if (G.Instance.isWorldLoading) return;
         _spriteSplitParticlesScr.CreateParticles(transform.position);
     }
 }

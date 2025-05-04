@@ -10,7 +10,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(DamageTakable))]
-public class KettleAI : MonoBehaviour
+public class KettleAI : MonoBehaviour, EnemyAI
 {
     private SpriteRenderer sprRenderer;
 
@@ -44,8 +44,12 @@ public class KettleAI : MonoBehaviour
 
     private Stats stats;
 
+    private float worldTime;
+
     void Start()
     {
+        worldTime = G.Instance.currentWorldObj.GetComponent<WorldObject>().worldTime;
+
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody2D>();
         sprRenderer = GetComponent<SpriteRenderer>();
@@ -68,6 +72,10 @@ public class KettleAI : MonoBehaviour
         stats.level = ((G.Instance.currentLevel - 1) * 10) + Random.Range(1, 4);
     }
 
+    public void Spot()
+    {
+        spottedTarget = true;
+    }
     private void UpdateAnimations()
     {
         if (agent.speed != 0)
@@ -126,7 +134,7 @@ public class KettleAI : MonoBehaviour
 
         if (!spottedTarget)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) < spotRange)
+            if (Vector2.Distance(transform.position, target.transform.position) < spotRange && worldTime - G.Instance.currentTime > 3)
                 SpotPlayer();
         }
         else
