@@ -1,3 +1,58 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+ï»¿using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class AltarsScr : MonoBehaviour, Interactable, IPointerEnterHandler, IPointerExitHandler
+{
+    public Action actionOnMouseHover, actionOnClick;
+    [SerializeField] public string altarType;
+    [SerializeField] public int spread;
+    [SerializeField] public int basePrice;
+    [SerializeField] public GameObject highlightUI;
+    [SerializeField] string popUpDescription;
+
+    // Ã¤Ã«Ã¿ Ã²Ã¥ÃªÃ±Ã²Ã 
+    [SerializeField] public Vector2 offset;
+    [SerializeField] public UnityEngine.Color color;
+    [SerializeField] public UnityEngine.Color outlineColor;
+    [SerializeField] public float outlineWidth;
+    [SerializeField] public float fontSize;
+    [SerializeField] public TMP_FontAsset fontAsset;
+=======
+//using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using TMPro;
+//using UnityEngine;
+//using UnityEngine.EventSystems;
+
+//public class AltarsScr : MonoBehaviour, Interactable//, IPointerEnterHandler
+//{
+//    public Action actionOnMouseHover, actionOnClick;
+//    [SerializeField] public string altarType;
+//    [SerializeField] public int spread;
+//    [SerializeField] public int basePrice;
+//    [SerializeField] public GameObject highlightUI;
+
+
+//    // äëÿ òåêñòà
+//    [SerializeField] public Vector2 offset;
+//    [SerializeField] public UnityEngine.Color color;
+//    [SerializeField] public UnityEngine.Color outlineColor;
+//    [SerializeField] public float outlineWidth;
+//    [SerializeField] public float fontSize;
+//    [SerializeField] public TMP_FontAsset fontAsset;
+>>>>>>> Stashed changes
+
+//    public int Price;
+//    public bool isOpened = false;
+
+=======
 //using System;
 //using System.Collections;
 //using System.Collections.Generic;
@@ -25,6 +80,7 @@
 //    public int Price;
 //    public bool isOpened = false;
 
+>>>>>>> Stashed changes
 //    public void SetHighlight(bool state)
 //    {
 //        if (state)
@@ -36,6 +92,55 @@
 //            highlightUI.SetActive(false);
 //        }
 //    }
+<<<<<<< Updated upstream
+
+//    public GameObject GetGameObject()
+//    {
+//        return gameObject;
+//    }
+
+//    private void Start()
+//    {
+//        Price = (basePrice + UnityEngine.Random.Range(-spread, spread));
+//        if (Price < 1)
+//        {
+//            Price = 1;
+//        }
+//    }
+//    public int GetPrice()
+//    {
+//        return Price;
+//    }
+
+//    public bool Buy(GameObject interactor)
+//    {
+//        if (Price <= interactor.GetComponent<GearContainer>().current_gears)
+//        {
+//            interactor.GetComponent<GearContainer>().current_gears -= Price;
+
+//            return true;
+//        }
+//        return false;
+//    }
+
+<<<<<<< Updated upstream
+    // Executed when the mouse is over the altar
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        actionOnMouseHover?.Invoke();
+
+        InfoPopUpScreenController.Instance.Show(popUpDescription, 5f);
+    }
+    // Executed when the mouse exits the altar
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        InfoPopUpScreenController.Instance.HidePopUpImmediately();
+    }
+=======
+//    //public void OnPointerEnter(PointerEventData eventData)
+//    //{
+
+=======
 
 //    public GameObject GetGameObject()
 //    {
@@ -69,6 +174,7 @@
 //    //public void OnPointerEnter(PointerEventData eventData)
 //    //{
 
+>>>>>>> Stashed changes
 //    //    actionOnMouseHover?.Invoke();
 
 
@@ -92,6 +198,10 @@
 //    //    //    G.Instance.playerObj.GetComponent<Stats>().BaseMaxHealth += 12;
 //    //    //}
 //    //}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 //    public bool Interact(GameObject interactor)
 //    {

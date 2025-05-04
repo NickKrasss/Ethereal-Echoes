@@ -31,25 +31,21 @@ public class InfoPopUpScreenController : MonoBehaviour
         // if pop up is already showing, hide it and show the new message
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Show"))
         {
+            animator.SetTrigger("HidePopUp");
+
             // wait for 0.5 seconds before showing the new message
-            StartCoroutine(waitAndInvokeAction(0.4f, () =>
+            StartCoroutine(waitAndInvokeAction(0.5f, () =>
             {
-                animator.SetTrigger("HidePopUp");
+                text.text = message;
+                animator.SetTrigger("ShowPopUp");
 
-                // wait for 0.5 seconds before showing the new message
-                StartCoroutine(waitAndInvokeAction(0.25f, () =>
+                // wait for the specified duration and then hide the pop up
+                StartCoroutine(waitAndInvokeAction(duration, () =>
                 {
-                    text.text = message;
-                    animator.SetTrigger("ShowPopUp");
+                    animator.SetTrigger("HidePopUp");
 
-                    // wait for the specified duration and then hide the pop up
-                    StartCoroutine(waitAndInvokeAction(duration, () =>
-                    {
-                        animator.SetTrigger("HidePopUp");
-
-                        // If an action is provided, invoke it after the duration
-                        action?.Invoke();
-                    }));
+                    // If an action is provided, invoke it after the duration
+                    action?.Invoke();
                 }));
             }));
         }
@@ -94,12 +90,5 @@ public class InfoPopUpScreenController : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         action.Invoke();
-    }
-
-    public void HidePopUpImmediately(Action action = null)
-    {
-        animator.SetTrigger("HidePopUp");
-        StopAllCoroutines();
-        StartCoroutine(waitAndInvokeAction(0.2f, action));
     }
 }

@@ -473,7 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
   isMaxHealthAffectedByLevel: 1
-  levelMult: 0.04
+  levelMult: 0.1
   CurrentHealth: 100
   baseDamage: 5
   isDamageAffectedByLevel: 1
