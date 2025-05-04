@@ -1793,7 +1793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 82596f97e4660464ab654f107de93475, type: 3}
+  - {fileID: 8300000, guid: 838e9a25eee915f4e9f4ff72d0fb704f, type: 3}
 --- !u!1 &1858264103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWorldObj: {fileID: 0}
   playerObj: {fileID: 0}
+  powerUpCardsController: {fileID: 0}
   gameLight: {fileID: 0}
   blockDamageChance: 0
   extraGearsOffset: 0
